@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project
- * Modifications Copyright (C) 2013 The NamelessROM Project
+ * Copyright (C) 2012-2014 The CyanogenMod Project
+ * Modifications Copyright (C) 2013-2014 The NamelessROM Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,14 @@ package com.android.settings.cyanogenmod;
 
 import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
@@ -36,10 +38,12 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class LockscreenInterface extends SettingsPreferenceFragment {
+public class LockscreenInterface extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
 
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
+    private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
@@ -54,6 +58,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
     private PreferenceCategory mWidgetsCatagory;
 
+    private ListPreference mBatteryStatus;
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mSeeThrough;
@@ -95,6 +100,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) findPreference(KEY_SEE_TRHOUGH);
+
+        mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
+        if (mBatteryStatus != null) {
+            mBatteryStatus.setOnPreferenceChangeListener(this);
+        }
 
         // Remove lockscreen button actions if device doesn't have hardware keys
         if (!hasButtons()) {
@@ -154,6 +164,15 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         if (mEnableCameraWidget != null) {
             mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
         }
+
+        // Update battery status
+        if (mBatteryStatus != null) {
+            ContentResolver cr = getActivity().getContentResolver();
+            int batteryStatus = Settings.System.getInt(cr,
+                    Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
+            mBatteryStatus.setValueIndex(batteryStatus);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
+        }
     }
 
     @Override
@@ -179,6 +198,21 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        ContentResolver cr = getActivity().getContentResolver();
+
+        if (preference == mBatteryStatus) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mBatteryStatus.findIndexOfValue((String) objValue);
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
+        }
+
+        return false;
     }
 
     /**
