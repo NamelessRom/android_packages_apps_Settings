@@ -73,35 +73,43 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         int expandedDesktopValue = Settings.System.getInt(resolver,
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
 
-        // Allows us to support devices, which have the navigation bar force enabled.
-        boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
+        try {
+            // Only show the navigation bar category on devices that has a navigation bar
+            // unless we are forcing it via development settings
+            boolean forceNavbar = android.provider.Settings.System.getInt(getContentResolver(),
+                    android.provider.Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) == 1;
+            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar()
+                    || forceNavbar;
 
-        final PreferenceCategory navbarCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
-        if (hasNavBar) {
-            mExpandedDesktopPref.setOnPreferenceChangeListener(this);
-            mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
-            updateExpandedDesktop(expandedDesktopValue);
-            prefScreen.removePreference(mExpandedDesktopNoNavbarPref);
+            final PreferenceCategory navbarCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
+            if (hasNavBar) {
+                mExpandedDesktopPref.setOnPreferenceChangeListener(this);
+                mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
+                updateExpandedDesktop(expandedDesktopValue);
+                prefScreen.removePreference(mExpandedDesktopNoNavbarPref);
 
-            mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
-            mNavigationBarHeight.setOnPreferenceChangeListener(this);
+                mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+                mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
-            mNavigationBarWidth = (ListPreference) findPreference(KEY_NAVIGATION_BAR_WIDTH);
-            if (!DeviceUtils.isPhone(getActivity())) {
-                navbarCat.removePreference(mNavigationBarWidth);
-                mNavigationBarWidth = null;
+                mNavigationBarWidth = (ListPreference) findPreference(KEY_NAVIGATION_BAR_WIDTH);
+                if (!DeviceUtils.isPhone(getActivity())) {
+                    navbarCat.removePreference(mNavigationBarWidth);
+                    mNavigationBarWidth = null;
+                } else {
+                    mNavigationBarWidth.setOnPreferenceChangeListener(this);
+                }
+
+                updateDimensionValues();
             } else {
-                mNavigationBarWidth.setOnPreferenceChangeListener(this);
+                // Hide no-op "Status bar visible" expanded desktop mode
+                mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
+                mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
+                prefScreen.removePreference(mExpandedDesktopPref);
+                // Hide navigation bar category
+                prefScreen.removePreference(navbarCat);
             }
-
-            updateDimensionValues();
-        } else {
-            // Hide no-op "Status bar visible" expanded desktop mode
-            mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
-            mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
-            prefScreen.removePreference(mExpandedDesktopPref);
-            // Hide navigation bar category
-            prefScreen.removePreference(navbarCat);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Error getting navigation bar status");
         }
 
     }
