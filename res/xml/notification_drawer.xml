@@ -63,4 +63,10 @@
         android:summary="@string/custom_statusbar_header_summary"
         android:defaultValue="false" />
 
+    <Preference
+        android:fragment="com.android.settings.slim.NotificationDrawerStyle"
+        android:key="notification_style"
+        android:title="@string/notification_style_title"
+        android:summary="@string/notification_style_summary" />
+
 </PreferenceScreen>
