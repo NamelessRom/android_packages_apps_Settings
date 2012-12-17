@@ -1735,6 +1735,9 @@
             android:label="@string/theme_settings_title" >
         </activity>
 
+        <!-- Others -->
+        <activity android:name=".slim.NotificationDrawerStyle" />
+
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$SystemSettingsActivity"
                 android:label="@string/system_settings_title"
