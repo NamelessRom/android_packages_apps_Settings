@@ -41,6 +41,11 @@
             android:title="@string/title_collapse_panel"
             android:summary="@string/summary_collapse_panel" />
 
+        <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
+            android:key="quick_settings_hide_labels"
+            android:title="@string/title_quick_settings_hide_labels"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
