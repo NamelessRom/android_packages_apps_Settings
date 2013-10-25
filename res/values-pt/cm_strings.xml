@@ -566,7 +566,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="title_tile_performance_profile">Perfil de performance</string>
     <string name="quiet_hours_system">Desativar sons do sistema</string>
     <string name="privacy_guard_advanced_settings_title">Avançado</string>
-    <string name="hardware_keys_enable_custom_title">Permitir botões personalizados</string>
     <string name="development_shortcut_title">Atalho para desenvolvimento</string>
     <string name="development_shortcut_summary">Ativar opções \'limpar dados\' e \'forçar fechamento\' na área de notificação e lista de aplicativos recentes</string>
     <string name="display_rotation_title">Rotação</string>
