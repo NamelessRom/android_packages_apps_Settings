@@ -42,14 +42,6 @@
             android:dependency="qs_quick_access"
             android:disableDependentsState="true" />
 
-        <PreferenceScreen
-            android:key="tile_picker"
-            android:title="@string/tile_picker_title"
-            android:summary="@string/tile_picker_summary"
-            android:dependency="qs_quick_access_linked"
-            android:fragment="com.android.settings.quicksettings.QuickSettingsTiles" >
-            <extra android:name="config_ribbon" android:value="true" />
-        </PreferenceScreen>
     </PreferenceCategory>
 
     <!-- Notification drawer -->
@@ -62,5 +54,11 @@
         android:title="@string/custom_statusbar_header_title"
         android:summary="@string/custom_statusbar_header_summary"
         android:defaultValue="false" />
+
+    <Preference
+        android:fragment="com.android.settings.gummy.NotificationDrawerStyle"
+        android:key="notification_style"
+        android:title="@string/notification_style_title"
+        android:summary="@string/notification_style_summary" />
 
 </PreferenceScreen>
