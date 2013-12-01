@@ -1751,6 +1751,7 @@
         </activity>
 
         <!-- Others -->
+        <activity android:name=".slim.NotificationDrawerStyle" />
         <activity
             android:name=".LockscreenNotifications"
             android:label="@string/Lockscreen_notifications_header" >
