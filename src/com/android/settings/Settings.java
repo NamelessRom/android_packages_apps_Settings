@@ -1208,7 +1208,11 @@ public class Settings extends PreferenceActivity
     public static class ApnSettingsActivity extends Settings { /* empty */ }
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
+<<<<<<< HEAD
     public static class SystemSettingsActivity extends Settings { /* empty */ }
     /* NamelessROM */
     public static class MoreInterfaceSettingsActivity extends Settings { /* empty */ }
+=======
+    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+>>>>>>> fea8eee... Quicksettings customizations Slim style
 }

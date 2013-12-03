@@ -30,6 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
+<<<<<<< HEAD
+=======
+        android:singleLine="true"
+        android:ellipsize="marquee"
+>>>>>>> fea8eee... Quicksettings customizations Slim style
         android:background="#55000000"
         />
 </FrameLayout>
