@@ -24,9 +24,21 @@
         android:dialogTitle="@string/io_sched_title"
         android:title="@string/io_sched_title" />
 
+<<<<<<< HEAD:res/xml/ioscheduler_settings.xml
     <CheckBoxPreference
         android:key="pref_io_sched_set_on_boot"
         android:title="@string/performance_set_on_boot"
         android:summary="@string/performance_set_on_boot_summary"/>
+=======
+    <PreferenceScreen
+        android:key="notification_drawer_qs"
+        android:fragment="com.android.settings.slim.NotificationDrawerQsSettings"
+        android:title="@string/notification_drawer_qs_title" />
+
+    <PreferenceScreen
+        android:key="status_bar"
+        android:fragment="com.android.settings.slim.StatusBar"
+        android:title="@string/status_bar_title" />
+>>>>>>> fea8eee... Quicksettings customizations Slim style:res/xml/slim_interface_settings.xml
 
 </PreferenceScreen>

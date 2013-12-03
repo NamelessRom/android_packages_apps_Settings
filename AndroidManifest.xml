@@ -152,6 +152,7 @@
             android:name=".cyanogenmod.superuser.SuReceiver"
             android:permission="android.permission.REPORT_SUPERUSER" />
 
+<<<<<<< HEAD
         <receiver
             android:name=".cyanogenmod.superuser.PackageChangeReceiver" >
             <intent-filter>
@@ -168,6 +169,8 @@
             </intent-filter>
         </receiver>
 
+=======
+>>>>>>> fea8eee... Quicksettings customizations Slim style
         <!-- Settings -->
 
         <activity android:name="Settings"
@@ -1833,7 +1836,22 @@
                 android:resource="@id/security_settings" />
         </activity>
 
+<<<<<<< HEAD
         <!-- CyanogenMod activities End -->
+=======
+        <!-- Pseudo-activity used to provide an intent-filter entry point to quite hours settings -->
+        <activity android:name="Settings$QuietHoursSettingsActivity"
+                android:label="@string/quiet_hours_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.slim.QuietHours" />
+        </activity>
+>>>>>>> fea8eee... Quicksettings customizations Slim style
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
