@@ -75,7 +75,12 @@
             android:entries="@array/entries_screentimeout_widget"
             android:entryValues="@array/values_screentimeout_widget" />
 
-        </PreferenceCategory>
+        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+            android:key="quick_settings_tiles_flip"
+            android:title="@string/flip_qs_tiles_title"
+            android:summary="@string/flip_qs_tiles_summary" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="pref_dynamic_tiles"
