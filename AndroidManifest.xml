@@ -1729,6 +1729,12 @@
 
         <service android:name="com.brewcrewfoo.performance.service.BootService"/>
 
+        <!-- TRDS -->
+        <activity
+            android:name=".slim.themes.ThemeSettings"
+            android:label="@string/theme_settings_title" >
+        </activity>
+
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$SystemSettingsActivity"
                 android:label="@string/system_settings_title"

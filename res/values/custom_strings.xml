@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-     Copyright (C) 2012-2013 The NamelessROM Project
+     Copyright (C) 2013 The NamelessROM Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -36,5 +36,13 @@
     <string name="interface_bars_title">Bars</string>
     <string name="interface_menus_title">Menus</string>
     <string name="interface_notification_panel_title">Notification Drawer</string>
+
+    <!-- Themes -->
+    <string name="theme_settings_title">Dark UI (TRDS)</string>
+    <string name="theme_auto_mode_title">Switch theme</string>
+    <string name="theme_auto_mode_off">Manual</string>
+    <string name="theme_auto_mode_lightsensor">On light condition change</string>
+    <string name="theme_auto_mode_twilight">On daytime</string>
+    <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
 
 </resources>
