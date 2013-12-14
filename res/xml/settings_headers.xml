@@ -95,6 +95,13 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
+    <!-- Themes -->
+    <header
+        android:id="@+id/theme_settings"
+        android:fragment="com.android.settings.slim.themes.ThemeSettings"
+        android:icon="@drawable/ic_settings_theme"
+        android:title="@string/theme_settings_title" />
+
     <!-- Other interface controls -->
     <header
         android:id="@+id/interface_more"
