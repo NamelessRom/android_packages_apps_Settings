@@ -199,6 +199,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        ContentResolver resolver = getContentResolver();
+        if (preference == mFlipQsTiles) {
+            Settings.System.putInt(resolver,
+                    Settings.System.QUICK_SETTINGS_TILES_FLIP,
+                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getContentResolver();
         if (preference == mRingMode) {
@@ -231,11 +243,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int index = mScreenTimeoutMode.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.EXPANDED_SCREENTIMEOUT_MODE, value);
             mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntries()[index]);
-            return true;
-        } else if (preference == mFlipQsTiles) {
-            Settings.System.putInt(resolver,
-                    Settings.System.QUICK_SETTINGS_TILES_FLIP,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
         }
         return false;
