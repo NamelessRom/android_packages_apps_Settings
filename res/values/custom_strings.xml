@@ -83,4 +83,7 @@
     <string name="battery_prefs_title">Options</string>
     <string name="battery_stats_title">Statistics</string>
 
+    <!-- WiFi forget all networks -->
+    <string name="wifi_menu_forget_all">Forget all networks</string>
+
 </resources>
