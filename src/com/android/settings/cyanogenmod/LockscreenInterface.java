@@ -21,6 +21,8 @@ import android.app.ActivityManager;
 import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
@@ -45,7 +47,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     // Omni Additions
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
 
+    private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
+
     private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mEnableCameraWidget;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -105,12 +110,24 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                 mEnableKeyguardWidgets.setEnabled(!disabled);
             }
         }
+
+        mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
+        // Enable or disable camera widget based on device and policy
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA) ||
+                Camera.getNumberOfCameras() == 0) {
+            widgetsCategory.removePreference(mEnableCameraWidget);
+            mEnableCameraWidget = null;
+        } else {
+            checkDisabledByPolicy(mEnableCameraWidget,
+                    DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
+        }
+
         // Add the additional Omni settings
-            mLockRingBattery = (CheckBoxPreference) findPreference(
-                BATTERY_AROUND_LOCKSCREEN_RING);
-            if (mLockRingBattery != null) {
-                mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
+        mLockRingBattery = (CheckBoxPreference) findPreference(
+            BATTERY_AROUND_LOCKSCREEN_RING);
+        if (mLockRingBattery != null) {
+            mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
         }
     }
 
@@ -118,8 +135,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     public void onResume() {
         super.onResume();
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
+
+        // Update custom widgets and camera
         if (mEnableKeyguardWidgets != null) {
             mEnableKeyguardWidgets.setChecked(lockPatternUtils.getWidgetsEnabled());
+        }
+
+        if (mEnableCameraWidget != null) {
+            mEnableCameraWidget.setChecked(lockPatternUtils.getCameraEnabled());
         }
     }
 
@@ -133,6 +156,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         } else if (preference == mLockRingBattery) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
+            return true;
+        } else if (KEY_ENABLE_CAMERA.equals(key)) {
+            mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
             return true;
         }
 
