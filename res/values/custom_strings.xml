@@ -33,6 +33,7 @@
     <string name="interface_bars_title">Bars</string>
     <string name="interface_menus_title">Menus</string>
     <string name="interface_notification_panel_title">Notification Drawer</string>
+    <string name="interface_animation_title">Animation Control</string>
 
     <!-- Themes -->
     <string name="theme_settings_title">Dark UI (TRDS)</string>
@@ -147,4 +148,5 @@
     <string name="offset_top">Offset to the top of the screen:</string>
     <string name="privacy_mode">Privacy Mode</string>
     <string name="privacy_mode_summary">Disables notifications from beeing shown and dismissed. This way, you just see the icons of your notifications.</string>
+
 </resources>
