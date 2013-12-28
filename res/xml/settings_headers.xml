@@ -69,7 +69,7 @@
         android:icon="@drawable/ic_settings_devicecontrol"
         android:title="@string/device_control_settings" />
 
-    <!-- Device Control -->
+    <!-- Update Center -->
     <header
         android:id="@+id/device_update_center"
         android:icon="@drawable/ic_empty"
@@ -107,6 +107,14 @@
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
+
+    <!-- Animation Control -->
+    <header
+        android:id="@+id/interface_animation"
+        android:title="@string/interface_animation_title"
+        android:breadCrumbTitle="@string/interface_animation_title"
+        android:fragment="com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings"
+        android:icon="@drawable/ic_rom_control_animations" />
 
     <!-- Other interface controls -->
     <header
