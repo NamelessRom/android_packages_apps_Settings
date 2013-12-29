@@ -37,6 +37,12 @@
             android:summary="@string/lockscreen_target_summary"
             android:title="@string/lockscreen_target_title" />
 
+        <Preference
+            android:fragment="com.android.settings.LockscreenNotifications"
+            android:key="lockscreen_notifications"
+            android:summary="@string/lockscreen_notifications_summary"
+            android:title="@string/Lockscreen_notifications_header" />
+
         <CheckBoxPreference
             android:key="battery_around_lockscreen_ring"
             android:title="@string/battery_around_lockscreen_ring"
