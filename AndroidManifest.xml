@@ -1841,6 +1841,13 @@
 
         <!-- CyanogenMod activities End -->
 
+        <!-- Lockscreen Notifications -->
+        <activity
+            android:name=".LockscreenNotifications"
+            android:label="@string/Lockscreen_notifications_header" >
+        </activity>
+        <!-- End Lockscreen Notifications -->
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
