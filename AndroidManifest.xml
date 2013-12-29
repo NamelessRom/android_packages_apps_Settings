@@ -1689,6 +1689,11 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+        <activity
+            android:name=".LockscreenNotifications"
+            android:label="@string/Lockscreen_notifications_header" >
+        </activity>
+
         <!-- NamelessROM activities Start -->
         <activity android:name="Settings$MoreInterfaceSettingsActivity"
             android:label="@string/interface_more_title"
