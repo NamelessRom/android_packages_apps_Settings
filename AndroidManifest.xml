@@ -1729,6 +1729,12 @@
 
         <service android:name="com.brewcrewfoo.performance.service.BootService"/>
 
+        <!-- Lockscreen Notifications -->
+        <activity
+            android:name=".cyanogenmod.LockscreenNotifications"
+            android:label="@string/Lockscreen_notifications_header" >
+        </activity>
+
         <!-- TRDS -->
         <activity
             android:name=".slim.themes.ThemeSettings"
