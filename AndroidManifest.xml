@@ -1738,6 +1738,11 @@
         <!-- Others -->
         <activity android:name=".slim.NotificationDrawerStyle" />
 
+        <activity
+            android:name=".LockscreenNotifications"
+            android:label="@string/Lockscreen_notifications_header" >
+        </activity>
+
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$SystemSettingsActivity"
                 android:label="@string/system_settings_title"
