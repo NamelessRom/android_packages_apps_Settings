@@ -95,7 +95,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, "ro.omni.version");
+        setValueSummary(KEY_MOD_VERSION, "ro.nameless.version");
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -214,18 +214,13 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
                     if (mDevHitToast != null) {
                         mDevHitToast.cancel();
                     }
-                    mDevHitToast = Toast.makeText(getActivity(), getResources().getQuantityString(
-                            R.plurals.show_dev_countdown, mDevHitCountdown, mDevHitCountdown),
+                    mDevHitToast = Toast.makeText(getActivity(),
+                            getResources().getQuantityString(
+                                    R.plurals.show_dev_countdown,
+                                    mDevHitCountdown, mDevHitCountdown),
                             Toast.LENGTH_SHORT);
                     mDevHitToast.show();
                 }
-            } else if (mDevHitCountdown < 0) {
-                if (mDevHitToast != null) {
-                    mDevHitToast.cancel();
-                }
-                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
-                        Toast.LENGTH_LONG);
-                mDevHitToast.show();
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
