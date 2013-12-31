@@ -102,7 +102,7 @@
         <!-- Only system/su can open this activity -->
         <!-- This activity will then call the MultitaskSuRequestActivity to create a new task stack -->
         <activity
-            android:name=".cyanogenmod.superuser.RequestActivity"
+            android:name="com.koushikdutta.superuser.RequestActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/superuser"
             android:launchMode="singleTask"
@@ -115,7 +115,7 @@
         <!-- This is activity is started in multiuser mode when the user invoking su -->
         <!-- is not the device owner (user id 0). -->
         <activity
-            android:name=".cyanogenmod.superuser.NotifyActivity"
+            android:name="com.koushikdutta.superuser.NotifyActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/superuser"
             android:launchMode="singleTask"
@@ -127,7 +127,7 @@
 
         <!-- Multiple instances of this activity can be running for multiple su requests -->
         <activity
-            android:name=".cyanogenmod.superuser.MultitaskSuRequestActivity"
+            android:name="com.koushikdutta.superuser.MultitaskSuRequestActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:excludeFromRecents="true"
             android:exported="false"
@@ -137,24 +137,9 @@
             android:theme="@style/RequestThemeDark" />
 
         <receiver
-            android:name=".cyanogenmod.superuser.SuReceiver"
+            android:name="com.koushikdutta.superuser.SuReceiver"
             android:permission="android.permission.REPORT_SUPERUSER" />
 
-        <receiver
-            android:name=".cyanogenmod.superuser.PackageChangeReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
 
         <!-- Settings -->
 
