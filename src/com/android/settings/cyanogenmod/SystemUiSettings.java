@@ -121,4 +121,5 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             mExpandedDesktopPref.setSummary(res.getString(summary));
         }
     }
+
 }
