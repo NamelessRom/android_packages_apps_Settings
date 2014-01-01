@@ -21,18 +21,26 @@
 
     <PreferenceScreen
         android:key="status_bar"
-        android:fragment="com.android.settings.cyanogenmod.StatusBar"
-        android:title="@string/status_bar_title" />
+        android:title="@string/status_bar_title"
+        android:fragment="com.android.settings.cyanogenmod.StatusBar" />
+    <!-- android:fragment="org.omnirom.omnigears.interfacesettings.BarsSettings" -->
 
     <PreferenceScreen
-        android:key="quick_settings_panel"
-        android:fragment="com.android.settings.quicksettings.QuickSettings"
-        android:title="@string/quick_settings_panel_title" />
+        android:key="interface_menus"
+        android:title="@string/interface_menus_title"
+        android:fragment="com.android.settings.nameless.DummyFragment" />
+    <!-- android:fragment="org.omnirom.omnigears.interfacesettings.MenusSettings" -->
 
     <PreferenceScreen
         android:key="notification_drawer"
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
+    <!-- android:fragment="org.omnirom.omnigears.interfacesettings.NotificationPanelSettings" -->
+    
+    <PreferenceScreen
+        android:key="quick_settings_panel"
+        android:fragment="com.android.settings.quicksettings.QuickSettings"
+        android:title="@string/quick_settings_panel_title" />
 
     <ListPreference
             android:key="expanded_desktop"

@@ -18,4 +18,17 @@
 
     <string name="nameless_mod_version">Nameless version</string>
 
+    <!-- General -->
+    <string name="dummy_settings_title">Dummy Settings</string>
+    <string name="dummy_settings_info">Hey! I am a dummy!\nMore to see here soon!</string>
+
+    <!-- Main list strings -->
+    <string name="header_category_cyanogenmod" translatable="false">CyanogenMod</string>
+
+    <!-- Interface -->
+    <string name="interface_more_title">More\u2026</string>
+    <string name="interface_bars_title">Bars</string>
+    <string name="interface_menus_title">Menus</string>
+    <string name="interface_notification_panel_title">Notification Drawer</string>
+
 </resources>
