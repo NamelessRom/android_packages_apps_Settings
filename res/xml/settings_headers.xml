@@ -59,14 +59,23 @@
         android:icon="@drawable/empty_icon" />
 
     <!-- INTERFACE -->
-    <header android:title="@string/header_category_interface" />
-
+    <header
+        android:id="@+id/interface_section"
+        android:title="@string/header_category_interface" />
+    
     <!-- Home -->
     <header
         android:id="@+id/home_settings"
         android:icon="@drawable/ic_settings_home"
         android:fragment="com.android.settings.HomeSettings"
         android:title="@string/home_settings" />
+
+    <!-- System UI -->
+    <header
+        android:id="@+id/system_settings"
+        android:icon="@drawable/ic_settings_system"
+        android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
+        android:title="@string/system_settings_title" />
 
     <!-- Lock screen -->
     <header
@@ -86,12 +95,17 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
-    <!-- System UI -->
+    <!-- Other interface controls -->
     <header
-        android:id="@+id/system_settings"
-        android:icon="@drawable/ic_settings_system"
-        android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
-        android:title="@string/system_settings_title" />
+        android:id="@+id/interface_more"
+        android:title="@string/interface_more_title"
+        android:breadCrumbTitle="@string/interface_more_title"
+        android:icon="@drawable/empty_icon"
+        android:fragment="com.android.settings.nameless.DummyFragment" />
+    <!-- android:fragment="org.omnirom.omnigears.interfacesettings.MoreInterfaceSettings" -->
+
+    <!-- CYANOGENMOD -->
+    <!--header android:title="@string/header_category_cyanogenmod" /-->
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
@@ -209,13 +223,13 @@
 
     <!--  ACCOUNTS section -->
     <header
-            android:id="@+id/account_settings"
-            android:title="@string/account_settings" />
+        android:id="@+id/account_settings"
+        android:title="@string/account_settings" />
 
     <header
-            android:id="@+id/account_add"
-            android:title="@string/add_account_label"
-            android:icon="@drawable/ic_menu_add_dark">
+        android:id="@+id/account_add"
+        android:title="@string/add_account_label"
+        android:icon="@drawable/ic_menu_add_dark">
         <intent
             android:action="android.settings.ADD_ACCOUNT_SETTINGS"/>
     </header>
