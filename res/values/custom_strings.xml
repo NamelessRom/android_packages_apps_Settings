@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
      Copyright (C) 2012-2013 The NamelessROM Project
 
@@ -14,6 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="nameless_mod_version">Nameless version</string>
@@ -24,6 +26,10 @@
 
     <!-- Main list strings -->
     <string name="header_category_cyanogenmod" translatable="false">CyanogenMod</string>
+
+    <!-- Sub list strings -->
+    <string name="device_control_settings">Device Control</string>
+    <string name="device_control_jf_title">JF Control</string>
 
     <!-- Interface -->
     <string name="interface_more_title">More\u2026</string>

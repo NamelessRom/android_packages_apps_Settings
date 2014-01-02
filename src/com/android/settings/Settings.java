@@ -649,6 +649,18 @@ public class Settings extends PreferenceActivity
                 if (!DevelopmentSettings.isRootForAppsEnabled()) {
                     target.remove(i);
                 }
+            } else if (id == R.id.device_control_settings) {
+                if (actionExists("org.nameless.jfcontrol.activities.MainActivity")) {
+                    target.get(i).intent = new Intent()
+                            .setAction("org.nameless.jfcontrol.activities.MainActivity");
+                    target.get(i).titleRes = R.string.device_control_jf_title;
+                } else if (actionExists("org.nameless.devicecontrol.activities.MainActivity")) {
+                    target.get(i).intent = new Intent()
+                            .setAction("org.nameless.devicecontrol.activities.MainActivity");
+                    target.get(i).titleRes = R.string.device_control_settings;
+                } else {
+                    target.remove(i);
+                }
             }
 
             if (i < target.size() && target.get(i) == header
@@ -1118,6 +1130,19 @@ public class Settings extends PreferenceActivity
 
     public static void requestHomeNotice() {
         sShowNoHomeNotice = true;
+    }
+
+    /**
+     * Checks if a specific action exists.
+     * @param actionName The action as string
+     * @return if the action exists.
+     */
+    private boolean actionExists(String actionName) {
+        Intent i = new Intent();
+        i.setAction(actionName);
+        List<ResolveInfo> list = getPackageManager().queryIntentActivities(i,
+                PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
     }
 
     /*

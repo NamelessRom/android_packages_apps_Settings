@@ -1691,9 +1691,9 @@
 
         <!-- NamelessROM activities Start -->
         <activity android:name="Settings$MoreInterfaceSettingsActivity"
-                android:label="@string/interface_more_title"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
+            android:label="@string/interface_more_title"
+            android:taskAffinity=""
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
