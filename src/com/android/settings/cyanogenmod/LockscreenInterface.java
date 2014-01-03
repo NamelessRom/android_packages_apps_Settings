@@ -41,11 +41,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
 
+    // Omni Additions
+    private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
+
     private CheckBoxPreference mEnableKeyguardWidgets;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
     private boolean mIsPrimary;
+
+    // Omni Additions
+    private CheckBoxPreference mLockRingBattery;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,6 +104,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                 mEnableKeyguardWidgets.setEnabled(!disabled);
             }
         }
+        	// Add the additional Omni settings
+        	mLockRingBattery = (CheckBoxPreference) root
+        		.findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
+        	if (mLockRingBattery != null) {
+        		mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
+        			Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
+        }
     }
 
     @Override
@@ -116,6 +129,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
         if (KEY_ENABLE_WIDGETS.equals(key)) {
             lockPatternUtils.setWidgetsEnabled(mEnableKeyguardWidgets.isChecked());
+        } else if (preference == mLockRingBattery) {
+        	Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+        		Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, isToggled(preference) ? 1 : 0);
             return true;
         }
 
