@@ -654,13 +654,9 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.device_control_settings) {
-                if (actionExists("org.nameless.jfcontrol.activities.MainActivity")) {
+                if (actionExists("org.namelessrom.devicecontrol.activities.MainActivity")) {
                     target.get(i).intent = new Intent()
-                            .setAction("org.nameless.jfcontrol.activities.MainActivity");
-                    target.get(i).titleRes = R.string.device_control_jf_title;
-                } else if (actionExists("org.nameless.devicecontrol.activities.MainActivity")) {
-                    target.get(i).intent = new Intent()
-                            .setAction("org.nameless.devicecontrol.activities.MainActivity");
+                            .setAction("org.namelessrom.devicecontrol.activities.MainActivity");
                     target.get(i).titleRes = R.string.device_control_settings;
                 } else {
                     target.remove(i);
