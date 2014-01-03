@@ -114,7 +114,7 @@
     <!-- Device Control -->
     <header
         android:id="@+id/device_control_settings"
-        android:icon="@drawable/empty_icon"
+        android:icon="@drawable/ic_settings_devicecontrol"
         android:title="@string/device_control_settings" />
 
     <!-- Sound -->
