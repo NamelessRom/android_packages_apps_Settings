@@ -34,6 +34,11 @@ public class PowerMenu extends SettingsPreferenceFragment {
 
         final ContentResolver resolver = getContentResolver();
 
+        // Only enable screen record item if screen record support is also enabled
+        findPreference(Settings.System.POWER_MENU_SCREENRECORD_ENABLED).setEnabled(
+                getActivity().getResources().getBoolean(
+                    com.android.internal.R.bool.config_enableScreenrecordChord));
+
         // Only enable expanded desktop item if expanded desktop support is also enabled
         findPreference(Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED).setEnabled(
                 Settings.System.getInt(resolver, Settings.System.EXPANDED_DESKTOP_STYLE, 0) != 0);
