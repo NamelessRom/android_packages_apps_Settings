@@ -40,9 +40,13 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
+    private static final String RECENT_MENU_CLEAR_ALL = "recent_menu_clear_all";
+    private static final String RECENT_MENU_CLEAR_ALL_LOCATION = "recent_menu_clear_all_location";
 
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
+    private CheckBoxPreference mRecentClearAll;
+    private ListPreference mRecentClearAllPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
