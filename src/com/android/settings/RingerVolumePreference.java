@@ -204,6 +204,7 @@ public class RingerVolumePreference extends VolumePreference {
 
         final CheckBox linkCheckBox = (CheckBox) view.findViewById(R.id.link_ring_and_volume);
         final CheckBox linkMuteStates = (CheckBox) view.findViewById(R.id.link_mutes);
+        final CheckBox volumeReduction = (CheckBox) view.findViewById(R.id.volume_reduction);
         final CheckBox volumeKeysControlRingStream = (CheckBox) view.findViewById(R.id.volume_keys_control_ring_stream);
         mSafeHeadsetVolume = (CheckBox) view.findViewById(R.id.safe_headset_volume);
 
@@ -237,6 +238,23 @@ public class RingerVolumePreference extends VolumePreference {
                             Settings.System.MODE_RINGER_STREAMS_AFFECTED,
                             mutedStreams);
                 }
+            });
+
+            if (System.getInt(getContext().getContentResolver(),
+                    System.VOLUME_REDUCTION, 0) == 1) {
+                volumeReduction.setChecked(true);
+            } else {
+                volumeReduction.setChecked(false);
+            }
+
+            volumeReduction.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Settings.System.putInt(buttonView.getContext().getContentResolver(),
+                            Settings.System.VOLUME_REDUCTION, isChecked ? 1 : 0);
+                }
+
             });
 
             if (System.getInt(getContext().getContentResolver(),
