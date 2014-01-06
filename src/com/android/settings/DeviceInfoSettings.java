@@ -31,6 +31,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.widget.Toast;
+import android.provider.Settings;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -220,6 +221,9 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
                     getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
                             Context.MODE_PRIVATE).edit().putBoolean(
                                     DevelopmentSettings.PREF_SHOW, true).apply();
+                    Settings.Secure.putInt(getActivity().getContentResolver(),
+                            Settings.Secure.DEVELOPER_OPTIONS_ENABLED, 1);
+
                     if (mDevHitToast != null) {
                         mDevHitToast.cancel();
                     }
