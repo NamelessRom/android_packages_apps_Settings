@@ -42,11 +42,16 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
     private static final String RECENT_MENU_CLEAR_ALL = "recent_menu_clear_all";
     private static final String RECENT_MENU_CLEAR_ALL_LOCATION = "recent_menu_clear_all_location";
+    private static final String SHOW_RECENTS_MEMORY_INDICATOR = "show_recents_memory_indicator";
+    private static final String RECENTS_MEMORY_INDICATOR_LOCATION =
+            "recents_memory_indicator_location";
 
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
     private CheckBoxPreference mRecentClearAll;
     private ListPreference mRecentClearAllPosition;
+    private CheckBoxPreference mShowRecentsMemoryIndicator;
+    private ListPreference mRecentsMemoryIndicatorPosition;
 
     private ContentResolver resolver;
 
@@ -97,10 +102,23 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         String recentClearAllPosition = Settings.System.getString(resolver,
             Settings.System.CLEAR_RECENTS_BUTTON_LOCATION);
         if (recentClearAllPosition != null) {
-             mRecentClearAllPosition.setValue(recentClearAllPosition);
+            mRecentClearAllPosition.setValue(recentClearAllPosition);
         }
         mRecentClearAllPosition.setOnPreferenceChangeListener(this);
 
+        mShowRecentsMemoryIndicator = (CheckBoxPreference)
+                findPreference(SHOW_RECENTS_MEMORY_INDICATOR);
+        mShowRecentsMemoryIndicator.setChecked(Settings.System.getInt(resolver,
+                Settings.System.SHOW_RECENTS_MEMORY_INDICATOR, 0) == 1);
+        mShowRecentsMemoryIndicator.setOnPreferenceChangeListener(this);
+        mRecentsMemoryIndicatorPosition = (ListPreference)
+                findPreference(RECENTS_MEMORY_INDICATOR_LOCATION);
+        String recentsMemoryIndicatorPosition = Settings.System.getString(
+                resolver, Settings.System.RECENTS_MEMORY_INDICATOR_LOCATION);
+        if (recentsMemoryIndicatorPosition != null) {
+            mRecentsMemoryIndicatorPosition.setValue(recentsMemoryIndicatorPosition);
+        }
+        mRecentsMemoryIndicatorPosition.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -120,8 +138,17 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             String value = (String) objValue;
             Settings.System.putString(resolver, Settings.System.CLEAR_RECENTS_BUTTON_LOCATION, value);
             return true;
+        } else if (preference == mShowRecentsMemoryIndicator) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(
+                    resolver, Settings.System.SHOW_RECENTS_MEMORY_INDICATOR, value ? 1 : 0);
+            return true;
+        } else if (preference == mRecentsMemoryIndicatorPosition) {
+            String value = (String) objValue;
+            Settings.System.putString(
+                    resolver, Settings.System.RECENTS_MEMORY_INDICATOR_LOCATION, value);
+            return true;
         }
-
         return false;
     }
 
