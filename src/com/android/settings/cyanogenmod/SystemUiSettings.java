@@ -45,6 +45,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String SHOW_RECENTS_MEMORY_INDICATOR = "show_recents_memory_indicator";
     private static final String RECENTS_MEMORY_INDICATOR_LOCATION =
             "recents_memory_indicator_location";
+    private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
 
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
@@ -52,6 +53,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private ListPreference mRecentClearAllPosition;
     private CheckBoxPreference mShowRecentsMemoryIndicator;
     private ListPreference mRecentsMemoryIndicatorPosition;
+    private CheckBoxPreference mStatusBarCustomHeader;
 
     private ContentResolver resolver;
 
@@ -119,6 +121,12 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             mRecentsMemoryIndicatorPosition.setValue(recentsMemoryIndicatorPosition);
         }
         mRecentsMemoryIndicatorPosition.setOnPreferenceChangeListener(this);
+
+        mStatusBarCustomHeader = (CheckBoxPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
+        mStatusBarCustomHeader.setChecked(Settings.System.getInt(resolver,
+            Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
+        mStatusBarCustomHeader.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -147,6 +155,11 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             String value = (String) objValue;
             Settings.System.putString(
                     resolver, Settings.System.RECENTS_MEMORY_INDICATOR_LOCATION, value);
+            return true;
+        } else if (preference == mStatusBarCustomHeader) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
             return true;
         }
         return false;
