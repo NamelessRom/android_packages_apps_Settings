@@ -63,7 +63,7 @@
         android:summary="@string/recents_memory_indicator_location_summary"
         android:entries="@array/recent_clear_all_button_location_entries"
         android:entryValues="@array/recent_clear_all_button_location_values"
-        android:defaultValue="1"
+        android:defaultValue="0"
         android:dependency="show_recents_memory_indicator" />
 
 </PreferenceScreen>
