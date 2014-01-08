@@ -222,6 +222,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             getPreferenceScreen().removePreference(lightPrefs);
         }
+
     }
 
     private void updateDisplayRotationPreferenceDescription() {
