@@ -40,20 +40,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
-    private static final String RECENT_MENU_CLEAR_ALL = "recent_menu_clear_all";
-    private static final String RECENT_MENU_CLEAR_ALL_LOCATION = "recent_menu_clear_all_location";
-    private static final String SHOW_RECENTS_MEMORY_INDICATOR = "show_recents_memory_indicator";
-    private static final String RECENTS_MEMORY_INDICATOR_LOCATION =
-            "recents_memory_indicator_location";
-    private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
 
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
-    private CheckBoxPreference mRecentClearAll;
-    private ListPreference mRecentClearAllPosition;
-    private CheckBoxPreference mShowRecentsMemoryIndicator;
-    private ListPreference mRecentsMemoryIndicatorPosition;
-    private CheckBoxPreference mStatusBarCustomHeader;
 
     private ContentResolver resolver;
 
@@ -96,37 +85,6 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             Log.e(TAG, "Error getting navigation bar status");
         }
 
-        mRecentClearAll = (CheckBoxPreference) findPreference(RECENT_MENU_CLEAR_ALL);
-        mRecentClearAll.setChecked(Settings.System.getInt(resolver,
-            Settings.System.SHOW_CLEAR_RECENTS_BUTTON, 1) == 1);
-        mRecentClearAll.setOnPreferenceChangeListener(this);
-        mRecentClearAllPosition = (ListPreference) findPreference(RECENT_MENU_CLEAR_ALL_LOCATION);
-        String recentClearAllPosition = Settings.System.getString(resolver,
-            Settings.System.CLEAR_RECENTS_BUTTON_LOCATION);
-        if (recentClearAllPosition != null) {
-            mRecentClearAllPosition.setValue(recentClearAllPosition);
-        }
-        mRecentClearAllPosition.setOnPreferenceChangeListener(this);
-
-        mShowRecentsMemoryIndicator = (CheckBoxPreference)
-                findPreference(SHOW_RECENTS_MEMORY_INDICATOR);
-        mShowRecentsMemoryIndicator.setChecked(Settings.System.getInt(resolver,
-                Settings.System.SHOW_RECENTS_MEMORY_INDICATOR, 0) == 1);
-        mShowRecentsMemoryIndicator.setOnPreferenceChangeListener(this);
-        mRecentsMemoryIndicatorPosition = (ListPreference)
-                findPreference(RECENTS_MEMORY_INDICATOR_LOCATION);
-        String recentsMemoryIndicatorPosition = Settings.System.getString(
-                resolver, Settings.System.RECENTS_MEMORY_INDICATOR_LOCATION);
-        if (recentsMemoryIndicatorPosition != null) {
-            mRecentsMemoryIndicatorPosition.setValue(recentsMemoryIndicatorPosition);
-        }
-        mRecentsMemoryIndicatorPosition.setOnPreferenceChangeListener(this);
-
-        mStatusBarCustomHeader = (CheckBoxPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
-        mStatusBarCustomHeader.setChecked(Settings.System.getInt(resolver,
-            Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
-        mStatusBarCustomHeader.setOnPreferenceChangeListener(this);
-
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -137,29 +95,6 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         } else if (preference == mExpandedDesktopNoNavbarPref) {
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
-            return true;
-        } else if (preference == mRecentClearAll) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(resolver, Settings.System.SHOW_CLEAR_RECENTS_BUTTON, value ? 1 : 0);
-            return true;
-        } else if (preference == mRecentClearAllPosition) {
-            String value = (String) objValue;
-            Settings.System.putString(resolver, Settings.System.CLEAR_RECENTS_BUTTON_LOCATION, value);
-            return true;
-        } else if (preference == mShowRecentsMemoryIndicator) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(
-                    resolver, Settings.System.SHOW_RECENTS_MEMORY_INDICATOR, value ? 1 : 0);
-            return true;
-        } else if (preference == mRecentsMemoryIndicatorPosition) {
-            String value = (String) objValue;
-            Settings.System.putString(
-                    resolver, Settings.System.RECENTS_MEMORY_INDICATOR_LOCATION, value);
-            return true;
-        } else if (preference == mStatusBarCustomHeader) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(resolver,
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
             return true;
         }
         return false;

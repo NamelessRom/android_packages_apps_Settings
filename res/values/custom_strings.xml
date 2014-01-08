@@ -20,16 +20,11 @@
 
     <string name="nameless_mod_version">Nameless version</string>
 
-    <!-- General -->
-    <string name="dummy_settings_title">Dummy Settings</string>
-    <string name="dummy_settings_info">Hey! I am a dummy!\nMore to see here soon!</string>
-
     <!-- Main list strings -->
     <string name="header_category_cyanogenmod" translatable="false">CyanogenMod</string>
 
     <!-- Sub list strings -->
     <string name="device_control_settings">Device Control</string>
-    <string name="device_control_jf_title">JF Control</string>
 
     <!-- Interface -->
     <string name="interface_more_title">More\u2026</string>
@@ -51,9 +46,8 @@
     <!-- Lockscreen battery ring -->
     <string name="battery_around_lockscreen_ring">Battery around unlock ring</string>
 
-    <string name="system_ui_recent_panel_title" >Recents menu</string>
-
     <!-- Recents clear all -->
+    <string name="system_ui_recent_panel_title" >Recents menu</string>
     <string name="show_recent_clear_all_button_title">Show clear all button</string>
     <string name="show_recent_clear_all_button_summary">Tick to show or untick to hide the clear all button within the recent applications screen</string>
     <string name="recent_clear_all_button_location_title">Clear all button position</string>

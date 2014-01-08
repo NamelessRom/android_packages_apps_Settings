@@ -91,25 +91,13 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
 
-    <!-- Themes -->
-    <header
-        android:id="@+id/themes_settings"
-        android:icon="@drawable/ic_settings_themes"
-        android:title="@string/themes_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.tmobile.themechooser"
-            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
-
     <!-- Other interface controls -->
     <header
         android:id="@+id/interface_more"
         android:title="@string/interface_more_title"
         android:breadCrumbTitle="@string/interface_more_title"
         android:icon="@drawable/empty_icon"
-        android:fragment="com.android.settings.nameless.DummyFragment" />
-    <!-- android:fragment="org.omnirom.omnigears.interfacesettings.MoreInterfaceSettings" -->
+        android:fragment="com.android.settings.nameless.InterfaceMoreSettings" />
 
     <!-- CYANOGENMOD -->
     <!--header android:title="@string/header_category_cyanogenmod" /-->

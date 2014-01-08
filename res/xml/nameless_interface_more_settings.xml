@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (C) 2014 The NamelessROM Project
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/system_interface_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <!-- Themes -->
+    <Preference
+        android:id="@+id/themes_settings"
+        android:icon="@drawable/ic_settings_themes"
+        android:title="@string/themes_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.tmobile.themechooser"
+            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </Preference>
+
+    <PreferenceCategory
+        android:key="category_recent_panel"
+        android:title="@string/system_ui_recent_panel_title" />
+
+    <CheckBoxPreference
+        android:key="recent_menu_clear_all"
+        android:title="@string/show_recent_clear_all_button_title"
+        android:summary="@string/show_recent_clear_all_button_summary"
+        android:defaultValue="true" />
+
+    <ListPreference
+        android:key="recent_menu_clear_all_location"
+        android:title="@string/recent_clear_all_button_location_title"
+        android:summary="@string/recent_clear_all_button_location_summary"
+        android:entries="@array/recent_clear_all_button_location_entries"
+        android:entryValues="@array/recent_clear_all_button_location_values"
+        android:defaultValue="2"
+        android:dependency="recent_menu_clear_all" />
+
+    <CheckBoxPreference
+        android:key="show_recents_memory_indicator"
+        android:title="@string/show_recents_memory_indicator_title"
+        android:summary="@string/show_recents_memory_indicator_summary"
+        android:defaultValue="false" />
+
+    <ListPreference
+        android:key="recents_memory_indicator_location"
+        android:title="@string/recents_memory_indicator_location_title"
+        android:summary="@string/recents_memory_indicator_location_summary"
+        android:entries="@array/recent_clear_all_button_location_entries"
+        android:entryValues="@array/recent_clear_all_button_location_values"
+        android:defaultValue="1"
+        android:dependency="show_recents_memory_indicator" />
+
+</PreferenceScreen>
