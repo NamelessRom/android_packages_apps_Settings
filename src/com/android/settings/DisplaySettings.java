@@ -222,6 +222,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             getPreferenceScreen().removePreference(lightPrefs);
         }
+
+        mScreenColorSettings = (PreferenceScreen) findPreference(KEY_SCREEN_COLOR_SETTINGS);
+        if (!isPostProcessingSupported()) {
+            getPreferenceScreen().removePreference(mScreenColorSettings);
+        }
     }
 
     private void updateDisplayRotationPreferenceDescription() {
@@ -560,6 +565,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private boolean isPostProcessingSupported() {
         boolean ret = true;
         final PackageManager pm = getPackageManager();
+        try {
+            pm.getPackageInfo("com.qualcomm.display", PackageManager.GET_META_DATA);
+        } catch (NameNotFoundException e) {
+            ret = false;
+        }
+        return ret;
+    }
+
+    private static boolean isAdaptiveBacklightSupported() {
         try {
             pm.getPackageInfo("com.qualcomm.display", PackageManager.GET_META_DATA);
         } catch (NameNotFoundException e) {
