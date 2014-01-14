@@ -30,7 +30,7 @@
         android:icon="@drawable/ic_settings_notifications"
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
-    
+
     <PreferenceScreen
         android:key="quick_settings_panel"
         android:icon="@drawable/ic_settings_quick_settings"
@@ -71,6 +71,12 @@
             android:key="navigation_ring"
             android:fragment="com.android.settings.cyanogenmod.NavRing"
             android:title="@string/navigation_ring_title" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="navigation_bar_left"
+            android:title="@string/navigation_bar_left_title"
+            android:summary="@string/navigation_bar_left_summary"
+            android:defaultValue="false" />
 
         <ListPreference
             android:key="navigation_bar_height"
