@@ -124,6 +124,17 @@ public class LocationSettings extends LocationSettingsBase
                     }
                 });
 
+        mGpsDownloadDataWifiOnly =
+                (CheckBoxPreference) root.findPreference(KEY_GPS_DOWNLOAD_DATA_WIFI_ONLY);
+        if (mGpsDownloadDataWifiOnly != null) {
+            if (!isLtoSupported() || !checkGpsDownloadWiFiOnly(getActivity())) {
+                root.removePreference(mGpsDownloadDataWifiOnly);
+                mGpsDownloadDataWifiOnly = null;
+            } else {
+                mGpsDownloadDataWifiOnly.setOnPreferenceChangeListener(this);
+            }
+        }
+
         mCategoryRecentLocationRequests =
                 (PreferenceCategory) root.findPreference(KEY_RECENT_LOCATION_REQUESTS);
         RecentLocationApps recentApps = new RecentLocationApps(activity);
@@ -254,6 +265,72 @@ public class LocationSettings extends LocationSettingsBase
             setLocationMode(Settings.Secure.LOCATION_MODE_HIGH_ACCURACY);
         } else {
             setLocationMode(Settings.Secure.LOCATION_MODE_OFF);
+        }
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (mGpsDownloadDataWifiOnly != null && preference.equals(mGpsDownloadDataWifiOnly)) {
+            updateLtoServiceStatus(getActivity(), isLocationModeEnabled(getActivity()));
+        }
+        return true;
+    }
+
+    private static void updateLtoServiceStatus(Context context, boolean start) {
+        Intent intent = new Intent(context, LtoService.class);
+        if (start) {
+            context.startService(intent);
+        } else {
+            context.stopService(intent);
+        }
+    }
+
+    private static boolean checkGpsDownloadWiFiOnly(Context context) {
+        PackageManager pm = context.getPackageManager();
+        boolean supportsTelephony = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+        boolean supportsWifi = pm.hasSystemFeature(PackageManager.FEATURE_WIFI);
+        if (!supportsWifi || !supportsTelephony) {
+            SharedPreferences.Editor editor =
+                    PreferenceManager.getDefaultSharedPreferences(context).edit();
+            editor.putBoolean(KEY_GPS_DOWNLOAD_DATA_WIFI_ONLY, supportsWifi);
+            editor.apply();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isLocationModeEnabled(Context context) {
+        int mode = Settings.Secure.getInt(context.getContentResolver(),
+                Settings.Secure.LOCATION_MODE, Settings.Secure.LOCATION_MODE_OFF);
+        return (mode != Settings.Secure.LOCATION_MODE_OFF);
+    }
+
+    /**
+     * Restore the properties associated with this preference on boot
+     * @param ctx A valid context
+     */
+    public static void restore(final Context context) {
+        if (isLtoSupported() && isLocationModeEnabled(context)) {
+            // Check and adjust the value for Gps download data on wifi only
+            checkGpsDownloadWiFiOnly(context);
+
+            // Starts the LtoService, but delayed 2 minutes after boot (this should give a
+            // proper time to start all device services)
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(context, LtoService.class);
+            PendingIntent pi = PendingIntent.getService(context, 0, intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
+            long nextLtoDownload = System.currentTimeMillis() + (1000 * 60 * 2L);
+            am.set(AlarmManager.RTC, nextLtoDownload, pi);
+        }
+    }
+
+    private static boolean isLtoSupported() {
+        try {
+            return LongTermOrbits.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework isn't installed
+            return false;
         }
     }
 }
