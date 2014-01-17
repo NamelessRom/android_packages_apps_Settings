@@ -18,6 +18,10 @@
 
     <string name="mod_version_n">Nameless version</string>
 
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name
+         being present in com.android.settings -->
+    <string name="supersu_title" translatable="false">SuperSU</string>
+
     <!-- One click reboot options -->
     <string name="advanced_reboot_oneclick">One click reboot</string>
     <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
