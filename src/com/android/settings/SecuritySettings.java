@@ -98,7 +98,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
     private static final String SLIDE_LOCK_TIMEOUT_DELAY = "slide_lock_timeout_delay";
     private static final String SLIDE_LOCK_SCREENOFF_DELAY = "slide_lock_screenoff_delay";
-    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
     private static final String CATEGORY_ADDITIONAL = "additional_options";
 
     private PackageManager mPM;
@@ -137,6 +137,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
     public SecuritySettings() {
         super(null /* Don't ask for restrictions pin on creation. */);
     }
+
+    // QuickUnlock
+    private CheckBoxPreference mQuickUnlockScreen;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -356,6 +359,13 @@ public class SecuritySettings extends RestrictedSettingsFragment
                     root.findPreference(KEY_SIM_LOCK).setEnabled(false);
                 }
             }
+
+            mQuickUnlockScreen = (CheckBoxPreference) root.findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+            if (mQuickUnlockScreen  != null) {
+                mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+                mQuickUnlockScreen.setOnPreferenceChangeListener(this);
+			}
 
             // Show password
             mShowPassword = (CheckBoxPreference) root.findPreference(KEY_SHOW_PASSWORD);
@@ -735,6 +745,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
         } else if (preference == mShowPassword) {
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);
+        } else if (preference == mQuickUnlockScreen) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, isToggled(preference) ? 1 : 0);
         } else if (preference == mToggleAppInstallation) {
             if (mToggleAppInstallation.isChecked()) {
                 mToggleAppInstallation.setChecked(false);
