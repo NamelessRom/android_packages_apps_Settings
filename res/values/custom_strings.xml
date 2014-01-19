@@ -111,4 +111,8 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
 
+    <!-- RAM Bar -->
+    <string name="ram_bar_title">Recents RAM bar</string>
+    <string name="ram_bar_summary">Shows RAM usage in the recent apps window</string>
+
 </resources>

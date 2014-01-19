@@ -30,9 +30,11 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "InterfaceMoreSettings";
 
+    private static final String RAM_USAGE_BAR = "ram_usage_bar";
     private static final String RECENT_MENU_CLEAR_ALL = "recent_menu_clear_all";
     private static final String RECENT_MENU_CLEAR_ALL_LOCATION = "recent_menu_clear_all_location";
 
+    private CheckBoxPreference mRamUsageBar;
     private CheckBoxPreference mRecentClearAll;
     private ListPreference mRecentClearAllPosition;
 
@@ -41,6 +43,11 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.nameless_interface_more_settings);
+
+        mRamUsageBar = (CheckBoxPreference) findPreference(RAM_USAGE_BAR);
+        mRamUsageBar.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.RAM_USAGE_BAR, 1) == 1);
+        mRamUsageBar.setOnPreferenceChangeListener(this);
 
         mRecentClearAll = (CheckBoxPreference) findPreference(RECENT_MENU_CLEAR_ALL);
         mRecentClearAll.setChecked(Settings.System.getInt(getContentResolver(),
@@ -57,7 +64,12 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mRecentClearAll) {
+        if (preference == mRamUsageBar) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RAM_USAGE_BAR, value ? 1 : 0);
+            return true;
+        } else if (preference == mRecentClearAll) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SHOW_CLEAR_RECENTS_BUTTON, value ? 1 : 0);

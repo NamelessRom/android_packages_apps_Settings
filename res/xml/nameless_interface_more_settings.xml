@@ -37,6 +37,12 @@
         android:title="@string/system_ui_recent_panel_title" />
 
     <CheckBoxPreference
+        android:key="ram_usage_bar"
+        android:title="@string/ram_bar_title"
+        android:summary="@string/ram_bar_summary"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
         android:key="recent_menu_clear_all"
         android:title="@string/show_recent_clear_all_button_title"
         android:summary="@string/show_recent_clear_all_button_summary"
