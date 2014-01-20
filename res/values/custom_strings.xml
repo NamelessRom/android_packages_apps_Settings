@@ -22,9 +22,11 @@
 
     <!-- Main list strings -->
     <string name="header_category_cyanogenmod" translatable="false">CyanogenMod</string>
+    <string name="header_category_nameless" translatable="false">Nameless</string>
 
     <!-- Sub list strings -->
     <string name="device_control_settings">Device Control</string>
+    <string name="device_update_center">Update Center</string>
 
     <!-- Interface -->
     <string name="interface_more_title">More\u2026</string>

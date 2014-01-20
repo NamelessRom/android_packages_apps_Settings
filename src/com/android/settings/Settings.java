@@ -661,6 +661,14 @@ public class Settings extends PreferenceActivity
                 } else {
                     target.remove(i);
                 }
+            } else if (id == R.id.device_update_center) {
+                if (actionExists("org.namelessrom.updatecenter.activities.MainActivity")) {
+                    target.get(i).intent = new Intent()
+                            .setAction("org.namelessrom.updatecenter.activities.MainActivity");
+                    target.get(i).titleRes = R.string.device_update_center;
+                } else {
+                    target.remove(i);
+                }
             }
 
             if (i < target.size() && target.get(i) == header

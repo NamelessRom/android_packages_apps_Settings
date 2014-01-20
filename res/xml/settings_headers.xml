@@ -58,6 +58,23 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
+    <!-- NAMELESS -->
+    <header
+        android:id="@+id/nameless_section"
+        android:title="@string/header_category_nameless" />
+
+    <!-- Device Control -->
+    <header
+        android:id="@+id/device_control_settings"
+        android:icon="@drawable/ic_settings_devicecontrol"
+        android:title="@string/device_control_settings" />
+
+    <!-- Device Control -->
+    <header
+        android:id="@+id/device_update_center"
+        android:icon="@drawable/ic_empty"
+        android:title="@string/device_update_center" />
+
     <!-- INTERFACE -->
     <header
         android:id="@+id/interface_section"
@@ -105,12 +122,6 @@
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
-
-    <!-- Device Control -->
-    <header
-        android:id="@+id/device_control_settings"
-        android:icon="@drawable/ic_settings_devicecontrol"
-        android:title="@string/device_control_settings" />
 
     <!-- Sound -->
     <header
