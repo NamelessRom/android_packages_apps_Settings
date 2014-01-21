@@ -41,16 +41,21 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
+    private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
 
     // Omni Additions
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
 
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
     private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
+
+    private PreferenceCategory mWidgetsCatagory;
 
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mLockscreenUseCarousel;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
@@ -67,6 +72,15 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
         mLockUtils = mChooseLockSettingsHelper.utils();
         mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+        mWidgetsCatagory = (PreferenceCategory) findPreference(KEY_WIDGETS_CATAGORY);
+        mLockscreenUseCarousel = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_USE_CAROUSEL);
+        if (!showCarousel()) {
+            mWidgetsCatagory.removePreference(mLockscreenUseCarousel);
+        } else {
+            mLockscreenUseCarousel.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, 0) == 1);
+        }
 
         // Find categories
         PreferenceCategory widgetsCategory = (PreferenceCategory)
@@ -146,9 +160,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         } else if (KEY_ENABLE_CAMERA.equals(key)) {
             mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
             return true;
-	} else if (preference == mSeeThrough) {
+        } else if (preference == mSeeThrough) {
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH,
                     mSeeThrough.isChecked() ? 1 : 0);
+        } else if (preference == mLockscreenUseCarousel) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL,
+                    mLockscreenUseCarousel.isChecked() ? 1 : 0);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -177,6 +195,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
      */
     private boolean featureIsDisabled(int feature) {
         return (mDPM.getKeyguardDisabledFeatures(null) & feature) != 0;
+    }
+
+    public boolean showCarousel() {
+        return !getResources().getBoolean(R.bool.config_show_carousel);
     }
 
 }

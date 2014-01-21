@@ -246,4 +246,8 @@
     <string name="ime_interpolator_title">Interpolator</string>
     <string name="ime_duration_title">IME Duration</string>
 
+    <!-- Lockscreen widget carousel animation -->
+    <string name="lockscreen_use_widget_container_carousel_title">Use widget carousel in portrait</string>
+    <string name="lockscreen_use_widget_container_carousel_summary">Use carousel animation in portrait like it is in landscape when switching between lockscreen widgets.</string>
+
 </resources>

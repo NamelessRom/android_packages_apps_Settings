@@ -46,4 +46,8 @@
     <bool name="config_show_volumeRockerWake">false</bool>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+
+    <!-- Whether the carousel widget animation preference should be hidden. -->
+    <bool name="config_show_carousel" translatable="false">false</bool>
+
 </resources>
