@@ -19,6 +19,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -34,6 +35,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settings.widget.SeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,14 +50,29 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+    private static final String NETWORK_TRAFFIC_UNIT = "network_traffic_unit";
+    private static final String NETWORK_TRAFFIC_PERIOD = "network_traffic_period";
+    private static final String NETWORK_TRAFFIC_AUTOHIDE = "network_traffic_autohide";
+    private static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
+    private int mNetTrafficVal;
+    private int MASK_UP;
+    private int MASK_DOWN;
+    private int MASK_UNIT;
+    private int MASK_PERIOD;
 
     private ListPreference mStatusBarClock;
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
+    private ListPreference mNetTrafficState;
+    private ListPreference mNetTrafficUnit;
+    private ListPreference mNetTrafficPeriod;
+    private SystemSettingSwitchPreference mNetTrafficAutohide;
+    private SeekBarPreference mNetTrafficAutohideThreshold;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -63,6 +80,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.status_bar_settings);
 
         ContentResolver resolver = getActivity().getContentResolver();
+
+        loadResources();
 
         mStatusBarClock = (ListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
         mStatusBarAmPm = (ListPreference) findPreference(STATUS_BAR_AM_PM);
@@ -103,6 +122,36 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
             removePreference(Settings.System.STATUS_BAR_MSIM_SHOW_EMPTY_ICONS);
         }
+
+        mNetTrafficState = (ListPreference) findPreference(NETWORK_TRAFFIC_STATE);
+        mNetTrafficUnit = (ListPreference) findPreference(NETWORK_TRAFFIC_UNIT);
+        mNetTrafficPeriod = (ListPreference) findPreference(NETWORK_TRAFFIC_PERIOD);
+        mNetTrafficAutohide = (SystemSettingSwitchPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE);
+        mNetTrafficAutohideThreshold = (SeekBarPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
+
+        mNetTrafficVal = Settings.System.getInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, 0);
+        int intIndex = mNetTrafficVal & (MASK_UP + MASK_DOWN);
+        intIndex = mNetTrafficState.findIndexOfValue(String.valueOf(intIndex));
+        updateNetworkTrafficState(intIndex);
+
+        mNetTrafficState.setValueIndex(intIndex >= 0 ? intIndex : 0);
+        mNetTrafficState.setSummary(mNetTrafficState.getEntry());
+        mNetTrafficState.setOnPreferenceChangeListener(this);
+
+        mNetTrafficUnit.setValueIndex(getBit(mNetTrafficVal, MASK_UNIT) ? 1 : 0);
+        mNetTrafficUnit.setSummary(mNetTrafficUnit.getEntry());
+        mNetTrafficUnit.setOnPreferenceChangeListener(this);
+
+        intIndex = (mNetTrafficVal & MASK_PERIOD) >>> 16;
+        intIndex = mNetTrafficPeriod.findIndexOfValue(String.valueOf(intIndex));
+        mNetTrafficPeriod.setValueIndex(intIndex >= 0 ? intIndex : 1);
+        mNetTrafficPeriod.setSummary(mNetTrafficPeriod.getEntry());
+        mNetTrafficPeriod.setOnPreferenceChangeListener(this);
+
+        int netTrafficAutohideThreshold = Settings.System.getInt(resolver,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10);
+        mNetTrafficAutohideThreshold.setValue(netTrafficAutohideThreshold / 1);
+        mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -150,6 +199,36 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mStatusBarBatteryShowPercent.setSummary(
                     mStatusBarBatteryShowPercent.getEntries()[index]);
             return true;
+        } else if (preference == mNetTrafficState) {
+            int intState = Integer.valueOf((String) newValue);
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_UP, getBit(intState, MASK_UP));
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_DOWN, getBit(intState, MASK_DOWN));
+            Settings.System.putInt(resolver,
+                    Settings.System.NETWORK_TRAFFIC_STATE, mNetTrafficVal);
+            int index = mNetTrafficState.findIndexOfValue((String) newValue);
+            mNetTrafficState.setSummary(mNetTrafficState.getEntries()[index]);
+            updateNetworkTrafficState(index);
+            return true;
+        } else if (preference == mNetTrafficUnit) {
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_UNIT, ((String) newValue).equals("1"));
+            Settings.System.putInt(resolver,
+                    Settings.System.NETWORK_TRAFFIC_STATE, mNetTrafficVal);
+            int index = mNetTrafficUnit.findIndexOfValue((String) newValue);
+            mNetTrafficUnit.setSummary(mNetTrafficUnit.getEntries()[index]);
+            return true;
+        } else if (preference == mNetTrafficPeriod) {
+            int intState = Integer.valueOf((String) newValue);
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_PERIOD, false) + (intState << 16);
+            Settings.System.putInt(resolver,
+                    Settings.System.NETWORK_TRAFFIC_STATE, mNetTrafficVal);
+            int index = mNetTrafficPeriod.findIndexOfValue((String) newValue);
+            mNetTrafficPeriod.setSummary(mNetTrafficPeriod.getEntries()[index]);
+            return true;
+        } else if (preference == mNetTrafficAutohideThreshold) {
+            int threshold = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, threshold * 1);
+            return true;
         }
         return false;
     }
@@ -184,4 +263,37 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     return result;
                 }
             };
+
+    private boolean getBit(int intNumber, int intMask) {
+        return (intNumber & intMask) == intMask;
+    }
+
+    private int setBit(int intNumber, int intMask, boolean blnState) {
+        if (blnState) {
+            return (intNumber | intMask);
+        }
+        return (intNumber & ~intMask);
+    }
+
+    private void loadResources() {
+        Resources resources = getActivity().getResources();
+        MASK_UP = resources.getInteger(R.integer.maskUp);
+        MASK_DOWN = resources.getInteger(R.integer.maskDown);
+        MASK_UNIT = resources.getInteger(R.integer.maskUnit);
+        MASK_PERIOD = resources.getInteger(R.integer.maskPeriod);
+    }
+
+    private void updateNetworkTrafficState(int mIndex) {
+        if (mIndex <= 0) {
+            mNetTrafficUnit.setEnabled(false);
+            mNetTrafficPeriod.setEnabled(false);
+            mNetTrafficAutohide.setEnabled(false);
+            mNetTrafficAutohideThreshold.setEnabled(false);
+        } else {
+            mNetTrafficUnit.setEnabled(true);
+            mNetTrafficPeriod.setEnabled(true);
+            mNetTrafficAutohide.setEnabled(true);
+            mNetTrafficAutohideThreshold.setEnabled(true);
+        }
+    }
 }
