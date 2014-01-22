@@ -72,7 +72,7 @@
     <!-- Update Center -->
     <header
         android:id="@+id/device_update_center"
-        android:icon="@drawable/ic_empty"
+        android:icon="@drawable/ic_settings_updatecenter"
         android:title="@string/device_update_center" />
 
     <!-- INTERFACE -->
