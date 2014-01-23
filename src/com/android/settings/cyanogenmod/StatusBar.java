@@ -33,18 +33,22 @@ import com.android.settings.Utils;
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
+    private static final String STATUS_BAR_BATTERY_SHOW_PERCENT
+            = "status_bar_battery_show_percent";
+
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NETWORK_ACTIVITY = "status_bar_network_activity";
-    private static final String STATUS_BAR_BATTERY_SHOW_PERCENT =
-            "status_bar_battery_show_percent";
+    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
     private ListPreference mStatusBarBattery;
+    private CheckBoxPreference mStatusBarBatteryShowPercent;
+
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNetworkActivity;
-    private CheckBoxPreference mStatusBarBatteryShowPercent;
+    private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,6 +97,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 0) == 1);
         mStatusBarNetworkActivity.setOnPreferenceChangeListener(this);
 
+        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked(Settings.System.getInt(resolver,
+            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
+        mStatusBarTraffic.setOnPreferenceChangeListener(this);
+
         if (Utils.isTablet(getActivity())) {
             prefSet.removePreference(statusBarBrightnessControl);
         }
@@ -122,6 +131,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_NETWORK_ACTIVITY, value ? 1 : 0);
             return true;
+        } else if (preference == mStatusBarTraffic) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
         }
 
         return false;
