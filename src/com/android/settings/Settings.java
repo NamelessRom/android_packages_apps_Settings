@@ -653,10 +653,6 @@ public class Settings extends PreferenceActivity
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
                     target.remove(i);
                 }
-            } else if (id == R.id.superuser) {
-                if (!DevelopmentSettings.isRootForAppsEnabled()) {
-                    target.remove(i);
-                }
             } else if (id == R.id.device_control_settings) {
                 if (actionExists("org.namelessrom.devicecontrol.activities.MainActivity")) {
                     target.get(i).intent = new Intent()
@@ -671,8 +667,20 @@ public class Settings extends PreferenceActivity
                             .setAction("org.namelessrom.updatecenter.activities.MainActivity");
                     target.get(i).titleRes = R.string.device_update_center;
                 } else {
+            } else if (id == R.id.supersu_settings) {
+                // Embedding into Settings is supported from SuperSU v1.85 and up
+                boolean supported = false;
+                try {
+                    supported = (getPackageManager().getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+                if (!supported) {
                     target.remove(i);
                 }
+            } else if (id == R.id.superuser) {
+                // if (!DevelopmentSettings.isRootForAppsEnabled()) { // TODO: Add Koush' Superuser check
+                    target.remove(i);
+                // }
             }
 
             if (i < target.size() && target.get(i) == header
