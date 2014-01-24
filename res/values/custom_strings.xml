@@ -405,4 +405,8 @@
     <!-- On-The-Go -->
     <string name="power_menu_onthego_title">On-The-Go Mode</string>
     <string name="title_tile_onthego">On-The-Go</string>
+
+    <!-- Disable safe volume warning with headphones -->
+    <string name="disable_safe_volume_title">Disable safe volume warning</string>
+    <string name="disable_safe_volume_summary">This will disable the safe volume warning when using headphones. A reboot is necessary in order to take effect.</string>
 </resources>

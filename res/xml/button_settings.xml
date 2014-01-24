@@ -63,6 +63,11 @@
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false" />
 
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="disable_safe_volume"
+            android:title="@string/disable_safe_volume_title"
+            android:summary="@string/disable_safe_volume_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
