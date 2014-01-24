@@ -52,6 +52,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_CAMERA = "camera_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
+    private static final String BUTTON_DISABLE_SAFE_VOLUME = "disable_safe_volume";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -86,6 +87,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCameraMusicControls;
     private ListPreference mVolumeKeyCursorControl;
     private CheckBoxPreference mSwapVolumeButtons;
+    private CheckBoxPreference mDisableSafeVolume;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -226,6 +228,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
                     cursorControlAction);
 
+            mDisableSafeVolume = (CheckBoxPreference) findPreference(BUTTON_DISABLE_SAFE_VOLUME);
+            mDisableSafeVolume.setChecked(Settings.System.getInt(resolver,
+                    Settings.System.DISABLE_SAFE_VOLUME, 0) != 0);
+
             if (!res.getBoolean(R.bool.config_show_volumeRockerWake)) {
                 volumeCategory.removePreference(findPreference(Settings.System.VOLUME_WAKE_SCREEN));
             }
@@ -296,6 +302,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else if (preference == mVolumeKeyCursorControl) {
             handleActionListChange(mVolumeKeyCursorControl, newValue,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
+            return true;
+        else if (preference == mDisableSafeVolume) {
+            boolean checked = ((CheckBoxPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DISABLE_SAFE_VOLUME, checked ? 1:0);
             return true;
         }
 
