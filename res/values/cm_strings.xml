@@ -695,6 +695,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
+    <!-- Quick Unlock -->
+    <string name="lockscreen_quick_unlock_control_title">Quick unlock</string>
+    <string name="lockscreen_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
+
     <!-- System Interface settings  -->
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">System interface</string>
