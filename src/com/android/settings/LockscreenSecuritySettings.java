@@ -50,6 +50,7 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_VISIBLE_PATTERN = "visiblepattern";
     private static final String KEY_VISIBLE_ERROR_PATTERN = "visible_error_pattern";
     private static final String KEY_VISIBLE_DOTS = "visibledots";
+    private static final String KEY_VISIBLE_GESTURE = "visiblegesture";
     private static final String KEY_SECURITY_CATEGORY = "security_category";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
@@ -66,6 +67,7 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mVisiblePattern;
     private CheckBoxPreference mVisibleErrorPattern;
     private CheckBoxPreference mVisibleDots;
+    private CheckBoxPreference mVisibleGesture;
 
     private CheckBoxPreference mPowerButtonInstantlyLocks;
 
@@ -117,6 +119,9 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
                 case DevicePolicyManager.PASSWORD_QUALITY_COMPLEX:
                     resid = R.xml.security_settings_password;
                     break;
+                case DevicePolicyManager.PASSWORD_QUALITY_GESTURE_WEAK:
+                    resid = R.xml.security_settings_gesture;
+                    break;
             }
         }
         addPreferencesFromResource(resid);
@@ -142,6 +147,9 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         // visible dots
         mVisibleDots = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_DOTS);
 
+        // visible gesture
+        mVisibleGesture = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_GESTURE);
+
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
                 KEY_POWER_INSTANTLY_LOCKS);
@@ -161,6 +169,9 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
                 }
                 if (mVisibleDots != null) {
                     securityCategory.removePreference(mVisibleDots);
+                }
+                if (mVisibleGesture != null) {
+                    securityCategory.removePreference(mVisibleGesture);
                 }
             }
         }
@@ -308,6 +319,8 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
             lockPatternUtils.setShowErrorPath(isToggled(preference));
         } else if (KEY_VISIBLE_DOTS.equals(key)) {
             lockPatternUtils.setVisibleDotsEnabled(isToggled(preference));
+        } else if (KEY_VISIBLE_GESTURE.equals(key)) {
+            lockPatternUtils.setVisibleGestureEnabled(isToggled(preference));
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
