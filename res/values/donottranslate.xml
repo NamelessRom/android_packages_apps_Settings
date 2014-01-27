@@ -33,4 +33,8 @@
         <item>@string/input_method_selector_always_show_value</item>
         <item>@string/input_method_selector_always_hide_value</item>
     </string-array>
+
+    <!-- Lock Gesture settings -->
+    <string name="lockgesture_need_to_unlock_footer" translatable="false" />
+    <string name="lockgesture_need_to_unlock_wrong_footer" translatable="false" />
 </resources>
