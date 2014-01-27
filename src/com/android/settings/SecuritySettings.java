@@ -53,6 +53,16 @@ public class SecuritySettings extends RestrictedSettingsFragment
 
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
+<<<<<<< HEAD
+=======
+    private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
+
+    private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
+    private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
+    private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF = 125;
+    private static final int CONFIRM_EXISTING_FOR_TEMPORARY_INSECURE = 126;
+    private static final int DLG_SHAKE_WARN = 0;
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
 
     // Misc Settings
     private static final String KEY_SIM_LOCK = "sim_lock";
@@ -67,9 +77,24 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_NOTIFICATION_ACCESS = "manage_notification_access";
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
+<<<<<<< HEAD
     // CyanogenMod Additions
     private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
+=======
+    // Mahdi-Rom Additions
+    private static final String CATEGORY_ADDITIONAL = "additional_options";
+    private static final String KEY_VISIBLE_ERROR_PATTERN = "visible_error_pattern";
+    private static final String KEY_VISIBLE_DOTS = "visibledots";
+    private static final String LOCK_BEFORE_UNLOCK = "lock_before_unlock";
+    private static final String LOCK_NUMPAD_RANDOM = "lock_numpad_random";
+    private static final String KEY_SHAKE_TO_SECURE = "shake_to_secure";
+    private static final String KEY_SHAKE_AUTO_TIMEOUT = "shake_auto_timeout";
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
+    private static final String SLIDE_LOCK_TIMEOUT_DELAY = "slide_lock_timeout_delay";
+    private static final String SLIDE_LOCK_SCREENOFF_DELAY = "slide_lock_screenoff_delay";
+    private static final String KEY_VISIBLE_GESTURE = "visiblegesture";
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -83,6 +108,23 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private DialogInterface mWarnInstallApps;
     private CheckBoxPreference mToggleVerifyApps;
 
+<<<<<<< HEAD
+=======
+    private boolean mIsPrimary;
+
+    // Mahdi-Rom Additions
+    private PreferenceGroup mSecurityCategory;
+    private CheckBoxPreference mVisibleErrorPattern;
+    private CheckBoxPreference mVisibleDots;
+    private CheckBoxPreference mLockBeforeUnlock;
+    private ListPreference mLockNumpadRandom;
+    private CheckBoxPreference mShakeToSecure;
+    private ListPreference mShakeTimer;
+    private CheckBoxPreference mQuickUnlockScreen;
+    private ListPreference mSlideLockTimeoutDelay;
+    private ListPreference mSlideLockScreenOffDelay;
+    private CheckBoxPreference mVisibleGesture;
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
 
     // CyanogenMod Additions
     private ListPreference mSmsSecurityCheck;
@@ -105,6 +147,50 @@ public class SecuritySettings extends RestrictedSettingsFragment
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
 
+<<<<<<< HEAD
+=======
+        final ContentResolver resolver = getContentResolver();
+        final Resources res = getResources();
+
+        // Add package manager to check if features are available
+        PackageManager pm = getPackageManager();
+
+        int resid = 0;
+        if (!mLockPatternUtils.isSecure()) {
+            // if there are multiple users, disable "None" setting
+            UserManager mUm = (UserManager) getSystemService(Context.USER_SERVICE);
+            List<UserInfo> users = mUm.getUsers(true);
+            final boolean singleUser = users.size() == 1;
+
+            if (singleUser && mLockPatternUtils.isLockScreenDisabled()) {
+                resid = R.xml.security_settings_lockscreen;
+            } else {
+                resid = R.xml.security_settings_chooser;
+            }
+        } else if (mLockPatternUtils.usingBiometricWeak() &&
+                mLockPatternUtils.isBiometricWeakInstalled()) {
+            resid = R.xml.security_settings_biometric_weak;
+        } else {
+            switch (mLockPatternUtils.getKeyguardStoredPasswordQuality()) {
+                case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING:
+                    resid = R.xml.security_settings_pattern;
+                    break;
+                case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC:
+                    resid = R.xml.security_settings_pin;
+                    break;
+                case DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC:
+                case DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC:
+                case DevicePolicyManager.PASSWORD_QUALITY_COMPLEX:
+                    resid = R.xml.security_settings_password;
+                    break;
+                case DevicePolicyManager.PASSWORD_QUALITY_GESTURE_WEAK:
+                    resid = R.xml.security_settings_gesture;
+                    break;
+            }
+        }
+        addPreferencesFromResource(resid);
+
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
         // Add options for device encryption
         final boolean mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
 
@@ -120,6 +206,34 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
         }
 
+<<<<<<< HEAD
+=======
+        // lock after preference
+        mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
+        if (mLockAfter != null) {
+            setupLockAfterPreference();
+            updateLockAfterPreferenceSummary();
+        } else if (!mLockPatternUtils.isLockScreenDisabled()) {
+            addPreferencesFromResource(R.xml.security_settings_slide_delay_mahdi);
+
+            mSlideLockTimeoutDelay = (ListPreference) root
+                    .findPreference(SLIDE_LOCK_TIMEOUT_DELAY);
+            int slideTimeoutDelay = Settings.System.getInt(resolver,
+                    Settings.System.SCREEN_LOCK_SLIDE_TIMEOUT_DELAY, 5000);
+            mSlideLockTimeoutDelay.setValue(String.valueOf(slideTimeoutDelay));
+            updateSlideAfterTimeoutSummary();
+            mSlideLockTimeoutDelay.setOnPreferenceChangeListener(this);
+
+            mSlideLockScreenOffDelay = (ListPreference) root
+                    .findPreference(SLIDE_LOCK_SCREENOFF_DELAY);
+            int slideScreenOffDelay = Settings.System.getInt(resolver,
+                    Settings.System.SCREEN_LOCK_SLIDE_SCREENOFF_DELAY, 0);
+            mSlideLockScreenOffDelay.setValue(String.valueOf(slideScreenOffDelay));
+            updateSlideAfterScreenOffSummary();
+                mSlideLockScreenOffDelay.setOnPreferenceChangeListener(this);
+        }
+
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
         if (mIsPrimary) {
             switch (mDPM.getStorageEncryptionStatus()) {
             case DevicePolicyManager.ENCRYPTION_STATUS_ACTIVE:
@@ -133,6 +247,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
         }
 
+<<<<<<< HEAD
         mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
         // Determine options based on device telephony support
         if (mPM.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
@@ -163,6 +278,76 @@ public class SecuritySettings extends RestrictedSettingsFragment
                         disableLock = false;
                     }
                 }
+=======
+        // biometric weak liveliness
+        mBiometricWeakLiveliness =
+                (CheckBoxPreference) root.findPreference(KEY_BIOMETRIC_WEAK_LIVELINESS);
+
+        // visible pattern
+        mVisiblePattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_PATTERN);
+
+         // visible error pattern
+        mVisibleErrorPattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_ERROR_PATTERN);
+
+        // visible dots
+        mVisibleDots = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_DOTS);
+
+        // visible gesture
+        mVisibleGesture = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_GESTURE);
+
+        // lock instantly on power key press
+        mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
+                KEY_POWER_INSTANTLY_LOCKS);
+        checkPowerInstantLockDependency();
+
+        mSecurityCategory = (PreferenceGroup)
+                root.findPreference(KEY_SECURITY_CATEGORY);
+
+        // don't display visible pattern if biometric and backup is not pattern
+        if (resid == R.xml.security_settings_biometric_weak &&
+                mLockPatternUtils.getKeyguardStoredPasswordQuality() !=
+                DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
+            if (mSecurityCategory != null && mVisiblePattern != null &&
+                    mVisibleErrorPattern != null && mVisibleDots != null && mVisibleGesture != null) {
+                mSecurityCategory.removePreference(root.findPreference(KEY_VISIBLE_PATTERN));
+                mSecurityCategory.removePreference(root.findPreference(KEY_VISIBLE_ERROR_PATTERN));
+                mSecurityCategory.removePreference(root.findPreference(KEY_VISIBLE_DOTS));
+                mSecurityCategory.removePreference(root.findPreference(KEY_VISIBLE_GESTURE));
+            }
+        }
+        
+	// Quick Unlock Screen Control
+        mQuickUnlockScreen = (CheckBoxPreference) root
+                .findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+        if (mQuickUnlockScreen != null) {
+            mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+        }
+
+        // Lock Numpad Random
+        mLockNumpadRandom = (ListPreference) root.findPreference(LOCK_NUMPAD_RANDOM);
+        if (mLockNumpadRandom != null) {
+            mLockNumpadRandom.setValue(String.valueOf(
+                    Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCK_NUMPAD_RANDOM, 0)));
+            mLockNumpadRandom.setSummary(mLockNumpadRandom.getEntry());
+            mLockNumpadRandom.setOnPreferenceChangeListener(this);
+        }
+
+        // Shake to secure
+        // Don't show if device admin requires security
+        boolean shakeEnabled = mLockPatternUtils.getRequestedMinimumPasswordLength()
+                == DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
+        mShakeToSecure = (CheckBoxPreference) root
+                .findPreference(KEY_SHAKE_TO_SECURE);
+        if (mShakeToSecure != null) {
+            mShakeToSecure.setChecked(
+                    Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCK_SHAKE_TEMP_SECURE, 0) == 1);
+            mShakeToSecure.setOnPreferenceChangeListener(this);
+            if (!shakeEnabled) {
+                mSecurityCategory.removePreference(mShakeToSecure);
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
             }
 
             if (removeLock) {
@@ -364,14 +549,46 @@ public class SecuritySettings extends RestrictedSettingsFragment
         // depend on others...
         createPreferenceHierarchy();
 
+<<<<<<< HEAD
+=======
+        final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
+        if (mBiometricWeakLiveliness != null) {
+            mBiometricWeakLiveliness.setChecked(
+                    lockPatternUtils.isBiometricWeakLivelinessEnabled());
+        }
+        if (mVisiblePattern != null) {
+            mVisiblePattern.setChecked(lockPatternUtils.isVisiblePatternEnabled());
+        }
+        if (mVisibleErrorPattern != null) {
+            mVisibleErrorPattern.setChecked(lockPatternUtils.isShowErrorPath());
+        }
+        if (mVisibleDots != null) {
+            mVisibleDots.setChecked(lockPatternUtils.isVisibleDotsEnabled());
+        }
+        if (mVisibleGesture != null) {
+            mVisibleGesture.setChecked(lockPatternUtils.isVisibleGestureEnabled());
+        }
+        if (mPowerButtonInstantlyLocks != null) {
+            mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks());
+        }
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
         if (mShowPassword != null) {
             mShowPassword.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.TEXT_SHOW_PASSWORD, 1) != 0);
         }
-
         if (mResetCredentials != null) {
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
         }
+<<<<<<< HEAD
+=======
+        if (mEnableKeyguardWidgets != null) {
+            if (!lockPatternUtils.getWidgetsEnabled()) {
+                mEnableKeyguardWidgets.setSummary(R.string.disabled);
+            } else {
+                mEnableKeyguardWidgets.setSummary(R.string.enabled);
+            }
+        }
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
     }
 
     @Override
@@ -381,7 +598,58 @@ public class SecuritySettings extends RestrictedSettingsFragment
         }
         final String key = preference.getKey();
 
+<<<<<<< HEAD
         if (preference == mShowPassword) {
+=======
+        final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
+        if (KEY_UNLOCK_SET_OR_CHANGE.equals(key)) {
+            startFragment(this, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment",
+                    SET_OR_CHANGE_LOCK_METHOD_REQUEST, null);
+        } else if (KEY_BIOMETRIC_WEAK_IMPROVE_MATCHING.equals(key)) {
+            ChooseLockSettingsHelper helper =
+                    new ChooseLockSettingsHelper(this.getActivity(), this);
+            if (!helper.launchConfirmationActivity(
+                    CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST, null, null)) {
+                // If this returns false, it means no password confirmation is required, so
+                // go ahead and start improve.
+                // Note: currently a backup is required for biometric_weak so this code path
+                // can't be reached, but is here in case things change in the future
+                startBiometricWeakImprove();
+            }
+        } else if (KEY_BIOMETRIC_WEAK_LIVELINESS.equals(key)) {
+            if (isToggled(preference)) {
+                lockPatternUtils.setBiometricWeakLivelinessEnabled(true);
+            } else {
+                // In this case the user has just unchecked the checkbox, but this action requires
+                // them to confirm their password.  We need to re-check the checkbox until
+                // they've confirmed their password
+                mBiometricWeakLiveliness.setChecked(true);
+                ChooseLockSettingsHelper helper =
+                        new ChooseLockSettingsHelper(this.getActivity(), this);
+                if (!helper.launchConfirmationActivity(
+                                CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF, null, null)) {
+                    // If this returns false, it means no password confirmation is required, so
+                    // go ahead and uncheck it here.
+                    // Note: currently a backup is required for biometric_weak so this code path
+                    // can't be reached, but is here in case things change in the future
+                    lockPatternUtils.setBiometricWeakLivelinessEnabled(false);
+                    mBiometricWeakLiveliness.setChecked(false);
+                }
+            }
+        } else if (KEY_LOCK_ENABLED.equals(key)) {
+            lockPatternUtils.setLockPatternEnabled(isToggled(preference));
+        } else if (KEY_VISIBLE_PATTERN.equals(key)) {
+            lockPatternUtils.setVisiblePatternEnabled(isToggled(preference));
+        } else if (KEY_VISIBLE_ERROR_PATTERN.equals(key)) {
+            lockPatternUtils.setShowErrorPath(isToggled(preference));
+        } else if (KEY_VISIBLE_DOTS.equals(key)) {
+            lockPatternUtils.setVisibleDotsEnabled(isToggled(preference));
+        } else if (KEY_VISIBLE_GESTURE.equals(key)) {
+            lockPatternUtils.setVisibleGestureEnabled(isToggled(preference));
+        } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
+            lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
+        } else if (preference == mShowPassword) {
+>>>>>>> bde84fe... Gesture Lockscreen [2/2]
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);
         } else if (preference == mToggleAppInstallation) {
