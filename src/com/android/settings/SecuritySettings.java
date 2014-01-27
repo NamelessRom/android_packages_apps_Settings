@@ -83,7 +83,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private DialogInterface mWarnInstallApps;
     private CheckBoxPreference mToggleVerifyApps;
 
-
     // CyanogenMod Additions
     private ListPreference mSmsSecurityCheck;
     public SecuritySettings() {
@@ -195,7 +194,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
         if (root.findPreference(KEY_SIM_LOCK) != null) {
             // SIM/RUIM lock
             Preference iccLock = (Preference) root.findPreference(KEY_SIM_LOCK_SETTINGS);
- 
+
             Intent intent = new Intent();
             if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
                 intent.setClassName("com.android.settings",
@@ -364,11 +363,13 @@ public class SecuritySettings extends RestrictedSettingsFragment
         // depend on others...
         createPreferenceHierarchy();
 
+        if (mPowerButtonInstantlyLocks != null) {
+            mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks());
+        }
         if (mShowPassword != null) {
             mShowPassword.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.TEXT_SHOW_PASSWORD, 1) != 0);
         }
-
         if (mResetCredentials != null) {
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
         }
@@ -382,6 +383,54 @@ public class SecuritySettings extends RestrictedSettingsFragment
         final String key = preference.getKey();
 
         if (preference == mShowPassword) {
+        final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
+        if (KEY_UNLOCK_SET_OR_CHANGE.equals(key)) {
+            startFragment(this, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment",
+                    SET_OR_CHANGE_LOCK_METHOD_REQUEST, null);
+        } else if (KEY_BIOMETRIC_WEAK_IMPROVE_MATCHING.equals(key)) {
+            ChooseLockSettingsHelper helper =
+                    new ChooseLockSettingsHelper(this.getActivity(), this);
+            if (!helper.launchConfirmationActivity(
+                    CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST, null, null)) {
+                // If this returns false, it means no password confirmation is required, so
+                // go ahead and start improve.
+                // Note: currently a backup is required for biometric_weak so this code path
+                // can't be reached, but is here in case things change in the future
+                startBiometricWeakImprove();
+            }
+        } else if (KEY_BIOMETRIC_WEAK_LIVELINESS.equals(key)) {
+            if (isToggled(preference)) {
+                lockPatternUtils.setBiometricWeakLivelinessEnabled(true);
+            } else {
+                // In this case the user has just unchecked the checkbox, but this action requires
+                // them to confirm their password.  We need to re-check the checkbox until
+                // they've confirmed their password
+                mBiometricWeakLiveliness.setChecked(true);
+                ChooseLockSettingsHelper helper =
+                        new ChooseLockSettingsHelper(this.getActivity(), this);
+                if (!helper.launchConfirmationActivity(
+                                CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF, null, null)) {
+                    // If this returns false, it means no password confirmation is required, so
+                    // go ahead and uncheck it here.
+                    // Note: currently a backup is required for biometric_weak so this code path
+                    // can't be reached, but is here in case things change in the future
+                    lockPatternUtils.setBiometricWeakLivelinessEnabled(false);
+                    mBiometricWeakLiveliness.setChecked(false);
+                }
+            }
+        } else if (KEY_LOCK_ENABLED.equals(key)) {
+            lockPatternUtils.setLockPatternEnabled(isToggled(preference));
+        } else if (KEY_VISIBLE_PATTERN.equals(key)) {
+            lockPatternUtils.setVisiblePatternEnabled(isToggled(preference));
+        } else if (KEY_VISIBLE_ERROR_PATTERN.equals(key)) {
+            lockPatternUtils.setShowErrorPath(isToggled(preference));
+        } else if (KEY_VISIBLE_DOTS.equals(key)) {
+            lockPatternUtils.setVisibleDotsEnabled(isToggled(preference));
+        } else if (KEY_VISIBLE_GESTURE.equals(key)) {
+            lockPatternUtils.setVisibleGestureEnabled(isToggled(preference));
+        } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
+            lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
+        } else if (preference == mShowPassword) {
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);
         } else if (preference == mToggleAppInstallation) {
