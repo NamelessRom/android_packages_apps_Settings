@@ -50,7 +50,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
     private static final String KEY_CONTAINER = "container";
     private static final String KEY_TEAM = "team";
-    private static final String KEY_CONTRIBUTORS = "contributors";
     private static final String KEY_REGULATORY_INFO = "regulatory_info";
     private static final String KEY_TERMS = "terms";
     private static final String KEY_LICENSE = "license";
@@ -162,9 +161,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
         // These are contained by the root preference screen
         parentPreference = getPreferenceScreen();
-
-        Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference, KEY_CONTRIBUTORS,
-                Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
 
         // Read platform settings for additional system update setting
         removePreferenceIfBoolFalse(KEY_UPDATE_SETTING,

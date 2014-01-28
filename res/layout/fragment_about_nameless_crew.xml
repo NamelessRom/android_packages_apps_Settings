@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aokp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView">
+
+    <LinearLayout style="@style/settingsFragmentStyle">
+
+        <com.android.settings.nameless.widgets.DeveloperPreference
+            android:title="Alexander"
+            aokp:nameDev="Evisceration"
+            aokp:githubLink="@string/github_evisceration"
+            aokp:emailDev="eviscerationls@gmail.com"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.android.settings.nameless.widgets.DeveloperPreference
+            android:title="Jake"
+            aokp:nameDev="jakew02"
+            aokp:githubLink="@string/github_jakew02"
+            aokp:emailDev="jacob.whatley91@gmail.com"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.android.settings.nameless.widgets.DeveloperPreference
+            android:title="Kilian"
+            aokp:nameDev="jumoog"
+            aokp:githubLink="@string/github_jumoog"
+            aokp:emailDev="frogfire.tl@gmail.com"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

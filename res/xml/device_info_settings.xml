@@ -79,13 +79,11 @@
         </PreferenceScreen>
 
         <!-- Contributors -->
-        <!-- 
         <PreferenceScreen
+                android:fragment="com.android.settings.nameless.about.AboutCrewFragment"
                 android:key="contributors"
                 android:title="@string/contributors_title">
-            <intent android:action="android.settings.TEAM" />
         </PreferenceScreen>
-        -->
 
         <PreferenceScreen
                 android:key="regulatory_info"
