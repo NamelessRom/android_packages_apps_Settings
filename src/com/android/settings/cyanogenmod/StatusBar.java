@@ -17,6 +17,10 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -29,9 +33,14 @@ import android.provider.Settings.SettingNotFoundException;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String STATUS_BAR_AM_PM_STYLE = "status_bar_am_pm_style";
+    private static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
+    private static final String STATUSBAR_CLOCK_WEEKDAY = "statusbar_clock_weekday";
+    private static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color";
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String STATUS_BAR_BATTERY_SHOW_PERCENT
             = "status_bar_battery_show_percent";
@@ -43,6 +52,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
+    private ListPreference mStatusBarAmPm;
+    private ListPreference mStatusBarClockStyle;
+    private ListPreference mStatusBarWeekday;
+    private ColorPickerPreference mStatusBarClockColor;
     private ListPreference mStatusBarBattery;
     private CheckBoxPreference mStatusBarBatteryShowPercent;
 
@@ -63,6 +76,56 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBatteryShowPercent =
                 (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
+
+        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM_STYLE);
+        int statusBarAmPm = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_AM_PM_STYLE, 2);
+
+        mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
+        mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
+        mStatusBarAmPm.setOnPreferenceChangeListener(this);
+
+        mStatusBarClockStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
+        int StatusBarClockStyle = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_STYLE, 2);
+
+        mStatusBarClockStyle.setValue(String.valueOf(StatusBarClockStyle));
+        mStatusBarClockStyle.setSummary(mStatusBarAmPm.getEntry());
+        mStatusBarClockStyle.setOnPreferenceChangeListener(this);
+
+        mStatusBarWeekday = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_WEEKDAY);
+        int StatusBarWeekday = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_WEEKDAY, 2);
+
+        mStatusBarWeekday.setValue(String.valueOf(StatusBarWeekday));
+        mStatusBarWeekday.setSummary(mStatusBarWeekday.getEntry());
+        mStatusBarWeekday.setOnPreferenceChangeListener(this);
+
+        PackageManager pm = getPackageManager();
+        Resources systemUiResources;
+        try {
+            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
+        } catch (Exception e) {
+            Log.e(TAG, "can't access systemui resources",e);
+            return null;
+        }
+
+        int intColor;
+        String hexColor;
+
+        mStatusBarClockColor = (ColorPickerPreference) findPreference(PREF_QUICK_TILES_BG_COLOR);
+        mStatusBarClockColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_COLOR, -2);
+        if (intColor == -2) {
+            intColor = systemUiResources.getColor(systemUiResources.getIdentifier(
+                    "com.android.systemui:color/statusbar_clock_color", null, null));
+            mStatusBarClockColor.setSummary(getResources().getString(R.string.default_string));
+        } else {
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mStatusBarClockColor.setSummary(hexColor);
+        }
+        mStatusBarClockColor.setNewPreviewColor(intColor);
 
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
@@ -126,6 +189,33 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
+            return true;
+        } else if (mStatusBarAmPm != null && preference == mStatusBarAmPm) {
+            int statusBarAmPm = Integer.valueOf((String) newValue);
+            int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AM_PM_STYLE, statusBarAmPm);
+            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
+            return true;
+        } else if (mStatusBarClockStyle != null && preference == mStatusBarClockStyle) {
+            int StatusBarClockStyle = Integer.valueOf((String) newValue);
+            int index = mStatusBarClockStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CLOCK_STYLE, StatusBarClockStyle);
+            mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
+            return true;
+        } else if (mStatusBarWeekday != null && preference == mStatusBarWeekday) {
+            int StatusBarWeekday = Integer.valueOf((String) newValue);
+            int index = mStatusBarWeekday.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CLOCK_WEEKDAY, StatusBarWeekday);
+            mStatusBarWeekday.setSummary(mStatusBarWeekday.getEntries()[index]);
+            return true;
+        } else if (preference == mStatusBarClockColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_COLOR,
+                    intHex);
             return true;
         } else if (preference == mStatusBarNetworkActivity) {
             boolean value = (Boolean) newValue;
