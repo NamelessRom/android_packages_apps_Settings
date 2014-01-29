@@ -26,6 +26,14 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
+        <!-- Advanced Device Info -->
+        <PreferenceScreen
+                android:fragment="com.android.settings.nameless.AdvancedDeviceInfoSettings"
+                android:key="advanced_device_info"
+                android:title="@string/advanced_device_info_title"
+                android:summary="@string/advanced_device_info_summary">
+        </PreferenceScreen>
+
         <!-- Change Log -->
         <!--PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"
@@ -96,18 +104,6 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/model_number"
                 android:summary="@string/device_info_default"/>
-                
-        <!-- Device firmware version -->
-        <Preference android:key="firmware_version" 
-                style="?android:preferenceInformationStyle"
-                android:title="@string/firmware_version"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Mod version -->
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/nameless_mod_version"
-                android:summary="@string/mod_version_default" />
 
         <!-- Device FCC equipment id -->
         <Preference android:key="fcc_equipment_id"
@@ -120,24 +116,18 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/baseband_version"
                 android:summary="@string/device_info_default"/>
-        
-        <!-- Device Kernel version -->
-        <Preference android:key="kernel_version" 
+
+        <!-- Device firmware version -->
+        <Preference android:key="firmware_version"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/kernel_version"
+                android:title="@string/firmware_version"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Device cpu info -->
-        <Preference android:key="device_cpu"
+        <!-- Mod version -->
+        <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/cpu_info"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Device mem info -->
-        <Preference android:key="device_memory"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mem_info"
-                android:summary="@string/device_info_default"/>
+                android:title="@string/nameless_mod_version"
+                android:summary="@string/mod_version_default" />
 
         <!-- Mod build date -->
         <Preference android:key="build_date"

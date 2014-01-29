@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-     Copyright (C) 2013 The NamelessROM Project
+     Copyright (C) 2013 - 2014 The NamelessROM Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -270,5 +270,11 @@
     <string name="notification_custom_carrier_label_title">Custom carrier label</string>
     <string name="notification_custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
     <string name="notification_custom_carrier_label_notset">Custom label currently not set</string>
+
+    <!-- Advanced Device Info -->
+    <string name="advanced_device_info_title">Advanced Device Info</string>
+    <string name="advanced_device_info_summary">Information about CPU, GPU etc.</string>
+    <!-- CPU -->
+    <string name="cpu_features">Processor features</string>
 
 </resources>

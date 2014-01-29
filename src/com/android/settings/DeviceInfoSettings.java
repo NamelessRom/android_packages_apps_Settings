@@ -43,10 +43,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
     private static final String LOG_TAG = "DeviceInfoSettings";
 
-    private static final String FILENAME_PROC_VERSION = "/proc/version";
     private static final String FILENAME_MSV = "/sys/board_properties/soc/msv";
-    private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
-    private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
 
     private static final String KEY_CONTAINER = "container";
     private static final String KEY_TEAM = "team";
@@ -54,10 +51,8 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_TERMS = "terms";
     private static final String KEY_LICENSE = "license";
     private static final String KEY_COPYRIGHT = "copyright";
-    private static final String KEY_SYSTEM_UPDATE_SETTINGS = "system_update_settings";
     private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
-    private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
     private static final String KEY_DEVICE_MODEL = "device_model";
     private static final String KEY_SELINUX_STATUS = "selinux_status";
@@ -68,8 +63,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_MOD_VERSION = "mod_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_DEVICE_MEMORY = "device_memory";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     long[] mHits = new long[3];
@@ -98,7 +91,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
-        findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_MOD_VERSION, "ro.nameless.version");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
@@ -114,21 +106,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         // Remove selinux information if property is not present
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
-
-        String cpuInfo = getCPUInfo();
-        String memInfo = getMemInfo();
-
-        if (cpuInfo != null) {
-            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
-        }
-
-        if (memInfo != null) {
-            setStringSummary(KEY_DEVICE_MEMORY, memInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
-        }
 
         // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
         removePreferenceIfPropertyMissing(getPreferenceScreen(), "safetylegal",
@@ -290,47 +267,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         }
     }
 
-    public static String getFormattedKernelVersion() {
-        try {
-            return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
-
-        } catch (IOException e) {
-            Log.e(LOG_TAG,
-                "IO Exception when getting kernel version for Device Info screen",
-                e);
-
-            return "Unavailable";
-        }
-    }
-
-    public static String formatKernelVersion(String rawKernelVersion) {
-        // Example (see tests for more):
-        // Linux version 3.0.31-g6fb96c9 (android-build@xxx.xxx.xxx.xxx.com) \
-        //     (gcc version 4.6.x-xxx 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT \
-        //     Thu Jun 28 11:02:39 PDT 2012
-
-        final String PROC_VERSION_REGEX =
-            "Linux version (\\S+) " + /* group 1: "3.0.31-g6fb96c9" */
-            "\\((\\S+?)\\) " +        /* group 2: "x@y.com" (kernel builder) */
-            "(?:\\(gcc.+? \\)) " +    /* ignore: GCC version information */
-            "(#\\d+) " +              /* group 3: "#1" */
-            "(?:.*?)?" +              /* ignore: optional SMP, PREEMPT, and any CONFIG_FLAGS */
-            "((Sun|Mon|Tue|Wed|Thu|Fri|Sat).+)"; /* group 4: "Thu Jun 28 11:02:39 PDT 2012" */
-
-        Matcher m = Pattern.compile(PROC_VERSION_REGEX).matcher(rawKernelVersion);
-        if (!m.matches()) {
-            Log.e(LOG_TAG, "Regex did not match on /proc/version: " + rawKernelVersion);
-            return "Unavailable";
-        } else if (m.groupCount() < 4) {
-            Log.e(LOG_TAG, "Regex match on /proc/version only returned " + m.groupCount()
-                    + " groups");
-            return "Unavailable";
-        }
-        return m.group(1) + "\n" +                 // 3.0.31-g6fb96c9
-            m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
-            m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
-    }
-
     /**
      * Returns " (ENGINEERING)" if the msv file has a zero value, else returns "".
      * @return a string to append to the model number description.
@@ -350,63 +286,5 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
             // Fail quietly, returning empty string should be sufficient
         }
         return "";
-    }
-
-    private String getMemInfo() {
-        String result = null;
-        BufferedReader reader = null;
-
-        try {
-            /* /proc/meminfo entries follow this format:
-             * MemTotal:         362096 kB
-             * MemFree:           29144 kB
-             * Buffers:            5236 kB
-             * Cached:            81652 kB
-             */
-            String firstLine = readLine(FILENAME_PROC_MEMINFO);
-            if (firstLine != null) {
-                String parts[] = firstLine.split("\\s+");
-                if (parts.length == 3) {
-                    result = Long.parseLong(parts[1])/1024 + " MB";
-                }
-            }
-        } catch (IOException e) {}
-
-        return result;
-    }
-
-    private String getCPUInfo() {
-        String result = null;
-
-        try {
-            /* The expected /proc/cpuinfo output is as follows:
-             * Processor	: ARMv7 Processor rev 2 (v7l)
-             * BogoMIPS	: 272.62
-             */
-            String firstLine = readLine(FILENAME_PROC_CPUINFO);
-            if (firstLine != null) {
-                result = firstLine.split(":")[1].trim();
-            }
-        } catch (IOException e) {}
-
-        return result;
-    }
-
-    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
-        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
-        Pattern pattern = Pattern.compile("component=([^/]+)/");
-        Matcher matcher = pattern.matcher(intentUri);
-
-        String packageName=matcher.find()?matcher.group(1):null;
-        if(packageName != null) {
-            try {
-                getPackageManager().getPackageInfo(packageName, 0);
-            } catch (NameNotFoundException e) {
-                Log.e(LOG_TAG,"package "+packageName+" not installed, hiding preference.");
-                getPreferenceScreen().removePreference(preference);
-                return true;
-            }
-        }
-        return false;
     }
 }
