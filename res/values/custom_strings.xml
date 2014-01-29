@@ -275,6 +275,13 @@
     <string name="advanced_device_info_title">Advanced Device Info</string>
     <string name="advanced_device_info_summary">Information about CPU, GPU etc.</string>
     <!-- CPU -->
-    <string name="cpu_features">Processor features</string>
+    <string name="cpu_features">Processor Features</string>
+    <!-- GPU -->
+    <string name="gpu_title">GPU / OpenGl</string>
+    <string name="gpu_vendor">GPU Vendor</string>
+    <string name="gpu_renderer">GPU Renderer</string>
+    <string name="gpu_gl_version">OpenGl Version</string>
+    <string name="gpu_gl_extensions">OpenGl Extensions</string>
+    <string name="gpu_shader_version">Shader Version</string>
 
 </resources>

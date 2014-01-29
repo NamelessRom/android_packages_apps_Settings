@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Modifications (C) 2014 The NamelessRom Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,33 +17,29 @@
 
 package com.android.settings.nameless;
 
-import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.Build;
+import android.content.pm.ConfigurationInfo;
 import android.os.Bundle;
-import android.os.SELinux;
-import android.os.SystemClock;
 import android.os.SystemProperties;
-import android.os.UserHandle;
-import android.preference.Preference;
 import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
-import android.provider.Settings;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.android.settings.DevelopmentSettings;
 import com.android.settings.R;
 import com.android.settings.RestrictedSettingsFragment;
-import com.android.settings.Utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static android.opengl.GLES20.GL_EXTENSIONS;
+import static android.opengl.GLES20.GL_RENDERER;
+import static android.opengl.GLES20.GL_SHADING_LANGUAGE_VERSION;
+import static android.opengl.GLES20.GL_VENDOR;
+import static android.opengl.GLES20.GL_VERSION;
+import static android.opengl.GLES20.glGetString;
 
 public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
 
@@ -56,6 +53,13 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_CPU_FEATURES = "device_cpu_features";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
+
+    private static final String KEY_DEVICE_GPU_GROUP = "device_gpu";
+    private static final String KEY_DEVICE_GPU_VENDOR = "device_gpu_vendor";
+    private static final String KEY_DEVICE_GPU_RENDERER = "device_gpu_renderer";
+    private static final String KEY_DEVICE_GPU_GL_VERSION = "device_gpu_gl_version";
+    private static final String KEY_DEVICE_GPU_GL_EXTENSIONS = "device_gpu_gl_extensions";
+    private static final String KEY_DEVICE_GPU_SHADER_VERSION = "device_gpu_shader_version";
 
     public AdvancedDeviceInfoSettings() {
         super(null /* Don't PIN protect the entire screen */);
@@ -89,6 +93,49 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
             setStringSummary(KEY_DEVICE_MEMORY, memInfo);
         } else {
             getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
+        }
+
+        final boolean supportsOpenGles20 = supportsOpenGLES20();
+        final PreferenceGroup gpuGroup = (PreferenceGroup) findPreference(KEY_DEVICE_GPU_GROUP);
+
+        if (supportsOpenGles20) {
+            final String gpuVendor = glGetString(GL_VENDOR);
+            final String gpuName = glGetString(GL_RENDERER);
+            final String gpuGlVersion = glGetString(GL_VERSION);
+            final String gpuGlExtensions = glGetString(GL_EXTENSIONS);
+            final String gpuGlShaderVersion = glGetString(GL_SHADING_LANGUAGE_VERSION);
+
+            if (gpuVendor != null && !gpuVendor.isEmpty()) {
+                setStringSummary(KEY_DEVICE_GPU_VENDOR, gpuVendor);
+            } else {
+                gpuGroup.removePreference(gpuGroup.findPreference(KEY_DEVICE_GPU_VENDOR));
+            }
+
+            if (gpuName != null && !gpuName.isEmpty()) {
+                setStringSummary(KEY_DEVICE_GPU_RENDERER, gpuName);
+            } else {
+                gpuGroup.removePreference(gpuGroup.findPreference(KEY_DEVICE_GPU_RENDERER));
+            }
+
+            if (gpuGlVersion != null && !gpuGlVersion.isEmpty()) {
+                setStringSummary(KEY_DEVICE_GPU_GL_VERSION, gpuGlVersion);
+            } else {
+                gpuGroup.removePreference(gpuGroup.findPreference(KEY_DEVICE_GPU_GL_VERSION));
+            }
+
+            if (gpuGlExtensions != null && !gpuGlExtensions.isEmpty()) {
+                setStringSummary(KEY_DEVICE_GPU_GL_EXTENSIONS, gpuGlExtensions);
+            } else {
+                gpuGroup.removePreference(gpuGroup.findPreference(KEY_DEVICE_GPU_GL_EXTENSIONS));
+            }
+
+            if (gpuGlShaderVersion != null && !gpuGlShaderVersion.isEmpty()) {
+                setStringSummary(KEY_DEVICE_GPU_SHADER_VERSION, gpuGlShaderVersion);
+            } else {
+                gpuGroup.removePreference(gpuGroup.findPreference(KEY_DEVICE_GPU_SHADER_VERSION));
+            }
+        } else {
+            getPreferenceScreen().removePreference(gpuGroup);
         }
 
     }
@@ -228,5 +275,11 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
         } catch (IOException exc) {
             return null;
         }
+    }
+
+    private boolean supportsOpenGLES20() {
+        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        ConfigurationInfo info = am.getDeviceConfigurationInfo();
+        return (info.reqGlEsVersion >= 0x20000);
     }
 }
