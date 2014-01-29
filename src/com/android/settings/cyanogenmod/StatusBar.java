@@ -32,7 +32,9 @@ import com.android.settings.Utils;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
+    private static final String STATUS_BAR_AM_PM_STYLE = "status_bar_am_pm_style";
+    private static final String STATUS_BAR_CLOCK_STYLE = "statusbar_clock_style";
+    private static final String STATUS_BAR_CLOCK_WEEKDAY = "statusbar_clock_weekday";
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String STATUS_BAR_BATTERY_SHOW_PERCENT
             = "status_bar_battery_show_percent";
@@ -45,6 +47,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
     private ListPreference mStatusBarAmPm;
+    private ListPreference mStatusBarClockStyle;
+    private ListPreference mStatusBarWeekday;
     private ListPreference mStatusBarBattery;
     private CheckBoxPreference mStatusBarBatteryShowPercent;
 
@@ -66,14 +70,29 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
 
-        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
+        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM_STYLE);
         int statusBarAmPm = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_AM_PM, 2);
+                Settings.System.STATUS_BAR_AM_PM_STYLE, 2);
 
         mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
         mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
         mStatusBarAmPm.setOnPreferenceChangeListener(this);
 
+        mStatusBarClockStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
+        int StatusBarClockStyle = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_STYLE, 2);
+
+        mStatusBarClockStyle.setValue(String.valueOf(StatusBarClockStyle));
+        mStatusBarClockStyle.setSummary(mStatusBarAmPm.getEntry());
+        mStatusBarClockStyle.setOnPreferenceChangeListener(this);
+
+        mStatusBarWeekday = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_WEEKDAY);
+        int StatusBarWeekday = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_WEEKDAY, 2);
+
+        mStatusBarWeekday.setValue(String.valueOf(StatusBarWeekday));
+        mStatusBarWeekday.setSummary(mStatusBarWeekday.getEntry());
+        mStatusBarWeekday.setOnPreferenceChangeListener(this);
 
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
@@ -141,8 +160,20 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         } else if (mStatusBarAmPm != null && preference == mStatusBarAmPm) {
             int statusBarAmPm = Integer.valueOf((String) newValue);
             int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AM_PM_STYLE, statusBarAmPm);
             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
+            return true;
+        } else if (mStatusBarClockStyle != null && preference == mStatusBarClockStyle) {
+            int StatusBarClockStyle = Integer.valueOf((String) newValue);
+            int index = mStatusBarClockStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CLOCK_STYLE, StatusBarClockStyle);
+            mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
+            return true;
+        } else if (mStatusBarWeekday != null && preference == mStatusBarWeekday) {
+            int StatusBarWeekday = Integer.valueOf((String) newValue);
+            int index = mStatusBarWeekday.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CLOCK_WEEKDAY, StatusBarWeekday);
+            mStatusBarWeekday.setSummary(mStatusBarWeekday.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarNetworkActivity) {
             boolean value = (Boolean) newValue;
