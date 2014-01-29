@@ -32,6 +32,7 @@ import com.android.settings.Utils;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String STATUS_BAR_BATTERY_SHOW_PERCENT
             = "status_bar_battery_show_percent";
@@ -43,6 +44,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
+    private ListPreference mStatusBarClockStyle;
     private ListPreference mStatusBarBattery;
     private CheckBoxPreference mStatusBarBatteryShowPercent;
 
@@ -58,6 +60,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+        mStatusBarClockStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_STYLE);
+        int StatusBarClockStyle = Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_CLOCK_STYLE, 2);
+
+        mStatusBarClockStyle.setValue(String.valueOf(StatusBarClockStyle));
+        mStatusBarClockStyle.setSummary(mStatusBarAmPm.getEntry());
+        mStatusBarClockStyle.setOnPreferenceChangeListener(this);
 
         mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
         mStatusBarBatteryShowPercent =
@@ -131,6 +141,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_NETWORK_ACTIVITY, value ? 1 : 0);
+            return true;
+        } else if (mStatusBarClockStyle != null && preference == mStatusBarClockStyle) {
+            int StatusBarClockStyle = Integer.valueOf((String) newValue);
+            int index = mStatusBarClockStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CLOCK_STYLE, StatusBarClockStyle);
+            mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarTraffic) {
             // Increment the state and then update the label
