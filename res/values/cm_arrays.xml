@@ -527,4 +527,16 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+   <!-- clock stuff -->
+    <string-array name="statusbar_clock_styleEntries" translatable="false">
+        <item>@string/right_clock</item>
+        <item>@string/center_clock</item>
+        <item>@string/no_clock</item>
+    </string-array>
+    <string-array name="statusbar_clock_styleValues" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
 </resources>

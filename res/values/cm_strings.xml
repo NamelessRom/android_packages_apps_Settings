@@ -938,4 +938,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="settings_cmlicense_activity_title">CyanogenMod Legal</string>
     <string name="settings_cmlicense_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
 
+    <!-- Clock Stuff-->
+    <string name="category_statusbar_clock">Clock</string>
+    <string name="statusbar_clock_style_title">Clock style</string>
+    <string name="statusbar_clock_style_summary">Clock position in status bar</string>
+    <string name="right_clock">Right clock</string>
+    <string name="center_clock">Center clock</string>
+    <string name="no_clock">No clock</string>
+
 </resources>
