@@ -4,7 +4,7 @@
     <RelativeLayout
             android:id="@+id/image_here"
             android:layout_width="wrap_content"
-            android:layout_height="150dip"
+            android:layout_height="300dip"
             android:paddingTop="8dip"
             android:gravity="center_vertical"
             android:orientation="vertical">
@@ -12,7 +12,7 @@
         <ImageView
                 android:id="@+id/photo"
                 android:layout_width="match_parent"
-                android:layout_height="150dip"
+                android:layout_height="300dip"
                 android:scaleType="centerCrop"/>
 
         <View
