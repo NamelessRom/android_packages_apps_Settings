@@ -27,6 +27,7 @@ import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.RestrictedSettingsFragment;
+import com.android.settings.nameless.utils.Helpers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -95,7 +96,7 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
             getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
         }
 
-        final boolean supportsOpenGles20 = supportsOpenGLES20();
+        final boolean supportsOpenGles20 = Helpers.supportsOpenGLES20(mContext);
         final PreferenceGroup gpuGroup = (PreferenceGroup) findPreference(KEY_DEVICE_GPU_GROUP);
 
         if (supportsOpenGles20) {
@@ -275,11 +276,5 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
         } catch (IOException exc) {
             return null;
         }
-    }
-
-    private boolean supportsOpenGLES20() {
-        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        ConfigurationInfo info = am.getDeviceConfigurationInfo();
-        return (info.reqGlEsVersion >= 0x20000);
     }
 }
