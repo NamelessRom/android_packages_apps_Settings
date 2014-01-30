@@ -17,11 +17,7 @@
 
 package com.android.settings.nameless;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.pm.ConfigurationInfo;
 import android.os.Bundle;
-import android.os.SystemProperties;
 import android.preference.PreferenceGroup;
 import android.util.Log;
 
@@ -138,7 +134,6 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
         } else {
             getPreferenceScreen().removePreference(gpuGroup);
         }
-
     }
 
     private void setStringSummary(String preference, String value) {
@@ -147,16 +142,6 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
         } catch (RuntimeException e) {
             findPreference(preference).setSummary(
                     getResources().getString(R.string.device_info_default));
-        }
-    }
-
-    private void setValueSummary(String preference, String property) {
-        try {
-            findPreference(preference).setSummary(
-                    SystemProperties.get(property,
-                            getResources().getString(R.string.device_info_default)));
-        } catch (RuntimeException e) {
-            // No recovery
         }
     }
 
