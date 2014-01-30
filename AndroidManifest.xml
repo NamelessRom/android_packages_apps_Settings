@@ -1720,6 +1720,8 @@
                 android:resource="@id/interface_animation" />
         </activity>
 
+        <activity android:name=".nameless.eggs.EasterEgg1" />
+
         <!-- PerformanceControl activities -->
         <activity android:name="com.brewcrewfoo.performance.activities.MainActivity"/>
         <activity android:name="com.brewcrewfoo.performance.activities.PCSettings"/>

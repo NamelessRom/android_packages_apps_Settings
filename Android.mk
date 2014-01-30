@@ -11,7 +11,8 @@ LOCAL_SRC_FILES := \
         src/com/android/settings/EventLogTags.logtags \
         $(call all-java-files-under, ../PerformanceControl/src) \
         $(call all-java-files-under,../../../external/koush/Superuser/Superuser/src) \
-        $(call all-java-files-under,../../../external/koush/Widgets/Widgets/src)
+        $(call all-java-files-under,../../../external/koush/Widgets/Widgets/src) \
+        $(call all-renderscript-files-under, rs)
 
 LOCAL_RESOURCE_DIR := \
         $(LOCAL_PATH)/res \
