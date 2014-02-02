@@ -85,6 +85,8 @@ public class SoundPackageSettings extends SettingsPreferenceFragment implements
             mInstallSoundPack.setEntryValues(packs);
             mInstallSoundPack.setEnabled(true);
         } else {
+            mInstallSoundPack.setSummary(
+                    getString(R.string.install_sound_pack_summary_disabled, SOUND_PACKS_LOCATION));
             mInstallSoundPack.setEnabled(false);
         }
 
@@ -172,6 +174,14 @@ public class SoundPackageSettings extends SettingsPreferenceFragment implements
         File packsDir = new File(SOUND_PACKS_LOCATION);
 
         Log.d(TAG, "Looking for sound packs in " + SOUND_PACKS_LOCATION);
+
+        if (!packsDir.exists()) {
+            final int msgId = packsDir.mkdirs()
+                    ? R.string.sound_pack_folder_created_success
+                    : R.string.sound_pack_folder_created_failure;
+            Toast.makeText(getActivity(), getString(msgId, SOUND_PACKS_LOCATION), Toast.LENGTH_LONG)
+                    .show();
+        }
 
         // Get all ZIP files in our soundpack install location
         File[] availPacks = packsDir.listFiles(new FilenameFilter() {
