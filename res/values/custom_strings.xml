@@ -287,10 +287,13 @@
     <!-- Sound themes -->
     <string name="sound_packages_title">Sound packs</string>
     <string name="install_sound_pack_title">Install sound pack</string>
-    <string name="install_sound_pack_summary">Install new sound packs added in SoundPacks folder on the internal storage</string>
+    <string name="install_sound_pack_summary">Install new sound packs added in \"SoundPacks\" folder on the internal storage</string>
+    <string name="install_sound_pack_summary_disabled">No installable sound packs found!\nPlease put your sound packs in %s and try again!</string>
     <string name="select_sound_pack_title">Select sound pack</string>
     <string name="select_sound_pack_summary">Select the active sound pack</string>
     <string name="default_sound_pack">Default (System)</string>
     <string name="error_pack_install">Error while installing the sound pack</string>
+    <string name="sound_pack_folder_created_success">Created %s to place your sound packs in!</string>
+    <string name="sound_pack_folder_created_failure">Error creating %s!</string>
 
 </resources>
