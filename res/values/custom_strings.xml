@@ -287,7 +287,7 @@
     <!-- Sound themes -->
     <string name="sound_packages_title">Sound packs</string>
     <string name="install_sound_pack_title">Install sound pack</string>
-    <string name="install_sound_pack_summary">Install new sound packs added in \"SoundPacks\" folder on the internal storage</string>
+    <string name="install_sound_pack_summary">Install new sound packs added in \"Nameless/SoundPacks\" folder on the internal storage</string>
     <string name="install_sound_pack_summary_disabled">No installable sound packs found!\nPlease put your sound packs in \n%s and try again!</string>
     <string name="select_sound_pack_title">Select sound pack</string>
     <string name="select_sound_pack_summary">Select the active sound pack</string>

@@ -51,7 +51,7 @@ public class SoundPackageSettings extends SettingsPreferenceFragment implements
     private static final String SELECT_SOUND_PACK = "select_sound_pack";
 
     private static final String SOUND_PACKS_LOCATION = Environment
-            .getExternalStorageDirectory().getAbsolutePath() + "/SoundPacks/";
+            .getExternalStorageDirectory().getAbsolutePath() + "/Nameless/SoundPacks/";
     private static final String INSTALLED_PACKS_LOCATION = "/data/system/soundpacks/";
 
     private ListPreference mInstallSoundPack;
