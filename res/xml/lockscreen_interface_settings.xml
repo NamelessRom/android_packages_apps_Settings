@@ -42,12 +42,16 @@
             android:title="@string/battery_around_lockscreen_ring"
             android:defaultValue="true" />
 
-	<CheckBoxPreference
+        <CheckBoxPreference
             android:key="see_through"
             android:title="@string/see_through_title"
             android:summary="@string/see_through_summary" />
 
     </PreferenceCategory>
+
+    <PreferenceScreen
+        android:title="@string/lockscreen_notifications"
+        android:fragment="com.android.settings.LockscreenNotifications" />
 
     <PreferenceCategory
         android:title="@string/lockscreen_widgets_category_title"
