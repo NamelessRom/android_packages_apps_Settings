@@ -33,34 +33,27 @@
 
     <PreferenceCategory
         android:key="category_recent_panel"
-        android:title="@string/system_ui_recent_panel_title" />
+        android:title="@string/system_ui_recent_panel_title">
 
-    <com.android.settings.nameless.SystemSettingCheckBoxPreference
-        android:key="ram_usage_bar"
-        android:title="@string/ram_bar_title"
-        android:summary="@string/ram_bar_summary"
-        android:defaultValue="true" />
+        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+            android:key="ram_usage_bar"
+            android:title="@string/ram_bar_title"
+            android:summary="@string/ram_bar_summary"
+            android:defaultValue="true" />
 
-    <com.android.settings.nameless.SystemSettingCheckBoxPreference
-        android:key="ram_usage_bar_cached"
-        android:title="@string/ram_bar_cached_title"
-        android:summary="@string/ram_bar_cached_summary"
-        android:dependency="ram_usage_bar"
-        android:defaultValue="false" />
+        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+            android:key="ram_usage_bar_cached"
+            android:title="@string/ram_bar_cached_title"
+            android:summary="@string/ram_bar_cached_summary"
+            android:dependency="ram_usage_bar"
+            android:defaultValue="false" />
 
-    <com.android.settings.nameless.SystemSettingCheckBoxPreference
-        android:key="clear_recents_button"
-        android:title="@string/show_recent_clear_all_button_title"
-        android:summary="@string/show_recent_clear_all_button_summary"
-        android:defaultValue="true" />
+        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+            android:key="show_recents_bottom_bar"
+            android:title="@string/show_recent_clear_all_button_title"
+            android:summary="@string/show_recent_clear_all_button_summary"
+            android:defaultValue="true" />
 
-    <ListPreference
-        android:key="clear_recents_button_location"
-        android:title="@string/recent_clear_all_button_location_title"
-        android:summary="@string/recent_clear_all_button_location_summary"
-        android:entries="@array/recent_clear_all_button_location_entries"
-        android:entryValues="@array/recent_clear_all_button_location_values"
-        android:defaultValue="2"
-        android:dependency="clear_recents_button" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
