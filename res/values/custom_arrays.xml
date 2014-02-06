@@ -207,4 +207,18 @@
         <item>1</item>
     </string-array>
 
+    <string-array name="lockscreen_hide_statusbar_entries">
+        <item>@string/lockscreen_hide_statusbar_show_all</item>
+        <item>@string/lockscreen_hide_statusbar_hide_stat</item>
+        <item>@string/lockscreen_hide_statusbar_hide_nav</item>
+        <item>@string/lockscreen_hide_statusbar_hide_all</item>
+    </string-array>
+
+    <string-array name="lockscreen_hide_statusbar_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 </resources>

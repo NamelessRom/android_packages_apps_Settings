@@ -298,4 +298,12 @@
     <string name="sound_pack_folder_created_success">Created %s to place your sound packs in!</string>
     <string name="sound_pack_folder_created_failure">Error creating %s!</string>
 
+    <string name="lockscreen_hide_statusbar_title">Hide statusbar</string>
+    <string name="lockscreen_hide_statusbar_summary">Allows to hide the status and/or navigation bar</string>
+    <string name="lockscreen_hide_statusbar_show_all">Show all</string>
+    <string name="lockscreen_hide_statusbar_hide_stat">Hide statusbar</string>
+    <string name="lockscreen_hide_statusbar_hide_nav">Hide navigationbar</string>
+    <string name="lockscreen_hide_statusbar_hide_all">Hide all</string>
+
+
 </resources>
