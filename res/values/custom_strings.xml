@@ -79,4 +79,8 @@
     <!-- Anonymous statistics -->
     <string name="anonymous_statistics_title_n">NamelessRom statistics</string>
     <string name="anonymous_statistics_summary_n">Help make NamelessRom better by opting into anonymous statistics reporting</string>
+
+    <!-- Privacy guard notification -->
+    <string name="privacy_guard_notification_title">Notification</string>
+    <string name="privacy_guard_notification_summary">Show notification if privacy guard is active.</string>
 </resources>
