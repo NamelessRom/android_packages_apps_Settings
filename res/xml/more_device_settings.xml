@@ -71,6 +71,12 @@
             android:title="@string/wakelock_blocker"
             android:fragment="com.android.settings.du.WakeLockBlocker" />
 
+         <PreferenceScreen
+            android:id="@+id/system_app_remover"
+            android:title="@string/system_app_remover"
+            android:layout="@layout/preference_systemappremover"
+            android:fragment="com.android.settings.du.SystemappRemover" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
