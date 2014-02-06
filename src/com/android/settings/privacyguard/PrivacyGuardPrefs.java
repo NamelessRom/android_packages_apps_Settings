@@ -54,6 +54,7 @@ public class PrivacyGuardPrefs extends SettingsPreferenceFragment implements
 
         mPrivacyGuardDefault.setChecked(Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.PRIVACY_GUARD_DEFAULT, 0) == 1);
+
     }
 
     @Override
