@@ -216,6 +216,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(backlight);
         }
 
+        final boolean hasNavigationBar
+                = res.getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+        if (hasNavigationBar) { // only disable on devices with REAL navigation bars
+            prefScreen.removePreference(findPreference("navbar_force_enable"));
+        }
+
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
     }
