@@ -19,14 +19,10 @@ package com.android.settings.cyanogenmod;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.RemoteException;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.util.Log;
-import android.view.ViewConfiguration;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -34,24 +30,17 @@ import com.android.settings.Utils;
 
 public class SystemUiSettings extends SettingsPreferenceFragment  implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "SystemSettings";
 
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
-    private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
-    private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
 
     private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEY_NAVIGATION_BAR_WIDTH = "navigation_bar_width";
 
     private ListPreference mExpandedDesktopPref;
-    private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
     ListPreference mNavigationBarHeight;
-    ListPreference mNavigationBarHeightLandscape;
     ListPreference mNavigationBarWidth;
-
-    private ContentResolver resolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,12 +48,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
 
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
-        resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getContentResolver();
 
         // Expanded desktop
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
-        mExpandedDesktopNoNavbarPref =
-                (CheckBoxPreference) findPreference(KEY_EXPANDED_DESKTOP_NO_NAVBAR);
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_SCREEN_GESTURE_SETTINGS);
@@ -72,51 +59,46 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         int expandedDesktopValue = Settings.System.getInt(resolver,
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
 
-        // Allows us to support devices, which have the navigation bar force enabled.
-        boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
+        mExpandedDesktopPref.setOnPreferenceChangeListener(this);
+        mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
+        updateExpandedDesktop(expandedDesktopValue);
 
-        if (hasNavBar) {
-            mExpandedDesktopPref.setOnPreferenceChangeListener(this);
-            mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
-            updateExpandedDesktop(expandedDesktopValue);
-            prefScreen.removePreference(mExpandedDesktopNoNavbarPref);
-
-            mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
-            String navbarHeight = Settings.System.getString(resolver,
-                    Settings.System.NAVIGATION_BAR_HEIGHT);
-            navbarHeight = mapChosenPixelstoDp(navbarHeight);
-            if (navbarHeight != null) {
-                mNavigationBarHeight.setValue(navbarHeight);
+        final boolean hasNavigationBar
+                = getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+        if (hasNavigationBar) { // only disable on devices with REAL navigation bars
+            final Preference pref = findPreference("navbar_force_enable");
+            if (pref != null) {
+                prefScreen.removePreference(pref);
             }
-            mNavigationBarHeight.setOnPreferenceChangeListener(this);
-
-            mNavigationBarWidth = (ListPreference) findPreference(KEY_NAVIGATION_BAR_WIDTH);
-            String navbarWidth = Settings.System.getString(resolver,
-                    Settings.System.NAVIGATION_BAR_WIDTH);
-            navbarWidth = mapChosenPixelstoDp(navbarWidth);
-            if (navbarWidth != null) {
-                mNavigationBarWidth.setValue(navbarWidth);
-            }
-            mNavigationBarWidth.setOnPreferenceChangeListener(this);
-        } else {
-            // Hide no-op "Status bar visible" expanded desktop mode
-            mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
-            mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
-            prefScreen.removePreference(mExpandedDesktopPref);
-            // Hide navigation bar category
-            prefScreen.removePreference(findPreference(CATEGORY_NAVBAR));
         }
 
+        mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+        String navbarHeight = Settings.System.getString(resolver,
+                Settings.System.NAVIGATION_BAR_HEIGHT);
+        navbarHeight = mapChosenPixelstoDp(navbarHeight);
+        if (navbarHeight != null) {
+            mNavigationBarHeight.setValue(navbarHeight);
+        } else {
+            mNavigationBarHeight.setValue("48");
+        }
+        mNavigationBarHeight.setOnPreferenceChangeListener(this);
+
+        mNavigationBarWidth = (ListPreference) findPreference(KEY_NAVIGATION_BAR_WIDTH);
+        String navbarWidth = Settings.System.getString(resolver,
+                Settings.System.NAVIGATION_BAR_WIDTH);
+        navbarWidth = mapChosenPixelstoDp(navbarWidth);
+        if (navbarWidth != null) {
+            mNavigationBarWidth.setValue(navbarWidth);
+        } else {
+            mNavigationBarWidth.setValue("42");
+        }
+        mNavigationBarWidth.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mExpandedDesktopPref) {
             int expandedDesktopValue = Integer.valueOf((String) objValue);
             updateExpandedDesktop(expandedDesktopValue);
-            return true;
-        } else if (preference == mExpandedDesktopNoNavbarPref) {
-            boolean value = (Boolean) objValue;
-            updateExpandedDesktop(value ? 2 : 0);
             return true;
         } else if (preference == mNavigationBarWidth) {
             String newVal = (String) objValue;
@@ -184,21 +166,21 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     }
 
     public String mapChosenPixelstoDp(String px) {
-        if (px == "96") {
+        if (px.equals("96")) {
             return "48";
-        } else if (px == "88") {
+        } else if (px.equals("88")) {
             return "44";
-        } else if (px == "84") {
+        } else if (px.equals("84")) {
             return "42";
-        } else if (px == "80") {
+        } else if (px.equals("80")) {
             return "40";
-        } else if (px == "72") {
+        } else if (px.equals("72")) {
             return "36";
-        } else if (px == "60") {
+        } else if (px.equals("60")) {
             return "30";
-        } else if (px == "48") {
+        } else if (px.equals("48")) {
             return "24";
-        } else if (px == "0") {
+        } else if (px.equals("0")) {
             return "0";
         }
         return null;

@@ -44,11 +44,6 @@
             android:entryValues="@array/expanded_desktop_values"
             android:persistent="false" />
 
-    <CheckBoxPreference
-            android:key="expanded_desktop_no_navbar"
-            android:title="@string/power_menu_expanded_desktop"
-            android:persistent="true" />
-
     <!-- Device Specific Touchscreen gestures -->
     <Preference
         android:key="touch_screen_gesture_settings">
@@ -61,6 +56,11 @@
     <PreferenceCategory
         android:key="navigation_bar"
         android:title="@string/navigation_bar_category" >
+
+        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+            android:key="navbar_force_enable"
+            android:title="@string/navbar_force_enable_title"
+            android:defaultValue="false" />
 
         <PreferenceScreen
             android:key="navigation_bar"
