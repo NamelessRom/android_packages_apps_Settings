@@ -41,7 +41,7 @@ public class PowerMenu extends SettingsPreferenceFragment {
 
         // Only enable expanded desktop item if expanded desktop support is also enabled
         findPreference(Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED).setEnabled(
-                Settings.System.getInt(resolver, Settings.System.EXPANDED_DESKTOP_STYLE, 0) != 0);
+                Settings.System.getInt(resolver, Settings.System.IMMERSIVE_MODE, 0) != 0);
 
         // Only enable profiles item if System Profiles are also enabled
         findPreference(Settings.System.POWER_MENU_PROFILES_ENABLED).setEnabled(

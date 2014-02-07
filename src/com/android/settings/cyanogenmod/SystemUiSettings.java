@@ -110,14 +110,11 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         if (value == 0) {
             // Expanded desktop deactivated
             Settings.System.putInt(cr, Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 0);
-            Settings.System.putInt(cr, Settings.System.EXPANDED_DESKTOP_STATE, 0);
+            Settings.System.putInt(cr, Settings.System.IMMERSIVE_MODE, 0);
             summary = R.string.expanded_desktop_disabled;
         } else if (value == 1) {
             Settings.System.putInt(cr, Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 1);
             summary = R.string.expanded_desktop_status_bar;
-        } else if (value == 2) {
-            Settings.System.putInt(cr, Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 1);
-            summary = R.string.expanded_desktop_no_status_bar;
         }
 
         if (mExpandedDesktopPref != null && summary != -1) {
