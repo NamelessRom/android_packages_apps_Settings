@@ -26,7 +26,7 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.WindowManagerGlobal;
+import android.view.ViewConfiguration;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -41,8 +41,15 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
 
+    private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+    private static final String KEY_NAVIGATION_BAR_WIDTH = "navigation_bar_width";
+
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
+
+    ListPreference mNavigationBarHeight;
+    ListPreference mNavigationBarHeightLandscape;
+    ListPreference mNavigationBarWidth;
 
     private ContentResolver resolver;
 
@@ -65,24 +72,39 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         int expandedDesktopValue = Settings.System.getInt(resolver,
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
 
-        try {
-            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
+        // Allows us to support devices, which have the navigation bar force enabled.
+        boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
 
-            if (hasNavBar) {
-                mExpandedDesktopPref.setOnPreferenceChangeListener(this);
-                mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
-                updateExpandedDesktop(expandedDesktopValue);
-                prefScreen.removePreference(mExpandedDesktopNoNavbarPref);
-            } else {
-                // Hide no-op "Status bar visible" expanded desktop mode
-                mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
-                mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
-                prefScreen.removePreference(mExpandedDesktopPref);
-                // Hide navigation bar category
-                prefScreen.removePreference(findPreference(CATEGORY_NAVBAR));
+        if (hasNavBar) {
+            mExpandedDesktopPref.setOnPreferenceChangeListener(this);
+            mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
+            updateExpandedDesktop(expandedDesktopValue);
+            prefScreen.removePreference(mExpandedDesktopNoNavbarPref);
+
+            mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+            String navbarHeight = Settings.System.getString(resolver,
+                    Settings.System.NAVIGATION_BAR_HEIGHT);
+            navbarHeight = mapChosenPixelstoDp(navbarHeight);
+            if (navbarHeight != null) {
+                mNavigationBarHeight.setValue(navbarHeight);
             }
-        } catch (RemoteException e) {
-            Log.e(TAG, "Error getting navigation bar status");
+            mNavigationBarHeight.setOnPreferenceChangeListener(this);
+
+            mNavigationBarWidth = (ListPreference) findPreference(KEY_NAVIGATION_BAR_WIDTH);
+            String navbarWidth = Settings.System.getString(resolver,
+                    Settings.System.NAVIGATION_BAR_WIDTH);
+            navbarWidth = mapChosenPixelstoDp(navbarWidth);
+            if (navbarWidth != null) {
+                mNavigationBarWidth.setValue(navbarWidth);
+            }
+            mNavigationBarWidth.setOnPreferenceChangeListener(this);
+        } else {
+            // Hide no-op "Status bar visible" expanded desktop mode
+            mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
+            mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
+            prefScreen.removePreference(mExpandedDesktopPref);
+            // Hide navigation bar category
+            prefScreen.removePreference(findPreference(CATEGORY_NAVBAR));
         }
 
     }
@@ -95,6 +117,20 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         } else if (preference == mExpandedDesktopNoNavbarPref) {
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
+            return true;
+        } else if (preference == mNavigationBarWidth) {
+            String newVal = (String) objValue;
+            int dp = Integer.parseInt(newVal);
+            int width = mapChosenDpToPixels(dp);
+            Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_WIDTH,
+                    width);
+            return true;
+        } else if (preference == mNavigationBarHeight) {
+            String newVal = (String) objValue;
+            int dp = Integer.parseInt(newVal);
+            int height = mapChosenDpToPixels(dp);
+            Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_HEIGHT,
+                    height);
             return true;
         }
         return false;
@@ -123,6 +159,49 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         if (mExpandedDesktopPref != null && summary != -1) {
             mExpandedDesktopPref.setSummary(res.getString(summary));
         }
+    }
+
+    public int mapChosenDpToPixels(int dp) {
+        switch (dp) {
+            case 48:
+                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_48);
+            case 44:
+                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_44);
+            case 42:
+                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_42);
+            case 40:
+                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_40);
+            case 36:
+                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_36);
+            case 30:
+                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_30);
+            case 24:
+                return getResources().getDimensionPixelSize(R.dimen.navigation_bar_24);
+            case 0:
+                return 0;
+        }
+        return -1;
+    }
+
+    public String mapChosenPixelstoDp(String px) {
+        if (px == "96") {
+            return "48";
+        } else if (px == "88") {
+            return "44";
+        } else if (px == "84") {
+            return "42";
+        } else if (px == "80") {
+            return "40";
+        } else if (px == "72") {
+            return "36";
+        } else if (px == "60") {
+            return "30";
+        } else if (px == "48") {
+            return "24";
+        } else if (px == "0") {
+            return "0";
+        }
+        return null;
     }
 
 }
