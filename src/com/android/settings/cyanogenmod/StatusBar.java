@@ -17,6 +17,7 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -43,12 +44,19 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
+    private static final String SMS_BREATH = "sms_breath";
+    private static final String MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String VOICEMAIL_BREATH = "voicemail_breath";
+
     private ListPreference mStatusBarBattery;
     private CheckBoxPreference mStatusBarBatteryShowPercent;
 
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarNetworkActivity;
     private CheckBoxPreference mStatusBarTraffic;
+    private CheckBoxPreference mSMSBreath;
+    private CheckBoxPreference mMissedCallBreath;
+    private CheckBoxPreference mVoicemailBreath;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,6 +117,17 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
 
+        mSMSBreath = (CheckBoxPreference) findPreference(SMS_BREATH);
+        mMissedCallBreath = (CheckBoxPreference) findPreference(MISSED_CALL_BREATH);
+        mVoicemailBreath = (CheckBoxPreference) findPreference(VOICEMAIL_BREATH);
+
+        Context context = getActivity();
+        ConnectivityManager cm = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if(!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
+                prefSet.removePreference(findPreference("breathing_notifications_title"));
+        }
     }
 
     @Override
