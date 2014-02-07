@@ -249,13 +249,6 @@ public class QuickSettingsUtil {
             disableTile(TILE_PROFILE);
         }
 
-        // Don't show the Expanded desktop tile if expanded desktop is disabled
-        if (QSUtils.expandedDesktopEnabled(resolver)) {
-            enableTile(TILE_EXPANDEDDESKTOP);
-        } else {
-            disableTile(TILE_EXPANDEDDESKTOP);
-        }
-
         // Don't show the Network ADB tile if adb debugging is disabled
         if (QSUtils.adbEnabled(resolver)) {
             enableTile(TILE_NETWORKADB);
