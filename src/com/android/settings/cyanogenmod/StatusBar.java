@@ -17,6 +17,7 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -109,6 +110,13 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
 
+        Context context = getActivity();
+        ConnectivityManager cm = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if(!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
+                prefSet.removePreference(findPreference("breathing_notifications_title"));
+        }
     }
 
     @Override
