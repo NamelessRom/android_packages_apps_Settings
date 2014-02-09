@@ -678,9 +678,13 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.superuser) {
-                // if (!DevelopmentSettings.isRootForAppsEnabled()) { // TODO: Add Koush' Superuser check
+                if (actionExists("com.koushikdutta.superuser.MainActivity")) {
+                    target.get(i).intent = new Intent()
+                            .setAction("com.koushikdutta.superuser.MainActivity");
+                    target.get(i).titleRes = R.string.superuser;
+                } else {
                     target.remove(i);
-                // }
+                }
             }
 
             if (i < target.size() && target.get(i) == header
