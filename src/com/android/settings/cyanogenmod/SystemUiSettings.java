@@ -21,7 +21,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
@@ -29,7 +28,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class SystemUiSettings extends SettingsPreferenceFragment implements
+public class SystemUiSettings extends SettingsPreferenceFragment  implements
         Preference.OnPreferenceChangeListener {
 
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
@@ -67,8 +66,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         final boolean hasNavigationBar
                 = getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
         if (hasNavigationBar) { // only disable on devices with REAL navigation bars
-            ((PreferenceGroup) prefScreen.findPreference("navigation_bar"))
-                    .removePreference(findPreference("navbar_force_enable"));
+            final Preference pref = findPreference("navbar_force_enable");
+            if (pref != null) {
+                prefScreen.removePreference(pref);
+            }
         }
 
         mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
