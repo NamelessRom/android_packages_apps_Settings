@@ -31,6 +31,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -652,7 +653,8 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.device_control_settings) {
-                if (actionExists("org.namelessrom.devicecontrol.activities.MainActivity")) {
+                if (actionExists("org.namelessrom.devicecontrol",
+                        "org.namelessrom.devicecontrol.activities.MainActivity")) {
                     target.get(i).intent = new Intent()
                             .setAction("org.namelessrom.devicecontrol.activities.MainActivity");
                     target.get(i).titleRes = R.string.device_control_settings;
@@ -660,7 +662,8 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.device_update_center) {
-                if (actionExists("org.namelessrom.updatecenter.activities.MainActivity")) {
+                if (actionExists("org.namelessrom.updatecenter",
+                        "org.namelessrom.updatecenter.activities.MainActivity")) {
                     target.get(i).intent = new Intent()
                             .setAction("org.namelessrom.updatecenter.activities.MainActivity");
                     target.get(i).titleRes = R.string.device_update_center;
@@ -678,9 +681,14 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.superuser) {
-                // if (!DevelopmentSettings.isRootForAppsEnabled()) { // TODO: Add Koush' Superuser check
+                if (actionExists("com.koushikdutta.superuser",
+                        "com.koushikdutta.superuser.MainActivity")) {
+                    target.get(i).intent = new Intent()
+                            .setAction("com.koushikdutta.superuser.MainActivity");
+                    target.get(i).titleRes = R.string.superuser;
+                } else {
                     target.remove(i);
-                // }
+                }
             }
 
             if (i < target.size() && target.get(i) == header
@@ -1175,12 +1183,17 @@ public class Settings extends PreferenceActivity
      * @param actionName The action as string
      * @return if the action exists.
      */
-    private boolean actionExists(String actionName) {
-        Intent i = new Intent();
-        i.setAction(actionName);
-        List<ResolveInfo> list = getPackageManager().queryIntentActivities(i,
-                PackageManager.MATCH_DEFAULT_ONLY);
-        return list.size() > 0;
+    private boolean actionExists(String packageName, String actionName) {
+        try {
+            PackageInfo packageInfo = getPackageManager()
+                .getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            for(ActivityInfo info : packageInfo.activities){
+                if (info.name.equals(actionName)) return true;
+            }
+        } catch (Exception exc){
+            Log.e("Settings", "Couldn't get action");
+        }
+        return false;
     }
 
     /*
