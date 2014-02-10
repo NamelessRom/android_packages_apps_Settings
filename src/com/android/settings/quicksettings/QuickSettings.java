@@ -51,14 +51,21 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String EXP_NETWORK_MODE = "pref_network_mode";
     private static final String EXP_SCREENTIMEOUT_MODE = "pref_screentimeout_mode";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
+    private static final String SMART_PULLDOWN = "smart_pulldown";
     private static final String GENERAL_SETTINGS = "pref_general_settings";
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
+
+    // Device types
+    private static final int DEVICE_PHONE  = 0;
+    private static final int DEVICE_HYBRID = 1;
+    private static final int DEVICE_TABLET = 2;
 
     private MultiSelectListPreference mRingMode;
     private ListPreference mNetworkMode;
     private ListPreference mScreenTimeoutMode;
     private ListPreference mQuickPulldown;
+    private ListPreference mSmartPulldown;
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
@@ -79,17 +86,25 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mStaticTiles = (PreferenceCategory) prefSet.findPreference(STATIC_TILES);
         mDynamicTiles = (PreferenceCategory) prefSet.findPreference(DYNAMIC_TILES);
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
+        mSmartPulldown = (ListPreference) prefSet.findPreference(SMART_PULLDOWN);
 
         if (!Utils.isPhone(getActivity())) {
-            if (mQuickPulldown != null) {
-                mGeneralSettings.removePreference(mQuickPulldown);
-            }
+                prefs.removePreference(mQuickPulldown);
+                prefs.removePreference(mSmartPulldown);
         } else {
+            // Quick Pulldown
             mQuickPulldown.setOnPreferenceChangeListener(this);
             int quickPulldownValue = Settings.System.getInt(resolver,
                     Settings.System.QS_QUICK_PULLDOWN, 0);
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
-            updatePulldownSummary(quickPulldownValue);
+            updateQuickPulldownSummary(statusQuickPulldown);
+            
+            // Smart Pulldown
+            mSmartPulldown.setOnPreferenceChangeListener(this);
+            int smartPulldown = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.QS_SMART_PULLDOWN, 0, UserHandle.USER_CURRENT);
+            mSmartPulldown.setValue(String.valueOf(smartPulldown));
+            updateSmartPulldownSummary(smartPulldown);
         }
 
         // Add the sound mode
@@ -195,7 +210,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int quickPulldownValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QS_QUICK_PULLDOWN,
                     quickPulldownValue);
-            updatePulldownSummary(quickPulldownValue);
+            updateQuickPulldownSummary(statusQuickPulldown);
+            return true;
+        } else if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.QS_SMART_PULLDOWN,
+                    smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
             return true;
         } else if (preference == mScreenTimeoutMode) {
             int value = Integer.valueOf((String) newValue);
@@ -227,7 +248,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updatePulldownSummary(int value) {
+    private void updateQuickPulldownSummary(int value) {
         Resources res = getResources();
 
         if (value == 0) {
@@ -238,6 +259,20 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     ? R.string.quick_pulldown_summary_left
                     : R.string.quick_pulldown_summary_right);
             mQuickPulldown.setSummary(res.getString(R.string.summary_quick_pulldown, direction));
+        }
+    }
+
+    private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+        } else {
+            String type = res.getString(value == 2
+                    ? R.string.smart_pulldown_persistent
+                    : R.string.smart_pulldown_dismissable);
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
         }
     }
 
