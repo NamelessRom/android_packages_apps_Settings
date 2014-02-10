@@ -34,6 +34,9 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
+import android.view.DisplayInfo;
+import android.view.WindowManager;
 import android.text.TextUtils;
 
 import com.android.internal.util.cm.QSConstants;
@@ -51,14 +54,21 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String EXP_NETWORK_MODE = "pref_network_mode";
     private static final String EXP_SCREENTIMEOUT_MODE = "pref_screentimeout_mode";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
+    private static final String SMART_PULLDOWN = "smart_pulldown";
     private static final String GENERAL_SETTINGS = "pref_general_settings";
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
+
+    // Device types
+    private static final int DEVICE_PHONE  = 0;
+    private static final int DEVICE_HYBRID = 1;
+    private static final int DEVICE_TABLET = 2;
 
     private MultiSelectListPreference mRingMode;
     private ListPreference mNetworkMode;
     private ListPreference mScreenTimeoutMode;
     private ListPreference mQuickPulldown;
+    private ListPreference mSmartPulldown;
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
@@ -79,17 +89,23 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mStaticTiles = (PreferenceCategory) prefSet.findPreference(STATIC_TILES);
         mDynamicTiles = (PreferenceCategory) prefSet.findPreference(DYNAMIC_TILES);
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
-
-        if (!Utils.isPhone(getActivity())) {
-            if (mQuickPulldown != null) {
-                mGeneralSettings.removePreference(mQuickPulldown);
-            }
-        } else {
-            mQuickPulldown.setOnPreferenceChangeListener(this);
-            int quickPulldownValue = Settings.System.getInt(resolver,
+        mSmartPulldown = (ListPreference) findPreference(SMART_PULLDOWN);
+        
+        if (isPhone(getActivity())) {
+            int quickPulldown = Settings.System.getInt(resolver,
                     Settings.System.QS_QUICK_PULLDOWN, 0);
-            mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
-            updatePulldownSummary(quickPulldownValue);
+            mQuickPulldown.setValue(String.valueOf(quickPulldown));
+            updateQuickPulldownSummary(quickPulldown);
+            mQuickPulldown.setOnPreferenceChangeListener(this);
+
+            int smartPulldown = Settings.System.getInt(resolver,
+                    Settings.System.QS_SMART_PULLDOWN, 0);
+            mSmartPulldown.setValue(String.valueOf(smartPulldown));
+            updateSmartPulldownSummary(smartPulldown);
+            mSmartPulldown.setOnPreferenceChangeListener(this);
+        } else {
+            prefSet.removePreference(mQuickPulldown);
+            prefSet.removePreference(mSmartPulldown);
         }
 
         // Add the sound mode
@@ -192,11 +208,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mNetworkMode.setSummary(mNetworkMode.getEntries()[index]);
             return true;
         } else if (preference == mQuickPulldown) {
-            int quickPulldownValue = Integer.valueOf((String) newValue);
+            int quickPulldown = Integer.valueOf((String) objValue);
             Settings.System.putInt(resolver, Settings.System.QS_QUICK_PULLDOWN,
-                    quickPulldownValue);
-            updatePulldownSummary(quickPulldownValue);
-            return true;
+                    quickPulldown);
+            updateQuickPulldownSummary(quickPulldown);
+        } else if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) objValue);
+            Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN,
+                    smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
         } else if (preference == mScreenTimeoutMode) {
             int value = Integer.valueOf((String) newValue);
             int index = mScreenTimeoutMode.findIndexOfValue((String) newValue);
@@ -239,6 +259,36 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     : R.string.quick_pulldown_summary_right);
             mQuickPulldown.setSummary(res.getString(R.string.summary_quick_pulldown, direction));
         }
+    }
+
+    private void updateSmartPulldownSummary(int i) {
+        if (i == 0) {
+            mSmartPulldown.setSummary(R.string.smart_pulldown_off);
+        } else if (i == 1) {
+            mSmartPulldown.setSummary(R.string.smart_pulldown_dismissable);
+        } else if (i == 2) {
+            mSmartPulldown.setSummary(R.string.smart_pulldown_persistent);
+        }
+    }
+
+    private static int getScreenType(Context con) {
+        WindowManager wm = (WindowManager) con.getSystemService(Context.WINDOW_SERVICE);
+        DisplayInfo outDisplayInfo = new DisplayInfo();
+        wm.getDefaultDisplay().getDisplayInfo(outDisplayInfo);
+        int shortSize = Math.min(outDisplayInfo.logicalHeight, outDisplayInfo.logicalWidth);
+        int shortSizeDp =
+            shortSize * DisplayMetrics.DENSITY_DEFAULT / outDisplayInfo.logicalDensityDpi;
+        if (shortSizeDp < 600) {
+            return DEVICE_PHONE;
+        } else if (shortSizeDp < 720) {
+            return DEVICE_HYBRID;
+        } else {
+            return DEVICE_TABLET;
+        }
+    }
+
+    public static boolean isPhone(Context con) {
+        return getScreenType(con) == DEVICE_PHONE;
     }
 
     public static String[] parseStoredValue(CharSequence val) {
