@@ -351,4 +351,9 @@
     <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
     <string name="supersu_title">SuperSU</string>
     <string name="superuser">Superuser</string>
+
+    <!-- Glowpad Torch -->
+    <string name="lockscreen_glowpad_torch_title">Glowpad torch</string>
+    <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the lockscreen slider to start torch</string>
+
 </resources>
