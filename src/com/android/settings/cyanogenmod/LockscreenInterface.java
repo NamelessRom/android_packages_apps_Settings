@@ -17,13 +17,11 @@
 
 package com.android.settings.cyanogenmod;
 
-import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;

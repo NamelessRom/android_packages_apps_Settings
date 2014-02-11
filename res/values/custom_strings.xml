@@ -359,4 +359,8 @@
     <string name="smart_pulldown_dismissable">Pulldown if there are no cleareable notifications</string>
     <string name="smart_pulldown_persistent">Pulldown if there are no notifications</string>
 
+    <!-- Glowpad Torch -->
+    <string name="lockscreen_glowpad_torch_title">Glowpad torch</string>
+    <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the lockscreen slider to start torch</string>
+
 </resources>
