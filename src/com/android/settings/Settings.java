@@ -381,8 +381,8 @@ public class Settings extends PreferenceActivity
         ButtonSettings.class.getName(),
         MoreDeviceSettings.class.getName(),
         ProfilesSettings.class.getName(),
-        PerformanceSettings.class.getName()
-        com.android.settings.cyanogenmod.PrivacySettings.class.getName()
+        PerformanceSettings.class.getName(),
+        com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName()
     };
 

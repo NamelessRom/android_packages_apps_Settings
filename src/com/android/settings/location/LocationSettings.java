@@ -18,17 +18,24 @@ package com.android.settings.location;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.location.SettingInjectorService;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
@@ -37,6 +44,9 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.android.settings.R;
+import com.android.settings.cyanogenmod.LtoService;
+
+import org.cyanogenmod.hardware.LongTermOrbits;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -46,12 +56,14 @@ import java.util.List;
  * Location access settings.
  */
 public class LocationSettings extends LocationSettingsBase
-        implements CompoundButton.OnCheckedChangeListener {
+        implements CompoundButton.OnCheckedChangeListener, OnPreferenceChangeListener {
 
     private static final String TAG = "LocationSettings";
 
     /** Key for preference screen "Mode" */
     private static final String KEY_LOCATION_MODE = "location_mode";
+    /** Key for preference screen "LTO - WiFi Only" */
+    public static final String KEY_GPS_DOWNLOAD_DATA_WIFI_ONLY = "gps_download_data_wifi_only";
     /** Key for preference category "Recent location requests" */
     private static final String KEY_RECENT_LOCATION_REQUESTS = "recent_location_requests";
     /** Key for preference category "Location services" */
@@ -60,6 +72,7 @@ public class LocationSettings extends LocationSettingsBase
     private Switch mSwitch;
     private boolean mValidListener;
     private Preference mLocationMode;
+    private CheckBoxPreference mGpsDownloadDataWifiOnly;
     private PreferenceCategory mCategoryRecentLocationRequests;
     /** Receives UPDATE_INTENT  */
     private BroadcastReceiver mReceiver;
@@ -241,6 +254,9 @@ public class LocationSettings extends LocationSettingsBase
         // be disabled but checked.
         boolean enabled = (mode != Settings.Secure.LOCATION_MODE_OFF);
         mSwitch.setEnabled(!restricted);
+        if (mGpsDownloadDataWifiOnly != null) {
+            mGpsDownloadDataWifiOnly.setEnabled(enabled && !restricted);
+        }
         mLocationMode.setEnabled(enabled && !restricted);
         mCategoryRecentLocationRequests.setEnabled(enabled);
 
