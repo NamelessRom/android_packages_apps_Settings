@@ -30,6 +30,11 @@
         android:summary="@string/status_bar_show_weather_summary"
         android:defaultValue="true" />
 
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_tiles_vibrate"
+        android:title="@string/qs_tiles_vibrate_title"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/qs_category_title">
 

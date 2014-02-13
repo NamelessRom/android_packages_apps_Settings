@@ -91,4 +91,7 @@
 
     <!-- Navigation bar -->
     <string name="double_tap_to_sleep_navbar_summary">Double-tap on the navigation bar to turn off the display</string>
+
+    <!-- Quick settings -->
+    <string name="qs_tiles_vibrate_title">Vibrate on touch</string>
 </resources>
