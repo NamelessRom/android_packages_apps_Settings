@@ -376,4 +376,8 @@
     <string name="haptic_qs_tiles_title">Vibrate on touch</string>
     <string name="haptic_qs_tiles_summary">Vibrate when touching tiles</string>
 
+    <!-- Glowpad Torch -->
+    <string name="lockscreen_glowpad_torch_title">Glowpad torch</string>
+    <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the lockscreen slider to start torch</string>
+
 </resources>
