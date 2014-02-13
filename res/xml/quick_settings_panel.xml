@@ -78,7 +78,14 @@
         <com.android.settings.nameless.SystemSettingCheckBoxPreference
             android:key="quick_settings_tiles_flip"
             android:title="@string/flip_qs_tiles_title"
-            android:summary="@string/flip_qs_tiles_summary" />
+            android:summary="@string/flip_qs_tiles_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+            android:key="quick_settings_tiles_vibrate"
+            android:title="@string/haptic_qs_tiles_title"
+            android:summary="@string/haptic_qs_tiles_summary"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 
