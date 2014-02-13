@@ -23,15 +23,6 @@
     <!-- General -->
     <string name="reset">Reset</string>
 
-    <!-- Team List -->
-    <string name="github_evisceration">https://github.com/Evisceration</string>
-    <string name="github_jakew02">https://github.com/jtw49</string>
-    <string name="github_jumoog">https://github.com/jumoog</string>
-
-    <!-- Main list strings -->
-    <string name="header_category_cyanogenmod" translatable="false">CyanogenMod</string>
-    <string name="header_category_nameless" translatable="false">Nameless</string>
-
     <!-- Sub list strings -->
     <string name="device_control_settings">Device Control</string>
     <string name="device_update_center">Update Center</string>
