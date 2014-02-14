@@ -17,13 +17,11 @@
 
 package com.android.settings.cyanogenmod;
 
-import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -31,6 +29,8 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
+import com.android.internal.util.nameless.NamelessUtils;
+import com.android.internal.util.nameless.constants.FlashLightConstants;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.ChooseLockSettingsHelper;
 import com.android.settings.R;
@@ -54,6 +54,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
+
+    // Nameless Additions
+    private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_glowpad_torch";
 
     private PreferenceCategory mWidgetsCatagory;
 
@@ -141,6 +144,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mLockRingBattery != null) {
             mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
+        }
+
+        // Glowpad Torch
+        if (!NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
+            generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
         }
     }
 
