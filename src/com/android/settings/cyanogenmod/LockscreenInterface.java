@@ -31,6 +31,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
+import com.android.internal.util.nameless.DeviceUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.ChooseLockSettingsHelper;
 import com.android.settings.R;
@@ -55,11 +56,15 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
 
+    // Nameless Additions
+    private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
+
     private PreferenceCategory mWidgetsCatagory;
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
+    private CheckBoxPreference mGlowpadTorch;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mLockscreenUseCarousel;
 
@@ -142,6 +147,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
         }
+
+        // Glowpad Torch settings
+        mGlowpadTorch = (CheckBoxPreference) findPreference(
+                PREF_LOCKSCREEN_TORCH);
+        mGlowpadTorch.setChecked(Settings.System.getInt(
+                getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
+        mGlowpadTorch.setOnPreferenceChangeListener(this);
+
+        if (!DeviceUtils.deviceSupportsTorch(getActivity().getApplicationContext())) {
+            generalCategory.removePreference(mGlowpadTorch);
+        }
     }
 
     @Override
@@ -202,8 +219,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
             return true;
+        } else if (preference == mGlowpadTorch) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
+                    (Boolean) objValue ? 1 : 0);
+            return true;
         }
-
         return false;
     }
 
