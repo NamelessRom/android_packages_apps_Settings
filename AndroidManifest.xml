@@ -1611,7 +1611,7 @@
 
         <!-- NamelessROM activities Start -->
         <activity android:name="Settings$MoreInterfaceSettingsActivity"
-            android:label="@string/interface_more_title"
+            android:label="@string/more_device_controls_title"
             android:taskAffinity=""
             android:excludeFromRecents="true">
             <intent-filter>
@@ -1674,7 +1674,7 @@
         <activity android:name=".slim.NotificationDrawerStyle" />
         <activity
             android:name=".LockscreenNotifications"
-            android:label="@string/Lockscreen_notifications_header" >
+            android:label="@string/lockscreen_notifications" >
         </activity>
 
         <!-- CyanogenMod activities Start -->

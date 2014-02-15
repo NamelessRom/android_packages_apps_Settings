@@ -27,4 +27,9 @@
     <string name="header_category_cyanogenmod" translatable="false">CyanogenMod</string>
     <string name="header_category_nameless" translatable="false">Nameless</string>
 
+    <string name="arrow_right" translatable="false">→</string>
+    <string name="arrow_down" translatable="false">↓</string>
+    <string name="hex" translatable="false">Hex:</string>
+    <string name="hex_hint" translatable="false">#ff000000</string>
+
 </resources>
