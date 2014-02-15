@@ -28,10 +28,6 @@
     <string name="device_update_center">Update Center</string>
 
     <!-- Interface -->
-    <string name="interface_more_title">More\u2026</string>
-    <string name="interface_bars_title">Bars</string>
-    <string name="interface_menus_title">Menus</string>
-    <string name="interface_notification_panel_title">Notification Drawer</string>
     <string name="interface_animation_title">Animation Control</string>
 
     <!-- Themes -->
@@ -56,7 +52,6 @@
     <string name="system_ui_recent_panel_title">Recents panel</string>
 
     <!-- Notification Drawer -->
-    <string name="notification_drawer_category_title">Notification drawer</string>
     <string name="custom_statusbar_header_title">Contextual notification panel header</string>
     <string name="custom_statusbar_header_summary">Sets the background of the notification panel header to an image based on the current date and time</string>
 
