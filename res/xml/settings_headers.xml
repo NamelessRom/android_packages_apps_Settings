@@ -119,8 +119,8 @@
     <!-- Other interface controls -->
     <header
         android:id="@+id/interface_more"
-        android:title="@string/interface_more_title"
-        android:breadCrumbTitle="@string/interface_more_title"
+        android:title="@string/more_device_controls_title"
+        android:breadCrumbTitle="@string/more_device_controls_title"
         android:icon="@drawable/empty_icon"
         android:fragment="com.android.settings.nameless.InterfaceMoreSettings" />
 

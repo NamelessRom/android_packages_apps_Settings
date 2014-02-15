@@ -1611,7 +1611,7 @@
 
         <!-- NamelessROM activities Start -->
         <activity android:name="Settings$MoreInterfaceSettingsActivity"
-            android:label="@string/interface_more_title"
+            android:label="@string/more_device_controls_title"
             android:taskAffinity=""
             android:excludeFromRecents="true">
             <intent-filter>
