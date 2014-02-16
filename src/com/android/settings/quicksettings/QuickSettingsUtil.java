@@ -54,6 +54,7 @@ import android.util.Log;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.util.cm.QSUtils;
+import com.android.internal.util.nameless.NamelessUtils;
 import com.android.settings.R;
 
 import java.util.ArrayList;
@@ -201,7 +202,7 @@ public class QuickSettingsUtil {
         }
 
         // Don't show the Torch tile if not supported
-        if (!QSUtils.deviceSupportsTorch(context)) {
+        if (!NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
             removeTile(TILE_TORCH);
         }
 
