@@ -90,11 +90,6 @@
             android:entryValues="@array/screen_animation_style_values"
             android:dependency="screen_off_animation" />
 
-        <CheckBoxPreference
-            android:key="double_tap_wake_gesture"
-            android:title="@string/double_tap_to_wake_title"
-            android:defaultValue="false" />
-
         <PreferenceCategory
             android:key="lights_prefs"
             android:title="@string/lights_category_title">
