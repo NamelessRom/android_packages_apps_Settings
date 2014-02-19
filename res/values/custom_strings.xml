@@ -37,6 +37,7 @@
     <string name="theme_auto_mode_lightsensor">On light condition change</string>
     <string name="theme_auto_mode_twilight">On daytime</string>
     <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
+    <string name="title_tile_theme">Theme switcher</string>
 
     <!-- Status Bar Activity Indicators -->
     <string name="show_activity_indicators_on_status_bar_title">Network activity indicator</string>
