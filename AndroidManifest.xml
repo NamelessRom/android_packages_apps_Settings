@@ -1755,8 +1755,6 @@
 
         <activity android:name=".cyanogenmod.LockscreenButtons" />
 
-        <activity android:name=".cyanogenmod.PerformanceSettings" />
-
         <activity android:name=".ApnEditor" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
@@ -1949,12 +1947,6 @@
         <receiver android:name=".bluetooth.BluetoothDiscoverableTimeoutReceiver">
             <intent-filter>
                 <action android:name="android.bluetooth.intent.DISCOVERABLE_TIMEOUT" />
-            </intent-filter>
-        </receiver>
-
-        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
