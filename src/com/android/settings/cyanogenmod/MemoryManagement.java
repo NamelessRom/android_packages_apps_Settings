@@ -57,19 +57,6 @@ public class MemoryManagement extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.memory_management);
-
-        PreferenceScreen prefSet = getPreferenceScreen();
-
-        mPurgeableAssetsPref = (CheckBoxPreference) prefSet.findPreference(PURGEABLE_ASSETS_PREF);
-        mKSMPref = (CheckBoxPreference) prefSet.findPreference(KSM_PREF);
-
-        if (Utils.fileExists(KSM_RUN_FILE)) {
-            mKSMPref.setChecked(KSM_PREF_ENABLED.equals(Utils.fileReadOneLine(KSM_RUN_FILE)));
-        } else {
-            prefSet.removePreference(mKSMPref);
-        }
-
         String purgeableAssets = SystemProperties.get(PURGEABLE_ASSETS_PERSIST_PROP,
                 PURGEABLE_ASSETS_DEFAULT);
         mPurgeableAssetsPref.setChecked("1".equals(purgeableAssets));
