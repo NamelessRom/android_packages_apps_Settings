@@ -61,8 +61,19 @@ public class MemoryManagement extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        mzRAM = (ListPreference) prefSet.findPreference(ZRAM_PREF);
         mPurgeableAssetsPref = (CheckBoxPreference) prefSet.findPreference(PURGEABLE_ASSETS_PREF);
         mKSMPref = (CheckBoxPreference) prefSet.findPreference(KSM_PREF);
+
+        if (isSwapAvailable()) {
+            if (SystemProperties.get(ZRAM_PERSIST_PROP) == "1") {
+                SystemProperties.set(ZRAM_PERSIST_PROP, ZRAM_DEFAULT);
+            }
+            mzRAM.setValue(SystemProperties.get(ZRAM_PERSIST_PROP, ZRAM_DEFAULT));
+            mzRAM.setOnPreferenceChangeListener(this);
+        } else {
+            prefSet.removePreference(mzRAM);
+        }
 
         if (Utils.fileExists(KSM_RUN_FILE)) {
             mKSMPref.setChecked(KSM_PREF_ENABLED.equals(Utils.fileReadOneLine(KSM_RUN_FILE)));
