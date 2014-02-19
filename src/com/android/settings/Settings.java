@@ -100,6 +100,7 @@ import com.android.settings.profiles.ProfileConfig;
 import com.android.settings.profiles.ProfileEnabler;
 import com.android.settings.profiles.ProfilesSettings;
 import com.android.settings.slim.themes.ThemeEnabler;
+import com.android.settings.slim.themes.ThemeSettings;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.vpn2.VpnSettings;
@@ -383,15 +384,16 @@ public class Settings extends PreferenceActivity
         ProfilesSettings.class.getName(),
         PerformanceSettings.class.getName(),
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
-        com.android.settings.quicksettings.QuickSettingsTiles.class.getName()
+        com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
+        ThemeSettings.class.getName()
     };
 
     @Override
     protected boolean isValidFragment(String fragmentName) {
         // Almost all fragments are wrapped in this,
         // except for a few that have their own activities.
-        for (int i = 0; i < ENTRY_FRAGMENTS.length; i++) {
-            if (ENTRY_FRAGMENTS[i].equals(fragmentName)) return true;
+        for (String ENTRY_FRAGMENT : ENTRY_FRAGMENTS) {
+            if (ENTRY_FRAGMENT.equals(fragmentName)) return true;
         }
         return false;
     }
@@ -1271,4 +1273,5 @@ public class Settings extends PreferenceActivity
     /* NamelessROM */
     public static class AnimationInterfaceSettingsActivity extends Settings { /* empty */ }
     public static class MoreInterfaceSettingsActivity extends Settings { /* empty */ }
+    public static class ThemeSettingsActivity extends Settings { /* empty */ }
 }
