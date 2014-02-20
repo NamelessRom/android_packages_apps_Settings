@@ -259,7 +259,6 @@
     <string name="volume_keys_control_ring_stream">Les tecles de volum controlen el volum del to de trucada</string>
     <string name="display_lights_settings_title">Pantalla &amp; llums</string>
     <string name="lights_category_title">Llums</string>
-    <string name="notification_pulse_title">Llum de notificació</string>
     <string name="notification_light_general_title">General</string>
     <string name="notification_light_applist_title">Aplicacions</string>
     <string name="notification_light_phonelist_title">Telèfon</string>

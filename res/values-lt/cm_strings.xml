@@ -128,7 +128,6 @@
     <string name="icon_picker_pack_title">Piktogramų rinkinys</string>
     <string name="display_lights_settings_title">Ekranas ir šviesos</string>
     <string name="lights_category_title">Šviesos</string>
-    <string name="notification_pulse_title">Įspėjimo šviesa</string>
     <string name="notification_light_general_title">Pagrindinės</string>
     <string name="notification_light_applist_title">Programėlės</string>
     <string name="notification_light_phonelist_title">Telefono</string>
