@@ -382,7 +382,6 @@
     <string name="title_tile_volume">Volume</string>
     <string name="title_tile_expanded_desktop">Área de trabalho expandida</string>
     <string name="title_dynamic_dock_battery">Bateria do dock</string>
-    <string name="notification_pulse_title">Luz de notificação</string>
     <string name="power_notifications_category_title">Notificação de carregamento</string>
     <string name="power_notifications_enable_title">Ativar</string>
     <string name="power_notifications_vibrate_title">Vibrar</string>
