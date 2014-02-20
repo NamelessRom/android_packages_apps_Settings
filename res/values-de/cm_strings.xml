@@ -140,7 +140,6 @@
     <string name="icon_picker_pack_title">Symbolbibliothek</string>
     <string name="display_lights_settings_title">Display &amp; LED</string>
     <string name="lights_category_title">LED</string>
-    <string name="notification_pulse_title">Benachrichtigungslicht</string>
     <string name="notification_light_general_title">Allgemein</string>
     <string name="notification_light_applist_title">Apps</string>
     <string name="notification_light_phonelist_title">Telefon</string>
@@ -654,10 +653,6 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="keyboard_backlight_seekbar_title">Tastatur-Helligkeit</string>
     <string name="backlight_timeout_title">Automatisch abschalten nach</string>
     <string name="backlight_timeout_unlimited">Nie</string>
-    <plurals name="backlight_timeout_time">
-        <item quantity="one"><xliff:g id="seconds">%d</xliff:g> Sekunde</item>
-        <item quantity="other"><xliff:g id="seconds">%d</xliff:g> Sekunden</item>
-    </plurals>
     <string name="backlight_summary_disabled">Deaktiviert</string>
     <string name="backlight_summary_enabled_with_timeout">Für <xliff:g id="timeout">%s</xliff:g> aktiviert</string>
     <string name="backlight_summary_enabled">Aktiviert</string>
