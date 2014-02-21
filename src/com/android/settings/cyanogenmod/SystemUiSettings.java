@@ -19,13 +19,11 @@ package com.android.settings.cyanogenmod;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.ViewConfiguration;
 
 import com.android.settings.R;
@@ -48,10 +46,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
     ListPreference mNavigationBarHeight;
-    ListPreference mNavigationBarHeightLandscape;
     ListPreference mNavigationBarWidth;
-
-    private ContentResolver resolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +54,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
 
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
-        resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         // Expanded desktop
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
@@ -72,8 +67,17 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         int expandedDesktopValue = Settings.System.getInt(resolver,
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
 
+        final boolean hasRealNavigationBar = getResources()
+                .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+        if (hasRealNavigationBar) { // only disable on devices with REAL navigation bars
+            final Preference pref = findPreference("navbar_force_enable");
+            if (pref != null) {
+                prefScreen.removePreference(pref);
+            }
+        }
+
         // Allows us to support devices, which have the navigation bar force enabled.
-        boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
+        final boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
 
         if (hasNavBar) {
             mExpandedDesktopPref.setOnPreferenceChangeListener(this);
@@ -184,21 +188,21 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     }
 
     public String mapChosenPixelstoDp(String px) {
-        if (px == "96") {
+        if (px.equals("96")) {
             return "48";
-        } else if (px == "88") {
+        } else if (px.equals("88")) {
             return "44";
-        } else if (px == "84") {
+        } else if (px.equals("84")) {
             return "42";
-        } else if (px == "80") {
+        } else if (px.equals("80")) {
             return "40";
-        } else if (px == "72") {
+        } else if (px.equals("72")) {
             return "36";
-        } else if (px == "60") {
+        } else if (px.equals("60")) {
             return "30";
-        } else if (px == "48") {
+        } else if (px.equals("48")) {
             return "24";
-        } else if (px == "0") {
+        } else if (px.equals("0")) {
             return "0";
         }
         return null;

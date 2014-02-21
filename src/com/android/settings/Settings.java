@@ -651,7 +651,7 @@ public class Settings extends PreferenceActivity
                         target.remove(i);
                     }
                 }
-            } else if (id == R.id.development_settings {
+            } else if (id == R.id.development_settings) {
                 if (!showDev) {
                     target.remove(i);
                 }
