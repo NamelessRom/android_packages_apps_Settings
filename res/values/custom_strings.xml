@@ -374,4 +374,8 @@
     <string name="lockscreen_glowpad_torch_title">Glowpad torch</string>
     <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the slider to start torch</string>
 
+    <!-- Disable Camera Shutter Sound -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
+    <string name="camera_sounds_summary">WARNING: Disabling the camera shutter sound is illegal in some areas!</string>
+
 </resources>
