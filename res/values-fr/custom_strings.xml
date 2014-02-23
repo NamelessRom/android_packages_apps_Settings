@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ Copyright (C) 2013 - 2014 The NamelessROM Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<resources>
+    <string name="nameless_mod_version">Nameless version</string>
+    <!-- General -->
+    <string name="reset">Reset</string>
+    <!-- Sub list strings -->
+    <string name="device_control_settings">Contrôle de l\'appareil</string>
+    <string name="device_update_center">Update Center</string>
+    <!-- Interface -->
+    <string name="interface_animation_title">Contrôle d\'animation</string>
+    <!-- Themes -->
+    <string name="theme_settings_title">Dark UI (TRDS)</string>
+    <string name="theme_auto_mode_title">Changez de thème</string>
+    <string name="theme_auto_mode_off">Manuel</string>
+    <string name="theme_auto_mode_lightsensor">Le changement de condition de lumière</string>
+    <string name="theme_auto_mode_twilight">la journée</string>
+    <string name="theme_auto_switch_mode_error">Le mode automatique de la luminosité est activée. Le changement manuel n\'est pas possible.</string>
+    <!-- Status Bar Activity Indicators -->
+    <string name="show_activity_indicators_on_status_bar_title">Voyant d\'activité du réseau</string>
+    <string name="show_activity_indicators_on_status_bar_summary">Afficher l\'activité du réseau dans la barre d\'état</string>
+    <!-- Power Menu -->
+    <string name="power_menu_screenrecord_title">Screen Record</string>
+    <!-- Lockscreen battery ring -->
+    <string name="battery_around_lockscreen_ring">Batterie autour de l\'anneau de déverrouillage</string>
+    <!-- Recents clear all -->
+    <string name="system_ui_recent_panel_title">Applications récentes</string>
+    <!-- Notification Drawer -->
+    <string name="custom_statusbar_header_title">Tête du panneau de notification contextuelle</string>
+    <string name="custom_statusbar_header_summary">Définit l\'arrière-plan de l\'en-tête du panneau de notification pour une image basée sur la date et l\'heure</string>
+    <!-- Brightness Slider -->
+    <string name="notification_drawer_brightness_slider_title">Curseur de luminosité</string>
+    <!--Lockscreen See Through-->
+    <string name="see_through_title">Voir à travers</string>
+    <string name="see_through_summary">Affiche le contenu derrière votre lockscreen, vos données peuvent être visibles à ceux autour de vous</string>
+    <!-- Low battery warning policy -->
+    <string name="pref_low_battery_warning_policy_title">Avertissement de batterie faible</string>
+    <string name="pref_low_battery_warning_policy_dialog_title">Indiquez l\'avertissement de batterie faible avec</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up et son</string>
+    <string name="low_battery_warning_policy_notif_sound">Notification et son</string>
+    <string name="low_battery_warning_policy_popup">Pop-up seule</string>
+    <string name="low_battery_warning_policy_notif">Notification seule</string>
+    <string name="low_battery_warning_policy_sound">Son seul</string>
+    <string name="battery_prefs_title">Options</string>
+    <string name="battery_stats_title">Statistiques</string>
+    <!-- WiFi forget all networks -->
+    <string name="wifi_menu_forget_all">Oubliez tous les réseaux</string>
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Appuyez sur la couleur ci-dessous pour l\'appliquée</string>
+    <string name="set">Set</string>
+    <!-- RAM Bar -->
+    <string name="ram_bar_title">Récents RAM barre</string>
+    <string name="ram_bar_summary">Affiche l\'utilisation de la RAM dans la fenêtre d\'applications récentes</string>
+    <string name="ram_bar_cached_title">Inclure les applications mises en cache</string>
+    <string name="ram_bar_cached_summary">Calculer l\'utilisation de la RAM avec les applications mises en cache</string>
+    <!-- Lockscreen Notifications -->
+    <!-- Categories -->
+    <string name="general">Général</string>
+    <string name="layout">Disposition</string>
+    <string name="privacy">Confidentialité</string>
+    <string name="lockscreen_notifications">Notifications lockscreen</string>
+    <string name="lockscreen_notifications_summary">Afficher les notifications en attente sur le lockscreen</string>
+    <string name="pocket_mode">Mode de poche</string>
+    <string name="pocket_mode_summary">Allumez l\'écran et afficher toutes les notifications lorsque l\'appareil est sorti de la poche. Eteignez l\'écran lorsque l\'appareil rentre dans la poche.</string>
+    <string name="show_always">Montrez toujours</string>
+    <string name="show_always_summary">Toujours allumez l\'écran lorsqu\'il est sorti de la poche, même quand il n\'y a pas de notifications en attente</string>
+    <string name="hide_low_priority">Cachez la faible priorité</string>
+    <string name="hide_low_priority_summary">Cachez les notifications de faible priorité telles que les notifications météorologiques de google now</string>
+    <string name="hide_non_clearable">Cachez les non effaçable</string>
+    <string name="hide_non_clearable_summary">Masquer toutes les notifications non effaçables</string>
+    <string name="dismiss_all">Autoriser le rejet de toutes les notifications</string>
+    <string name="dismiss_all_summary">Autoriser le rejet des notifications non effaçables. Bien sûr, ils sont juste cachées sur le lockscreen et non à partir du panneau de notification.</string>
+    <string name="expanded_view">Vue de notification élargie</string>
+    <string name="expanded_view_summary">Afficher les notifications extensibles si possible</string>
+    <string name="force_expanded_view">Forcez la vue élargie</string>
+    <string name="force_expanded_view_summary">Affichez les notifications élargies par défaut. Vous serez toujours en mesure de basculer entre le mode étendu et le mode normal.</string>
+    <string name="wake_on_notification">Allumez à partir de la notification</string>
+    <string name="wake_on_notification_summary">Allumez l\'appareil quand une nouvelle notification est reçue</string>
+    <string name="notifications_height">Nombre de notification</string>
+    <string name="notifications_height_summary">Nombre de notifications affichées à la fois</string>
+    <string name="offset_top">Décalage vers le haut de l\'écran:</string>
+    <string name="privacy_mode">Mode de confidentialité</string>
+    <string name="privacy_mode_summary">Désactivez les notifications d\'être représentées et rejetées. De cette façon, vous voyez juste les icônes de vos notifications.</string>
+    <!-- ListView animation -->
+    <string name="bars_and_menus_category_system_title">Système</string>
+    <string name="listview_title">Affichez la liste</string>
+    <string name="listview_animation_title">Affichez la liste d\'Animation</string>
+    <string name="listview_off">Off</string>
+    <string name="listview_wave_left">Geste (Gauche)</string>
+    <string name="listview_wave_right">Geste (Droite)</string>
+    <string name="listview_alpha">Alpha</string>
+    <string name="listview_scale">Echelle</string>
+    <string name="listview_stack_top">Stack (Top)</string>
+    <string name="listview_stack_bottom">Stack (Bas)</string>
+    <string name="listview_unfold">Dépliez</string>
+    <string name="listview_fold">Pliez</string>
+    <string name="listview_translate_left">Traduire (Gauche)</string>
+    <string name="listview_translate_right">Traduire (Droite)</string>
+    <string name="listview_duration_title">Durée ListView</string>
+    <string name="listview_cache_title">ListView Persistent Cache</string>
+    <string name="listview_cache_none">Pas de Cache</string>
+    <string name="listview_cache_anim">Cache d\'animation</string>
+    <string name="listview_cache_scroll">Cache de défilement</string>
+    <string name="listview_cache_all">Animation et défilement</string>
+    <string name="listview_blacklist_title">Applications exclues</string>
+    <string name="listview_blacklist_summary">Empêcher les animation d\'applications</string>
+    <string name="listview_test">Test ListView</string>
+    <string name="listview_test_summary">Ouvrir la boîte de dialogue Test avec un ListView</string>
+    <string name="listview_test_instructions">Faites défiler pour voir les changements</string>
+    <string name="listview_test_item">ListView Item</string>
+    <!-- ListView interpolator -->
+    <string name="listview_interpolator_title">ListView Interpolator</string>
+    <string name="listview_accelerate_interpolator">Accélérez</string>
+    <string name="listview_decelerate_interpolator">Ralentir</string>
+    <string name="listview_accelerate_decelerate_interpolator">Accélérez et ralentir</string>
+    <string name="listview_anticipate_interpolator">Anticipez</string>
+    <string name="listview_overshoot_interpolator">Dépassez</string>
+    <string name="listview_anticipate_overshoot_interpolator">Anticipez et Dépassez</string>
+    <string name="listview_bounce_interpolator">Bounce</string>
+    <string name="listview_cycle_interpolator">Cycle</string>
+    <string name="listview_linear_interpolator">Linéaire</string>
+    <!-- Animation Controls -->
+    <string name="animation_settings_reset_message">Réinitialisez tous les paramètres d\'animation par défaut?</string>
+    <string name="animation_controls_title">Animations contrôles</string>
+    <string name="activity_open_title">Ouvrir l\'Activitée In-App de l\'animation</string>
+    <string name="activity_close_title">Fermez l\'Activitée In-App de l\'animation</string>
+    <string name="task_open_title">Lancez depuis l\'animation In App</string>
+    <string name="task_close_title">Retour à la précédente animation</string>
+    <string name="task_move_to_front_title">Déplacez à l\'animation avant</string>
+    <string name="task_move_to_back_title">Déplacez à l\'animation après</string>
+    <string name="wallpaper_open_title">Retour à l\'animation de l\'écran d\'accueil</string>
+    <string name="wallpaper_close_title">Lancement de l\'animation de l\'écran d\'accueil</string>
+    <string name="wallpaper_intra_open_title">Ouvrir la page Récentes d\'Animations</string>
+    <string name="wallpaper_intra_close_title">Fermez la page Récentes d\'Animations</string>
+    <string name="animation_duration_title">Durée d\'Animation</string>
+    <string name="animation_no_override_title">Empêchez le Remplacements d\'\Application</string>
+    <string name="animation_no_override_summary_on">Empêchez les applications de remplacer les transitions.</string>
+    <string name="animation_no_override_summary_off">Les applications peuvent remplacer les transitions.</string>
+    <!-- Animation Strings -->
+    <string name="animation_default">Par défaut</string>
+    <string name="animation_fade">Fondu</string>
+    <string name="animation_slide_right">Faites glisser à droite</string>
+    <string name="animation_slide_left">Faites glisser à gauche</string>
+    <string name="animation_slide_right_no_fade">Faites glisser à droite (pas fondu)</string>
+    <string name="animation_slide_left_no_fade">Faites glisser à gauche (pas fondu)</string>
+    <string name="animation_slide_up">Faites glisser en bas</string>
+    <string name="animation_slide_down">Faites glisser en haut</string>
+    <string name="animation_translucent">translucide</string>
+    <string name="animation_grow_shrink">Grandir dans (Top)</string>
+    <string name="animation_grow_shrink_center">Grandir dans (Centre)</string>
+    <string name="animation_grow_shrink_bottom">Grandir dans (Bas)</string>
+    <string name="animation_grow_shrink_left">Grandir dans (Gauche)</string>
+    <string name="animation_grow_shrink_right">Grandir dans (Droite)</string>
+    <string name="animation_random">Aléatoire</string>
+    <!-- Scrolling Animation Controls -->
+    <string name="scrolling_title">Défilement</string>
+    <string name="animation_fling_velocity_title">Fling Velocity</string>
+    <string name="animation_scroll_friction_title">Défilement de friction</string>
+    <string name="animation_overscroll_distance_title">Distance Défilement prolongée</string>
+    <string name="animation_overfling_distance_title">Distance de débordement</string>
+    <string name="animation_duration_summary">Réglez la durée</string>
+    <string name="animation_no_scroll_title">Personnalisation du défilement</string>
+    <string name="animation_no_scroll_summary_on">Activé</string>
+    <string name="animation_no_scroll_summary_off">Désactivé</string>
+    <!-- IME Animation Controls -->
+    <string name="ime_animation_title">Clavier</string>
+    <string name="ime_animation_test_title">Test IME Animations ici</string>
+    <string name="ime_enter_animation_title">Entrez Animation</string>
+    <string name="ime_exit_animation_title">Sortie d\'animation</string>
+    <string name="ime_interpolator_title">Interpolateur</string>
+    <string name="ime_duration_title">Durée IME</string>
+    <!-- Lockscreen widget carousel animation -->
+    <string name="lockscreen_use_widget_container_carousel_title">Utilisez le widget carrousel en mode portrait</string>
+    <string name="lockscreen_use_widget_container_carousel_summary">Utilisez l\'animation de carrousel en mode portrait comme il est dans le mode paysage lors de la commutation entre les widgets de l\'écran de verrouillage.</string>
+    <!-- Shortcuts -->
+    <string name="shortcut_image_not_valid">L\'application choisie ne retourne pas une icône valide ou ne supporte pas le rognage d\'image. Utilisez une autre application</string>
+    <!-- Notification drawer background -->
+    <string name="notification_style_title">Style Notification Drawer</string>
+    <string name="notification_style_summary">Changez votre style de barre de notification</string>
+    <string name="notification_wallpaper_title">fond d\écran</string>
+    <string name="notification_wallpaper_landscape_title">Différents fond d\'ecran</string>
+    <string name="notification_background_color_fill">Couleur de remplissage</string>
+    <string name="notification_background_custom_image">Image personnalisée</string>
+    <string name="notification_background_default_wallpaper">Fond d\'ecran par défaut</string>
+    <string name="notification_drawer_custom_background_dialog_title">Choisissez la couleur</string>
+    <string name="notif_wallpaper_alpha_title">Transparence du fond d\'écran</string>
+    <string name="notif_alpha_title">Transparence de notification</string>
+    <!-- Network speed -->
+    <string name="show_network_speed">Indicateur de vitesse de Réseau</string>
+    <string name="show_network_speed_summary">Montrez la vitesse du réseau dans la barre d\'état</string>
+    <string name="show_network_speed_bits">Affichez la vitesse de bits par seconde</string>
+    <string name="show_network_speed_bytes">Affichez la vitesse octets par seconde</string>
+    <!-- Custom Carrier Label -->
+    <string name="notification_carrier_label_title">Carrier label</string>
+    <string name="notification_custom_carrier_label_title">Carrier label personnalisé</string>
+    <string name="notification_custom_carrier_label_explain">S\'il vous plaît entrez une nouvelle étiquette. Entrez une étiquette vide pour revenir à l\'étiquette d\'origine.</string>
+    <string name="notification_custom_carrier_label_notset">L\'Étiquette personnalisée n\'a pas été réglée</string>
+    <!-- Advanced Device Info -->
+    <string name="advanced_device_info_title">Information Avancée de l\'Appareil</string>
+    <string name="advanced_device_info_summary">Informations sur le CPU, GPU, etc</string>
+    <!-- CPU -->
+    <string name="cpu_features">Caractéristiques du processeur</string>
+    <!-- GPU -->
+    <string name="gpu_title">GPU / OpenGl</string>
+    <string name="gpu_vendor">GPU Vendor</string>
+    <string name="gpu_renderer">GPU Renderer</string>
+    <string name="gpu_gl_version">OpenGl Version</string>
+    <string name="gpu_gl_extensions">OpenGl Extensions</string>
+    <string name="gpu_shader_version">Shader Version</string>
+    <!-- Sound themes -->
+    <string name="sound_packages_title">Pack d\'audio</string>
+    <string name="install_sound_pack_title">Installez le pack audio</string>
+    <string name="install_sound_pack_summary">Installez de nouveaux pack audio seront ajoutés dans le dossier \"Nameless/SoundPacks\" sur la mémoire interne</string>
+    <string name="install_sound_pack_summary_disabled">Pas de packs audio installables trouvé!\nS\'il vous plaît mettez vos packs audio dans \n%s et essayez à nouveau!</string>
+    <string name="select_sound_pack_title">Sélectionnez le pack audio</string>
+    <string name="select_sound_pack_summary">Sélectionnez le pack audio actif</string>
+    <string name="default_sound_pack">Par défaut (System)</string>
+    <string name="error_pack_install">Erreur lors de l\'installation du pack audio</string>
+    <string name="sound_pack_folder_created_success">Créé %s pour placer vos packs audio dedans!</string>
+    <string name="sound_pack_folder_created_failure">Erreur de création de %s!</string>
+    <!-- Breathing Notifications -->
+    <string name="breathing_notifications_title">Clignotement des Notifications</string>
+    <string name="sms_breath_title">Clignotement SMS</string>
+    <string name="sms_breath_summary">Donnera à vos notifications SMS un effet de clignotement dans la barre d\'état</string>
+    <string name="missed_call_breath_title">Clignotement Appel Manqué</string>
+    <string name="missed_call_breath_summary">Donnera à vos notifications d\'appels manqués un effet de clignotement dans la barre d\'état</string>
+    <string name="voicemail_breath_title">Clignotement Messagerie vocale</string>
+    <string name="voicemail_breath_summary">Donnera à vos notifications de messagerie vocale un effet de clignotement dans la barre d\'état</string>
+    <!-- Status bar | Clock -->
+    <string name="status_bar_clock">Date et heure</string>
+    <string name="status_bar_clock_title">Style de Date et heure</string>
+    <string name="clock_title_enable">Alignement</string>
+    <string name="clock_enabled">Activé</string>
+    <string name="clock_disabled">Désactivé</string>
+    <string name="status_bar_show_clock_title">Affichez l\'heure et la date</string>
+    <string name="status_bar_am_pm_title">AM/PM</string>
+    <string name="status_bar_am_pm_info">Le mode 24 heures est activé</string>
+    <string name="enable_clock_weekday">Jour de la semaine</string>
+    <string name="enable_clock_weekday_summary">Jour abrégée de la semaine avant l\'heure</string>
+    <string name="right_clock">Horloge à droite</string>
+    <string name="center_clock">Horloge au centre</string>
+    <string name="dont_show">Ne pas montrer</string>
+    <string name="clock_date_display">Date</string>
+    <string name="clock_date_display_summary">Affichez la date personnaliseé avant l\'horloge</string>
+    <string name="clock_date_style">Style de date</string>
+    <string name="clock_date_format">Format de date</string>
+    <string name="clock_date_string_edittext_title">Doit être dans un format de date comme par exemple. MM/jj/aa</string>
+    <string name="clock_date_string_edittext_summary">Entrez chaîne</string>
+    <string name="am_pm_clock_normal">Taille de la police normale</string>
+    <string name="am_pm_clock_small">Taille de la police petite</string>
+    <string name="am_pm_clock_none">Ne pas montrer</string>
+    <string name="clock_date_display_none">Ne pas montrer</string>
+    <string name="clock_date_display_small">Taille de la police petite</string>
+    <string name="clock_date_display_normal">Taille de la police normale</string>
+    <string name="clock_date_style_normal">Normal</string>
+    <string name="clock_date_style_lowercase">Minuscule</string>
+    <string name="clock_date_style_uppercase">Majuscule</string>
+    <string name="clock_date_format_custom">Format java personnalisée</string>
+    <string name="status_bar_clock_style_reset_message">remettre la couleur de l\'horloge?</string>
+    <!-- Screen-On Notification Light -->
+    <string name="screen_on_notification_led_title">Ecran allumé sur la lumiere de notification</string>
+    <string name="screen_on_notification_led_summary">Activez la lumière de notification même lorsque l\'écran est allumé</string>
+    <!-- Navigation bar height/width -->
+    <string name="navbar_dimen_title">Dimensions</string>
+    <string name="navbar_dimensions_reset_message">Remettre toutes les entrées de dimensions par défaut?</string>
+    <string name="navigation_bar_height_title">Hauteur de la barre de navigation</string>
+    <string name="navigation_bar_height_summary">Hauteur de la barre de navigation en portrait</string>
+    <string name="navigation_bar_width_title">La largeur de la barre de navigation</string>
+    <string name="navigation_bar_width_summary">Hauteur de la barre de navigation si la barre est trop long d\'un côté</string>
+    <string name="navigation_bar_size_42_dp_default">42 dp (par défaut)</string>
+    <string name="navigation_bar_size_36_dp">36 dp</string>
+    <string name="navigation_bar_size_30_dp">30 dp</string>
+    <string name="navigation_bar_size_24_dp">24 dp</string>
+    <string name="navigation_bar_size_48_dp_default">48 dp (default)</string>
+    <string name="navigation_bar_size_44_dp">44 dp</string>
+    <string name="navigation_bar_size_40_dp">40 dp</string>
+    <string name="navigation_bar_size_42_dp">42 dp</string>
+    <string name="navigation_bar_size_0_dp">0 dp (off)</string>
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">SuperSU</string>
+    <string name="superuser">Superuser</string>
+    <!-- QuickSettings: Smart Pulldown -->
+    <string name="smart_pulldown_title">Déroulement Intelligent</string>
+    <string name="smart_pulldown_summary">Ouvrez les Paramètres rapides quand il n\'y a pas de notifications présentes</string>
+    <string name="smart_pulldown_off">Off</string>
+    <string name="smart_pulldown_dismissable">Pull Down s\'il n\'y a pas de notifications effaçables</string>
+    <string name="smart_pulldown_persistent">Pull Down s\'il n\'y a pas de notifications</string>
+    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
+    <string name="show_cpu_info">Affichez les info du CPU</string>
+    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
+    <string name="show_cpu_info_summary">Superposez l\'écran montrant l\'Info du CPU</string>
+    <!-- More app settings -->
+    <string name="more_app_settings">Plus de paramètres d\'application</string>
+    <!-- Wakelock blocker -->
+    <string name="wakelock_blocker">Wakelock Blocker</string>
+    <string name="wakelock_blocker_title">Activé</string>
+    <string name="wakelock_blocker_summary">Activez le blocage pour les wakelocks vérifiés</string>
+    <string name="wakelock_blocker_save">Sauvez</string>
+    <string name="wakelock_list_header">Wakelocks disponible</string>
+    <string name="wakelock_blocker_reload">Rechargez</string>
+    <string name="wakelock_blocker_warning_title">Procédez avec prudence</string>
+    <string name="wakelock_blocker_warning">Le blocage Wakelock a le potentiel de causer l\'instabilité, les accidents ou la perte de données.</string>
+    <!-- QuickSettings fliptiles -->
+    <string name="flip_qs_tiles_title">Retournez les raccourcis</string>
+    <string name="flip_qs_tiles_summary">Retourne les raccourcis au touchez</string>
+    <!-- QuickSettings haptic feedback -->
+    <string name="haptic_qs_tiles_title">Vibrez au toucher</string>
+    <string name="haptic_qs_tiles_summary">Vibrez quand vous touchez les raccourcis</string>
+</resources>
