@@ -30,7 +30,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class SystemUiSettings extends SettingsPreferenceFragment  implements
+public class SystemUiSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
 
@@ -88,6 +88,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
             String navbarHeight = Settings.System.getString(resolver,
                     Settings.System.NAVIGATION_BAR_HEIGHT);
+            if (navbarHeight == null) {
+                navbarHeight = "48";
+            }
             navbarHeight = mapChosenPixelstoDp(navbarHeight);
             if (navbarHeight != null) {
                 mNavigationBarHeight.setValue(navbarHeight);
@@ -97,6 +100,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             mNavigationBarWidth = (ListPreference) findPreference(KEY_NAVIGATION_BAR_WIDTH);
             String navbarWidth = Settings.System.getString(resolver,
                     Settings.System.NAVIGATION_BAR_WIDTH);
+            if (navbarWidth == null) {
+                navbarWidth = "42";
+            }
             navbarWidth = mapChosenPixelstoDp(navbarWidth);
             if (navbarWidth != null) {
                 mNavigationBarWidth.setValue(navbarWidth);
@@ -119,19 +125,16 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             updateExpandedDesktop(expandedDesktopValue);
             return true;
         } else if (preference == mExpandedDesktopNoNavbarPref) {
-            boolean value = (Boolean) objValue;
-            updateExpandedDesktop(value ? 2 : 0);
+            updateExpandedDesktop((Boolean) objValue ? 2 : 0);
             return true;
         } else if (preference == mNavigationBarWidth) {
-            String newVal = (String) objValue;
-            int dp = Integer.parseInt(newVal);
+            final int dp = Integer.parseInt((String) objValue);
             int width = mapChosenDpToPixels(dp);
             Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_WIDTH,
                     width);
             return true;
         } else if (preference == mNavigationBarHeight) {
-            String newVal = (String) objValue;
-            int dp = Integer.parseInt(newVal);
+            final int dp = Integer.parseInt((String) objValue);
             int height = mapChosenDpToPixels(dp);
             Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_HEIGHT,
                     height);
@@ -187,8 +190,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         return -1;
     }
 
-    public String mapChosenPixelstoDp(String px) {
-        if (px.equals("96")) {
+    public String mapChosenPixelstoDp(final String px) {
+        if (px == null) {
+            return null;
+        } else if (px.equals("96")) {
             return "48";
         } else if (px.equals("88")) {
             return "44";
