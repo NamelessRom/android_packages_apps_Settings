@@ -91,6 +91,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             navbarHeight = mapChosenPixelstoDp(navbarHeight);
             if (navbarHeight != null) {
                 mNavigationBarHeight.setValue(navbarHeight);
+            } else {
+                mNavigationBarHeight.setValue("48");
             }
             mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
@@ -100,6 +102,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             navbarWidth = mapChosenPixelstoDp(navbarWidth);
             if (navbarWidth != null) {
                 mNavigationBarWidth.setValue(navbarWidth);
+            } else {
+                mNavigationBarWidth.setValue("42");
             }
             mNavigationBarWidth.setOnPreferenceChangeListener(this);
         } else {
