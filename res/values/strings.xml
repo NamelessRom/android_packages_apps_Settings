@@ -1267,23 +1267,14 @@
     <string name="wifi_display_options_name">Name</string>
 
     <!-- Wifi Display settings. The sub heading for wireless display certification options. [CHAR LIMIT=40] -->
-    <string name="wifi_display_certification_heading" translatable="false">Certification</string>
     <!-- Wifi Display settings. The section title for wireless display session info. [CHAR LIMIT=40] -->
-    <string name="wifi_display_session_info" translatable="false">Session info</string>
     <!-- Wifi Display settings. The checkbox title for enabling listen mode during certification process. [CHAR LIMIT=40] -->
-    <string name="wifi_display_listen_mode" translatable="false">Enable listen mode</string>
     <!-- Wifi Display settings. The checkbox title for enabling autonomous GO during certification process. [CHAR LIMIT=40] -->
-    <string name="wifi_display_autonomous_go" translatable="false">Enable autonomous GO</string>
     <!-- Wifi Display settings. The button text for sending pause trigger during certification process. [CHAR LIMIT=40] -->
-    <string name="wifi_display_pause" translatable="false">Pause</string>
     <!-- Wifi Display settings. The button text for sending play (resume) trigger during certification process. [CHAR LIMIT=40] -->
-    <string name="wifi_display_resume" translatable="false">Resume</string>
     <!-- Wifi Display settings. The dropdown menu title for choosing WPS configuration during certification process. [CHAR LIMIT=40] -->
-    <string name="wifi_display_wps_config" translatable="false">WPS configuration</string>
     <!-- Wifi Display settings. The dropdown menu title for choosing listen channel during certification process. [CHAR LIMIT=40] -->
-    <string name="wifi_display_listen_channel" translatable="false">Listen channel</string>
     <!-- Wifi Display settings. The dropdown menu title for choosing operating channel during certification process. [CHAR LIMIT=40] -->
-    <string name="wifi_display_operating_channel" translatable="false">Operating channel</string>
 
     <!-- NFC settings -->
     <!-- Used in the 1st-level settings screen to turn on NFC -->
@@ -1757,7 +1748,6 @@
     <!-- Sound settings screen, setting option name -->
     <string name="notification_sound_title">Default notification sound</string>
     <!-- Sound settings screen, notification light repeat pulsing title -->
-    <string name="notification_pulse_title">Pulse notification light</string>
     <!-- Sound settings screen, the title of the volume bar to adjust the incoming call volume -->
     <string name="incoming_call_volume_title">Ringtone</string>
     <!-- Sound settings screen, the title of the volume bar to adjust the notification volume -->
@@ -4507,7 +4497,6 @@
     <!-- Subtitle of dialog for editing data usage cycle reset date. [CHAR LIMIT=32] -->
     <string name="data_usage_cycle_editor_subtitle">Date of each cycle:</string>
     <!-- Subtitle of dialog for editing data usage cycle length. [CHAR LIMIT=32] -->
-    <string name="data_usage_lengths_spinner_subtitle">Cycle length:</string>
     <!-- Positive button title for data usage cycle editor, confirming that changes should be saved. [CHAR LIMIT=32] -->
     <string name="data_usage_cycle_editor_positive">Set</string>
 

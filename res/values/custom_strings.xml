@@ -386,4 +386,8 @@
     <!-- Menu Entries in Nameless -> more -->
     <string name="misc_crash_report">Crash Report</string>
     <string name="misc_others">Others</string>
+
+    <!-- Privacy Guard Notification -->
+    <string name="privacy_guard_notification_title">Notification</string>
+    <string name="privacy_guard_notification_summary">Show notification if privacy guard is active.</string>
 </resources>
