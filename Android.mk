@@ -24,4 +24,6 @@ LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 include $(BUILD_PACKAGE)
 
 # Use the folloing include to make our test apk.
+ifdef BUILD_TEST_APPS
 include $(call all-makefiles-under,$(LOCAL_PATH))
+endif

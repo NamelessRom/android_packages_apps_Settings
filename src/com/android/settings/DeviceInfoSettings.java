@@ -36,6 +36,8 @@ import android.provider.Settings;
 
 import com.android.settings.deviceinfo.msim.MSimStatus;
 
+import com.android.settings.deviceinfo.msim.MSimStatus;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

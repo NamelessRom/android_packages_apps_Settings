@@ -249,7 +249,6 @@
     <string name="clock_title_enable">Alignement</string>
     <string name="clock_enabled">Activé</string>
     <string name="clock_disabled">Désactivé</string>
-    <string name="status_bar_show_clock_title">Affichez l\'heure et la date</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
     <string name="status_bar_am_pm_info">Le mode 24 heures est activé</string>
     <string name="enable_clock_weekday">Jour de la semaine</string>
