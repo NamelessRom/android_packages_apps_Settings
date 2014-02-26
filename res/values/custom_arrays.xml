@@ -330,4 +330,30 @@
         <item>@string/volume_steps_5</item>
     </string-array>
 
+    <!-- Lockscreen lock icon values -->
+    <string-array name="lock_icon_entries">
+        <item>@string/lockscreen_lock_icon_custom</item>
+        <item>@string/lockscreen_lock_icon_nameless</item>
+        <item>@string/lockscreen_lock_icon_default</item>
+    </string-array>
+
+    <string-array name="lock_icon_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Custom lock screen background-->
+    <string-array name="lockscreen_background_entries" translatable="false">
+        <item>@string/background_color_fill</item>
+        <item>@string/background_wallpaper</item>
+        <item>@string/background_default</item>
+    </string-array>
+
+    <string-array name="lockscreen_background_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
