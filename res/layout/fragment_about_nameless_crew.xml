@@ -45,5 +45,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <com.android.settings.nameless.widgets.DeveloperPreference
+            android:title="Nick"
+            aokp:nameDev="nick"
+            aokp:githubLink="@string/github_nickdoherty81"
+            aokp:emailDev="nickdoh81@gmail.com"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </ScrollView>
