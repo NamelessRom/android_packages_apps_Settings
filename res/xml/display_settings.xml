@@ -106,4 +106,9 @@
 
         </PreferenceCategory>
 
+            <PreferenceScreen
+                android:key="lcd_density"
+                android:fragment="com.android.settings.crdroid.DensitySettings"
+                android:title="@string/custom_density_title" />
+
 </PreferenceScreen>
