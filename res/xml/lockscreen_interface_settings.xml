@@ -67,6 +67,11 @@
             android:title="@string/see_through_title"
             android:summary="@string/see_through_summary" />
 
+        <PreferenceScreen
+            android:key="keyguard_style"
+            android:fragment="com.android.settings.nameless.LockscreenStyle"
+            android:title="@string/lockscreen_style_title"/>
+
     </PreferenceCategory>
 
     <PreferenceScreen
