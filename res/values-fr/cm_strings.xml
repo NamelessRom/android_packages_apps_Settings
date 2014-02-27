@@ -667,4 +667,7 @@ Des options supplémentaires sont disponibles en appuyant longtemps sur une lign
     <string name="bluetooth_sap_profile_summary_use_for">Utilisé pour l\'accès SIM</string>
     <string name="bluetooth_dun_profile_summary_use_for">Utilisé pour l\'accès par ligne commutée</string>
     <string name="wifi_disabled_association_rejected">Association rejetée</string>
+    <!-- Privacy Settings Header item -->
+    <string name="privacy_settings_cyanogenmod_title">Vie privée</string>
+    <string name="privacy_guard_notification_summary">Afficher la notification si la protection de la vie privée est active.</string>
 </resources>
