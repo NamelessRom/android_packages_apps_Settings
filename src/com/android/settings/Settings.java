@@ -138,6 +138,13 @@ public class Settings extends PreferenceActivity
     private static final String SAVE_KEY_CURRENT_HEADER = "com.android.settings.CURRENT_HEADER";
     private static final String SAVE_KEY_PARENT_HEADER = "com.android.settings.PARENT_HEADER";
 
+    private static final String ACTION_PERFORMANCE =
+            "org.namelessrom.devicecontrol.activities.PerformanceActivity";
+    private static final String ACTION_DEVICE_CONTROL =
+            "org.namelessrom.devicecontrol.activities.MainActivity";
+    private static final String ACTION_UPDATE_CENTER =
+            "org.namelessrom.updatecenter.activities.MainActivity";
+
     static final int DIALOG_ONLY_ONE_HOME = 1;
 
     private static boolean sShowNoHomeNotice = false;
@@ -653,27 +660,30 @@ public class Settings extends PreferenceActivity
                         target.remove(i);
                     }
                 }
-            } else if (id == R.id.development_settings
-                    || id == R.id.performance_settings) {
+            } else if (id == R.id.development_settings) {
                 if (!showDev) {
                     target.remove(i);
+                }
+            } else if (id == R.id.performance_settings) {
+                if (!showDev && !actionExists(ACTION_PERFORMANCE)) {
+                    target.remove(i);
+                } else {
+                    target.get(i).intent = new Intent().setAction(ACTION_PERFORMANCE);
                 }
             } else if (id == R.id.account_add) {
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
                     target.remove(i);
                 }
             } else if (id == R.id.device_control_settings) {
-                if (actionExists("org.namelessrom.devicecontrol.activities.MainActivity")) {
-                    target.get(i).intent = new Intent()
-                            .setAction("org.namelessrom.devicecontrol.activities.MainActivity");
+                if (actionExists(ACTION_DEVICE_CONTROL)) {
+                    target.get(i).intent = new Intent().setAction(ACTION_DEVICE_CONTROL);
                     target.get(i).titleRes = R.string.device_control_settings;
                 } else {
                     target.remove(i);
                 }
             } else if (id == R.id.device_update_center) {
-                if (actionExists("org.namelessrom.updatecenter.activities.MainActivity")) {
-                    target.get(i).intent = new Intent()
-                            .setAction("org.namelessrom.updatecenter.activities.MainActivity");
+                if (actionExists(ACTION_UPDATE_CENTER)) {
+                    target.get(i).intent = new Intent().setAction(ACTION_UPDATE_CENTER);
                     target.get(i).titleRes = R.string.device_update_center;
                 } else {
                     target.remove(i);
@@ -688,10 +698,6 @@ public class Settings extends PreferenceActivity
                 if (!supported) {
                     target.remove(i);
                 }
-            } else if (id == R.id.superuser) {
-                // if (!DevelopmentSettings.isRootForAppsEnabled()) { // TODO: Add Koush' Superuser check
-                    target.remove(i);
-                // }
             }
 
             if (i < target.size() && target.get(i) == header
