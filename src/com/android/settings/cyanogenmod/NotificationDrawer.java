@@ -26,15 +26,20 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import android.preference.RingtonePreference;
+
 public class NotificationDrawer extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "NotificationDrawer";
 
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
+
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
 
     private ListPreference mCollapseOnDismiss;
     private CheckBoxPreference mStatusBarCustomHeader;
+
+    private ListPreference mCollapseOnDismiss;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,4 +83,5 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
                 R.array.notification_drawer_collapse_on_dismiss_summaries);
         mCollapseOnDismiss.setSummary(summaries[setting]);
     }
+
 }
