@@ -75,6 +75,14 @@
         android:icon="@drawable/ic_settings_updatecenter"
         android:title="@string/device_update_center" />
 
+    <!-- Other interface controls -->
+    <header
+        android:id="@+id/interface_more"
+        android:title="@string/more_device_controls_title"
+        android:breadCrumbTitle="@string/more_device_controls_title"
+        android:icon="@drawable/empty_icon"
+        android:fragment="com.android.settings.nameless.NamelessMoreSettings" />
+
     <!-- Multi Sim Settings - this is in the settings process -->
     <header
         android:id="@+id/multi_sim_settings"

@@ -15,23 +15,23 @@
  * limitations under the License.
  */
 
-package com.android.settings.nameless;
+package com.android.settings.nameless.preferences;
 
 import android.content.Context;
 import android.preference.CheckBoxPreference;
 import android.provider.Settings;
 import android.util.AttributeSet;
 
-public class SystemSettingCheckBoxPreference extends CheckBoxPreference {
-    public SystemSettingCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
+public class NamelessSettingCheckBoxPreference extends CheckBoxPreference {
+    public NamelessSettingCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public SystemSettingCheckBoxPreference(Context context, AttributeSet attrs) {
+    public NamelessSettingCheckBoxPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SystemSettingCheckBoxPreference(Context context) {
+    public NamelessSettingCheckBoxPreference(Context context) {
         super(context, null);
     }
 
@@ -43,7 +43,7 @@ public class SystemSettingCheckBoxPreference extends CheckBoxPreference {
                 return true;
             }
 
-            Settings.System.putBoolean(getContext().getContentResolver(), getKey(), value);
+            Settings.Nameless.putBoolean(getContext().getContentResolver(), getKey(), value);
             return true;
         }
         return false;
@@ -63,6 +63,6 @@ public class SystemSettingCheckBoxPreference extends CheckBoxPreference {
     protected boolean isPersisted() {
         // Using getString instead of getInt so we can simply check for null
         // instead of catching an exception. (All values are stored as strings.)
-        return Settings.System.getString(getContext().getContentResolver(), getKey()) != null;
+        return Settings.Nameless.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }

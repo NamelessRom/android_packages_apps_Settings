@@ -47,7 +47,7 @@
     <PreferenceCategory
         android:title="@string/notification_drawer_brightness_slider_title">
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="notification_brightness_slider"
             android:title="@string/title_quick_access"
             android:defaultValue="false" />

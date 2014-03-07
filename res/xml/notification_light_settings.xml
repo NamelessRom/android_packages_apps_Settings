@@ -36,7 +36,7 @@
             android:title="@string/notification_light_use_custom"
             android:dependency="notification_light_pulse" />
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="screen_on_notification_led"
             android:title="@string/screen_on_notification_led_title"
             android:summary="@string/screen_on_notification_led_summary"

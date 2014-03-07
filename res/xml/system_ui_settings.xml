@@ -58,7 +58,7 @@
             android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
     </Preference>
 
-    <com.android.settings.nameless.SystemSettingCheckBoxPreference
+    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
         android:key="navbar_force_enable"
         android:title="@string/navbar_force_enable_title"
         android:summary="@string/navbar_force_enable_summary"
