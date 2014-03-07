@@ -106,9 +106,4 @@
 
         </PreferenceCategory>
 
-        <PreferenceScreen
-            android:key="lcd_density"
-            android:fragment="com.android.settings.slim.DensitySettings"
-            android:title="@string/custom_density_title" />
-
 </PreferenceScreen>
