@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.nameless;
+package com.android.settings.nameless.preferences;
 
 import android.content.Context;
 import android.preference.CheckBoxPreference;
