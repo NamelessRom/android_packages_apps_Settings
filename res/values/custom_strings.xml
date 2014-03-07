@@ -387,4 +387,8 @@
     <string name="density_change_warning">Note: Changing density will close all running apps!</string>
     <string name="density_settings_title">Density changer</string>
 
+    <!-- ACRA -->
+    <string name="enable_acra_title">Enable Crashreporting</string>
+    <string name="enable_acra_summary">If checked, crashes are automatically send to NamelessRom</string>
+
 </resources>

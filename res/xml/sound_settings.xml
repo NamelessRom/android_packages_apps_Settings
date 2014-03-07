@@ -126,7 +126,7 @@
             android:title="@string/lock_sounds_enable_title"
             android:defaultValue="true" />
 
-    <com.android.settings.nameless.SystemSettingCheckBoxPreference
+    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="camera_sounds"
             android:title="@string/camera_sounds_title"
             android:summary="@string/camera_sounds_summary"
