@@ -35,13 +35,13 @@
         android:key="category_recent_panel"
         android:title="@string/system_ui_recent_panel_title">
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="ram_usage_bar"
             android:title="@string/ram_bar_title"
             android:summary="@string/ram_bar_summary"
             android:defaultValue="true" />
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="ram_usage_bar_cached"
             android:title="@string/ram_bar_cached_title"
             android:summary="@string/ram_bar_cached_summary"

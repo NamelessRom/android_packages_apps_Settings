@@ -52,7 +52,7 @@
             android:title="@string/lockscreen_buttons_title"
             android:summary="@string/lockscreen_buttons_summary" />
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="lockscreen_glowpad_torch"
             android:title="@string/lockscreen_glowpad_torch_title"
             android:summary="@string/lockscreen_glowpad_torch_summary" />
