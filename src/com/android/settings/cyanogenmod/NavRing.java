@@ -28,7 +28,6 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +38,8 @@ import android.widget.Toast;
 
 import static com.android.internal.util.cm.NavigationRingConstants.*;
 import com.android.internal.util.cm.NavigationRingHelpers;
+import com.android.internal.util.nameless.NamelessUtils;
+import com.android.internal.util.nameless.constants.FlashLightConstants;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.widget.multiwaveview.TargetDrawable;
 import com.android.settings.R;
@@ -123,7 +124,7 @@ public class NavRing extends Fragment implements
         if (NavigationRingHelpers.isAssistantAvailable(getActivity())) {
             mActions.addAction(ACTION_ASSIST, R.string.navring_action_google_now);
         }
-        if (NavigationRingHelpers.isTorchAvailable(getActivity())) {
+        if (NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
             mActions.addAction(ACTION_TORCH, R.string.navring_action_torch);
         }
 
