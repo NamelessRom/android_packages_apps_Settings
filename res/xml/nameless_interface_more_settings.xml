@@ -35,11 +35,19 @@
         android:key="category_recent_panel"
         android:title="@string/system_ui_recent_panel_title">
 
+        <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
+            android:key="new_recents_screen"
+            android:title="@string/new_recents_screen_title"
+            android:summary="@string/new_recents_screen_summary"
+            android:defaultValue="false"
+            android:disableDependentsState="true" />
+
         <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="ram_usage_bar"
             android:title="@string/ram_bar_title"
             android:summary="@string/ram_bar_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:dependency="new_recents_screen" />
 
         <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="ram_usage_bar_cached"

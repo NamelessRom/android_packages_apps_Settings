@@ -382,4 +382,8 @@
     <string name="enable_acra_title">Enable Crashreporting</string>
     <string name="enable_acra_summary">If checked, crashes are automatically send to NamelessRom</string>
 
+    <!-- New Recents Screen -->
+    <string name="new_recents_screen_title">Use new recents</string>
+    <string name="new_recents_screen_summary">Replaces the recents screen with one based on the new google cards optic.</string>
+
 </resources>
