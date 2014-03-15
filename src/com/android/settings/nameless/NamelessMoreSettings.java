@@ -38,3 +38,4 @@ public class NamelessMoreSettings extends SettingsPreferenceFragment implements
     }
 
 }
+
