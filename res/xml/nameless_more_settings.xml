@@ -26,4 +26,19 @@
         android:summary="@string/enable_acra_summary"
         android:defaultValue="true" />
 
+    <PreferenceCategory
+        android:key="misc_tweaks_srec"
+        android:title="@string/misc_tweaks_srec">
+
+    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+        android:key="srec_enable_touches"
+        android:title="@string/srec_enable_touches_title"
+        android:summary="@string/srec_enable_touches_summary" />
+
+    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+        android:key="srec_enable_mic"
+        android:title="@string/srec_enable_mic_title"
+        android:summary="@string/srec_enable_mic_summary" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
