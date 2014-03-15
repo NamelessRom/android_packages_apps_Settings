@@ -409,4 +409,11 @@
     <!-- Disable safe volume warning with headphones -->
     <string name="disable_safe_volume_title">Disable safe volume warning</string>
     <string name="disable_safe_volume_summary">This will disable the safe volume warning when using headphones. A reboot is necessary in order to take effect.</string>
+
+    <!-- Screen Recording -->
+    <string name="misc_tweaks_srec">Screen Recording</string>
+    <string name="srec_enable_touches_title">Enable Pointer</string>
+    <string name="srec_enable_touches_summary">Enable visual pointer to show touches during screen recording</string>
+    <string name="srec_enable_mic_title">Use Microphone</string>
+    <string name="srec_enable_mic_summary">Use microphone as audio input during screen recording</string>
 </resources>
