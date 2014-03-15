@@ -26,11 +26,26 @@ import com.android.settings.SettingsPreferenceFragment;
 public class NamelessMoreSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+private static final String SREC_ENABLE_TOUCHES = "srec_enable_touches";
+private static final String SREC_ENABLE_MIC = "srec_enable_mic";
+
+private CheckBoxPreference mSrecEnableTouches;
+private CheckBoxPreference mSrecEnableMic;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.nameless_more_settings);
+
+        mSrecEnableTouches = (CheckBoxPreference) findPreference(SREC_ENABLE_TOUCHES);
+        mSrecEnableTouches.setChecked((Settings.System.getInt(resolver,
+                Settings.System.SREC_ENABLE_TOUCHES, 0) == 1));
+        mSrecEnableMic = (CheckBoxPreference) findPreference(SREC_ENABLE_MIC);
+        mSrecEnableMic.setChecked((Settings.System.getInt(resolver,
+                Settings.System.SREC_ENABLE_MIC, 0) == 1));
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
