@@ -75,6 +75,13 @@
         android:icon="@drawable/ic_settings_updatecenter"
         android:title="@string/device_update_center" />
 
+    <!-- Navigation -->
+    <header
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings_navigation"
+        android:fragment="com.android.settings.slim.NavigationSettings"
+        android:title="@string/navigation_settings_title" />
+
     <!-- Other interface controls -->
     <header
         android:id="@+id/interface_more"

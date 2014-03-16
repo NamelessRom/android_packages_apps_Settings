@@ -504,6 +504,10 @@ public class LockscreenTargets extends Fragment implements
     }
 
     @Override
+    public void onTargetChange(View v, int handle) {
+    }
+
+    @Override
     public void onGrabbedStateChange(View v, int handle) {
     }
 
