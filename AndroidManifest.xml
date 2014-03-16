@@ -1695,6 +1695,21 @@
                 android:resource="@id/interface_animation" />
         </activity>
 
+        <activity android:name="Settings$NavigationSettings"
+                android:label="@string/navigation_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.slim.NavigationSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/navigation_settings" />
+        </activity>
+
         <!-- TRDS -->
         <activity
             android:name=".slim.themes.ThemeSettings"
