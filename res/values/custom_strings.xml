@@ -97,6 +97,7 @@
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
     <string name="set">Set</string>
+    <string name="color_default">Default</string>
 
     <!-- RAM Bar -->
     <string name="ram_bar_title">Recents RAM bar</string>
@@ -444,4 +445,11 @@
     <string name="background_result_successful">Background changed</string>
     <string name="background_result_not_successful">Background not changed</string>
     <string name="lockscreen_theme_title">Lockscreen theme</string>
+
+    <!-- OK! -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
+    <string name="enabled">Enabled</string>
+    <string name="attention">Attention</string>
+    <string name="default_string">Default</string>
 </resources>
