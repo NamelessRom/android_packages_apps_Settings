@@ -41,4 +41,8 @@
         android:summary="@string/srec_enable_mic_summary" />
     </PreferenceCategory>
 
+    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+        android:key="disable_fc_notifications"
+        android:title="@string/disable_fc_notifications_title"
+        android:summary="@string/disable_fc_notifications_summary" />
 </PreferenceScreen>
