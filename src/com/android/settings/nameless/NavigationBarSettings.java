@@ -18,6 +18,7 @@ package com.android.settings.nameless;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -34,6 +35,8 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final String PREF_BUTTON_BACKLIGHT = "pref_navbar_button_backlight";
 
     private SystemSettingSwitchPreference mHardwareKeysDisable;
+
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,11 +57,15 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 getPreferenceScreen().removePreference(pref);
             }
         }
+
+        mHandler = new Handler();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (mHardwareKeysDisable == preference) {
+            mHardwareKeysDisable.setEnabled(false);
+
             final boolean enabled = (Boolean) newValue;
             final SharedPreferences prefs = PreferenceManager
                     .getDefaultSharedPreferences(getActivity());
@@ -83,6 +90,13 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 }
             }
             editor.commit();
+
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mHardwareKeysDisable.setEnabled(true);
+                }
+            }, 1000);
             return true;
         }
 
