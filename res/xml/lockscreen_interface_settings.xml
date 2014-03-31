@@ -71,7 +71,7 @@
 
     <PreferenceScreen
         android:title="@string/lockscreen_notifications"
-        android:fragment="com.android.settings.LockscreenNotifications" />
+        android:fragment="com.android.settings.nameless.LockscreenNotifications" />
 
     <PreferenceCategory
         android:title="@string/lockscreen_widgets_category_title"
