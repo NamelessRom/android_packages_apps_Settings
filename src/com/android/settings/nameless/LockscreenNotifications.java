@@ -1,24 +1,27 @@
-package com.android.settings;
+package com.android.settings.nameless;
 
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.os.UserHandle;
-import android.os.UserManager;
 import android.preference.CheckBoxPreference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SeekBarPreference;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.WindowManager;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class LockscreenNotifications extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
@@ -34,6 +37,9 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
     private static final String KEY_NOTIFICATIONS_HEIGHT = "notifications_height";
     private static final String KEY_PRIVACY_MODE = "privacy_mode";
     private static final String KEY_OFFSET_TOP = "offset_top";
+    private static final String KEY_CATEGORY_GENERAL = "category_general";
+    private static final String KEY_EXCLUDED_APPS = "excluded_apps";
+    private static final String KEY_NOTIFICATION_COLOR = "notification_color";
 
     private CheckBoxPreference mLockscreenNotifications;
     private CheckBoxPreference mPocketMode;
@@ -47,6 +53,8 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
     private NumberPickerPreference mNotificationsHeight;
     private CheckBoxPreference mPrivacyMode;
     private SeekBarPreference mOffsetTop;
+    private AppMultiSelectListPreference mExcludedAppsPref;
+    private ColorPickerPreference mNotificationColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -125,10 +133,26 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
         mNotificationsHeight.setOnPreferenceChangeListener(this);
         mNotificationsHeight.setEnabled(mLockscreenNotifications.isChecked());
 
+        mNotificationColor = (ColorPickerPreference) prefs.findPreference(KEY_NOTIFICATION_COLOR);
+        mNotificationColor.setAlphaSliderEnabled(true);
+        int color = Settings.System.getInt(cr,
+                Settings.System.LOCKSCREEN_NOTIFICATIONS_COLOR, 0x55555555);
+        String hexColor = String.format("#%08x", (0xffffffff & color));
+        mNotificationColor.setSummary(hexColor);
+        mNotificationColor.setDefaultValue(color);
+        mNotificationColor.setNewPreviewColor(color);
+        mNotificationColor.setOnPreferenceChangeListener(this);
+
+        mExcludedAppsPref = (AppMultiSelectListPreference) findPreference(KEY_EXCLUDED_APPS);
+        Set<String> excludedApps = getExcludedApps();
+        if (excludedApps != null) mExcludedAppsPref.setValues(excludedApps);
+        mExcludedAppsPref.setOnPreferenceChangeListener(this);
+
         boolean hasProximitySensor = getPackageManager().hasSystemFeature(PackageManager.FEATURE_SENSOR_PROXIMITY);
         if (!hasProximitySensor) {
-            prefs.removePreference(mPocketMode);
-            prefs.removePreference(mShowAlways);
+            PreferenceCategory general = (PreferenceCategory) prefs.findPreference(KEY_CATEGORY_GENERAL);
+            general.removePreference(mPocketMode);
+            general.removePreference(mShowAlways);
         }
     }
 
@@ -202,9 +226,41 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
             int max = Math.round((float)displaySize.y * (1f - (mOffsetTop.getProgress() / 100f)) /
                     (float)mContext.getResources().getDimensionPixelSize(R.dimen.notification_row_min_height));
             mNotificationsHeight.setMaxValue(max);
+        } else if (pref == mNotificationColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(value)));
+            pref.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_COLOR, intHex);
+            return true;
+        } else if (pref == mExcludedAppsPref) {
+            storeExcludedApps((Set<String>) value);
+            return true;
         } else {
             return false;
         }
         return true;
+    }
+
+    private Set<String> getExcludedApps() {
+        String excluded = Settings.System.getString(getContentResolver(),
+                Settings.System.LOCKSCREEN_NOTIFICATIONS_EXCLUDED_APPS);
+        if (TextUtils.isEmpty(excluded))
+            return null;
+
+        return new HashSet<String>(Arrays.asList(excluded.split("\\|")));
+    }
+
+    private void storeExcludedApps(Set<String> values) {
+        StringBuilder builder = new StringBuilder();
+        String delimiter = "";
+        for (String value : values) {
+            builder.append(delimiter);
+            builder.append(value);
+            delimiter = "|";
+        }
+        Settings.System.putString(getContentResolver(),
+                Settings.System.LOCKSCREEN_NOTIFICATIONS_EXCLUDED_APPS, builder.toString());
     }
 }

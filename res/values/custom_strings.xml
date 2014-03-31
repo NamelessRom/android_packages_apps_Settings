@@ -109,12 +109,11 @@
     <string name="ram_bar_cached_summary">Calculate RAM usage with cached apps</string>
 
     <!-- Lockscreen Notifications -->
-    <!-- Categories -->
     <string name="general">General</string>
     <string name="layout">Layout</string>
     <string name="privacy">Privacy</string>
-
-    <string name="lockscreen_notifications">Lockscreen Notifications</string>
+    <string name="Lockscreen_notifications_header">Lockscreen Notifications</string>
+    <string name="lockscreen_notifications">Lockscreen notifications</string>
     <string name="lockscreen_notifications_summary">Show pending notifications on lockscreen</string>
     <string name="pocket_mode">Pocket mode</string>
     <string name="pocket_mode_summary">Turn screen on and show all notifications when device is pulled out of pocket. Turn screen off when device gets back into pocket.</string>
@@ -136,7 +135,10 @@
     <string name="notifications_height_summary">Number of notifications displayed at once</string>
     <string name="offset_top">Offset to the top of the screen:</string>
     <string name="privacy_mode">Privacy Mode</string>
-    <string name="privacy_mode_summary">Disables notifications from being shown and dismissed. This way, you just see the icons of your notifications.</string>
+    <string name="privacy_mode_summary">Disables notifications from beeing shown and dismissed. This way, you just see the icons of your notifications.</string>
+    <string name="excluded_apps_title">Excluded applications</string>
+    <string name="excluded_apps_summary">Excluded applications will not show up as lockscreen notifications</string>
+    <string name="notification_color">Notification background color</string>
 
     <!-- ListView animation -->
     <string name="bars_and_menus_category_system_title">System</string>
