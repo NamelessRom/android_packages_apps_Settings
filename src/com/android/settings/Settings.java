@@ -393,6 +393,7 @@ public class Settings extends PreferenceActivity
         PerformanceSettings.class.getName(),
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
+        com.android.settings.cyanogenmod.QuietHours.class.getName()
         ThemeSettings.class.getName()
     };
 
@@ -1280,8 +1281,12 @@ public class Settings extends PreferenceActivity
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class SystemSettingsActivity extends Settings { /* empty */ }
     public static class QuickSettingsConfigActivity extends Settings { /* empty */ }
+<<<<<<< HEAD
     /* NamelessROM */
     public static class AnimationInterfaceSettingsActivity extends Settings { /* empty */ }
     public static class MoreInterfaceSettingsActivity extends Settings { /* empty */ }
     public static class ThemeSettingsActivity extends Settings { /* empty */ }
+=======
+    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+>>>>>>> 870b385... Settings: Fix Quiet Hours Tile long press action
 }
