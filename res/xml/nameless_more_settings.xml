@@ -29,6 +29,7 @@
         android:title="@string/enable_acra_title"
         android:summary="@string/enable_acra_summary"
         android:defaultValue="true" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="misc_tweaks_srec"

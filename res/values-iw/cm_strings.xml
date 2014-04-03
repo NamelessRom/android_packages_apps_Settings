@@ -708,8 +708,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="stylus_app_not_installed">%s לא מותקן</string>
   <string name="ime_switcher_notify">בוחר הודעות</string>
   <string name="ime_switcher_notify_summary">הצגת הודעה בהחלפת שיטת הכנסת קלט</string>
-<<<<<<< HEAD
-=======
   <string name="app_ops_summaries_wifi_change">שינוי wifi</string>
   <string name="app_ops_labels_wifi_change">שינוי Wi-Fi</string>
   <string name="app_ops_summaries_bluetooth_change">שינוי bluetooth</string>
@@ -809,5 +807,4 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="app_ops_categories_media">מדיה</string>
     <string name="app_ops_categories_messaging">העברת הודעות</string>
     <string name="app_ops_categories_personal">אישי</string>
->>>>>>> 46f3f7d... settings: Re-add translated appops strings
 </resources>
