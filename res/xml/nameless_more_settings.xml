@@ -20,11 +20,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/header_category_nameless">
 
+    <PreferenceCategory
+        android:key="misc_crash_report"
+        android:title="@string/misc_crash_report">
+
     <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
         android:key="enable_acra"
         android:title="@string/enable_acra_title"
         android:summary="@string/enable_acra_summary"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <PreferenceCategory
         android:key="misc_tweaks_srec"
@@ -41,4 +45,13 @@
         android:summary="@string/srec_enable_mic_summary" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="misc_others"
+        android:title="@string/misc_others">
+
+    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+        android:key="disable_fc_notifications"
+        android:title="@string/disable_fc_notifications_title"
+        android:summary="@string/disable_fc_notifications_summary" />
+    </PreferenceCategory>
 </PreferenceScreen>
