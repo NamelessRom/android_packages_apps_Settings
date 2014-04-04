@@ -58,19 +58,19 @@
             android:key="breathing_notifications_title"
             android:title="@string/breathing_notifications_title">
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="sms_breath"
             android:title="@string/sms_breath_title"
             android:summary="@string/sms_breath_summary"
             android:defaultValue="false"/>
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="missed_call_breath"
             android:title="@string/missed_call_breath_title"
             android:summary="@string/missed_call_breath_summary"
             android:defaultValue="false"/>
 
-        <com.android.settings.nameless.SystemSettingCheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="voicemail_breath"
             android:title="@string/voicemail_breath_title"
             android:summary="@string/voicemail_breath_summary"
