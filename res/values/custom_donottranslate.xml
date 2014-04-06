@@ -18,10 +18,20 @@
 
 <resources>
 
+    <!-- Nameless Dummy Maintainer -->
+    <string name="maintainers_nameless_name">NamelessRom</string>
+    <string name="maintainers_nameless_github">https://github.com/NamelessRom</string>
+    <string name="maintainers_nameless_email">namelessromofficial@gmail.com</string>
     <!-- Team List -->
-    <string name="github_evisceration" translatable="false">https://github.com/Evisceration</string>
-    <string name="github_jumoog" translatable="false">https://github.com/jumoog</string>
-    <string name="github_kasperhettinga" translatable="false">https://github.com/kasperhettinga</string>
+    <string name="maintainers_evisceration_name" translatable="false">Evisceration</string>
+    <string name="maintainers_evisceration_github" translatable="false">https://github.com/Evisceration</string>
+    <string name="maintainers_evisceration_email" translatable="false">eviscerationls@gmail.com</string>
+    <string name="maintainers_jumoog_name" translatable="false">Jumoog</string>
+    <string name="maintainers_jumoog_github" translatable="false">https://github.com/jumoog</string>
+    <string name="maintainers_jumoog_email" translatable="false">frogfire.tl@gmail.com</string>
+    <string name="maintainers_mackay_name" translatable="false">mackay</string>
+    <string name="maintainers_mackay_github" translatable="false">https://github.com/kasperhettinga</string>
+    <string name="maintainers_mackay_email" translatable="false">kasper.hettinga@gmail.com</string>
 
     <!-- Main list strings -->
     <string name="header_category_cyanogenmod" translatable="false">CyanogenMod</string>

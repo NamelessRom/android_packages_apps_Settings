@@ -19,6 +19,8 @@
 <resources>
 
     <string name="nameless_mod_version">Nameless version</string>
+    <string name="rom_developers">Rom Developers</string>
+    <string name="device_maintainers">Device Maintainers</string>
 
     <!-- General -->
     <string name="reset">Reset</string>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:nameless="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/maintainers"
+        style="@style/settingsFragmentStyle" >
+
+        <com.android.settings.nameless.widgets.DeveloperPreference
+            android:id="@+id/dummy_maintainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            nameless:emailDev="@string/maintainers_nameless_name"
+            nameless:githubLink="@string/maintainers_nameless_github"
+            nameless:nameDev="@string/maintainers_nameless_email" />
+    </LinearLayout>
+
+</ScrollView>
