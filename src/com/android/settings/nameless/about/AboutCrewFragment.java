@@ -13,7 +13,6 @@ import com.android.settings.R;
 
 import java.util.Random;
 
-
 public class AboutCrewFragment extends Fragment {
 
     public AboutCrewFragment() {

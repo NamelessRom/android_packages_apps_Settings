@@ -18,7 +18,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class DeveloperPreference extends LinearLayout {
-    private static final String TAG = "DeveloperPreference";
     public static final String GRAVATAR_API = "http://www.gravatar.com/avatar/";
     public static int mDefaultAvatarSize = 400;
     private ImageView githubButton;
@@ -30,6 +29,11 @@ public class DeveloperPreference extends LinearLayout {
     private String githubLink;
     private String devEmail;
 
+    @Override
+    public boolean isInEditMode() {
+        return true;
+    }
+
     public DeveloperPreference(Context context) {
         this(context, null);
     }
@@ -38,9 +42,14 @@ public class DeveloperPreference extends LinearLayout {
         this(context, attrs, 0);
     }
 
-    @Override
-    public boolean isInEditMode() {
-        return true;
+    public DeveloperPreference(Context context, String name, String github, String email) {
+        super(context);
+
+        nameDev = name;
+        githubLink = github;
+        devEmail = email;
+
+        setupView(context);
     }
 
     public DeveloperPreference(Context context, AttributeSet attrs, int defStyle) {
@@ -58,6 +67,10 @@ public class DeveloperPreference extends LinearLayout {
             }
         }
 
+        setupView(context);
+    }
+
+    private void setupView(final Context context) {
         /**
          * Inflate views
          */

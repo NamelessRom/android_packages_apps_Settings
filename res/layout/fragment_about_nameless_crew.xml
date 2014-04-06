@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aokp="http://schemas.android.com/apk/res-auto"
+    xmlns:nameless="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/scrollView">
@@ -10,28 +10,25 @@
         style="@style/settingsFragmentStyle">
 
         <com.android.settings.nameless.widgets.DeveloperPreference
-            android:title="Alexander"
-            aokp:nameDev="Evisceration"
-            aokp:githubLink="@string/github_evisceration"
-            aokp:emailDev="eviscerationls@gmail.com"
+            nameless:nameDev="@string/maintainers_evisceration_name"
+            nameless:githubLink="@string/maintainers_evisceration_github"
+            nameless:emailDev="@string/maintainers_evisceration_email"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <com.android.settings.nameless.widgets.DeveloperPreference
-            android:title="Kilian"
-            aokp:nameDev="jumoog"
-            aokp:githubLink="@string/github_jumoog"
-            aokp:emailDev="frogfire.tl@gmail.com"
+            nameless:nameDev="@string/maintainers_jumoog_name"
+            nameless:githubLink="@string/maintainers_jumoog_github"
+            nameless:emailDev="@string/maintainers_jumoog_email"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <com.android.settings.nameless.widgets.DeveloperPreference
-            android:title="Kasper"
-            aokp:nameDev="mackay"
-            aokp:githubLink="@string/github_kasperhettinga"
-            aokp:emailDev="kasper.hettinga@gmail.com"
+            nameless:nameDev="@string/maintainers_mackay_name"
+            nameless:githubLink="@string/maintainers_mackay_github"
+            nameless:emailDev="@string/maintainers_mackay_email"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
