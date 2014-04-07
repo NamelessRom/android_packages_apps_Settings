@@ -28,10 +28,6 @@
     <string name="attention">Attention</string>
     <string name="default_string">Default</string>
 
-    <!-- Sub list strings -->
-    <string name="device_control_settings">Device Control</string>
-    <string name="device_update_center">Update Center</string>
-
     <!-- Interface -->
     <string name="interface_animation_title">Animation Control</string>
 
@@ -53,12 +49,6 @@
 
     <!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>
-    <string name="volume_steps_60">60</string>
-    <string name="volume_steps_45">45</string>
-    <string name="volume_steps_30">30</string>
-    <string name="volume_steps_15">15</string>
-    <string name="volume_steps_7">7</string>
-    <string name="volume_steps_5">5</string>
     <string name="volume_steps_alarm_title">Alarm</string>
     <string name="volume_steps_dtmf_title">DTMF</string>
     <string name="volume_steps_music_title">Music</string>
@@ -273,7 +263,6 @@
     <!-- CPU -->
     <string name="cpu_features">Processor Features</string>
     <!-- GPU -->
-    <string name="gpu_title">GPU / OpenGl</string>
     <string name="gpu_vendor">GPU Vendor</string>
     <string name="gpu_renderer">GPU Renderer</string>
     <string name="gpu_gl_version">OpenGl Version</string>
@@ -345,21 +334,11 @@
     <string name="navigation_bar_width_title">Navigation bar width</string>
     <string name="navigation_bar_width_summary">Navigation bar height if the bar is along a side</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
-    <string name="navigation_bar_size_36_dp">36 dp</string>
-    <string name="navigation_bar_size_30_dp">30 dp</string>
-    <string name="navigation_bar_size_24_dp">24 dp</string>
     <string name="navigation_bar_size_48_dp_default">48 dp (default)</string>
-    <string name="navigation_bar_size_44_dp">44 dp</string>
-    <string name="navigation_bar_size_40_dp">40 dp</string>
-    <string name="navigation_bar_size_42_dp">42 dp</string>
     <string name="navigation_bar_size_0_dp">0 dp (off)</string>
     <!-- Navigation bar force enable -->
     <string name="navbar_force_enable_title">Force navigation bar</string>
     <string name="navbar_force_enable_summary">Requires a reboot</string>
-
-    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
-    <string name="supersu_title">SuperSU</string>
-    <string name="superuser">Superuser</string>
 
     <!-- QuickSettings: Smart Pulldown -->
     <string name="smart_pulldown_title">Smart pulldown</string>
