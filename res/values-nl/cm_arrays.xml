@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2012-2013 The CyanogenMod Project
+     Copyright (C) 2012-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -40,5 +40,19 @@
     <string-array name="entries_screentimeout_widget">
         <item>15 sec. | 1 min. | 5 min.</item>
         <item>30 sec. | 2 min. | 5 min.</item>
+    </string-array>
+    <string-array name="data_usage_cycle_length">
+        <item>Dagelijks</item>
+        <item>Wekelijks</item>
+        <item>Maandelijks</item>
+    </string-array>
+    <string-array name="data_usage_cycle_weekdays">
+        <item>Zondag</item>
+        <item>Maandag</item>
+        <item>Dinsdag</item>
+        <item>Woensdag</item>
+        <item>Donderdag</item>
+        <item>Vrijdag</item>
+        <item>Zaterdag</item>
     </string-array>
 </resources>

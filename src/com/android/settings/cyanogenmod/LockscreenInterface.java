@@ -17,6 +17,7 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -65,6 +66,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mLockscreenUseCarousel;
+    private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
+
+    private ListPreference mBatteryStatus;
+    private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mEnableCameraWidget;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
@@ -102,6 +108,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) findPreference(KEY_SEE_TRHOUGH);
+
+        mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
 
         mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
         if (mBatteryStatus != null) {
@@ -150,6 +158,36 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (!NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
             generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
         }
+
+        // Remove lockscreen button actions if device doesn't have hardware keys
+        if (!hasButtons()) {
+            generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_BUTTONS));
+        }
+
+        // Enable or disable lockscreen widgets based on policy
+        checkDisabledByPolicy(mEnableKeyguardWidgets,
+                DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
+
+        // Enable or disable camera widget based on device and policy
+        if (Camera.getNumberOfCameras() == 0) {
+            widgetsCategory.removePreference(mEnableCameraWidget);
+            mEnableCameraWidget = null;
+            mLockUtils.setCameraEnabled(false);
+        } else if (mLockUtils.isSecure()) {
+            checkDisabledByPolicy(mEnableCameraWidget,
+                    DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
+        }
+
+        // Remove cLock settings item if not installed
+        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
+            widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
+        }
+
+        // Remove maximize widgets on tablets
+        if (!Utils.isPhone(getActivity())) {
+            widgetsCategory.removePreference(
+                    findPreference(Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS));
+        }
     }
 
     @Override
@@ -184,6 +222,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (preference == mLockRingBattery) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
+            return true;
+        } else if (KEY_ENABLE_CAMERA.equals(key)) {
+            mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
             return true;
         } else if (KEY_ENABLE_CAMERA.equals(key)) {
             mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
@@ -252,5 +293,4 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     public boolean showCarousel() {
         return !getResources().getBoolean(R.bool.config_show_carousel);
     }
-
 }
