@@ -17,8 +17,6 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
-import android.content.Context;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -35,22 +33,16 @@ import com.android.settings.Utils;
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
-    private static final String STATUS_BAR_BATTERY_SHOW_PERCENT
-            = "status_bar_battery_show_percent";
-
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
-    private static final String STATUS_BAR_NETWORK_ACTIVITY = "status_bar_network_activity";
-    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
+
+    private static final String STATUS_BAR_BATTERY_SHOW_PERCENT = "status_bar_battery_show_percent";
 
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
     private ListPreference mStatusBarBattery;
-    private CheckBoxPreference mStatusBarBatteryShowPercent;
-
+    private SystemSettingCheckBoxPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarCmSignal;
-    private CheckBoxPreference mStatusBarNetworkActivity;
-    private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,9 +53,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
+        mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY);
         mStatusBarBatteryShowPercent =
-                (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
+                (SystemSettingCheckBoxPreference) findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
 
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
@@ -93,30 +85,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             prefSet.removePreference(mStatusBarCmSignal);
         }
 
-        mStatusBarNetworkActivity = (CheckBoxPreference)
-                prefSet.findPreference(STATUS_BAR_NETWORK_ACTIVITY);
-        mStatusBarNetworkActivity.setChecked(Settings.System.getInt(resolver,
-            Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 0) == 1);
-        mStatusBarNetworkActivity.setOnPreferenceChangeListener(this);
-
-        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
-        int intState = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, 0);
-        intState = setStatusBarTrafficSummary(intState);
-        mStatusBarTraffic.setChecked(intState > 0);
-        mStatusBarTraffic.setOnPreferenceChangeListener(this);
-
-        if (Utils.isTablet(getActivity())) {
-            prefSet.removePreference(statusBarBrightnessControl);
-        }
-
         enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
-
-        ConnectivityManager cm = (ConnectivityManager)
-                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if(!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
-                prefSet.removePreference(findPreference("breathing_notifications_title"));
-        }
     }
 
     @Override
@@ -127,6 +96,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int index = mStatusBarBattery.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_BATTERY, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+
             enableStatusBarBatteryDependents((String)newValue);
             return true;
         } else if (preference == mStatusBarCmSignal) {
@@ -135,39 +105,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
-        } else if (preference == mStatusBarNetworkActivity) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY, value ? 1 : 0);
-            return true;
-        } else if (preference == mStatusBarTraffic) {
-            // Increment the state and then update the label
-            int intState = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, 0);
-            intState++;
-            intState = setStatusBarTrafficSummary(intState);
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, intState);
-            return intState <= 1;
         }
 
         return false;
     }
 
     private void enableStatusBarBatteryDependents(String value) {
-        boolean enabled = !value.equals(STATUS_BAR_STYLE_TEXT)
-                && !value.equals(STATUS_BAR_STYLE_HIDDEN);
+        boolean enabled = !(value.equals(STATUS_BAR_STYLE_TEXT)
+                || value.equals(STATUS_BAR_STYLE_HIDDEN));
         mStatusBarBatteryShowPercent.setEnabled(enabled);
-    }
-
-    private int setStatusBarTrafficSummary(int intState) {
-        // These states must match com.android.systemui.statusbar.policy.Traffic
-        if (intState == 1) {
-            mStatusBarTraffic.setSummary(R.string.show_network_speed_bits);
-        } else if (intState == 2) {
-            mStatusBarTraffic.setSummary(R.string.show_network_speed_bytes);
-        } else {
-            mStatusBarTraffic.setSummary(R.string.show_network_speed_summary);
-            return 0;
-        }
-        return intState;
     }
 }

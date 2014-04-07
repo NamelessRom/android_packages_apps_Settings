@@ -139,6 +139,7 @@
     <string name="icon_picker_pack_title">Jeux d\'icônes</string>
     <string name="display_lights_settings_title">Affichage et voyant</string>
     <string name="lights_category_title">Luminosité</string>
+    <string name="notification_pulse_title">Voyant de notification</string>
     <string name="notification_light_general_title">Général</string>
     <string name="notification_light_applist_title">Applications</string>
     <string name="notification_light_phonelist_title">Téléphone</string>
@@ -156,11 +157,8 @@
     <string name="pulse_speed_title">Durée d\'impulsion et vitesse</string>
     <string name="default_time">Normale</string>
     <string name="custom_time">Personnalisée</string>
-    <string name="dialog_test">Tester</string>
     <string name="dialog_delete_title">Supprimer</string>
     <string name="dialog_delete_message">Voulez-vous supprimer les notifications de l\'application sélectionnée\u00A0?</string>
-    <string name="dialog_test_message">Éteignez l\'écran pour afficher l\'action de notification ou annulez ceci pour arrêter le test</string>
-    <string name="dialog_test_button">Annuler</string>
     <string name="pulse_length_always_on">Toujours allumée</string>
     <string name="pulse_length_very_short">Très courte</string>
     <string name="pulse_length_short">Courte</string>
@@ -179,10 +177,6 @@
     <string name="battery_light_medium_color_title">En charge</string>
     <string name="battery_light_full_color_title">Chargée</string>
     <string name="volume_ring_only_description">Sonneries</string>
-    <string name="lock_pattern_size_3">3x3</string>
-    <string name="lock_pattern_size_4">4x4</string>
-    <string name="lock_pattern_size_5">5x5</string>
-    <string name="lock_pattern_size_6">6x6</string>
     <string name="lockpattern_settings_enable_error_path_title">Afficher l\'erreur de schéma</string>
     <string name="lockpattern_settings_enable_dots_title">Afficher les points</string>
     <string name="screen_security_category">Verrouillage de l\'écran</string>
@@ -463,6 +457,9 @@ Des options supplémentaires sont disponibles en appuyant longtemps sur une lign
     <string name="display_calibration_title">Calibrage de l\'écran</string>
     <string name="adb_notify">Notification débogage USB</string>
     <string name="adb_notify_summary">Afficher une notification lorsque le débogage USB est actif</string>
+    <string name="adb_over_network">ADB par réseau</string>
+    <string name="adb_over_network_summary">Activer le débogage TCP/IP sur toutes les interfaces réseaux (réseaux USB, Wi-Fi et Bluetooth). Ce paramètre est réinitialisé au redémarrage</string>
+    <string name="adb_over_network_warning">ATTENTION : Lorsque cette fonction est activée, votre appareil est ouvert aux intrusions sur tous les réseaux connectés, y compris via le réseau mobile\u00A0!\n\nN\'utilisez cette fonctionnalité que sur des réseaux de confiance.\n\nContinuer\u00A0?</string>
     <string name="device_hostname">Nom d\'hôte de l\'appareil</string>
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">Interface système</string>
@@ -667,7 +664,4 @@ Des options supplémentaires sont disponibles en appuyant longtemps sur une lign
     <string name="bluetooth_sap_profile_summary_use_for">Utilisé pour l\'accès SIM</string>
     <string name="bluetooth_dun_profile_summary_use_for">Utilisé pour l\'accès par ligne commutée</string>
     <string name="wifi_disabled_association_rejected">Association rejetée</string>
-    <!-- Privacy Settings Header item -->
-    <string name="privacy_settings_cyanogenmod_title">Vie privée</string>
-    <string name="privacy_guard_notification_summary">Afficher la notification si la protection de la vie privée est active.</string>
 </resources>
