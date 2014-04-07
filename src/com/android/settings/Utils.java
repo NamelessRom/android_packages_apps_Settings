@@ -756,4 +756,33 @@ public class Utils {
     public static boolean hasVolumeRocker(Context context) {
         return context.getResources().getBoolean(R.bool.has_volume_rocker);
     }
+
+    public static boolean isPackageInstalled(Context context, String pkg) {
+        if (pkg != null) {
+            try {
+                PackageInfo pi = context.getPackageManager().getPackageInfo(pkg, 0);
+                if (!pi.applicationInfo.enabled) {
+                    return false;
+                }
+            } catch (NameNotFoundException e) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static Bundle getApplicationMetadata(Context context, String pkg) {
+        if (pkg != null) {
+            try {
+                ApplicationInfo ai = context.getPackageManager().getApplicationInfo(
+                        pkg, PackageManager.GET_META_DATA);
+                return ai.metaData;
+            } catch (NameNotFoundException e) {
+                return null;
+            }
+        }
+
+        return null;
+    }
 }
