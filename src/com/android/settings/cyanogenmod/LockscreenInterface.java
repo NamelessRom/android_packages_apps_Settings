@@ -91,16 +91,16 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private ListPreference mLockBackground;
     private ListPreference mBatteryStatus;
 
-=======
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
+    private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
 
     private static final String LOCKSCREEN_WALLPAPER_TEMP_NAME = ".lockwallpaper";
 
     private static final int REQUEST_PICK_WALLPAPER = 201;
 
->>>>>>> 3538a66... Settings: Lockscreen custom wallpaper (2/2)
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
+    private CheckBoxPreference mEnableModLock;
     private ListPreference mLockBackground;
     private ListPreference mBatteryStatus;
 
@@ -155,6 +155,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
         }
 
+        mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
+        if (mEnableModLock != null) {
+            mEnableModLock.setOnPreferenceChangeListener(this);
+        }
+
         mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
         if (mBatteryStatus != null) {
             mBatteryStatus.setOnPreferenceChangeListener(this);
@@ -187,6 +192,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             generalCategory.removePreference(mEnableModLock);
             mEnableModLock = null;
         }
+
         // Add the additional Omni settings
         mLockRingBattery = (CheckBoxPreference) findPreference(
             BATTERY_AROUND_LOCKSCREEN_RING);
@@ -265,14 +271,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mEnableMaximizeWidgets != null) {
             mEnableMaximizeWidgets.setEnabled(enabled);
         }
-=======
         updateBackgroundPreference();
     }
 
     private void updateBackgroundPreference() {
         int lockVal = LockscreenBackgroundUtil.getLockscreenStyle(getActivity());
         mLockBackground.setValue(Integer.toString(lockVal));
->>>>>>> 3538a66... Settings: Lockscreen custom wallpaper (2/2)
     }
 
     @Override
@@ -315,12 +319,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             ((CheckBoxPreference) preference).setChecked(value);
             updateAvailableModLockPreferences();
             return true;
-=======
         } else if (preference == mLockBackground) {
             int index = mLockBackground.findIndexOfValue((String) objValue);
             handleBackgroundSelection(index);
->>>>>>> 3538a66... Settings: Lockscreen custom wallpaper (2/2)
+            return true;
+        } else if (preference == mEnableModLock) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED,
+                    value ? 1 : 0);
+            return true;
         }
+
         return false;
     }
 
