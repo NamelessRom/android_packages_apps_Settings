@@ -86,6 +86,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
     private static final String KEY_DISPLAY_GAMMA = "gamma_tuning";
     private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
+    private static final String KEY_SMART_COVER_WAKE = "smart_cover_wake";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -227,6 +228,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         } else {
             advancedPrefs.removePreference(mScreenAnimationStylePreference);
+        }
+
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_lidControlsSleep)) {
+            advancedPrefs.removePreference(findPreference(KEY_SMART_COVER_WAKE));
         }
 
         boolean hasNotificationLed = res.getBoolean(
