@@ -48,14 +48,15 @@ import android.provider.Settings;
 import android.view.Display;
 import android.widget.Toast;
 
-import com.android.internal.util.nameless.NamelessUtils;
-import com.android.internal.util.nameless.constants.FlashLightConstants;
 import com.android.internal.util.cm.LockscreenBackgroundUtil;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
 import com.android.settings.ChooseLockSettingsHelper;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+
+import com.android.internal.util.nameless.NamelessUtils;
+import com.android.internal.util.nameless.constants.FlashLightConstants;
 
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -66,31 +67,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
-    private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
-
-    // Omni Additions
-    private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
-
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
-    private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
     private static final String KEY_ENABLE_MAXIMIZE_WIGETS = "lockscreen_maximize_widgets";
-    private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
-    private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
-
-    // Nameless Additions
-    private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_glowpad_torch";
-
-    private PreferenceCategory mWidgetsCatagory;
-
-    private CheckBoxPreference mEnableKeyguardWidgets;
-    private CheckBoxPreference mEnableCameraWidget;
-    private CheckBoxPreference mSeeThrough;
-    private CheckBoxPreference mLockscreenUseCarousel;
-    private CheckBoxPreference mEnableMaximizeWidgets;
-    private CheckBoxPreference mEnableModLock;
-    private ListPreference mLockBackground;
-    private ListPreference mBatteryStatus;
-
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
     private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
 
@@ -98,18 +76,32 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     private static final int REQUEST_PICK_WALLPAPER = 201;
 
+    // Nameless Additions
+    private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_glowpad_torch";
+    private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
+    private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
+    private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
+
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mEnableModLock;
+    private CheckBoxPreference mEnableMaximizeWidgets;
     private ListPreference mLockBackground;
     private ListPreference mBatteryStatus;
+
+
+
+    // Nameless Additions
+    private CheckBoxPreference mLockRingBattery;
+    private PreferenceCategory mWidgetsCatagory;
+    private CheckBoxPreference mLockscreenUseCarousel;
+
+
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
     private DevicePolicyManager mDPM;
 
-    // Omni Additions
-    private CheckBoxPreference mLockRingBattery;
     private File mTempWallpaper, mWallpaper;
 
     @Override
@@ -120,6 +112,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
         mLockUtils = mChooseLockSettingsHelper.utils();
         mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+
 
         mWidgetsCatagory = (PreferenceCategory) findPreference(KEY_WIDGETS_CATAGORY);
         mLockscreenUseCarousel = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_USE_CAROUSEL);
@@ -140,20 +133,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
         mEnableMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_MAXIMIZE_WIGETS);
-
-        mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
-        if (mEnableModLock != null) {
-            mEnableModLock.setOnPreferenceChangeListener(this);
-
-        // Remove/disable custom widgets based on device RAM and policy
-        if (ActivityManager.isLowRamDeviceStatic()) {
-            // Widgets take a lot of RAM, so disable them on low-memory devices
-            widgetsCategory.removePreference(findPreference(KEY_ENABLE_WIDGETS));
-            mEnableKeyguardWidgets = null;
-        } else {
-            checkDisabledByPolicy(mEnableKeyguardWidgets,
-                    DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
-        }
 
         mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
         if (mEnableModLock != null) {
@@ -193,19 +172,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mEnableModLock = null;
         }
 
-        // Add the additional Omni settings
-        mLockRingBattery = (CheckBoxPreference) findPreference(
-            BATTERY_AROUND_LOCKSCREEN_RING);
-        if (mLockRingBattery != null) {
-            mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
-        }
-
         // Glowpad Torch
         if (!NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
             generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
-        }
-
+        }        
+        
         // Remove cLock settings item if not installed
         if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
             widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
@@ -222,6 +193,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         mTempWallpaper = getActivity().getFileStreamPath(LOCKSCREEN_WALLPAPER_TEMP_NAME);
         mWallpaper = LockscreenBackgroundUtil.getWallpaperFile(getActivity());
+
     }
 
     @Override
@@ -253,6 +225,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 1;
             mEnableModLock.setChecked(checked);
         }
+
+        updateBackgroundPreference();
+        updateAvailableModLockPreferences();
     }
 
     private void updateAvailableModLockPreferences() {
@@ -271,7 +246,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mEnableMaximizeWidgets != null) {
             mEnableMaximizeWidgets.setEnabled(enabled);
         }
-        updateBackgroundPreference();
+        // Add the additional Omni settings
+        mLockRingBattery = (CheckBoxPreference) findPreference(
+                BATTERY_AROUND_LOCKSCREEN_RING);
+        if (mLockRingBattery != null) {
+            mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
+        }
+
     }
 
     private void updateBackgroundPreference() {
@@ -285,12 +267,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         if (KEY_ENABLE_WIDGETS.equals(key)) {
             mLockUtils.setWidgetsEnabled(mEnableKeyguardWidgets.isChecked());
-        } else if (preference == mLockRingBattery) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
             return true;
         } else if (KEY_ENABLE_CAMERA.equals(key)) {
             mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
+            return true;
+        } else if (preference == mLockRingBattery) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
             return true;
         } else if (preference == mLockscreenUseCarousel) {
             Settings.System.putInt(getContentResolver(),
@@ -310,15 +293,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
             return true;
-        } else if (preference == mEnableModLock) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED,
-                    value ? 1 : 0);
-
-            // force it so update picks up correct values
-            ((CheckBoxPreference) preference).setChecked(value);
-            updateAvailableModLockPreferences();
-            return true;
         } else if (preference == mLockBackground) {
             int index = mLockBackground.findIndexOfValue((String) objValue);
             handleBackgroundSelection(index);
@@ -327,6 +301,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED,
                     value ? 1 : 0);
+            // force it so update picks up correct values
+            ((CheckBoxPreference) preference).setChecked(value);
+            updateAvailableModLockPreferences();
             return true;
         }
 
@@ -445,7 +422,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (index == LockscreenBackgroundUtil.LOCKSCREEN_STYLE_DEFAULT) {
             // Sets background to default
             Settings.System.putInt(getContentResolver(),
-                            Settings.System.LOCKSCREEN_BACKGROUND_STYLE, LockscreenBackgroundUtil.LOCKSCREEN_STYLE_DEFAULT);
+                    Settings.System.LOCKSCREEN_BACKGROUND_STYLE, LockscreenBackgroundUtil.LOCKSCREEN_STYLE_DEFAULT);
             if (mWallpaper.exists()) {
                 mWallpaper.delete();
             }
@@ -456,8 +433,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     private void toastLockscreenWallpaperStatus(boolean success) {
         Toast.makeText(getActivity(), getResources().getString(
-                success ? R.string.background_result_successful
-                        : R.string.background_result_not_successful),
+                        success ? R.string.background_result_successful
+                                : R.string.background_result_not_successful),
                 Toast.LENGTH_LONG).show();
     }
 
