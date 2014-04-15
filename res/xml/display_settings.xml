@@ -83,6 +83,12 @@
             android:key="advanced_display_prefs"
             android:title="@string/advanced_settings">
 
+           <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+                android:key="lockscreen_lid_wake"
+                android:title="@string/smart_cover_wake_title"
+                android:summary="@string/smart_cover_wake_summary"
+                android:defaultValue="true" />
+
             <CheckBoxPreference
                 android:key="adaptive_backlight"
                 android:title="@string/adaptive_backlight_title"
