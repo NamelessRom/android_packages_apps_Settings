@@ -112,6 +112,16 @@
                 android:entries="@array/screen_animation_style_entries"
                 android:entryValues="@array/screen_animation_style_values" />
 
+           </PreferenceCategory>
+           <PreferenceCategory
+                android:key="smart_cover_category"
+                android:title="@string/smart_cover_category_title">
+
+           <CheckBoxPreference
+                android:key="smart_cover_wake"
+                android:title="@string/smart_cover_wake_title"
+                android:summary="@string/smart_cover_wake_summary" />
+
             <com.android.settings.hardware.DisplayColor
                 android:key="color_calibration"
                 android:title="@string/color_calibration_title"
@@ -135,7 +145,6 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.ScreenColorSettings" />
             </PreferenceScreen>
-
             <Preference
                 android:key="advanced_display_settings"
                 android:title="@string/radio_controls_title">
