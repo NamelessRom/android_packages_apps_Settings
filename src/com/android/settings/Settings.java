@@ -24,6 +24,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.admin.DevicePolicyManager;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -65,6 +66,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.internal.util.ArrayUtils;
+import com.android.settings.ActivityPicker;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.ToggleAccessibilityServicePreferenceFragment;
 import com.android.settings.accessibility.ToggleCaptioningPreferenceFragment;

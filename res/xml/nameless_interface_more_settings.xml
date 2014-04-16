@@ -21,10 +21,19 @@
     android:title="@string/system_interface_title">
 
     <!-- Themes -->
+    <!-- New not ready yet
     <Preference
-        android:id="@+id/themes_settings"
-        android:icon="@drawable/ic_settings_themes"
-        android:title="@string/themes_settings_title">
+        android:id="@+id/theme_settings"
+        android:title="@string/themes_settings_title"
+        android:breadCrumbTitle="@string/themes_settings_title"
+        android:fragment="com.android.settings.ThemeSettings"
+        android:icon="@drawable/prd_ic_themepacks" />
+        -->
+    <Preference
+        android:id="@+id/theme_settings"
+        android:title="@string/themes_settings_title"
+        android:breadCrumbTitle="@string/themes_settings_title"
+        android:icon="@drawable/prd_ic_themepacks">
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.tmobile.themechooser"
