@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
+<<<<<<< HEAD
      Copyright (C) 2013 - 2014 The NamelessROM Project
+=======
+     Copyright (C) 2012-2013 The NamelessROM Project
+>>>>>>> parent of 740d9e6... [2/4] Settings: TRDS 3.0 and new theme engine preparation
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -31,6 +35,7 @@
     <!-- Interface -->
     <string name="interface_animation_title">Animation Control</string>
 
+<<<<<<< HEAD
     <!-- Themes -->
     <string name="theme_settings_title">Dark UI (TRDS)</string>
     <string name="theme_auto_mode_title">Switch theme</string>
@@ -38,7 +43,6 @@
     <string name="theme_auto_mode_lightsensor">On light condition change</string>
     <string name="theme_auto_mode_twilight">On daytime</string>
     <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
-    <string name="title_tile_theme">Theme switcher</string>
 
     <!-- Status Bar Activity Indicators -->
     <string name="show_activity_indicators_on_status_bar_title">Network activity indicator</string>
@@ -399,4 +403,6 @@
     <!-- Menu Entries in Nameless -> more -->
     <string name="misc_crash_report">Crash Report</string>
     <string name="misc_others">Others</string>
+=======
+>>>>>>> parent of 740d9e6... [2/4] Settings: TRDS 3.0 and new theme engine preparation
 </resources>

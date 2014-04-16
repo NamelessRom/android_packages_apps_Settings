@@ -20,26 +20,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/system_interface_title">
 
-    <!-- Themes -->
-    <!-- New not ready yet
-    <Preference
-        android:id="@+id/theme_settings"
-        android:title="@string/themes_settings_title"
-        android:breadCrumbTitle="@string/themes_settings_title"
-        android:fragment="com.android.settings.ThemeSettings"
-        android:icon="@drawable/prd_ic_themepacks" />
-        -->
-    <Preference
-        android:id="@+id/theme_settings"
-        android:title="@string/themes_settings_title"
-        android:breadCrumbTitle="@string/themes_settings_title"
-        android:icon="@drawable/prd_ic_themepacks">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.tmobile.themechooser"
-            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </Preference>
-
     <PreferenceCategory
         android:key="category_recent_panel"
         android:title="@string/system_ui_recent_panel_title">
