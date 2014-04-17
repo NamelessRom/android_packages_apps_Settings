@@ -71,7 +71,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
 
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
-    private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
     private static final String KEY_ENABLE_MAXIMIZE_WIGETS = "lockscreen_maximize_widgets";
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
@@ -90,6 +89,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private CheckBoxPreference mEnableModLock;
     private ListPreference mLockBackground;
     private ListPreference mBatteryStatus;
+
+    private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mEnableCameraWidget;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
@@ -127,12 +129,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
         mEnableMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_MAXIMIZE_WIGETS);
 
-        // lockscreen see through
-        mSeeThrough = (CheckBoxPreference) findPreference(KEY_SEE_TRHOUGH);
-
         mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
         if (mEnableModLock != null) {
             mEnableModLock.setOnPreferenceChangeListener(this);
+
+        // Remove/disable custom widgets based on device RAM and policy
+        if (ActivityManager.isLowRamDeviceStatic()) {
+            // Widgets take a lot of RAM, so disable them on low-memory devices
+            widgetsCategory.removePreference(findPreference(KEY_ENABLE_WIDGETS));
+            mEnableKeyguardWidgets = null;
+        } else {
+            checkDisabledByPolicy(mEnableKeyguardWidgets,
+                    DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
         }
 
         mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
@@ -254,9 +262,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (KEY_ENABLE_CAMERA.equals(key)) {
             mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
             return true;
-        } else if (preference == mSeeThrough) {
-            Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH,
-                    mSeeThrough.isChecked() ? 1 : 0);
         } else if (preference == mLockscreenUseCarousel) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL,
