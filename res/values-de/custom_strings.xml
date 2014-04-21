@@ -19,6 +19,7 @@
   <string name="nameless_mod_version">Nameless-Version</string>
   <string name="rom_developers">Rom-Entwickler</string>
   <string name="device_maintainers">Geräte-Betreuer</string>
+    <string name="translators">Übersetzer</string>
   <string name="reset">Zurücksetzen</string>
   <string name="enabled">Aktiviert</string>
   <string name="attention">Achtung</string>

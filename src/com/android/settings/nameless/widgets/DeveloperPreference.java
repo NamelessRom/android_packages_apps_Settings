@@ -18,15 +18,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class DeveloperPreference extends LinearLayout {
-    public static final String GRAVATAR_API = "http://www.gravatar.com/avatar/";
-    public static int mDefaultAvatarSize = 400;
-    private ImageView githubButton;
-    private ImageView photoView;
-
-    private TextView devName;
+    public static final String GRAVATAR_API       = "http://www.gravatar.com/avatar/";
+    public static       int    mDefaultAvatarSize = 400;
 
     private String nameDev;
     private String githubLink;
+    private String crowdinLink;
     private String devEmail;
 
     @Override
@@ -43,10 +40,20 @@ public class DeveloperPreference extends LinearLayout {
     }
 
     public DeveloperPreference(Context context, String name, String github, String email) {
+        this(context, name, github, null, email);
+    }
+
+    public DeveloperPreference(Context context, String name, String crowdin) {
+        this(context, name, null, crowdin, null);
+    }
+
+    public DeveloperPreference(Context context, String name, String github, String crowdin,
+            String email) {
         super(context);
 
         nameDev = name;
         githubLink = github;
+        crowdinLink = crowdin;
         devEmail = email;
 
         setupView(context);
@@ -60,6 +67,7 @@ public class DeveloperPreference extends LinearLayout {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.DeveloperPreference);
             nameDev = typedArray.getString(R.styleable.DeveloperPreference_nameDev);
             githubLink = typedArray.getString(R.styleable.DeveloperPreference_githubLink);
+            crowdinLink = typedArray.getString(R.styleable.DeveloperPreference_crowdinLink);
             devEmail = typedArray.getString(R.styleable.DeveloperPreference_emailDev);
         } finally {
             if (typedArray != null) {
@@ -75,12 +83,14 @@ public class DeveloperPreference extends LinearLayout {
          * Inflate views
          */
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater =
+                (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.dev_card, this, true);
 
-        githubButton = (ImageView) layout.findViewById(R.id.github_button);
-        devName = (TextView) layout.findViewById(R.id.name);
-        photoView = (ImageView) layout.findViewById(R.id.photo);
+        final TextView devName = (TextView) layout.findViewById(R.id.name);
+        final ImageView githubButton = (ImageView) layout.findViewById(R.id.github_button);
+        final ImageView photoView = (ImageView) layout.findViewById(R.id.photo);
+        final View photoTextBar = layout.findViewById(R.id.photo_text_bar);
 
         /**
          * Initialize buttons
@@ -101,9 +111,22 @@ public class DeveloperPreference extends LinearLayout {
             githubButton.setVisibility(View.GONE);
         }
 
+        if (crowdinLink != null) {
+            final OnClickListener openCrowdin = new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Uri crowdinURL = Uri.parse(crowdinLink);
+                    final Intent intent = new Intent(Intent.ACTION_VIEW, crowdinURL);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    getContext().startActivity(intent);
+                }
+            };
+            devName.setOnClickListener(openCrowdin);
+            photoTextBar.setVisibility(View.GONE);
+        }
 
         if (devEmail != null) {
-            UrlImageViewHelper.setUrlDrawable(this.photoView,
+            UrlImageViewHelper.setUrlDrawable(photoView,
                     getGravatarUrl(devEmail),
                     R.drawable.ic_null,
                     UrlImageViewHelper.CACHE_DURATION_ONE_WEEK);
@@ -131,8 +154,9 @@ public class DeveloperPreference extends LinearLayout {
         md.update(devEmail.getBytes());
         byte byteData[] = md.digest();
         StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < byteData.length; i++)
+        for (int i = 0; i < byteData.length; i++) {
             sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+        }
         return sb.toString();
     }
 }
