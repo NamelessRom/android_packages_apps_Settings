@@ -73,6 +73,14 @@
         android:id="@+id/nameless_section"
         android:title="@string/header_category_nameless" />
 
+    <!-- Crazy Lab -->
+    <header
+        android:id="@+id/crazy_lab"
+        android:icon="@drawable/ic_settings_secret"
+        android:breadCrumbTitle="@string/crazy_lab"
+        android:title="@string/crazy_lab"
+        android:fragment="com.android.settings.nameless.secret.CrazyLabSettings"/>
+
     <!-- Device Control -->
     <header
         android:id="@+id/device_control_settings"

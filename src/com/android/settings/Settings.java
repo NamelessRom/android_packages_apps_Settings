@@ -92,6 +92,7 @@ import com.android.settings.inputmethod.SpellCheckersSettings;
 import com.android.settings.inputmethod.UserDictionaryList;
 import com.android.settings.location.LocationEnabler;
 import com.android.settings.location.LocationSettings;
+import com.android.settings.nameless.utils.Helpers;
 import com.android.settings.net.MobileDataEnabler;
 import com.android.settings.nfc.AndroidBeam;
 import com.android.settings.nfc.PaymentSettings;
@@ -394,7 +395,7 @@ public class Settings extends PreferenceActivity
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
         com.android.settings.cyanogenmod.QuietHours.class.getName(),
-        com.android.settings.quicksettings.QuickSettingsTiles.class.getName()
+        com.android.settings.nameless.secret.CrazyLabSettings.class.getName()
     };
 
     @Override
@@ -651,10 +652,12 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.user_settings) {
-                if (!UserHandle.MU_ENABLED
-                        || !UserManager.supportsMultipleUsers()
-                        || Utils.isMonkeyRunning()) {
-                    target.remove(i);
+                if (!Helpers.isSecretModeEnabled()) {
+                    if (!UserHandle.MU_ENABLED
+                            || !UserManager.supportsMultipleUsers()
+                            || Utils.isMonkeyRunning()) {
+                        target.remove(i);
+                    }
                 }
             } else if (id == R.id.nfc_payment_settings) {
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC)) {
@@ -695,11 +698,19 @@ public class Settings extends PreferenceActivity
                 } else {
                     target.remove(i);
                 }
+            } else if (id == R.id.crazy_lab) {
+                if (!Helpers.isSecretModeEnabled()) {
+                    target.remove(i);
+                }
             } else if (id == R.id.supersu_settings) {
                 // Embedding into Settings is supported from SuperSU v1.85 and up
                 boolean supported = false;
                 try {
-                    supported = (getPackageManager().getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
+                    final PackageManager pm = getPackageManager();
+                    if (pm != null) {
+                        supported =
+                                (pm.getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
+                    }
                 } catch (PackageManager.NameNotFoundException e) {
                 }
                 if (!supported) {
@@ -1303,4 +1314,5 @@ public class Settings extends PreferenceActivity
     /* NamelessROM */
     public static class AnimationInterfaceSettingsActivity extends Settings { /* empty */ }
     public static class MoreInterfaceSettingsActivity extends Settings { /* empty */ }
+    public static class CrazyLabSettingsActivity extends Settings { /* empty */ }
 }

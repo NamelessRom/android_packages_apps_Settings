@@ -23,6 +23,8 @@
     <string name="device_maintainers">Device Maintainers</string>
     <string name="translators">Translators</string>
 
+    <string name="crazy_lab">Crazy Lab</string>
+
     <!-- General -->
     <string name="reset">Reset</string>
     <string name="enabled">Enabled</string>
