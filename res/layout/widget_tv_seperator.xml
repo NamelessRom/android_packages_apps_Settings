@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dummy_seperator"
+    android:text="@string/maintainers_nameless_name"
+    style="?android:attr/listSeparatorTextViewStyle"
+    android:textColor="@android:color/white" />

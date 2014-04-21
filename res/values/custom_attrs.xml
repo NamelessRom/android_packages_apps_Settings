@@ -16,13 +16,20 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
     <declare-styleable name="SeekBarPreference">
         <attr name="smin" format="integer" />
         <attr name="interval" format="integer" />
         <attr name="unitsLeft" format="string" />
         <attr name="unitsRight" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="DeveloperPreference">
+        <attr name="nameDev" format="string" />
+        <attr name="githubLink" format="string" />
+        <attr name="crowdinLink" format="string" />
+        <attr name="emailDev" format="string" />
     </declare-styleable>
 
 </resources>

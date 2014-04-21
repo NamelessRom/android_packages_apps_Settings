@@ -101,6 +101,11 @@
                 android:title="@string/device_maintainers"
                 android:fragment="com.android.settings.nameless.about.AboutMaintainersFragment" />
 
+            <PreferenceScreen
+                android:key="translators"
+                android:title="@string/translators"
+                android:fragment="com.android.settings.nameless.about.AboutTranslatorsFragment" />
+
         </PreferenceScreen>
 
         <PreferenceScreen

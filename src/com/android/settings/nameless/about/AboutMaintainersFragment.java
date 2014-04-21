@@ -2,16 +2,12 @@ package com.android.settings.nameless.about;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.LinearLayout;
 
 import com.android.settings.R;
 import com.android.settings.nameless.widgets.DeveloperPreference;
@@ -27,10 +23,12 @@ public class AboutMaintainersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.fragment_about_nameless_maintainers, container, false);
+        final View root =
+                inflater.inflate(R.layout.fragment_about_nameless_maintainers, container, false);
         final ViewGroup maintainerGroup = (ViewGroup) root.findViewById(R.id.maintainers);
 
-        final DeveloperPreference dummyPref = (DeveloperPreference) root.findViewById(R.id.dummy_maintainer);
+        final DeveloperPreference dummyPref =
+                (DeveloperPreference) root.findViewById(R.id.dummy_maintainer);
         final LayoutParams lp = dummyPref.getLayoutParams();
 
         final Activity activity = getActivity();
@@ -64,15 +62,6 @@ public class AboutMaintainersFragment extends Fragment {
         }
 
         return root;
-    }
-
-    private void launchActivity(String packageName, String activity)
-            throws ActivityNotFoundException {
-        Intent launch = new Intent();
-        launch.setComponent(new ComponentName(packageName, packageName
-                + activity));
-        launch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        getActivity().startActivity(launch);
     }
 
 }
