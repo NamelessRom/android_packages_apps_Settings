@@ -19,6 +19,7 @@ package com.android.settings;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.OnAccountsUpdateListener;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -270,9 +271,21 @@ public class Settings extends PreferenceActivity
 
         // Override up navigation for multi-pane, since we handle it in the fragment breadcrumbs
         if (onIsMultiPane()) {
-            getActionBar().setDisplayHomeAsUpEnabled(false);
-            getActionBar().setHomeButtonEnabled(false);
+            final ActionBar actionBar = getActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(false);
+                actionBar.setHomeButtonEnabled(false);
+            }
         }
+    }
+
+    @Override
+    public boolean onIsMultiPane() {
+        if (android.provider.Settings.Nameless.getBoolean(getContentResolver(),
+                android.provider.Settings.Nameless.FORCE_MULTI_PANE, false)) {
+            return true;
+        }
+        return super.onIsMultiPane();
     }
 
     @Override
@@ -395,7 +408,10 @@ public class Settings extends PreferenceActivity
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
         com.android.settings.cyanogenmod.QuietHours.class.getName(),
-        com.android.settings.nameless.secret.CrazyLabSettings.class.getName()
+        com.android.settings.nameless.secret.CrazyLabSettings.class.getName(),
+        com.android.settings.nameless.InterfaceMoreSettings.class.getName(),
+        com.android.settings.nameless.NamelessMoreSettings.class.getName(),
+        com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName()
     };
 
     @Override
