@@ -1181,7 +1181,7 @@ public class Settings extends PreferenceActivity
 
         // a temp hack while we prepare to switch
         // to the new theme chooser.
-        if (header.id == R.id.theme_settings) {
+        if (header.id == R.id.theme_settings && !Helpers.isSecretModeEnabled()) {
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.tmobile.themechooser", "com.tmobile.themechooser.ThemeChooser");
