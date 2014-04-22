@@ -28,6 +28,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.ViewConfiguration;
+import android.view.WindowManagerGlobal;
 
 import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
