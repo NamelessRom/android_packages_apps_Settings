@@ -305,6 +305,7 @@
     <string name="screen_on_notification_led_title">Screen-on notification light</string>
     <string name="screen_on_notification_led_summary">Enable notification light even when screen is on</string>
 
+    <!-- Navigation bar -->
     <!-- Navigation bar height/width -->
     <string name="navbar_dimen_title">Dimensions</string>
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
@@ -315,6 +316,9 @@
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
     <string name="navigation_bar_size_48_dp_default">48 dp (default)</string>
     <string name="navigation_bar_size_0_dp">0 dp (off)</string>
+    <!-- Navigation bar force enable -->
+    <string name="navbar_force_enable_title">Force navigation bar</string>
+    <string name="navbar_force_enable_summary">Requires a reboot</string>
 
     <!-- QuickSettings: Smart Pulldown -->
     <string name="smart_pulldown_title">Smart pulldown</string>
