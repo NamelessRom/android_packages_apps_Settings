@@ -19,12 +19,14 @@ package com.android.settings.cyanogenmod;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.ViewConfiguration;
 
 import com.android.internal.util.slim.DeviceUtils;
@@ -50,13 +52,15 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
     private ListPreference mNavigationBarHeight;
     private ListPreference mNavigationBarWidth;
 
+    private ContentResolver resolver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
-        final ContentResolver resolver = getActivity().getContentResolver();
+        resolver = getActivity().getContentResolver();
 
         // Expanded desktop
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
@@ -69,17 +73,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         int expandedDesktopValue = Settings.System.getInt(resolver,
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
 
-        final boolean hasRealNavigationBar = getResources()
-                .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
-        if (hasRealNavigationBar) { // only disable on devices with REAL navigation bars
-            final Preference pref = findPreference("navbar_force_enable");
-            if (pref != null) {
-                prefScreen.removePreference(pref);
-            }
-        }
-
         // Allows us to support devices, which have the navigation bar force enabled.
-        final boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
+        boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
 
         final PreferenceCategory navbarCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
         if (hasNavBar) {
