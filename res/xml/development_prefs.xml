@@ -339,6 +339,11 @@
             android:title="@string/kill_app_longpress_back"
             android:summary="@string/kill_app_longpress_back_summary"/>
 
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="dev_force_show_navbar"
+            android:title="@string/navbar_force_enable_title"
+            android:summary="@string/navbar_force_enable_summary" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
