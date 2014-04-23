@@ -82,7 +82,6 @@ import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.ButtonSettings;
 import com.android.settings.cyanogenmod.LockscreenInterface;
 import com.android.settings.cyanogenmod.MoreDeviceSettings;
-import com.android.settings.cyanogenmod.PerformanceSettings;
 import com.android.settings.cyanogenmod.SystemUiSettings;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
@@ -142,8 +141,6 @@ public class Settings extends PreferenceActivity
     private static final String SAVE_KEY_CURRENT_HEADER = "com.android.settings.CURRENT_HEADER";
     private static final String SAVE_KEY_PARENT_HEADER = "com.android.settings.PARENT_HEADER";
 
-    private static final String ACTION_PERFORMANCE =
-            "org.namelessrom.devicecontrol.activities.PerformanceActivity";
     private static final String ACTION_DEVICE_CONTROL =
             "org.namelessrom.devicecontrol.activities.MainActivity";
     private static final String ACTION_UPDATE_CENTER =
@@ -404,14 +401,14 @@ public class Settings extends PreferenceActivity
         ButtonSettings.class.getName(),
         MoreDeviceSettings.class.getName(),
         ProfilesSettings.class.getName(),
-        PerformanceSettings.class.getName(),
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
         com.android.settings.cyanogenmod.QuietHours.class.getName(),
         com.android.settings.nameless.secret.CrazyLabSettings.class.getName(),
         com.android.settings.nameless.InterfaceMoreSettings.class.getName(),
         com.android.settings.nameless.NamelessMoreSettings.class.getName(),
-        com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName()
+        com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName(),
+        com.android.settings.ThemeSettings.class.getName()
     };
 
     @Override
@@ -689,12 +686,6 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.development_settings) {
                 if (!showDev) {
                     target.remove(i);
-                }
-            } else if (id == R.id.performance_settings) {
-                if (!showDev && !actionExists(ACTION_PERFORMANCE)) {
-                    target.remove(i);
-                } else {
-                    target.get(i).intent = new Intent().setAction(ACTION_PERFORMANCE);
                 }
             } else if (id == R.id.account_add) {
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
