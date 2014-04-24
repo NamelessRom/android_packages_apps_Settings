@@ -11,7 +11,7 @@ import org.acra.sender.HttpSender;
         httpMethod = HttpSender.Method.PUT,
         reportType = HttpSender.Type.JSON,
         formKey = "",
-        formUri = "http://reports.nameless-rom.org/acra-settings/_design/acra-storage/_update/report",
+        formUri = "https://reports.nameless-rom.org/acra-settings/_design/acra-storage/_update/report",
         formUriBasicAuthLogin = "namelessreporter",
         formUriBasicAuthPassword = "weareopentoeveryone",
         mode = ReportingInteractionMode.SILENT)
