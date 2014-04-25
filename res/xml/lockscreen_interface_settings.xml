@@ -118,6 +118,18 @@
             android:key="lockscreen_use_widget_container_carousel"
             android:title="@string/lockscreen_use_widget_container_carousel_title"
             android:summary="@string/lockscreen_use_widget_container_carousel_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen_background_category"
+        android:title="@string/lockscreen_background">
+
+        <Preference
+            android:id="@+id/lockscreen_wallpaper_settings"
+            android:title="@string/lockscreen_wallpaper_settings_title">
+            <intent android:targetPackage="com.cyanogenmod.trebuchet"
+                    android:targetClass="com.android.launcher3.LockWallpaperPickerActivity" />
+        </Preference>
 
     </PreferenceCategory>
 
