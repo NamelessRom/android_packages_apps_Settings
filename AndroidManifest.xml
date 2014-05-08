@@ -94,6 +94,8 @@
                 android:resource="@xml/device_admin_lockscreen" />
         </receiver>
 
+        <activity android:name="com.android.launcher3.LockWallpaperPickerActivity" />
+
         <!-- Settings -->
 
         <activity android:name="Settings"
