@@ -395,4 +395,6 @@
     <!-- Privacy Guard Notification -->
     <string name="privacy_guard_notification_title">Notification</string>
     <string name="privacy_guard_notification_summary">Show notification if privacy guard is active.</string>
+
+    <string name="wallpaper_picker_not_found">Could not launch wallpaper picker</string>
 </resources>

@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 public class ThemeSettings extends PreferenceFragment {
 
+    private static final String KEY_WALLPAPER = "wallpaper_settings";
     private static final String KEY_LOCKSCREEN_WALLPAPER = "lockscreen_wallpaper_settings";
 
     private Toast mToast;
@@ -49,7 +50,21 @@ public class ThemeSettings extends PreferenceFragment {
                     mToast.cancel();
                 }
                 if (getActivity() != null) {
-                    mToast = Toast.makeText(getActivity(), R.string.lockscreen_picker_not_found,
+                    mToast = Toast.makeText(getActivity(), R.string.wallpaper_picker_not_found,
+                            Toast.LENGTH_SHORT);
+                    mToast.show();
+                }
+            }
+            return true;
+        } else if (KEY_WALLPAPER.equals(key)) {
+            try {
+                startActivity(new Intent("android.intent.action.SET_WALLPAPER"));
+            } catch (ActivityNotFoundException e) {
+                if (mToast != null) {
+                    mToast.cancel();
+                }
+                if (getActivity() != null) {
+                    mToast = Toast.makeText(getActivity(), R.string.wallpaper_picker_not_found,
                             Toast.LENGTH_SHORT);
                     mToast.show();
                 }

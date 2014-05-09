@@ -226,7 +226,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     mToast.cancel();
                 }
                 if (getActivity() != null) {
-                    mToast = Toast.makeText(getActivity(), R.string.lockscreen_picker_not_found,
+                    mToast = Toast.makeText(getActivity(), R.string.wallpaper_picker_not_found,
                             Toast.LENGTH_SHORT);
                     mToast.show();
                 }
