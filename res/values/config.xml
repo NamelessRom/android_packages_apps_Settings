@@ -36,6 +36,8 @@
 
     <!-- DEPRECATED!! Use config_enableTorch in framework -->
     <bool name="has_led_flash">false</bool>
+    <!-- DEPRECATED!! -->
+    <bool name="config_show_expandedDesktop">false</bool>
 
     <!-- Home button Wake Support. Some devices do not support this.
          Setting to false will disable Home button Wake support -->
