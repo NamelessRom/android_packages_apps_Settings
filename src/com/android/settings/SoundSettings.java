@@ -17,6 +17,7 @@
 package com.android.settings;
 
 import com.android.settings.bluetooth.DockEventReceiver;
+import com.android.settings.chameleonos.SeekBarPreference;
 import com.android.settings.hardware.VibratorIntensity;
 
 import android.app.Activity;
@@ -68,6 +69,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final int FALLBACK_EMERGENCY_TONE_VALUE = 0;
 
     private static final String KEY_VOLUME_OVERLAY = "volume_overlay";
+    private static final String KEY_VOLUME_PANEL_TIMEOUT = "volume_panel_timeout";
     private static final String KEY_RING_MODE = "ring_mode";
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
     private static final String KEY_RING_VOLUME = "ring_volume";
@@ -107,7 +109,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
             KEY_EMERGENCY_TONE, KEY_INCREASING_RING, KEY_VIBRATE,
-            KEY_VOLUME_ADJUST_SOUNDS
+            KEY_VOLUME_ADJUST_SOUNDS, KEY_VOLUME_PANEL_TIMEOUT
     };
 
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
@@ -120,6 +122,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String POWER_NOTIFICATIONS_SILENT_URI = "silent";
 
     private ListPreference mVolumeOverlay;
+    private SeekBarPreference mVolumePanelTimeout;
     private ListPreference mRingMode;
     private CheckBoxPreference mSoundEffects;
     private Preference mMusicFx;
@@ -189,6 +192,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 VolumePanel.VOLUME_OVERLAY_EXPANDABLE);
         mVolumeOverlay.setValue(Integer.toString(volumeOverlay));
         mVolumeOverlay.setSummary(mVolumeOverlay.getEntry());
+
+        mVolumePanelTimeout = (SeekBarPreference) findPreference(KEY_VOLUME_PANEL_TIMEOUT);
+        int statusVolumePanelTimeout = Settings.System.getInt(resolver,
+                 Settings.System.VOLUME_PANEL_TIMEOUT, 3000);
+        mVolumePanelTimeout.setValue(statusVolumePanelTimeout / 1000);
+        mVolumePanelTimeout.setOnPreferenceChangeListener(this);
 
         mRingMode = (ListPreference) findPreference(KEY_RING_MODE);
         if (!getResources().getBoolean(R.bool.has_silent_mode)) {
@@ -493,6 +502,10 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.MODE_VOLUME_OVERLAY, value);
             mVolumeOverlay.setSummary(mVolumeOverlay.getEntries()[index]);
+        } else if (preference == mVolumePanelTimeout) {
+            int volumePanelTimeout = (Integer) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLUME_PANEL_TIMEOUT, volumePanelTimeout * 1000);
         }
 
         return true;

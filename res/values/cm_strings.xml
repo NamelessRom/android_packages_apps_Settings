@@ -193,6 +193,8 @@
     <string name="volume_overlay_expandable">Expandable</string>
     <string name="volume_overlay_expanded">Expanded</string>
     <string name="volume_overlay_none">None</string>
+    <string name="volume_panel_timeout_title">Timeout</string>
+    <string name="volume_panel_timeout_summary">Time until the panel will be hidden</string>
 
     <!-- Automatation and effects category -->
     <string name="automation_effects_title">Automation &amp; Effects</string>
