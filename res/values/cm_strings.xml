@@ -387,6 +387,7 @@
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
+    <string name="quick_pulldown_center">Center</string>
     <string name="title_collapse_panel">Auto close panel</string>
     <string name="summary_collapse_panel">Close the Quick Settings panel after toggling a tile</string>
 
