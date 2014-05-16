@@ -336,6 +336,11 @@
             android:title="@string/kill_app_longpress_back"
             android:summary="@string/kill_app_longpress_back_summary"/>
 
+        <com.android.settings.AnimationScalePreference
+            android:key="long_press_kill_delay"
+            android:title="@string/nameless_mod_version"
+            android:summary="@string/about_settings" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
