@@ -64,4 +64,6 @@
 
     <!-- Disable Camera Shutter Sound -->
     <string name="camera_sounds_title">Camera shutter sound</string>
+
+    <string name="long_press_kill_delay">App kill delay</string>
 </resources>
