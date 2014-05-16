@@ -41,4 +41,6 @@
     <string name="gpu_gl_version">OpenGL version</string>
     <string name="gpu_gl_extensions">OpenGL extensions</string>
     <string name="gpu_shader_version">Shader version</string>
+
+    <string name="long_press_kill_delay">App kill delay</string>
 </resources>
