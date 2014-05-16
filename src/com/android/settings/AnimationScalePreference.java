@@ -31,6 +31,7 @@ public class AnimationScalePreference extends DialogPreference
     private IntervalSeekBar mSeekBar;
 
     private float mScale = 1.0f;
+    private int mMax = 10;
 
     public AnimationScalePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -51,6 +52,7 @@ public class AnimationScalePreference extends DialogPreference
         mScaleText.setText(String.valueOf(mScale) + "x");
 
         mSeekBar = (IntervalSeekBar) view.findViewById(R.id.scale_seekbar);
+        mSeekBar.setMax(mMax * 100);
         mSeekBar.setProgressFloat(mScale);
         mSeekBar.setOnSeekBarChangeListener(this);
 
@@ -60,6 +62,10 @@ public class AnimationScalePreference extends DialogPreference
     public void setScale(float scale) {
         mScale = scale;
         setSummary(String.valueOf(scale) + "x");
+    }
+
+    public void setMax(int max) {
+        mMax = max;
     }
 
     @Override
