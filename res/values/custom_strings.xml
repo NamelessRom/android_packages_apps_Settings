@@ -397,4 +397,6 @@
     <string name="privacy_guard_notification_summary">Show notification if privacy guard is active.</string>
 
     <string name="wallpaper_picker_not_found">Could not launch wallpaper picker</string>
+
+    <string name="long_press_kill_delay">App kill delay</string>
 </resources>
