@@ -35,7 +35,7 @@
         <CheckBoxPreference
             android:key="show_always"
             android:title="@string/show_always"
-            android:dependency="lockscreen_notifications"
+            android:dependency="pocket_mode"
             android:summary="@string/show_always_summary" />
 
         <CheckBoxPreference
@@ -95,7 +95,8 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="notification_color"
-            android:title="@string/notification_color" />
+            android:title="@string/notification_color"
+            android:dependency="lockscreen_notifications" />
 
     </PreferenceCategory>
     <PreferenceCategory
