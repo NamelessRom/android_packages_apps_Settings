@@ -426,9 +426,6 @@
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">System interface</string>
 
-    <!-- Title for the accessibility preference to home button to answers a call. [CHAR LIMIT=35] -->
-    <string name="accessibility_home_button_answers_call_prerefence_title">Home button answers call</string>
-
     <!-- Automatic brightness customization -->
     <string name="auto_brightness_adjustment_title">Brightness adjustment</string>
 </resources>
