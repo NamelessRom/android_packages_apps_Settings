@@ -62,4 +62,9 @@
         android:title="@string/quiet_hours_dim"
         android:dependency="quiet_hours_enabled" />
 
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="quiet_hours_dim_battery"
+        android:title="@string/quiet_hours_dim_battery"
+        android:dependency="quiet_hours_enabled" />
+
 </PreferenceScreen>
