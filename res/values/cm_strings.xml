@@ -277,7 +277,8 @@
     <string name="battery_light_list_title">Colors</string>
     <string name="battery_light_low_color_title">Battery low</string>
     <string name="battery_light_medium_color_title">Charging</string>
-    <string name="battery_light_full_color_title">Fully charged</string>
+    <string name="battery_light_full_color_title">Charged (90%)</string>
+    <string name="battery_light_really_full_color_title">Charged (100%)</string>
 
     <!-- Protected apps lockpattern reset button -->
     <string name="lockpattern_reset_button">Reset pattern</string>
@@ -507,6 +508,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="quiet_hours_still_summary">Disable vibrations</string>
     <string name="quiet_hours_dim">Notification light</string>
     <string name="quiet_hours_dim_summary">Disable notification light</string>
+    <string name="quiet_hours_dim_battery">Battery light</string>
+    <string name="quiet_hours_dim_battery_summary">Disable battery light</string>
     <string name="quiet_hours_haptic">Haptic feedback</string>
     <string name="quiet_hours_haptic_summary">Disable haptic feedback</string>
     <string name="quiet_hours_active_period">Active from <xliff:g id="start">%1$s</xliff:g> to <xliff:g id="end">%2$s</xliff:g></string>
