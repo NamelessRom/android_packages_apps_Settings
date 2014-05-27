@@ -141,7 +141,7 @@
   <string name="icon_picker_title">Pictogrambron kiezen</string>
   <string name="icon_picker_system_icons_title">Systeempictogrammen</string>
   <string name="icon_picker_gallery_title">Galerij</string>
-  <string name="icon_picker_pack_title">Pictogrammenpakket</string>
+  <string name="icon_picker_pack_title">Pictogrampakket</string>
   <string name="display_lights_settings_title">Scherm &amp; verlichting</string>
   <string name="lights_category_title">Verlichting</string>
   <string name="notification_pulse_title">Meldingsled</string>
@@ -155,10 +155,12 @@
   <string name="notification_light_missed_call_title">Gemiste oproep</string>
   <string name="notification_light_voicemail_title">Voicemail</string>
   <string name="adaptive_backlight_title">Aanpassende helderheid</string>
-  <string name="adaptive_backlight_summary">Schermhelderheid intelligent aanpassen voor langer accugebruik</string>
+  <string name="adaptive_backlight_summary">Schermhelderheid intelligent aanpassen voor langer accugebruik met behoud van bruikbaarheid</string>
   <string name="wake_when_plugged_or_unplugged_title">Ontwaken door lader</string>
   <string name="wake_when_plugged_or_unplugged_summary">Scherm aan bij het aansluiten of loskoppelen van een lader</string>
   <string name="screen_animation_off_title">Scherm-uit-animatie</string>
+  <string name="screen_animation_style_title">Scherm-uit-animatie</string>
+  <string name="screen_animation_style_disabled">Uitgeschakeld</string>
   <string name="screen_animation_style_electronbeam">Electron beam</string>
   <string name="screen_animation_style_fade">Uitfaden</string>
   <string name="edit_light_settings">Meldingsledinstellingen</string>
@@ -198,6 +200,7 @@
   <string name="unlock_camera_unlock_summary">Ontgrendelen door op de cameraknop te drukken</string>
   <string name="unlock_quick_unlock_control_title">Snel ontgrendelen</string>
   <string name="unlock_quick_unlock_control_summary">Automatisch ontgrendelen als uw pincode/wachtwoord correct is ingevoerd</string>
+  <string name="unlock_buttons_disabled_by_security">Vergrendelingsscherm is beveiligd</string>
   <string name="delay_and_timeout_title">Vergrendelingsvertraging</string>
   <string name="slide_lock_delay_title">Vertraging schermvergrendeling</string>
   <string name="slide_lock_timeout_delay_title">Vertraging na time-out</string>
@@ -224,6 +227,8 @@
   <string name="tile_picker_title">Tegels en indeling</string>
   <string name="tile_picker_summary">Indeling van te tonen tegels beheren</string>
   <string name="tile_choose_title">Tegel kiezen</string>
+  <string name="title_qs_small_icons">Kleinere tegels</string>
+  <string name="summary_qs_small_icons">Kleinere tegels voor meer tegels per kolom</string>
   <string name="title_tile_airplane">Vliegmodus</string>
   <string name="title_tile_battery">Accustatus</string>
   <string name="title_tile_bluetooth">Bluetooth</string>
@@ -306,12 +311,13 @@
   <string name="auto_brightness_help_dialog_title">Help</string>
   <string name="auto_brightness_help_text"><b>Hoe wordt de helderheid berekend?</b>
 \n\n
-De helderheidscurve wordt berekend door <i>kubische spline-interpolatie</i> toe te passen op een bepaald aantal <i>controlepunten</i>. Het is geen \'bucket-type\'-berekening, waarbij de schermhelderheid gelijk blijft voor een specifiek bereik van omgevingslichtsterkte. Op deze manier hebben kleine veranderingen in omgevingslichtsterkte geen grote invloed op de schermhelderheid. Het is echter lastig om de precieze gevolgen van het veranderen van controlepunten te voorspellen.\nOm daarbij te helpen is het mogelijk om een voorbeeld van de helderheidscurve te bekijken. Houd er rekening mee dat het voorbeeld wordt weergegeven met een <i>logaritmische</i> schaal, zodat alle controlepunten apart kunnen worden weergegeven. Als een lineaire schaal gebruikt zou worden, zou het niet mogelijk zijn om de belangrijkere controlepunten te kunnen onderscheiden in het onderste bereik van de omgevingslichtsterkte.
+De helderheidscurve wordt berekend door <i>kubische spline-interpolatie</i> toe te passen op een bepaald aantal <i>controlepunten</i>. Het is geen \'bucket-type\'-berekening, waarbij de schermhelderheid gelijk blijft voor een specifiek bereik van omgevingslichtsterkte. Op deze manier hebben kleine veranderingen in omgevingslichtsterkte geen grote invloed op de schermhelderheid. Het is echter lastig om de precieze gevolgen van het veranderen van controlepunten te voorspellen.\n
+Om daarbij te helpen is het mogelijk om een voorbeeld van de helderheidscurve te bekijken. Houd er rekening mee dat het voorbeeld wordt weergeven met een <i>logaritische</i> schaal, zodat alle controlepunten apart kunnen worden weergeven. Als een lineaire schaal gebruikt zou worden, zou het niet mogelijk zijn om de belangrijkere controlepunten te kunnen onderscheiden in het onderste bereik van de omgevingslichtsterkte.
 \n\n
 <b>Hoe kan de helderheidscurve worden bewerkt?</b>
 \n\n
-Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controlepunt</i> op de helderheidscurve. Tijdens het verplaatsen van de schuifbalk wordt de schermhelderheid automatisch aangepast om een voorbeeld te geven van het lichtniveau.\nExtra opties zijn beschikbaar door een regel lang aan te raken. Door \'Aanpassen\' te kiezen kan zowel de omgevingslichtsterkte als de gewenste schermhelderheid aangepast worden. Met \'Opsplitsen\' kan een regel gedupliceerd worden om een extra controlepunt in te voegen en \'Verwijderen\' verwijdert de geselecteerde regel.
-    </string>
+Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controlepunt</i> op de helderheidscurve. Tijdens het verplaatsen van de schuifbalk wordt de schermhelderheid automatisch aangepast om een voorbeeld te geven van het lichtniveau.\n
+Extra opties zijn beschikbaar door een regel lang aan te raken. Door \'Aanpassen\' te kiezen kan zowel de omgevingslichtsterkte als de gewenste schermhelderheid aangepast worden. Met \'Opsplitsen\' kan een regel gedupliceerd worden om een extra controlepunt in te voegen en \'Verwijderen\' verwijdert de geselecteerde regel.    </string>
   <string name="auto_brightness_sensitivity_title">Aanpassingsgevoeligheid</string>
   <string name="auto_brightness_sensitivity_verylow">Zeer laag</string>
   <string name="auto_brightness_sensitivity_low">Laag</string>
@@ -342,11 +348,16 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
   <string name="quiet_hours_summary">Uren instellen waarin apparaat stil moet zijn</string>
   <string name="quiet_hours_enabled">Stille uren toepassen</string>
   <string name="quiet_hours_ringer">Beltoon</string>
-  <string name="quiet_hours_mute">Meldingsgeluid dempen</string>
-  <string name="quiet_hours_system">Systeemgeluid dempen</string>
-  <string name="quiet_hours_still">Trillen uitschakelen</string>
-  <string name="quiet_hours_dim">Meldingsled uitschakelen</string>
-  <string name="quiet_hours_haptic">Haptische feedback uitschakelen</string>
+  <string name="quiet_hours_mute">Meldingen</string>
+  <string name="quiet_hours_mute_summary">Meldingsgeluid dempen</string>
+  <string name="quiet_hours_system">Systeemgeluiden</string>
+  <string name="quiet_hours_system_summary">Systeemgeluiden dempen</string>
+  <string name="quiet_hours_still">Trillen</string>
+  <string name="quiet_hours_still_summary">Trillen uitschakelen</string>
+  <string name="quiet_hours_dim">Meldingsled</string>
+  <string name="quiet_hours_dim_summary">Meldingsled uitschakelen</string>
+  <string name="quiet_hours_haptic">Haptische feedback</string>
+  <string name="quiet_hours_haptic_summary">Haptische feedback uitschakelen</string>
   <string name="quiet_hours_active_from">Actief van</string>
   <string name="quiet_hours_active_to">tot</string>
   <string name="quiet_hours_ringer_allow_all">Beltoon bij alle oproepen</string>
@@ -360,6 +371,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
   <string name="build_date">Build-datum</string>
   <string name="cpu_info">CPU</string>
   <string name="mem_info">Geheugen</string>
+  <string name="phone_service_state">Spraak: <xliff:g id="voice_state">%1$s</xliff:g>, gegevens: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="anonymous_statistics_title">Statistieken</string>
   <string name="anonymous_statistics_summary">Help CyanogenMod te verbeteren door anonieme statistieken te verzenden</string>
   <string name="anonymous_statistics_warning_title">Over</string>
@@ -381,12 +393,12 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
   <string name="icons_settings_title">Pictogrammen</string>
   <string name="fonts_settings_title">Lettertypen</string>
   <string name="wallpaper_settings_title">Achtergronden</string>
-  <string name="lockscreen_wallpaper_settings_title">Achtergronden voor vergrendelingsscherm</string>
+  <string name="lockscreen_wallpaper_settings_title">Achtergronden vergrendelingsscherm</string>
   <string name="bootanim_settings_title">Opstartanimaties</string>
   <string name="soundpack_settings_title">Geluidspakketten</string>
   <string name="performance_settings_title">Prestaties</string>
   <string name="performance_settings_warning_title">Ga voorzichtig te werk</string>
-  <string name="performance_settings_warning">Deze instellingen zijn experimenteel en kunnen leiden tot instabiliteit, crashes, gegevensverlies of hardwareschade.\n\nMeld geen fouten aan de ontwikkelaars als deze instellingen veranderd zijn.</string>
+  <string name="performance_settings_warning">Deze instellingen zijn experimenteel en kunnen leiden tot instabiliteit, crashes, gegevensverlies of hardwareschade.\n\nWij verzoeken u geen foutrapporten in te sturen als deze instellingen anders zijn dan hun standaardwaarden.</string>
   <string name="performance_set_on_boot">Instellen tijdens opstarten</string>
   <string name="performance_set_on_boot_summary">Instellingen herstellen tijdens opstarten</string>
   <string name="processor_title">Processor</string>
@@ -413,6 +425,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
   <string name="changelog_error">Kan changelog niet laden</string>
   <string name="changelog_unknown">Onbekend</string>
   <string name="changelog_version">Versie</string>
+  <string name="contributor_cloud_title">Bijdragers bekijken</string>
   <string name="cmupdate_settings_title">CyanogenMod-updates</string>
   <string name="cmupdate_settings_summary">Controleren op updates</string>
   <string name="advanced_settings_title">Geavanceerd</string>
@@ -628,6 +641,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
   <string name="hardware_keys_action_voice_search">Spraakgestuurd zoeken</string>
   <string name="hardware_keys_action_in_app_search">Zoeken in apps</string>
   <string name="hardware_keys_action_launch_camera">Camera openen</string>
+  <string name="button_wake_title">Ontwaken</string>
   <string name="home_wake_summary">Apparaat ontwaken door op de thuisknop te drukken</string>
   <string name="camera_wake_summary">Apparaat ontwaken door op de cameraknop te drukken</string>
   <string name="camera_sleep_on_release_title">Scherm</string>
@@ -689,7 +703,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Instellingen beveiligde sms-berichten</string>
   <string name="custom_runtime_warning_title">Let op</string>
-  <string name="custom_runtime_warning_message">ART wordt niet ondersteund door CyanogenMod. Deze instelling is opgenomen voor testdoeleinden en kan leiden tot instabiliteit, crashes, gegevensverlies en/of opstartproblemen. Ga naar &lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\"&gt;Introductie van ART (Engels)&lt;/a&gt; voor meer informatie.&lt;br/&gt;&lt;br/&gt;Wij verzoeken u geen foutrapporten in te sturen, wanneer ART is ingeschakeld.&lt;br/&gt;&lt;br/&gt;Weet u zeker dat u wilt herstarten om apps niet meer te laten draaien op <xliff:g id="old" example="libdvm.so">%1$s</xliff:g>, maar op <xliff:g id="new" example="libart.so">%2$s</xliff:g>?</string>
+  <string name="custom_runtime_warning_message">ART wordt niet officieel ondersteund door CyanogenMod. Deze instelling is opgenomen voor testdoeleinden en kan leiden tot instabiliteit, crashes, gegevensverlies en/of opstartproblemen. Ga naar &lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\"&gt;Introductie van ART (Engels)&lt;/a&gt; voor meer informatie.&lt;br/&gt;&lt;br/&gt;Wij verzoeken u geen foutrapporten in te sturen wanneer ART is ingeschakeld.&lt;br/&gt;&lt;br/&gt;Weet u zeker dat u wilt herstarten om apps niet meer te laten draaien op <xliff:g id="old" example="libdvm.so">%1$s</xliff:g>, maar op <xliff:g id="new" example="libart.so">%2$s</xliff:g>?</string>
   <string name="gps_download_data_wifi_only">GPS-ondersteunende gegevens alleen downloaden via wifi</string>
   <string name="battery_info_status_charging_dock_ac">(dock-AC)</string>
   <string name="battery_info_status_charging_dock_usb">(dock-USB)</string>
@@ -845,4 +859,12 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
   <string name="voice_wakeup_retrain_title">Uw stem opnieuw aanleren</string>
   <string name="voice_wakeup_activity_title">Activiteit om te starten</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="sub_no_sim">Geen SIM</string>
+  <string name="multi_sim_settings_title">Multi-SIM</string>
+  <string name="multi_sim_settings_group_summary">Standaard SIM-keuze</string>
+  <string name="voice_title">Spraakoproep</string>
+  <string name="data_title">Gegevensgesprek</string>
+  <string name="sms_title">SMS verzenden</string>
+  <string name="priority_sub_title">Voorkeursabonnement</string>
+  <string name="bluetooth_accept_all_files">Alle bestandstypen accepteren</string>
 </resources>
