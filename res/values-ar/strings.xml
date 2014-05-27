@@ -741,6 +741,7 @@
     <string name="brightness_summary" msgid="838917350127550703">"ضبط سطوع الشاشة"</string>
     <string name="screen_timeout" msgid="4351334843529712571">"السكون"</string>
     <string name="screen_timeout_summary" msgid="327761329263064327">"بعد <xliff:g id="TIMEOUT_DESCRIPTION">%1$s</xliff:g> من عدم النشاط"</string>
+    <string name="wallpaper_settings_title" msgid="5449180116365824625">"الخلفية"</string>
     <string name="wallpaper_settings_fragment_title" msgid="519078346877860129">"اختيار خلفية من"</string>
     <string name="screensaver_settings_title" msgid="3349790120327233241">"حلم اليقظة"</string>
     <string name="screensaver_settings_summary_either_long" msgid="2458481525925378465">"عند الإرسال أو السكون والشحن"</string>

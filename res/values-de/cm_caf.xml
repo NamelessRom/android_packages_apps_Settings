@@ -28,7 +28,6 @@
   <string name="bluetooth_dun_profile_summary_connected">Verbunden mit Einwahldienst</string>
   <string name="bluetooth_sap_profile_summary_use_for">Für SIM-Zugriff verwenden</string>
   <string name="bluetooth_dun_profile_summary_use_for">Für Einwahlverbindungen verwenden</string>
-  <string name="wifi_disabled_association_rejected">Verbindung abgelehnt</string>
   <string name="screencolor">Bildschirmfarbe</string>
   <string name="custom_screencolor">Benutzerdefinierte Bildschirmfarbe</string>
   <string name="device_additional_status_summary">Telefonnummer, Signal, IMEI usw.</string>
