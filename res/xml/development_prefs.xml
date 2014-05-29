@@ -230,6 +230,11 @@
             android:title="@string/debug_hw_drawing_category">
 
         <CheckBoxPreference
+                android:key="force_highend_gfx"
+                android:title="@string/force_highend_gfx_title"
+                android:summary="@string/force_highend_gfx_summary" />
+
+        <CheckBoxPreference
                 android:key="force_hw_ui"
                 android:title="@string/force_hw_ui"
                 android:summary="@string/force_hw_ui_summary"/>
