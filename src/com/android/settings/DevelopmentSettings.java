@@ -19,6 +19,7 @@ package com.android.settings;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -125,6 +126,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String DISABLE_OVERLAYS_KEY = "disable_overlays";
     private static final String SHOW_CPU_USAGE_KEY = "show_cpu_usage";
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
+    private static final String FORCE_HIGH_END_GFX_KEY = "force_highend_gfx";
     private static final String FORCE_HARDWARE_UI_KEY = "force_hw_ui";
     private static final String FORCE_MSAA_KEY = "force_msaa";
     private static final String TRACK_FRAME_TIME_KEY = "track_frame_time";
@@ -141,6 +143,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String DEBUG_DEBUGGING_CATEGORY_KEY = "debug_debugging_category";
     private static final String DEBUG_APPLICATIONS_CATEGORY_KEY = "debug_applications_category";
     private static final String WIFI_DISPLAY_CERTIFICATION_KEY = "wifi_display_certification";
+
+    private static final String FORCE_HIGHEND_GFX_PERSIST_PROP = "persist.sys.force_highendgfx";
 
     private static final String ENABLE_QUICKBOOT_KEY = "enable_quickboot";
     private static final String QUICKBOOT_PACKAGE_NAME = "com.qapp.quickboot";
@@ -209,6 +213,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private CheckBoxPreference mDisableOverlays;
     private CheckBoxPreference mShowCpuUsage;
     private CheckBoxPreference mShowCpuInfo;
+    private CheckBoxPreference mForceHighEndGfx;
     private CheckBoxPreference mForceHardwareUi;
     private CheckBoxPreference mForceMsaa;
     private CheckBoxPreference mShowHwScreenUpdates;
@@ -276,7 +281,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
         addPreferencesFromResource(R.xml.development_prefs);
 
-        final PreferenceGroup debugDebuggingCategory = (PreferenceGroup)
+        PreferenceGroup preferenceGroup = (PreferenceGroup)
                 findPreference(DEBUG_DEBUGGING_CATEGORY_KEY);
 
         mEnableAdb = findAndInitCheckboxPref(ENABLE_ADB);
@@ -284,13 +289,15 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mAllPrefs.add(mAdbNotify);
         mClearAdbKeys = findPreference(CLEAR_ADB_KEYS);
         if (!SystemProperties.getBoolean("ro.adb.secure", false)) {
-            if (debugDebuggingCategory != null) {
-                debugDebuggingCategory.removePreference(mClearAdbKeys);
+            if (preferenceGroup != null) {
+                preferenceGroup.removePreference(mClearAdbKeys);
             }
         }
         mEnableTerminal = findAndInitCheckboxPref(ENABLE_TERMINAL);
         if (!Utils.isPackageInstalled(getActivity(), TERMINAL_APP_PACKAGE)) {
-            debugDebuggingCategory.removePreference(mEnableTerminal);
+            if (preferenceGroup != null) {
+                preferenceGroup.removePreference(mEnableTerminal);
+            }
             mEnableTerminal = null;
         }
 
@@ -327,8 +334,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mVerifyAppsOverUsb = (CheckBoxPreference) findPreference(VERIFY_APPS_OVER_USB_KEY);
         mAllPrefs.add(mVerifyAppsOverUsb);
         if (!showVerifierSetting()) {
-            if (debugDebuggingCategory != null) {
-                debugDebuggingCategory.removePreference(mVerifyAppsOverUsb);
+            if (preferenceGroup != null) {
+                preferenceGroup.removePreference(mVerifyAppsOverUsb);
             } else {
                 mVerifyAppsOverUsb.setEnabled(false);
             }
@@ -384,13 +391,28 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         }
 
         mRootAccess = (ListPreference) findPreference(ROOT_ACCESS_KEY);
-        mRootAccess.setOnPreferenceChangeListener(this);
+        if (mRootAccess != null) {
+            mRootAccess.setOnPreferenceChangeListener(this);
+        }
         if (!removeRootOptionsIfRequired()) {
             mAllPrefs.add(mRootAccess);
         }
 
         mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
         mAllPrefs.add(mDevelopmentTools);
+
+        preferenceGroup = (PreferenceGroup) findPreference("debug_hw_drawing_category");
+        mForceHighEndGfx = (CheckBoxPreference) findPreference(FORCE_HIGH_END_GFX_KEY);
+        if (mForceHighEndGfx != null) {
+            if (ActivityManager.isLowRamDeviceStatic()) {
+                mForceHighEndGfx.setChecked("true".equals(
+                        SystemProperties.get(FORCE_HIGHEND_GFX_PERSIST_PROP, "false")));
+            } else {
+                if (preferenceGroup != null) {
+                    preferenceGroup.removePreference(mForceHighEndGfx);
+                }
+            }
+        }
     }
 
     private ListPreference addListPreference(String prefKey) {
@@ -1558,6 +1580,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             writeDevelopmentShortcutOptions();
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
+        } else if (preference == mForceHighEndGfx) {
+            SystemProperties.set(FORCE_HIGHEND_GFX_PERSIST_PROP,
+                    mForceHighEndGfx.isChecked() ? "true" : "false");
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
