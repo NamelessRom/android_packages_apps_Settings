@@ -91,10 +91,10 @@
             android:title="@string/lockscreen_custom_widgets_title" />
 
         <CheckBoxPreference
-                android:key="keyguard_enable_camera"
-                android:title="@string/lockscreen_enable_camera_title" />
+            android:key="keyguard_enable_camera"
+            android:title="@string/lockscreen_enable_camera_title" />
 
-        <CheckBoxPreference
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="lockscreen_maximize_widgets"
             android:summary="@string/lockscreen_maximize_widgets_summary"
             android:title="@string/lockscreen_maximize_widgets_title" />
