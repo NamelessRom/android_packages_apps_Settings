@@ -73,16 +73,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="lockscreen_background_category"
-        android:title="@string/lockscreen_background">
-
-        <Preference
-            android:key="lockscreen_wallpaper_settings"
-            android:title="@string/lockscreen_wallpaper_settings_title" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="@string/lockscreen_widgets_category_title"
         android:key="lockscreen_widgets_category" >
 
