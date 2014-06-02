@@ -1,4 +1,4 @@
-package com.android.settings.du;
+package com.android.settings;
 
 import android.content.Context;
 import android.os.Bundle;

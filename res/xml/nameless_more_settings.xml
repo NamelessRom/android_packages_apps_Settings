@@ -24,7 +24,7 @@
         android:key="misc_crash_report"
         android:title="@string/misc_crash_report">
 
-    <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
+      <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
         android:key="enable_acra"
         android:title="@string/enable_acra_title"
         android:summary="@string/enable_acra_summary"
@@ -35,12 +35,12 @@
         android:key="misc_tweaks_srec"
         android:title="@string/misc_tweaks_srec">
 
-    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+      <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
         android:key="srec_enable_touches"
         android:title="@string/srec_enable_touches_title"
         android:summary="@string/srec_enable_touches_summary" />
 
-    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+      <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
         android:key="srec_enable_mic"
         android:title="@string/srec_enable_mic_title"
         android:summary="@string/srec_enable_mic_summary" />
@@ -50,7 +50,13 @@
         android:key="misc_others"
         android:title="@string/misc_others">
 
-    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+      <PreferenceScreen
+        android:id="@+id/wakelock_blocker"
+        android:layout="@layout/preference_wakelockblocker"
+        android:title="@string/wakelock_blocker"
+        android:fragment="com.android.settings.WakeLockBlocker" />
+
+      <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
         android:key="disable_fc_notifications"
         android:title="@string/disable_fc_notifications_title"
         android:summary="@string/disable_fc_notifications_summary" />
