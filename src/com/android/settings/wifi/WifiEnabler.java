@@ -90,7 +90,7 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
     }
 
     public void setSwitch(Switch switch_) {
-        if (mSwitch == switch_) return;
+        if (mSwitch == switch_ || switch_ == null) return;
         mSwitch.setOnCheckedChangeListener(null);
         mSwitch = switch_;
         mSwitch.setOnCheckedChangeListener(this);

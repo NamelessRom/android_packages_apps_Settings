@@ -23,7 +23,6 @@ public class DeveloperPreference extends LinearLayout {
 
     private String nameDev;
     private String githubLink;
-    private String crowdinLink;
     private String devEmail;
 
     @Override
@@ -39,21 +38,15 @@ public class DeveloperPreference extends LinearLayout {
         this(context, attrs, 0);
     }
 
+    public DeveloperPreference(final Context context, final String name, final String email) {
+        this(context, name, email, null);
+    }
+
     public DeveloperPreference(Context context, String name, String github, String email) {
-        this(context, name, github, null, email);
-    }
-
-    public DeveloperPreference(Context context, String name, String crowdin) {
-        this(context, name, null, crowdin, null);
-    }
-
-    public DeveloperPreference(Context context, String name, String github, String crowdin,
-            String email) {
         super(context);
 
         nameDev = name;
         githubLink = github;
-        crowdinLink = crowdin;
         devEmail = email;
 
         setupView(context);
@@ -67,7 +60,6 @@ public class DeveloperPreference extends LinearLayout {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.DeveloperPreference);
             nameDev = typedArray.getString(R.styleable.DeveloperPreference_nameDev);
             githubLink = typedArray.getString(R.styleable.DeveloperPreference_githubLink);
-            crowdinLink = typedArray.getString(R.styleable.DeveloperPreference_crowdinLink);
             devEmail = typedArray.getString(R.styleable.DeveloperPreference_emailDev);
         } finally {
             if (typedArray != null) {
@@ -90,7 +82,6 @@ public class DeveloperPreference extends LinearLayout {
         final TextView devName = (TextView) layout.findViewById(R.id.name);
         final ImageView githubButton = (ImageView) layout.findViewById(R.id.github_button);
         final ImageView photoView = (ImageView) layout.findViewById(R.id.photo);
-        final View photoTextBar = layout.findViewById(R.id.photo_text_bar);
 
         /**
          * Initialize buttons
@@ -109,20 +100,6 @@ public class DeveloperPreference extends LinearLayout {
             githubButton.setOnClickListener(openGithub);
         } else {
             githubButton.setVisibility(View.GONE);
-        }
-
-        if (crowdinLink != null) {
-            final OnClickListener openCrowdin = new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Uri crowdinURL = Uri.parse(crowdinLink);
-                    final Intent intent = new Intent(Intent.ACTION_VIEW, crowdinURL);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    getContext().startActivity(intent);
-                }
-            };
-            devName.setOnClickListener(openCrowdin);
-            photoTextBar.setVisibility(View.GONE);
         }
 
         if (devEmail != null) {
@@ -150,10 +127,10 @@ public class DeveloperPreference extends LinearLayout {
     }
 
     private String getMd5(String devEmail) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("MD5");
+        final MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(devEmail.getBytes());
         byte byteData[] = md.digest();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < byteData.length; i++) {
             sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
         }
