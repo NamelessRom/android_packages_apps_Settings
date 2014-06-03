@@ -22,9 +22,5 @@
         <item>---NamelessRom</item>
         <item>@string/maintainers_nameless_name</item>
     </string-array>
-    <string-array name="translators_crowdin" translatable="false">
-        <item>---</item>
-        <item>@string/nameless_translators_crowdin</item>
-    </string-array>
 
 </resources>
