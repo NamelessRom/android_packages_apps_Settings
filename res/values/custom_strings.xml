@@ -428,4 +428,6 @@
     <string name="five_minutes">5 minutes</string>
     <string name="ten_minutes">10 minutes</string>
     <string name="thirty_minutes">30 minutes</string>
+
+    <string name="power_menu_mobile_data_title">Mobile Data</string>
 </resources>

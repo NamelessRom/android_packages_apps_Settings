@@ -54,6 +54,11 @@
         android:defaultValue="true" />
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="power_menu_mobile_data_enabled"
+        android:title="@string/power_menu_mobile_data_title"
+        android:defaultValue="false" />
+
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_user_enabled"
         android:title="@string/power_menu_user_title"
         android:defaultValue="false" />
