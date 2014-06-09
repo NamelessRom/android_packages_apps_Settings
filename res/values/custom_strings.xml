@@ -430,4 +430,5 @@
     <string name="thirty_minutes">30 minutes</string>
 
     <string name="power_menu_mobile_data_title">Mobile Data</string>
+    <string name="power_menu_wifi_title">Wifi</string>
 </resources>
