@@ -902,6 +902,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="power_menu_user_title">User switcher</string>
     <string name="power_menu_sound_title">Sound panel</string>
     <string name="power_menu_mobile_data_title">Mobile Data</string>
+    <string name="power_menu_wifi_title">Wifi</string>
 
     <!-- Hardware keys -->
     <string name="button_settings">Buttons</string>
