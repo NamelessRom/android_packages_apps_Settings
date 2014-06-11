@@ -1,3 +1,20 @@
+/*
+ * Copyright (C) 2007 The Android Open Source Project
+ * Modifications Copyright (C) 2012-2014 CyanogenMod
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.android.settings;
 
 import android.app.Activity;
@@ -5,21 +22,29 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserManager;
 import android.preference.*;
 import android.provider.Settings;
+import android.util.Log;
 import com.android.internal.widget.LockPatternUtils;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 
 public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         implements Preference.OnPreferenceChangeListener {
     static final String TAG = "LockscreenSecuritySettings";
 
     // Lock Settings
+    private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
     private static final String KEY_UNLOCK_SET_OR_CHANGE = "unlock_set_or_change";
+    private static final String KEY_POWER_INSTANTLY_LOCKS = "power_button_instantly_locks";
     private static final String KEY_BIOMETRIC_WEAK_IMPROVE_MATCHING =
             "biometric_weak_improve_matching";
     private static final String KEY_BIOMETRIC_WEAK_LIVELINESS = "biometric_weak_liveliness";
@@ -33,23 +58,19 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF = 125;
 
-    // CM Attributes
-    private static final String SLIDE_LOCK_CATEGORY = "delay_and_timeout";
-    private static final String SLIDE_LOCK_TIMEOUT_DELAY = "slide_lock_timeout_delay";
-    private static final String SLIDE_LOCK_SCREENOFF_DELAY = "slide_lock_screenoff_delay";
+    private PackageManager mPM;
+    private DevicePolicyManager mDPM;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockPatternUtils;
+    private ListPreference mLockAfter;
 
     private CheckBoxPreference mBiometricWeakLiveliness;
     private CheckBoxPreference mVisiblePattern;
     private CheckBoxPreference mVisibleErrorPattern;
     private CheckBoxPreference mVisibleDots;
 
-    private boolean mIsSlideLockDelay = false;
-
-    private ListPreference mSlideLockTimeoutDelay;
-    private ListPreference mSlideLockScreenOffDelay;
+    private CheckBoxPreference mPowerButtonInstantlyLocks;
 
     public LockscreenSecuritySettings() {
         super(null /* Don't ask for restrictions pin on creation. */);
@@ -58,6 +79,8 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPM = getActivity().getPackageManager();
+        mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 
         mLockPatternUtils = new LockPatternUtils(getActivity());
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
@@ -70,9 +93,19 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         }
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
-        PreferenceGroup category;
+
+        // CM - allows for calling the settings screen with stock or cm view
+        boolean isCmSecurity = false;
+        Bundle args = getArguments();
+        if (args != null) {
+            isCmSecurity = args.getBoolean("cm_security");
+        }
 
         final ContentResolver resolver = getContentResolver();
+        final Resources res = getResources();
+
+        // Add package manager to check if features are available
+        PackageManager pm = getPackageManager();
 
         // Add options for lock/unlock screen
         int resid = 0;
@@ -107,39 +140,11 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         }
         addPreferencesFromResource(resid);
 
-        mIsSlideLockDelay = (resid == R.xml.security_settings_chooser);
-
-        if (!mLockPatternUtils.isLockScreenDisabled()) {
-            addPreferencesFromResource(R.xml.security_settings_slide_delay_cyanogenmod);
-            category = (PreferenceCategory) root.findPreference(SLIDE_LOCK_CATEGORY);
-
-            mSlideLockTimeoutDelay = (ListPreference) root
-                    .findPreference(SLIDE_LOCK_TIMEOUT_DELAY);
-            final int slideTimeoutDelay;
-            if (mIsSlideLockDelay) {
-                slideTimeoutDelay = Settings.System.getInt(resolver,
-                        Settings.System.SCREEN_LOCK_SLIDE_TIMEOUT_DELAY, 5000);
-            } else {
-                slideTimeoutDelay = Settings.Secure.getInt(resolver,
-                        Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT, 5000);
-            }
-            mSlideLockTimeoutDelay.setValue(String.valueOf(slideTimeoutDelay));
-            updateSlideAfterTimeoutSummary();
-            mSlideLockTimeoutDelay.setOnPreferenceChangeListener(this);
-
-            mSlideLockScreenOffDelay = (ListPreference) root
-                    .findPreference(SLIDE_LOCK_SCREENOFF_DELAY);
-            if (mSlideLockScreenOffDelay != null) {
-                if (!mIsSlideLockDelay && category != null) {
-                    category.removePreference(mSlideLockScreenOffDelay);
-                } else {
-                    final int slideScreenOffDelay = Settings.System.getInt(resolver,
-                            Settings.System.SCREEN_LOCK_SLIDE_SCREENOFF_DELAY, 0);
-                    mSlideLockScreenOffDelay.setValue(String.valueOf(slideScreenOffDelay));
-                    updateSlideAfterScreenOffSummary();
-                    mSlideLockScreenOffDelay.setOnPreferenceChangeListener(this);
-                }
-            }
+        // lock after preference
+        mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
+        if (mLockAfter != null) {
+            setupLockAfterPreference();
+            updateLockAfterPreferenceSummary();
         }
 
         // biometric weak liveliness
@@ -155,33 +160,37 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         // visible dots
         mVisibleDots = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_DOTS);
 
+        // lock instantly on power key press
+        mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
+                KEY_POWER_INSTANTLY_LOCKS);
+
         // don't display visible pattern if biometric and backup is not pattern
         if (resid == R.xml.security_settings_biometric_weak &&
                 mLockPatternUtils.getKeyguardStoredPasswordQuality() !=
                         DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
-            category = (PreferenceGroup)
+            PreferenceGroup securityCategory = (PreferenceGroup)
                     root.findPreference(KEY_SECURITY_CATEGORY);
-            if (category != null) {
+            if (securityCategory != null) {
                 if (mVisiblePattern != null) {
-                    category.removePreference(mVisiblePattern);
+                    securityCategory.removePreference(mVisiblePattern);
                 }
                 if (mVisibleErrorPattern != null) {
-                    category.removePreference(mVisibleErrorPattern);
+                    securityCategory.removePreference(mVisibleErrorPattern);
                 }
                 if (mVisibleDots != null) {
-                    category.removePreference(mVisibleDots);
+                    securityCategory.removePreference(mVisibleDots);
                 }
             }
         }
         return root;
     }
 
-    private void updateSlideAfterTimeoutSummary() {
+    private void updateLockAfterPreferenceSummary() {
         // Update summary message with current value
-        long currentTimeout = android.provider.Settings.System.getInt(getContentResolver(),
-                android.provider.Settings.System.SCREEN_LOCK_SLIDE_TIMEOUT_DELAY, 5000);
-        final CharSequence[] entries = mSlideLockTimeoutDelay.getEntries();
-        final CharSequence[] values = mSlideLockTimeoutDelay.getEntryValues();
+        long currentTimeout = Settings.Secure.getLong(getContentResolver(),
+                Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT, 5000);
+        final CharSequence[] entries = mLockAfter.getEntries();
+        final CharSequence[] values = mLockAfter.getEntryValues();
         int best = 0;
         for (int i = 0; i < values.length; i++) {
             long timeout = Long.valueOf(values[i].toString());
@@ -189,23 +198,36 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
                 best = i;
             }
         }
-        mSlideLockTimeoutDelay.setSummary(entries[best]);
+        mLockAfter.setSummary(getString(R.string.lock_after_timeout_summary, entries[best]));
     }
 
-    private void updateSlideAfterScreenOffSummary() {
-        // Update summary message with current value
-        long currentTimeout = android.provider.Settings.System.getInt(getContentResolver(),
-                Settings.System.SCREEN_LOCK_SLIDE_SCREENOFF_DELAY, 0);
-        final CharSequence[] entries = mSlideLockScreenOffDelay.getEntries();
-        final CharSequence[] values = mSlideLockScreenOffDelay.getEntryValues();
-        int best = 0;
+    private void disableUnusableTimeouts(long maxTimeout) {
+        final CharSequence[] entries = mLockAfter.getEntries();
+        final CharSequence[] values = mLockAfter.getEntryValues();
+        ArrayList<CharSequence> revisedEntries = new ArrayList<CharSequence>();
+        ArrayList<CharSequence> revisedValues = new ArrayList<CharSequence>();
         for (int i = 0; i < values.length; i++) {
             long timeout = Long.valueOf(values[i].toString());
-            if (currentTimeout >= timeout) {
-                best = i;
+            if (timeout <= maxTimeout) {
+                revisedEntries.add(entries[i]);
+                revisedValues.add(values[i]);
             }
         }
-        mSlideLockScreenOffDelay.setSummary(entries[best]);
+        if (revisedEntries.size() != entries.length || revisedValues.size() != values.length) {
+            mLockAfter.setEntries(
+                    revisedEntries.toArray(new CharSequence[revisedEntries.size()]));
+            mLockAfter.setEntryValues(
+                    revisedValues.toArray(new CharSequence[revisedValues.size()]));
+            final int userPreference = Integer.valueOf(mLockAfter.getValue());
+            if (userPreference <= maxTimeout) {
+                mLockAfter.setValue(String.valueOf(userPreference));
+            } else {
+                // There will be no highlighted selection since nothing in the list matches
+                // maxTimeout. The user can still select anything less than maxTimeout.
+                // TODO: maybe append maxTimeout to the list and mark selected.
+            }
+        }
+        mLockAfter.setEnabled(revisedEntries.size() > 0);
     }
 
     @Override
@@ -230,6 +252,26 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         if (mVisibleDots != null) {
             mVisibleDots.setChecked(lockPatternUtils.isVisibleDotsEnabled());
         }
+        if (mPowerButtonInstantlyLocks != null) {
+            mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks());
+        }
+    }
+
+    private void setupLockAfterPreference() {
+        // Compatible with pre-Froyo
+        long currentTimeout = Settings.Secure.getLong(getContentResolver(),
+                Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT, 5000);
+        mLockAfter.setValue(String.valueOf(currentTimeout));
+        mLockAfter.setOnPreferenceChangeListener(this);
+        final long adminTimeout = (mDPM != null ? mDPM.getMaximumTimeToLock(null) : 0);
+        final long displayTimeout = Math.max(0,
+                Settings.System.getInt(getContentResolver(), SCREEN_OFF_TIMEOUT, 0));
+        if (adminTimeout > 0) {
+            // This setting is a slave to display timeout when a device policy is enforced.
+            // As such, maxLockTimeout = adminTimeout - displayTimeout.
+            // If there isn't enough time, shows "immediately" setting.
+            disableUnusableTimeouts(Math.max(0, adminTimeout - displayTimeout));
+        }
     }
 
     @Override
@@ -240,7 +282,9 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         final String key = preference.getKey();
 
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
-        if (KEY_UNLOCK_SET_OR_CHANGE.equals(key)) {
+        if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
+            lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
+        } else if (KEY_UNLOCK_SET_OR_CHANGE.equals(key)) {
             startFragment(this, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment",
                     SET_OR_CHANGE_LOCK_METHOD_REQUEST, null);
         } else if (KEY_BIOMETRIC_WEAK_IMPROVE_MATCHING.equals(key)) {
@@ -318,21 +362,15 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
-        if (preference == mSlideLockTimeoutDelay) {
-            int slideTimeoutDelay = Integer.valueOf((String) value);
-            if (mIsSlideLockDelay) {
-                Settings.System.putInt(getContentResolver(),
-                        Settings.System.SCREEN_LOCK_SLIDE_TIMEOUT_DELAY, slideTimeoutDelay);
-            } else {
+        if (preference == mLockAfter) {
+            int timeout = Integer.parseInt((String) value);
+            try {
                 Settings.Secure.putInt(getContentResolver(),
-                        Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT, slideTimeoutDelay);
+                        Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT, timeout);
+            } catch (NumberFormatException e) {
+                Log.e("SecuritySettings", "could not persist lockAfter timeout setting", e);
             }
-            updateSlideAfterTimeoutSummary();
-        } else if (preference == mSlideLockScreenOffDelay) {
-            int slideScreenOffDelay = Integer.valueOf((String) value);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_LOCK_SLIDE_SCREENOFF_DELAY, slideScreenOffDelay);
-            updateSlideAfterScreenOffSummary();
+            updateLockAfterPreferenceSummary();
         }
         return true;
     }
