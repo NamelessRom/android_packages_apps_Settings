@@ -375,10 +375,6 @@
     <string name="power_menu_onthego_title">On-The-Go Mode</string>
     <string name="title_tile_onthego">On-The-Go</string>
 
-    <!-- Disable safe volume warning with headphones -->
-    <string name="disable_safe_volume_title">Disable safe volume warning</string>
-    <string name="disable_safe_volume_summary">This will disable the safe volume warning when using headphones. A reboot is necessary in order to take effect.</string>
-
     <!-- Screen Recording -->
     <string name="misc_tweaks_srec">Screen Recording</string>
     <string name="srec_enable_touches_title">Enable Pointer</string>
