@@ -17,19 +17,6 @@
 
 <resources>
 
-    <!-- Themes -->
-    <string-array name="theme_auto_mode_entries">
-        <item>@string/theme_auto_mode_off</item>
-        <item>@string/theme_auto_mode_lightsensor</item>
-        <item>@string/theme_auto_mode_twilight</item>
-    </string-array>
-
-    <string-array name="theme_auto_mode_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- Low battery warning policy -->
     <string-array name="pref_low_battery_warning_policy_entries">
         <item>@string/low_battery_warning_policy_popup_sound</item>
