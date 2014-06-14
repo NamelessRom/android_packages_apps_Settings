@@ -91,6 +91,15 @@
             android:defaultValue="false" />
 
         <ListPreference
+            android:id="@+id/navbar_pos_tablet"
+            android:title="@string/nav_pos_dialog_title"
+            android:summary="@string/nav_pos_option_title"
+            android:key="nav_position"
+            android:entries="@array/nav_pos_values"
+            android:entryValues="@array/nav_pos_retval"
+            android:defaultValue="@string/nav_pos_default" />
+
+        <ListPreference
             android:key="navigation_bar_height"
             android:entries="@array/navigation_bar_height_entries"
             android:entryValues="@array/navigation_bar_height"

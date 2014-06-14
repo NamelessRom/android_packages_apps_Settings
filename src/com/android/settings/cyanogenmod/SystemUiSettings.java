@@ -27,6 +27,11 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.ViewConfiguration;
 
+import android.app.Activity;
+import android.view.View;
+import android.util.Slog;
+import com.android.settings.Utils;
+
 import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -49,6 +54,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
 
     private ListPreference mNavigationBarHeight;
     private ListPreference mNavigationBarWidth;
+
+    private static final String KEY_NAV_BAR_POS = "nav_position";
+    private static final String KEY_NAV_BAR_LEFT = "navigation_bar_left";
+    private ListPreference mNavPos;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +85,18 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
             if (pref != null) {
                 prefScreen.removePreference(pref);
             }
+        }
+        
+        mNavPos = (ListPreference) prefScreen.findPreference(KEY_NAV_BAR_POS);
+        CheckBoxPreference mNavbarleft = (CheckBoxPreference) prefScreen.findPreference(KEY_NAV_BAR_LEFT);
+        PreferenceCategory notificationsCategory = (PreferenceCategory) findPreference("navigation_bar");
+//Slog.d("NavBarPos","device_type = "+device_type);
+        if (Utils.isTablet(getActivity())) {
+            notificationsCategory.removePreference(mNavbarleft);
+            Settings.System.putInt(getContentResolver(), Settings.System.NAV_BAR_POS, 4);
+            mNavPos.setOnPreferenceChangeListener(this);
+        } else {
+            notificationsCategory.removePreference(mNavPos);
         }
 
         // Allows us to support devices, which have the navigation bar force enabled.
@@ -129,6 +150,19 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
                     Settings.System.NAVIGATION_BAR_HEIGHT,
                     Integer.parseInt((String) objValue));
             return true;
+        }
+
+        if (preference == mNavPos) {
+            int mNavPosSel = 2;
+            if (objValue.toString().equals("left")) {
+					mNavPosSel = 0;
+            } else if (objValue.toString().equals("right")) {
+					mNavPosSel = 1;
+            }
+            Settings.System.putInt(getContentResolver(), Settings.System.NAV_BAR_POS, mNavPosSel);
+//Slog.d("NavBarPos","Selected Position = "+mNavPosSel);
+//Slog.d("NavBarPos","Selected Position String = "+objValue.toString());
+           return true;
         }
         return false;
     }
