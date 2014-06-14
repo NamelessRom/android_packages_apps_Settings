@@ -40,9 +40,6 @@
     <string name="show_activity_indicators_on_status_bar_title">Network activity indicator</string>
     <string name="show_activity_indicators_on_status_bar_summary">Show network activity in statusbar</string>
 
-    <!-- Power Menu -->
-    <string name="power_menu_screenrecord_title">Screen Record</string>
-
     <!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>
     <string name="volume_steps_alarm_title">Alarm</string>
@@ -119,7 +116,7 @@
     <string name="notifications_height_summary">Number of notifications displayed at once</string>
     <string name="offset_top">Offset to the top of the screen:</string>
     <string name="privacy_mode">Privacy Mode</string>
-    <string name="privacy_mode_summary">Disables notifications from beeing shown and dismissed. This way, you just see the icons of your notifications.</string>
+    <string name="privacy_mode_summary">Disables notifications from being shown and dismissed. This way, you just see the icons of your notifications.</string>
     <string name="excluded_apps_title">Excluded applications</string>
     <string name="excluded_apps_summary">Excluded applications will not show up as lockscreen notifications</string>
     <string name="notification_color">Notification background color</string>
@@ -184,23 +181,6 @@
     <string name="animation_no_override_summary_on">Prevent apps from overriding transitions.</string>
     <string name="animation_no_override_summary_off">Apps can overriding transitions.</string>
 
-    <!-- Animation Strings -->
-    <string name="animation_default">Default</string>
-    <string name="animation_fade">Fade</string>
-    <string name="animation_slide_right">Slide in right</string>
-    <string name="animation_slide_left">Slide in left</string>
-    <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-    <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-    <string name="animation_slide_up">Slide in bottom</string>
-    <string name="animation_slide_down">Slide in top</string>
-    <string name="animation_translucent">Translucent</string>
-    <string name="animation_grow_shrink">Grow in (Top)</string>
-    <string name="animation_grow_shrink_center">Grow in (Center)</string>
-    <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-    <string name="animation_grow_shrink_left">Grow in (Left)</string>
-    <string name="animation_grow_shrink_right">Grow in (Right)</string>
-    <string name="animation_random">Random</string>
-
     <!-- Scrolling Animation Controls -->
     <string name="scrolling_title">Scrolling</string>
     <string name="animation_fling_velocity_title">Fling Velocity</string>
@@ -259,8 +239,8 @@
     <!-- GPU -->
     <string name="gpu_vendor">GPU Vendor</string>
     <string name="gpu_renderer">GPU Renderer</string>
-    <string name="gpu_gl_version">OpenGl Version</string>
-    <string name="gpu_gl_extensions">OpenGl Extensions</string>
+    <string name="gpu_gl_version">OpenGL Version</string>
+    <string name="gpu_gl_extensions">OpenGL Extensions</string>
     <string name="gpu_shader_version">Shader Version</string>
 
     <!-- Breathing Notifications -->
@@ -371,12 +351,7 @@
     <string name="new_recents_screen_title">Use new recents</string>
     <string name="new_recents_screen_summary">Replaces the recents screen with one based on the new google cards optic.</string>
 
-    <!-- On-The-Go -->
-    <string name="power_menu_onthego_title">On-The-Go Mode</string>
-    <string name="title_tile_onthego">On-The-Go</string>
-
     <!-- Screen Recording -->
-    <string name="misc_tweaks_srec">Screen Recording</string>
     <string name="srec_enable_touches_title">Enable Pointer</string>
     <string name="srec_enable_touches_summary">Enable visual pointer to show touches during screen recording</string>
     <string name="srec_enable_mic_title">Use Microphone</string>

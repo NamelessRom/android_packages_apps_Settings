@@ -53,7 +53,7 @@
     <string name="supersu_title" translatable="false">SuperSU</string>
     <string name="superuser" translatable="false">Superuser</string>
 
-    <string name="gpu_title" translatable="false">GPU / OpenGl</string>
+    <string name="gpu_title" translatable="false">GPU / OpenGL</string>
 
     <!-- Sub list strings -->
     <string name="device_control_settings" translatable="false">Device Control</string>
