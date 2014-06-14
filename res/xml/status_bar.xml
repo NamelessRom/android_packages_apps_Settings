@@ -54,6 +54,13 @@
         android:inputType="textNoSuggestions"
         android:persistent="false" />
 
+    <!-- Enable navigation bar in status bar -->
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="status_bar_show_nav"
+        android:title="@string/status_bar_show_nav_title"
+        android:summary="@string/status_bar_show_nav_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
             android:key="breathing_notifications_title"
             android:title="@string/breathing_notifications_title">
