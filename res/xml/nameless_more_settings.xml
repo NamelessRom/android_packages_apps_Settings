@@ -20,6 +20,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/header_category_nameless">
 
+    <PreferenceScreen
+        android:id="@+id/wakelock_blocker"
+        android:layout="@layout/preference_wakelockblocker"
+        android:title="@string/wakelock_blocker"
+        android:fragment="com.android.settings.WakeLockBlocker" />
+
     <PreferenceCategory
         android:key="misc_crash_report"
         android:title="@string/misc_crash_report">
@@ -49,12 +55,6 @@
     <PreferenceCategory
         android:key="misc_others"
         android:title="@string/misc_others">
-
-      <PreferenceScreen
-        android:id="@+id/wakelock_blocker"
-        android:layout="@layout/preference_wakelockblocker"
-        android:title="@string/wakelock_blocker"
-        android:fragment="com.android.settings.WakeLockBlocker" />
 
       <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
         android:key="disable_fc_notifications"

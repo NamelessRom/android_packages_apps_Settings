@@ -19,21 +19,12 @@
 
 package com.android.settings;
 
-
-import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
-
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.UserInfo;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -47,14 +38,8 @@ import android.provider.Settings;
 import android.security.KeyStore;
 import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 
-import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
-import com.android.settings.cyanogenmod.ButtonSettings;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Gesture lock pattern settings.
@@ -86,7 +71,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
 
-    private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private CheckBoxPreference mShowPassword;
 
     private KeyStore mKeyStore;
@@ -97,25 +81,17 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mToggleVerifyApps;
 
 
-    private Preference mNotificationAccess;
-
-    private boolean mIsPrimary;
-
     // CyanogenMod Additions
     private ListPreference mSmsSecurityCheck;
     public SecuritySettings() {
         super(null /* Don't ask for restrictions pin on creation. */);
     }
 
-    // QuickUnlock
-    private CheckBoxPreference mQuickUnlockScreen;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPM = getActivity().getPackageManager();
-        mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
-        mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
+        mPM = getPackageManager();
+        mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
     }
 
     private PreferenceScreen createPreferenceHierarchy() {
@@ -134,14 +110,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
             isCmSecurity = args.getBoolean("cm_security");
         }
 
-        final ContentResolver resolver = getContentResolver();
-        final Resources res = getResources();
-
-        // Add package manager to check if features are available
-        PackageManager pm = getPackageManager();
-
         // Add options for device encryption
-        mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+        final boolean mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
 
         if (!mIsPrimary) {
             // Rename owner info settings
@@ -174,7 +144,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             addPreferencesFromResource(R.xml.security_settings_app_cyanogenmod);
             mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
             // Determine options based on device telephony support
-            if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+            if (mPM.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
                 mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
                 mSmsSecurityCheck.setOnPreferenceChangeListener(this);
                 int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
@@ -229,20 +199,13 @@ public class SecuritySettings extends RestrictedSettingsFragment
                 }
             }
 
-            mQuickUnlockScreen = (CheckBoxPreference) root.findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
-            if (mQuickUnlockScreen  != null) {
-                mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(),
-                        Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
-                mQuickUnlockScreen.setOnPreferenceChangeListener(this);
-            }
-
             // Show password
             mShowPassword = (CheckBoxPreference) root.findPreference(KEY_SHOW_PASSWORD);
             mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);
 
             if (root.findPreference(KEY_SIM_LOCK) != null) {
                 // SIM/RUIM lock
-                Preference iccLock = (Preference) root.findPreference(KEY_SIM_LOCK_SETTINGS);
+                Preference iccLock = root.findPreference(KEY_SIM_LOCK_SETTINGS);
 
                 Intent intent = new Intent();
                 if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
@@ -258,7 +221,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
 
             // Credential storage
-            final UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
+            final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
             mKeyStore = KeyStore.getInstance(); // needs to be initialized for onResume()
             if (!um.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
                 Preference credentialStorageType = root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE);
@@ -300,7 +263,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
         }
 
-        mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
+        final Preference mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
         if (mNotificationAccess != null) {
             final int total = NotificationAccessSettings.getListenersCount(mPM);
             if (total == 0) {
@@ -345,32 +308,30 @@ public class SecuritySettings extends RestrictedSettingsFragment
     }
 
     private void setNonMarketAppsAllowed(boolean enabled) {
-        final UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
+        final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
         if (um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)) {
             return;
         }
         // Change the system setting
-        Settings.Global.putInt(getContentResolver(), Settings.Global.INSTALL_NON_MARKET_APPS,
-                                enabled ? 1 : 0);
+        Settings.Global.putInt(getContentResolver(),
+                Settings.Global.INSTALL_NON_MARKET_APPS, enabled ? 1 : 0);
     }
 
     private boolean isVerifyAppsEnabled() {
         return Settings.Global.getInt(getContentResolver(),
-                                      Settings.Global.PACKAGE_VERIFIER_ENABLE, 1) > 0;
+                Settings.Global.PACKAGE_VERIFIER_ENABLE, 1) > 0;
     }
 
     private boolean isVerifierInstalled() {
-        final PackageManager pm = getPackageManager();
         final Intent verification = new Intent(Intent.ACTION_PACKAGE_NEEDS_VERIFICATION);
         verification.setType(PACKAGE_MIME_TYPE);
         verification.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        final List<ResolveInfo> receivers = pm.queryBroadcastReceivers(verification, 0);
-        return (receivers.size() > 0) ? true : false;
+        return (mPM.queryBroadcastReceivers(verification, 0).size() > 0);
     }
 
     private boolean showVerifierSetting() {
         return Settings.Global.getInt(getContentResolver(),
-                                      Settings.Global.PACKAGE_VERIFIER_SETTING_VISIBLE, 1) > 0;
+                Settings.Global.PACKAGE_VERIFIER_SETTING_VISIBLE, 1) > 0;
     }
 
     private void warnAppInstallation() {
@@ -403,7 +364,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     }
 
     private void updateSmsSecuritySummary(int selection) {
-        String message = selection > 0
+        final String message = selection > 0
                 ? getString(R.string.sms_security_check_limit_summary, selection)
                 : getString(R.string.sms_security_check_limit_summary_none);
         mSmsSecurityCheck.setSummary(message);
@@ -434,13 +395,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
         }
         final String key = preference.getKey();
 
-        final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
         if (preference == mShowPassword) {
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);
-        } else if (preference == mQuickUnlockScreen) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, isToggled(preference) ? 1 : 0);
         } else if (preference == mToggleAppInstallation) {
             if (mToggleAppInstallation.isChecked()) {
                 mToggleAppInstallation.setChecked(false);
@@ -457,10 +414,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
         }
 
         return true;
-    }
-
-    private boolean isToggled(Preference pref) {
-        return ((CheckBoxPreference) pref).isChecked();
     }
 
     @Override
