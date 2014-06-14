@@ -44,7 +44,6 @@ import com.android.internal.util.aokp.AwesomeAnimationHelper;
 
 public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "SystemAnimationInterfaceSettings";
 
     private static final String ACTIVITY_OPEN = "activity_open";
     private static final String ACTIVITY_CLOSE = "activity_close";
@@ -84,14 +83,15 @@ public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.system_animation_interface_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getContentResolver();
 
         mAnimations = AwesomeAnimationHelper.getAnimationsList();
         int animqty = mAnimations.length;
         mAnimationsStrings = new String[animqty];
         mAnimationsNum = new String[animqty];
         for (int i = 0; i < animqty; i++) {
-            mAnimationsStrings[i] = AwesomeAnimationHelper.getProperName(getActivity().getResources(), mAnimations[i]);
+            mAnimationsStrings[i] = AwesomeAnimationHelper.getProperName(getResources(),
+                    mAnimations[i]);
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
 
@@ -197,7 +197,6 @@ public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment
         mAnimationDuration.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
-
     }
 
     @Override
@@ -279,7 +278,7 @@ public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getContentResolver();
         if (preference == mAnimNoOverride) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver, Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, value ? 1 : 0);
@@ -334,7 +333,7 @@ public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment
                     Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
             mWallpaperIntraClose.setSummary(getProperSummary(mWallpaperIntraClose));
         } else if (preference == mAnimationDuration) {
-            int val = ((Integer)objValue).intValue();
+            int val = (Integer) objValue;
             Settings.System.putInt(resolver,
                     Settings.System.ANIMATION_CONTROLS_DURATION,
                     val);
@@ -368,7 +367,7 @@ public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[9];
         }
 
-        Settings.System.putInt(getActivity().getContentResolver(), mString, val);
+        Settings.System.putInt(getContentResolver(), mString, val);
     }
 
     private String getProperSummary(Preference preference) {
@@ -395,8 +394,8 @@ public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[9];
         }
 
-        String mNum = Settings.System.getString(getActivity().getContentResolver(), mString);
-        return AwesomeAnimationHelper.getProperName(getActivity().getResources(), Integer.valueOf(mNum));
+        final String mNum = Settings.System.getString(getContentResolver(), mString);
+        return AwesomeAnimationHelper.getProperName(getResources(), Integer.valueOf(mNum));
     }
 
     private String getProperVal(Preference preference) {
@@ -423,7 +422,7 @@ public class SystemAnimationInterfaceSettings extends SettingsPreferenceFragment
             mString = Settings.System.ACTIVITY_ANIMATION_CONTROLS[9];
         }
 
-        return Settings.System.getString(getActivity().getContentResolver(), mString);
+        return Settings.System.getString(getContentResolver(), mString);
     }
 
 }

@@ -17,8 +17,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:key="interface_animation"
-        android:title="@string/interface_animation_title"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+        android:title="@string/interface_animation_title">
 
     <PreferenceScreen
         android:key="interface_animation_system"

@@ -16,8 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/power_menu_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    android:title="@string/power_menu_title">
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_reboot_enabled"
@@ -31,12 +30,12 @@
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_screenrecord_enabled"
-        android:title="@string/power_menu_screenrecord_title"
+        android:title="@android:string/global_action_screenrecord"
         android:defaultValue="false" />
 
     <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
         android:key="power_menu_onthego_enabled"
-        android:title="@string/power_menu_onthego_title"
+        android:title="@android:string/onthego"
         android:defaultValue="false" />
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
