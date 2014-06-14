@@ -39,7 +39,7 @@
 
     <PreferenceCategory
         android:key="misc_tweaks_srec"
-        android:title="@string/misc_tweaks_srec">
+        android:title="@*android:string/global_action_screenrecord">
 
       <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
         android:key="srec_enable_touches"

@@ -27,16 +27,16 @@
         <ListPreference
             android:key="ime_enter_animation"
             android:title="@string/ime_enter_animation_title"
-            android:entries="@array/anim_controls_entries"
-            android:entryValues="@array/anim_controls_values"
+            android:entries="@*android:array/anim_controls_entries"
+            android:entryValues="@*android:array/anim_controls_values"
             android:defaultValue="0"
             android:persistent="false" />
 
         <ListPreference
             android:key="ime_exit_animation"
             android:title="@string/ime_exit_animation_title"
-            android:entries="@array/anim_controls_entries"
-            android:entryValues="@array/anim_controls_values"
+            android:entries="@*android:array/anim_controls_entries"
+            android:entryValues="@*android:array/anim_controls_values"
             android:defaultValue="0"
             android:persistent="false" />
 
@@ -62,7 +62,7 @@
 
         <com.android.settings.ui.TestKeyboard
             android:key="anim_ime_test"
-            hint="@string/ime_animation_test_title" />
+            android:hint="@string/ime_animation_test_title" />
 
     </PreferenceCategory>
 
