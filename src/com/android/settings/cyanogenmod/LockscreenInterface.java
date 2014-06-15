@@ -44,6 +44,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
+    private static final String LOCKSCREEN_PERSONALIZATION_CATEGORY = "lockscreen_pers_category";
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
@@ -56,9 +57,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     // Nameless Additions
     private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_glowpad_torch";
-
-    private static final int REQUEST_PICK_WALLPAPER = 201;
-    private static final String LOCKSCREEN_WALLPAPER_TEMP_NAME = ".lockwallpaper";
 
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
@@ -81,9 +79,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 
         // Find categories
-        PreferenceCategory generalCategory = (PreferenceCategory)
+        final PreferenceCategory generalCategory = (PreferenceCategory)
                 findPreference(LOCKSCREEN_GENERAL_CATEGORY);
-        PreferenceCategory widgetsCategory = (PreferenceCategory)
+        final PreferenceCategory personalizationCategory = (PreferenceCategory)
+                findPreference(LOCKSCREEN_PERSONALIZATION_CATEGORY);
+        final PreferenceCategory widgetsCategory = (PreferenceCategory)
                 findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
 
         // Find preferences
@@ -128,13 +128,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         }
 
         if (mEnableModLock != null && !canEnableModLockscreen) {
-            generalCategory.removePreference(mEnableModLock);
+            personalizationCategory.removePreference(mEnableModLock);
             mEnableModLock = null;
         }
 
         // Glowpad Torch
         if (!NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
-            generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
+            personalizationCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
         }        
         
         // Remove cLock settings item if not installed
@@ -153,6 +153,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        final ContentResolver cr = getActivity().getContentResolver();
 
         // Update custom widgets and camera
         if (mEnableKeyguardWidgets != null) {
@@ -165,7 +166,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // Update battery status
         if (mBatteryStatus != null) {
-            ContentResolver cr = getActivity().getContentResolver();
             int batteryStatus = Settings.System.getInt(cr,
                     Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
             mBatteryStatus.setValueIndex(batteryStatus);
@@ -174,7 +174,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // Update mod lockscreen status
         if (mEnableModLock != null) {
-            ContentResolver cr = getActivity().getContentResolver();
             boolean checked = Settings.System.getInt(
                     cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 1;
             mEnableModLock.setChecked(checked);
@@ -221,7 +220,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        ContentResolver cr = getActivity().getContentResolver();
+        final ContentResolver cr = getActivity().getContentResolver();
         if (preference == mBatteryStatus) {
             int value = Integer.valueOf((String) objValue);
             int index = mBatteryStatus.findIndexOfValue((String) objValue);
