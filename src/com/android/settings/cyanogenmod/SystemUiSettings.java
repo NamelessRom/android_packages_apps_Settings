@@ -36,6 +36,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
 
+    // If there's no setting, keep this as a fallback
+    private static final int FALLBACK_BUTTON_BACKLIGHT_VALUE = 0;
+
+    private static final String KEY_BUTTON_BACKLIGHT = "button_backlight_mode";
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
     private static final String CATEGORY_NAVBAR = "navigation_bar";
@@ -44,6 +48,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEY_NAVIGATION_BAR_WIDTH = "navigation_bar_width";
 
+    private ListPreference mButtonBacklightPref;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
@@ -112,7 +117,19 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
             // Hide navigation bar category
             prefScreen.removePreference(navbarCat);
         }
-
+         
+        boolean removeKeys = false; // TODO: Actually detect hardware keys
+        // Button lights. Per user.
+        if (removeKeys) {
+            prefScreen.removePreference(findPreference(KEY_BUTTON_BACKLIGHT));
+        } else {
+            mButtonBacklightPref = (ListPreference) findPreference(KEY_BUTTON_BACKLIGHT);
+            final int currentButtonBacklight = Settings.System.getInt(getContentResolver(),
+                    Settings.System.BUTTON_BACKLIGHT_MODE, FALLBACK_BUTTON_BACKLIGHT_VALUE);
+            mButtonBacklightPref.setValueIndex(currentButtonBacklight);
+            mButtonBacklightPref.setOnPreferenceChangeListener(this);
+            updateButtonBacklight(currentButtonBacklight);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -133,7 +150,11 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
                     Settings.System.NAVIGATION_BAR_HEIGHT,
                     Integer.parseInt((String) objValue));
             return true;
-        }
+        } else if (preference == mButtonBacklightPref) {
+            int value = Integer.parseInt((String) objValue);
+            updateButtonBacklight(value);
+            return true;
+		}
         return false;
     }
 
@@ -185,4 +206,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         mNavigationBarWidth.setValue(String.valueOf(navigationBarWidth));
     }
 
+    private void updateButtonBacklight(int value) {
+        mButtonBacklightPref.setSummary(mButtonBacklightPref.getEntries()[value]);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.BUTTON_BACKLIGHT_MODE, value);
+    }
 }
