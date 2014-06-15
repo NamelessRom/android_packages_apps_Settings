@@ -72,7 +72,11 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         final boolean hasRealNavigationBar = getResources()
                 .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
         if (hasRealNavigationBar) { // only disable on devices with REAL navigation bars
-            final Preference pref = findPreference("navbar_force_enable");
+            Preference pref = findPreference("hardware_keys_disable");
+            if (pref != null) {
+                prefScreen.removePreference(pref);
+            }
+            pref = findPreference("navbar_force_enable");
             if (pref != null) {
                 prefScreen.removePreference(pref);
             }
