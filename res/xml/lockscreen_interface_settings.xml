@@ -47,11 +47,6 @@
             android:title="@string/lockscreen_buttons_title"
             android:summary="@string/lockscreen_buttons_summary" />
 
-        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
-            android:key="lockscreen_glowpad_torch"
-            android:title="@string/lockscreen_glowpad_torch_title"
-            android:summary="@string/lockscreen_glowpad_torch_summary" />
-
         <ListPreference
             android:key="lockscreen_battery_status"
             android:persistent="false"
@@ -65,6 +60,16 @@
             android:key="battery_around_lockscreen_ring"
             android:title="@string/battery_around_lockscreen_ring"
             android:defaultValue="true" />
+
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="lockscreen_glowpad_torch"
+            android:title="@string/lockscreen_glowpad_torch_title"
+            android:summary="@string/lockscreen_glowpad_torch_summary" />
+
+        <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
+            android:key="lockscreen_see_through"
+            android:title="@string/see_through_title"
+            android:summary="@string/see_through_summary" />
 
         <CheckBoxPreference
             android:key="lockscreen_modlock_enabled"
