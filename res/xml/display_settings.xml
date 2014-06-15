@@ -101,25 +101,6 @@
                 android:entries="@array/screen_animation_style_entries"
                 android:entryValues="@array/screen_animation_style_values" />
 
-            <PreferenceScreen
-                android:persistent="false"
-                android:key="screencolor_settings"
-                android:title="@string/screencolor">
-                <intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.ScreenColorSettings" />
-            </PreferenceScreen>
-
-            <Preference
-                android:key="advanced_display_settings"
-                android:title="@string/radio_controls_title">
-                <intent
-                    android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
-                    android:targetPackage="com.cyanogenmod.settings.device"
-                    android:targetClass="com.cyanogenmod.settings.device.DisplaySettings" />
-            </Preference>
-
         </PreferenceCategory>
 
 </PreferenceScreen>
