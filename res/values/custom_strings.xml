@@ -300,7 +300,9 @@
     <string name="navigation_bar_size_0_dp">0 dp (off)</string>
     <!-- Navigation bar force enable -->
     <string name="navbar_force_enable_title">Force navigation bar</string>
-    <string name="navbar_force_enable_summary">Requires a reboot</string>
+    <string name="navbar_force_enable_summary">May require a reboot</string>
+    <string name="hardware_keys_disable_title">Disable hardware keys</string>
+    <string name="hardware_keys_disable_summary">Blocks processing of hardware keys and disables them</string>
 
     <!-- QuickSettings: Smart Pulldown -->
     <string name="smart_pulldown_title">Smart pulldown</string>
