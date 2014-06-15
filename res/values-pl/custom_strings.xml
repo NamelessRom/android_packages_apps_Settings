@@ -30,7 +30,6 @@
   <string name="interface_animation_title">Kontrola animacji</string>
   <string name="show_activity_indicators_on_status_bar_title">Wskaźnik aktywności sieci</string>
   <string name="show_activity_indicators_on_status_bar_summary">Pokaż aktywność sieci w pasku stanu</string>
-  <string name="power_menu_screenrecord_title">Nagrywanie Ekranu</string>
   <string name="volume_steps_title">Poziomy głośności</string>
   <string name="volume_steps_alarm_title">Alarm</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -92,6 +91,8 @@
   <string name="excluded_apps_title">Wykluczone aplikacje</string>
   <string name="excluded_apps_summary">Powiadomienia wykluczonych aplikacje nie będą pojawiały się na  ekranie blokady</string>
   <string name="notification_color">Kolor tła powiadomienia</string>
+  <string name="dynamic_width">Szerokość dynamiczych powiadomień</string>
+  <string name="dynamic_width_summary">Ustawia szerokość powiadomień dynamicznych, tak aby używały tylko tyle miejsca, ile naprawdę potrzebują</string>
   <string name="bars_and_menus_category_system_title">System</string>
   <string name="listview_title">Widok listy</string>
   <string name="listview_animation_title">Animacja widoku listy</string>
@@ -144,21 +145,6 @@
   <string name="animation_no_override_title">Zapobiegaj zmianom animacji przez aplikacje</string>
   <string name="animation_no_override_summary_on">Nie pozwala aplikacjom używać własnych przejść.</string>
   <string name="animation_no_override_summary_off">Aplikacje mogą używać własnych efektów przejść.</string>
-  <string name="animation_default">Domyślne</string>
-  <string name="animation_fade">Zanikanie</string>
-  <string name="animation_slide_right">Wjazd w prawo</string>
-  <string name="animation_slide_left">Wjazd w lewo</string>
-  <string name="animation_slide_right_no_fade">Wjazd w prawo (Bez zanikania)</string>
-  <string name="animation_slide_left_no_fade">Wjazd w lewo (Bez zanikania)</string>
-  <string name="animation_slide_up">Wjazd w dół</string>
-  <string name="animation_slide_down">Wjazd w górę</string>
-  <string name="animation_translucent">Przezroczyste</string>
-  <string name="animation_grow_shrink">Powiększenie (od góry)</string>
-  <string name="animation_grow_shrink_center">Powiększenie (ze środka)</string>
-  <string name="animation_grow_shrink_bottom">Powiększenie (z dołu)</string>
-  <string name="animation_grow_shrink_left">Powiększenie (z lewej)</string>
-  <string name="animation_grow_shrink_right">Powiększenie (z prawej)</string>
-  <string name="animation_random">Losowo</string>
   <string name="scrolling_title">Przewijanie</string>
   <string name="animation_fling_velocity_title">Prędkość wejścia</string>
   <string name="animation_scroll_friction_title">Opór przewijania</string>
@@ -251,7 +237,6 @@
   <string name="navigation_bar_size_48_dp_default">48 dp (domyślnie)</string>
   <string name="navigation_bar_size_0_dp">0 dp (wyłączone)</string>
   <string name="navbar_force_enable_title">Wymuś pasek nawigacji</string>
-  <string name="navbar_force_enable_summary">Wymaga ponownego uruchomienia</string>
   <string name="smart_pulldown_title">Inteligentne rozwijanie</string>
   <string name="smart_pulldown_summary">Otwórz Szybkie Ustawienia gdy nie ma powiadomień</string>
   <string name="smart_pulldown_off">Wyłączone</string>
@@ -280,11 +265,6 @@
   <string name="enable_acra_summary">Jeśli zaznaczone, informacje o błędach są automatycznie wysyłane do zespołu NamelessRom</string>
   <string name="new_recents_screen_title">Użyj nowego ekranu ostatnio użytych aplikacji</string>
   <string name="new_recents_screen_summary">Zastępuje ekran ostatnio otwartych aplikacji nowym ekranem opartym na \'google cards optic\'.</string>
-  <string name="power_menu_onthego_title">Tryb On-The-Go</string>
-  <string name="title_tile_onthego">On-The-Go</string>
-  <string name="disable_safe_volume_title">Wyłącz ostrzeżenie o bezpiecznej głośności</string>
-  <string name="disable_safe_volume_summary">Wyłącza wyświetlanie ostrzeżenia o bezpiecznej głośności podczas używania słuchawek. Wymaga ponownego uruchomienia urządzenia.</string>
-  <string name="misc_tweaks_srec">Nagrywanie ekranu</string>
   <string name="srec_enable_touches_title">Pokaż dotknięcia</string>
   <string name="srec_enable_touches_summary">Pokazuje potwierdzenia dotknięcia podczas nagrywania ekranu</string>
   <string name="srec_enable_mic_title">Użyj mikrofonu</string>
@@ -297,4 +277,6 @@
   <string name="privacy_guard_notification_summary">Pokaż powiadomienia jeśli ochrona prywatności jest aktywna.</string>
   <string name="wallpaper_picker_not_found">Nie można uruchomić wyboru tapety</string>
   <string name="long_press_kill_delay">Opóźnienie \'zabicia\' aplikacji</string>
+  <string name="force_highend_gfx_title">Wymuś efekty graficzne</string>
+  <string name="force_highend_gfx_summary">Włącza efekty graficzne wysokiej jakości, takie jak przeźroczysty pasek stanu/nawigacji (wymaga restartu)</string>
 </resources>

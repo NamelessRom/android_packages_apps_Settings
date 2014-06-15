@@ -30,7 +30,6 @@
   <string name="interface_animation_title">Animations-Kontrolle</string>
   <string name="show_activity_indicators_on_status_bar_title">Netzwerk-Aktivitätsanzeige</string>
   <string name="show_activity_indicators_on_status_bar_summary">Netzwerk-Aktivität in der Statusleiste anzeigen</string>
-  <string name="power_menu_screenrecord_title">Bildschirmaufnahme</string>
   <string name="volume_steps_title">Lautstärke-Schritte</string>
   <string name="volume_steps_alarm_title">Wecker</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -92,6 +91,8 @@
   <string name="excluded_apps_title">Ausgeschlossene Anwendungen</string>
   <string name="excluded_apps_summary">Ausgeschlossene Anwendungen werden nicht auf dem Sperrbildschirm angezeigt</string>
   <string name="notification_color">Benachrichtigungs-Hintergrundfarbe</string>
+  <string name="dynamic_width">Dynamische Breite</string>
+  <string name="dynamic_width_summary">Legt die Breite der Benachrichtigungen dynamisch fest, so dass sie nur den Platz nutzen, den sie wirklich brauchen</string>
   <string name="bars_and_menus_category_system_title">System</string>
   <string name="listview_title">ListView</string>
   <string name="listview_animation_title">ListView-Animation</string>
@@ -144,21 +145,6 @@
   <string name="animation_no_override_title">Anwendung-Überschreiben verhindern</string>
   <string name="animation_no_override_summary_on">Anwendungen daran hindern, Einstellungen zu Übergangseffekten zu überschreiben.</string>
   <string name="animation_no_override_summary_off">Anwendungen können Übergänge überschreiben.</string>
-  <string name="animation_default">Standard</string>
-  <string name="animation_fade">Verblassen</string>
-  <string name="animation_slide_right">Gleiten von rechts</string>
-  <string name="animation_slide_left">Gleiten von links</string>
-  <string name="animation_slide_right_no_fade">Gleiten von rechts (ohne verblassen)</string>
-  <string name="animation_slide_left_no_fade">Gleiten von links (ohne verblassen)</string>
-  <string name="animation_slide_up">Gleiten von unten</string>
-  <string name="animation_slide_down">Gleiten von oben</string>
-  <string name="animation_translucent">Durchsichtig</string>
-  <string name="animation_grow_shrink">Wachsen nach (Oben)</string>
-  <string name="animation_grow_shrink_center">Wachsen nach (Mitte)</string>
-  <string name="animation_grow_shrink_bottom">Wachsen nach (Unten)</string>
-  <string name="animation_grow_shrink_left">Wachsen nach (Links)</string>
-  <string name="animation_grow_shrink_right">Wachsen nach (Rechts)</string>
-  <string name="animation_random">Zufällig</string>
   <string name="scrolling_title">Scrollen</string>
   <string name="animation_fling_velocity_title">Wisch-Beschleunigung</string>
   <string name="animation_scroll_friction_title">Scroll-Reibung</string>
@@ -251,7 +237,9 @@
   <string name="navigation_bar_size_48_dp_default">48 dp (Standard)</string>
   <string name="navigation_bar_size_0_dp">0 dp (deaktiviert)</string>
   <string name="navbar_force_enable_title">Erzwinge Navigationsleiste</string>
-  <string name="navbar_force_enable_summary">Erfordert einen Neustart</string>
+  <string name="navbar_force_enable_summary">Kann einen Neustart erfordern</string>
+  <string name="hardware_keys_disable_title">Hardwaretasten deaktivieren</string>
+  <string name="hardware_keys_disable_summary">Verhindert das Verarbeiten der Hardware-Tasten und deaktiviert sie</string>
   <string name="smart_pulldown_title">Intelligentes Herunterziehen</string>
   <string name="smart_pulldown_summary">Schnelleinstellungen öffnen, wenn keine Benachrichtigungen vorhanden sind</string>
   <string name="smart_pulldown_off">Deaktiviert</string>
@@ -274,17 +262,14 @@
   <string name="haptic_qs_tiles_summary">Vibrieren beim Berühren der Kacheln</string>
   <string name="lockscreen_glowpad_torch_title">GlowPad Tachenlampe</string>
   <string name="lockscreen_glowpad_torch_summary">Tippen Sie doppelt und halten Sie das Entsperr-Symbol, um die Taschenlampe zu starten</string>
+  <string name="see_through_title">Transparenter Sperrbildschirm</string>
+  <string name="see_through_summary">Zeige den Inhalt verschwommen hinter dem Sperrbildschirm an. Ihre Daten sind möglicherweise für Dritte in Ihrer Nähe sichtbar</string>
   <string name="camera_sounds_title">Kamera-Klick-Geräusch</string>
   <string name="camera_sounds_summary">WARNUNG: Es kann in bestimmten Gebieten illegal sein den Ton der Kamerablende zu deaktivieren!</string>
   <string name="enable_acra_title">Absturzberichte aktivieren</string>
   <string name="enable_acra_summary">Wenn diese Option aktiviert ist, werden Abstürze automatisch an NamelessRom gesendet</string>
   <string name="new_recents_screen_title">Verwende den neuen \"Zuletzt geöffnete Anwendungen\" Bildschirm</string>
   <string name="new_recents_screen_summary">Ersetzt den \"Zuletzt geöffnete Anwendungen\" Bildschirm mit dem neuen, welcher auf der Google Karten Optik basiert.</string>
-  <string name="power_menu_onthego_title">On-The-Go-Modus</string>
-  <string name="title_tile_onthego">On-The-Go</string>
-  <string name="disable_safe_volume_title">Warnung über sichere Lautstärke deaktivieren</string>
-  <string name="disable_safe_volume_summary">Dadurch wird die sichere Lautstärke-Warnung deaktiviert, wenn Sie Kopfhörer verwenden. Ein Neustart ist erforderlich.</string>
-  <string name="misc_tweaks_srec">Bildschirmaufnahme</string>
   <string name="srec_enable_touches_title">Aktiviere Zeiger</string>
   <string name="srec_enable_touches_summary">Aktiviert einen visuellen Zeiger, welcher Berührungen während der Bildschirmaufnahme darstellt</string>
   <string name="srec_enable_mic_title">Mikrofon verwenden</string>
@@ -297,4 +282,6 @@
   <string name="privacy_guard_notification_summary">Benachrichtigung anzeigen, wenn Privatsphäre schützen aktiv ist.</string>
   <string name="wallpaper_picker_not_found">Konnte Hintergrund-Auswahl nicht starten</string>
   <string name="long_press_kill_delay">App beenden Verzögerung</string>
+  <string name="force_highend_gfx_title">Erzwinge verbesserte Grafikeffekte</string>
+  <string name="force_highend_gfx_summary">Verbesserte Transparenz- und Animationseffekte wie z.B. Status- und Navigationsleistentransparenz verwenden (Neustart erforderlich)</string>
 </resources>

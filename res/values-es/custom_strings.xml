@@ -30,7 +30,6 @@
   <string name="interface_animation_title">Control de animación</string>
   <string name="show_activity_indicators_on_status_bar_title">Indicador de actividad de red</string>
   <string name="show_activity_indicators_on_status_bar_summary">Mostrar la actividad de red en la barra de estado</string>
-  <string name="power_menu_screenrecord_title">Grabación de pantalla</string>
   <string name="volume_steps_title">Niveles de volumen</string>
   <string name="volume_steps_alarm_title">Alarma</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -92,6 +91,8 @@
   <string name="excluded_apps_title">Aplicaciones Excluidas</string>
   <string name="excluded_apps_summary">Las aplicaciones Excluidas no se podrán mostrar en notificaciones en la Pantalla de Bloqueo</string>
   <string name="notification_color">Color del fondo de las notificaciones</string>
+  <string name="dynamic_width">Ancho dinámico</string>
+  <string name="dynamic_width_summary">Establece el ancho dinámico en la notificaciones, para así solo usar el espacio realmente necesario</string>
   <string name="bars_and_menus_category_system_title">Sistema</string>
   <string name="listview_title">ListView</string>
   <string name="listview_animation_title">Animación de ListView</string>
@@ -144,21 +145,6 @@
   <string name="animation_no_override_title">Prevención de Reemplazos por Aplicaciones</string>
   <string name="animation_no_override_summary_on">Evitar que las Aplicaciones Reemplacen las Transiciones.</string>
   <string name="animation_no_override_summary_off">Las Aplicaciones Pueden Reemplazar las Transiciones.</string>
-  <string name="animation_default">Por defecto</string>
-  <string name="animation_fade">Desvanecimiento</string>
-  <string name="animation_slide_right">Deslizar a la derecha</string>
-  <string name="animation_slide_left">Deslizar a la izquierda</string>
-  <string name="animation_slide_right_no_fade">Deslizar a la derecha (Sin desvanecimiento)</string>
-  <string name="animation_slide_left_no_fade">Deslizar a la izquierda (Sin desvanecimiento)</string>
-  <string name="animation_slide_up">Deslizar desde abajo</string>
-  <string name="animation_slide_down">Deslizar desde arriba</string>
-  <string name="animation_translucent">Translúcido</string>
-  <string name="animation_grow_shrink">Crecimiento por (Arriba)</string>
-  <string name="animation_grow_shrink_center">Crecimiento por el (Centro)</string>
-  <string name="animation_grow_shrink_bottom">Crecimiento por (Abajo)</string>
-  <string name="animation_grow_shrink_left">Crecimiento por la (Izquierda)</string>
-  <string name="animation_grow_shrink_right">Crecimiento por la (Derecha)</string>
-  <string name="animation_random">Aleatorio</string>
   <string name="scrolling_title">Desplazamiento</string>
   <string name="animation_fling_velocity_title">Velocidad de Aventura</string>
   <string name="animation_scroll_friction_title">Fricción del Desplazamiento</string>
@@ -251,7 +237,9 @@
   <string name="navigation_bar_size_48_dp_default">48 dp (por defecto)</string>
   <string name="navigation_bar_size_0_dp">0 dp (apagado)</string>
   <string name="navbar_force_enable_title">Forzar la barra de navegación</string>
-  <string name="navbar_force_enable_summary">Requiere de un reinicio</string>
+  <string name="navbar_force_enable_summary">Podría requerir de un reinicio</string>
+  <string name="hardware_keys_disable_title">Desactivar las teclas físicas</string>
+  <string name="hardware_keys_disable_summary">Procesado del bloqueo de las teclas físicas y su desactivación</string>
   <string name="smart_pulldown_title">Desplegable inteligente</string>
   <string name="smart_pulldown_summary">Abrir configuración rápida cuando no estén presentes ningunas notificaciones</string>
   <string name="smart_pulldown_off">Apagado</string>
@@ -274,17 +262,14 @@
   <string name="haptic_qs_tiles_summary">Vibrar al tocar los azulejos</string>
   <string name="lockscreen_glowpad_torch_title">Linterna Glowpad</string>
   <string name="lockscreen_glowpad_torch_summary">Doble toque y mantenga el control deslizante para empezar linterna</string>
+  <string name="see_through_title">Ver a través de</string>
+  <string name="see_through_summary">Muestra el contenido que hay detrás de tu pantalla de bloqueo, sus datos pueden ser visibles por los que le rodean</string>
   <string name="camera_sounds_title">Sonido de captura de la Cámara</string>
   <string name="camera_sounds_summary">ADVERTENCIA: ¡Desactivar el sonido del obturador de la cámara es ilegal en algunas áreas!</string>
   <string name="enable_acra_title">Activar reportes de Bloqueo</string>
   <string name="enable_acra_summary">Si está marcada, se bloquearan automáticamente los envios a NamelessRom</string>
   <string name="new_recents_screen_title">Uso de nuevo recientes</string>
   <string name="new_recents_screen_summary">Reemplaza la pantalla recientes con una basada en la óptica de las nuevas tarjetas de google.</string>
-  <string name="power_menu_onthego_title">Modo On-The-Go</string>
-  <string name="title_tile_onthego">On-The-Go</string>
-  <string name="disable_safe_volume_title">Desactivar la advertencia de seguridad en volumen</string>
-  <string name="disable_safe_volume_summary">Esto deshabilitara la advertencia de seguridad de volumen al usar los auriculares. Sera necesario un reinicio con el fin de que surta efecto.</string>
-  <string name="misc_tweaks_srec">Grabación de pantalla</string>
   <string name="srec_enable_touches_title">Activar puntero</string>
   <string name="srec_enable_touches_summary">Activar indicador visual mostrando detalles durante la grabación de pantalla</string>
   <string name="srec_enable_mic_title">Uso del micrófono</string>
@@ -297,4 +282,6 @@
   <string name="privacy_guard_notification_summary">Mostrar las notificaciones si el protector de privacidad está activado.</string>
   <string name="wallpaper_picker_not_found">No se pudo iniciar el selector de fondos de pantalla</string>
   <string name="long_press_kill_delay">Retraso en la Matanza de Aplicaciones</string>
+  <string name="force_highend_gfx_title">Forzar las mejoras gráficas de alta gama</string>
+  <string name="force_highend_gfx_summary">Activar el forzado de las mejoras gráficas de alta gama como la transparencia en la barra de estado/navegación (requiere de reinicio)</string>
 </resources>
