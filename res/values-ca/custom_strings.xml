@@ -30,7 +30,6 @@
   <string name="interface_animation_title">Control d\'Animació</string>
   <string name="show_activity_indicators_on_status_bar_title">Indicador d\'activitat de xarxa</string>
   <string name="show_activity_indicators_on_status_bar_summary">Mostra l\'activitat de xarxa a la barra d\'estat</string>
-  <string name="power_menu_screenrecord_title">Gravació de pantalla</string>
   <string name="volume_steps_title">Nivells de volum</string>
   <string name="volume_steps_alarm_title">Alarma</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -92,6 +91,8 @@
   <string name="excluded_apps_title">Aplicacions Excloses</string>
   <string name="excluded_apps_summary">Les aplicacions Excloses no es podran mostrar a notificacions a la Pantalla de Bloqueig</string>
   <string name="notification_color">Color del fons de les notificacions</string>
+  <string name="dynamic_width">Ample dinàmic</string>
+  <string name="dynamic_width_summary">Estableix l\'ample dinàmic en la notificacions, per així solament usar l\'espai realment necessari</string>
   <string name="bars_and_menus_category_system_title">Sistema</string>
   <string name="listview_title">ListView</string>
   <string name="listview_animation_title">Animació de ListView</string>
@@ -144,21 +145,6 @@
   <string name="animation_no_override_title">Prevenció de Reemplaçaments per Aplicacions</string>
   <string name="animation_no_override_summary_on">Evitar que les Aplicacions Reemplacin les Transicions.</string>
   <string name="animation_no_override_summary_off">Les Aplicacions Poden Substitueix les Transicions.</string>
-  <string name="animation_default">Per defecte</string>
-  <string name="animation_fade">Esvaïment</string>
-  <string name="animation_slide_right">Lliscar a la dreta</string>
-  <string name="animation_slide_left">Lliscar a l\'esquerra</string>
-  <string name="animation_slide_right_no_fade">Lliscar a la dreta (sense Esvaïment)</string>
-  <string name="animation_slide_left_no_fade">Lliscar a l\'esquerra (sense Esvaïment)</string>
-  <string name="animation_slide_up">Lliscar des de baix</string>
-  <string name="animation_slide_down">Lliscar des de dalt</string>
-  <string name="animation_translucent">Translúcid</string>
-  <string name="animation_grow_shrink">Créixer des de (Dalt)</string>
-  <string name="animation_grow_shrink_center">Créixer des del (Centre)</string>
-  <string name="animation_grow_shrink_bottom">Créixer des de (Baix)</string>
-  <string name="animation_grow_shrink_left">Créixer des de (Esquerra)</string>
-  <string name="animation_grow_shrink_right">Créixer des de (Dreta)</string>
-  <string name="animation_random">Aleatori</string>
   <string name="scrolling_title">Desplaçament</string>
   <string name="animation_fling_velocity_title">Velocitat d\'Aventura</string>
   <string name="animation_scroll_friction_title">Fricció del Desplaçament</string>
@@ -251,7 +237,9 @@
   <string name="navigation_bar_size_48_dp_default">48 dp (per defecte)</string>
   <string name="navigation_bar_size_0_dp">0 dp (apagat)</string>
   <string name="navbar_force_enable_title">Forçar la barra de navegació</string>
-  <string name="navbar_force_enable_summary">Requereix d\'un reinici</string>
+  <string name="navbar_force_enable_summary">Podria requerir d\'un reinici</string>
+  <string name="hardware_keys_disable_title">Desactivar les tecles físiques</string>
+  <string name="hardware_keys_disable_summary">Processament del bloqueig de les tecles físiques i la seva desactivació</string>
   <string name="smart_pulldown_title">Desplegable intel·ligent</string>
   <string name="smart_pulldown_summary">Obrir configuració Ràpida quan no estiguin presents gens notificacions</string>
   <string name="smart_pulldown_off">Apagat</string>
@@ -274,17 +262,14 @@
   <string name="haptic_qs_tiles_summary">Vibrar en tocar les rajoles</string>
   <string name="lockscreen_glowpad_torch_title">Llanterna Glowpad</string>
   <string name="lockscreen_glowpad_torch_summary">Doble toc i mantingui el control lliscant per començar llanterna</string>
+  <string name="see_through_title">Veure a través de</string>
+  <string name="see_through_summary">Mostra el contingut que hi ha darrere de la teva pantalla de bloqueig, les seves dades poden ser visibles pels quals li envolten</string>
   <string name="camera_sounds_title">So de captura de la Càmera</string>
   <string name="camera_sounds_summary">ADVERTÈNCIA: Desactivar el so de l\'obturador de la càmera és il·legal en algunes àrees!</string>
   <string name="enable_acra_title">Activar informes de Bloqueig</string>
   <string name="enable_acra_summary">Si està marcada, es bloquegessin automàticament els enviaments a NamelessRom</string>
   <string name="new_recents_screen_title">Ús de nou recents</string>
   <string name="new_recents_screen_summary">Reemplaça la pantalla recents amb una basada en l\'òptica de les noves targetes de google.</string>
-  <string name="power_menu_onthego_title">Mode On-The-Go</string>
-  <string name="title_tile_onthego">On-The-Go</string>
-  <string name="disable_safe_volume_title">Desactivar l\'advertència de seguretat en volum</string>
-  <string name="disable_safe_volume_summary">Això deshabilités l\'advertència de seguretat de volum en usar els auriculars. Sera necessari un reinici per tal que tingui efecte.</string>
-  <string name="misc_tweaks_srec">Gravació de pantalla</string>
   <string name="srec_enable_touches_title">Activar punter</string>
   <string name="srec_enable_touches_summary">Activar indicador visual mostrant detalls durant la gravació de pantalla</string>
   <string name="srec_enable_mic_title">Ús del micròfon</string>
@@ -297,4 +282,6 @@
   <string name="privacy_guard_notification_summary">Mostrar les notificacions si el protector de privacitat està activat.</string>
   <string name="wallpaper_picker_not_found">No s\'ha pogut iniciar el selector de fons de pantalla</string>
   <string name="long_press_kill_delay">Retard en la Matança d\'Aplicacions</string>
+  <string name="force_highend_gfx_title">Forçar les millores gràfiques d\'alta gamma</string>
+  <string name="force_highend_gfx_summary">Activar el forçat de les millores gràfiques d\'alta gamma com la transparència en la barra d\'estat/navegació (requereix de reinicio)</string>
 </resources>

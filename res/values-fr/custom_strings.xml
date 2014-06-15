@@ -30,7 +30,6 @@
   <string name="interface_animation_title">Contrôle des animations</string>
   <string name="show_activity_indicators_on_status_bar_title">Indicateur d\'activité réseau</string>
   <string name="show_activity_indicators_on_status_bar_summary">Montrer l\'activité réseau dans la barre d\'État</string>
-  <string name="power_menu_screenrecord_title">Enregistrement de l\'écran</string>
   <string name="volume_steps_title">Niveaux du volume</string>
   <string name="volume_steps_alarm_title">Alarme</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -92,6 +91,8 @@
   <string name="excluded_apps_title">Applications exclues</string>
   <string name="excluded_apps_summary">Les applications exclues ne seront pas affichées dans les notifications de la fenêtre de verrouillage</string>
   <string name="notification_color">Couleur d\'arrière-plan des notifications</string>
+  <string name="dynamic_width">Large dynamique</string>
+  <string name="dynamic_width_summary">Il établit le large dynamique dans la faire-part, pour ainsi seulement user l\'espace réellement nécessaire</string>
   <string name="bars_and_menus_category_system_title">Système</string>
   <string name="listview_title">ListView</string>
   <string name="listview_animation_title">Animation de la ListView</string>
@@ -144,21 +145,6 @@
   <string name="animation_no_override_title">Prévention de Remplacements par des Applications</string>
   <string name="animation_no_override_summary_on">Éviter que les Applications Remplacent les Transitions.</string>
   <string name="animation_no_override_summary_off">Les Applications Peuvent Remplacer les Transitions.</string>
-  <string name="animation_default">Par défaut</string>
-  <string name="animation_fade">Fondu</string>
-  <string name="animation_slide_right">Faites glisser à droite</string>
-  <string name="animation_slide_left">Faites glisser à gauche</string>
-  <string name="animation_slide_right_no_fade">Glissez à droite (sans fondu)</string>
-  <string name="animation_slide_left_no_fade">Glissez à gauche (sans fondu)</string>
-  <string name="animation_slide_up">Faites glisser en bas</string>
-  <string name="animation_slide_down">Faites glisser en haut</string>
-  <string name="animation_translucent">Translucide</string>
-  <string name="animation_grow_shrink">Agrandir (Haut)</string>
-  <string name="animation_grow_shrink_center">Agrandir (Centre)</string>
-  <string name="animation_grow_shrink_bottom">Croître (Bas)</string>
-  <string name="animation_grow_shrink_left">Agrandir (gauche)</string>
-  <string name="animation_grow_shrink_right">Agrandir (droite)</string>
-  <string name="animation_random">Aléatoire</string>
   <string name="scrolling_title">Défilement</string>
   <string name="animation_fling_velocity_title">Vitesse d\'Aventure</string>
   <string name="animation_scroll_friction_title">Friction de défilement</string>
@@ -251,7 +237,9 @@
   <string name="navigation_bar_size_48_dp_default">48 dp (par défaut)</string>
   <string name="navigation_bar_size_0_dp">0 dp (off)</string>
   <string name="navbar_force_enable_title">Forcer la barre de navigation</string>
-  <string name="navbar_force_enable_summary">Nécessite un redémarrage</string>
+  <string name="navbar_force_enable_summary">Il pourrait requérir d\'un je réinitialise</string>
+  <string name="hardware_keys_disable_title">Desactivar les touches physiques</string>
+  <string name="hardware_keys_disable_summary">Accusé du blocage des touches physiques et sa desactivación</string>
   <string name="smart_pulldown_title">Menu déroulant intelligent</string>
   <string name="smart_pulldown_summary">Ouvrir configuration rapide lorsqu\'ils ne soient tu pas présentes aucuns faire-part</string>
   <string name="smart_pulldown_off">Off</string>
@@ -274,17 +262,14 @@
   <string name="haptic_qs_tiles_summary">Vibrez à jouer sur les tuiles</string>
   <string name="lockscreen_glowpad_torch_title">Lanterne Glowpad</string>
   <string name="lockscreen_glowpad_torch_summary">Double coup et il maintienne le contrôle deslizante pour commencer lanterne</string>
+  <string name="see_through_title">Voir à travers du</string>
+  <string name="see_through_summary">Il montre le contenu qu\'il y a derrière ton écran de blocage, ses données ils peuvent être visibles pour lesquels lui entourent</string>
   <string name="camera_sounds_title">Son de l\'obturateur</string>
   <string name="camera_sounds_summary">AVERTISSEMENT: ¡Désactiver le son de l\'obturador de la caméra est illégale dans quelques zones!</string>
   <string name="enable_acra_title">Activé reportes de Blocage</string>
   <string name="enable_acra_summary">Si il est marquée, ils se bloquassent automatiquement les frais à NamelessRom</string>
   <string name="new_recents_screen_title">Usage de nouveau récents</string>
   <string name="new_recents_screen_summary">Il remplace l\'écran récents avec une basée sur l\'optique des nouvelles cartes de google.</string>
-  <string name="power_menu_onthego_title">Mode On-The-Go</string>
-  <string name="title_tile_onthego">On-The-Go</string>
-  <string name="disable_safe_volume_title">Désactiver l\'avertissement de sécurité en volume</string>
-  <string name="disable_safe_volume_summary">Ceci deshabilite l\'avertissement de sécurité de volume à l\'user les auriculares. Sera Nécessaire un réinitialise afin qu\'il ait de l\'effet.</string>
-  <string name="misc_tweaks_srec">Enregistrement d\'écran</string>
   <string name="srec_enable_touches_title">Activer le pointeur</string>
   <string name="srec_enable_touches_summary">Activer indicateur visuel en montrant détails pendant l\'enregistrement d\'écran</string>
   <string name="srec_enable_mic_title">Utiliser le microphone</string>
@@ -297,4 +282,6 @@
   <string name="privacy_guard_notification_summary">Montrer les faire-part si le protecteur de caractère privé est activée.</string>
   <string name="wallpaper_picker_not_found">il ne s\'a pas pu entamer le selector de fonds d\'écran</string>
   <string name="long_press_kill_delay">Délai de fermeture de l\'application</string>
+  <string name="force_highend_gfx_title">Forcer les améliorations graphiques de grande gamme</string>
+  <string name="force_highend_gfx_summary">Déclencher le forcé des améliorations graphiques de grande gamme comme la transparence dans la barre d\'été/navigation (requiert de réinitialise)</string>
 </resources>

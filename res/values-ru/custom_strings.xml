@@ -30,7 +30,6 @@
   <string name="interface_animation_title">Управление анимацией</string>
   <string name="show_activity_indicators_on_status_bar_title">Индикатор сетевой активности</string>
   <string name="show_activity_indicators_on_status_bar_summary">Показывать сетевую активность в строке состояния</string>
-  <string name="power_menu_screenrecord_title">Запись экрана</string>
   <string name="volume_steps_title">Шаг громкости</string>
   <string name="volume_steps_alarm_title">Будильник</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -92,6 +91,8 @@
   <string name="excluded_apps_title">Исключенные приложения</string>
   <string name="excluded_apps_summary">Исключенные приложения не будут показывать свои уведомления на экране блокировки</string>
   <string name="notification_color">Цвет фона уведомлений</string>
+  <string name="dynamic_width">Динамическая ширина</string>
+  <string name="dynamic_width_summary">Задаёт ширину уведомлений динамичной, так что они используют только то место, что реально нужно</string>
   <string name="bars_and_menus_category_system_title">Система</string>
   <string name="listview_title">Списки</string>
   <string name="listview_animation_title">Анимация списков</string>
@@ -144,21 +145,6 @@
   <string name="animation_no_override_title">Предотвращать переопределение приложением</string>
   <string name="animation_no_override_summary_on">Запретить приложениям переопределять переходы.</string>
   <string name="animation_no_override_summary_off">Приложения могут переопределять переходы.</string>
-  <string name="animation_default">Стандартная</string>
-  <string name="animation_fade">Затухание</string>
-  <string name="animation_slide_right">Сдвиг вправо</string>
-  <string name="animation_slide_left">Сдвиг влево</string>
-  <string name="animation_slide_right_no_fade">Сдвиг вправо (без затухания)</string>
-  <string name="animation_slide_left_no_fade">Сдвиг влево (без затухания)</string>
-  <string name="animation_slide_up">Сдвиг вниз</string>
-  <string name="animation_slide_down">Сдвиг вверх</string>
-  <string name="animation_translucent">Просвечивание</string>
-  <string name="animation_grow_shrink">Увеличение (вверх)</string>
-  <string name="animation_grow_shrink_center">Увеличение (по центру)</string>
-  <string name="animation_grow_shrink_bottom">Увеличение (вниз)</string>
-  <string name="animation_grow_shrink_left">Увеличение (слева)</string>
-  <string name="animation_grow_shrink_right">Увеличение (справа)</string>
-  <string name="animation_random">Случайная</string>
   <string name="scrolling_title">Прокрутка</string>
   <string name="animation_fling_velocity_title">Скорость броска</string>
   <string name="animation_scroll_friction_title">Трение прокрутки</string>
@@ -251,7 +237,9 @@
   <string name="navigation_bar_size_48_dp_default">48 dp (по умолчанию)</string>
   <string name="navigation_bar_size_0_dp">0 dp (выключен)</string>
   <string name="navbar_force_enable_title">Принудительно показывать панель навигации</string>
-  <string name="navbar_force_enable_summary">Требуется перезагрузка</string>
+  <string name="navbar_force_enable_summary">Может потребоваться перезагрузка</string>
+  <string name="hardware_keys_disable_title">Отключение аппаратных клавиш</string>
+  <string name="hardware_keys_disable_summary">Блокирует обработку аппаратных клавиш и отключает их</string>
   <string name="smart_pulldown_title">Умный доступ</string>
   <string name="smart_pulldown_summary">Открыть быстрые настройки когда уведомления отсутствуют</string>
   <string name="smart_pulldown_off">Выключен</string>
@@ -274,17 +262,14 @@
   <string name="haptic_qs_tiles_summary">Вибрировать при касании плитки</string>
   <string name="lockscreen_glowpad_torch_title">Ползунок-фонарик</string>
   <string name="lockscreen_glowpad_torch_summary">Дважды коснитесь и удерживайте ползунок, чтобы начать светить</string>
+  <string name="see_through_title">Показывать насквозь</string>
+  <string name="see_through_summary">Показывает содержимое за экраном блокировки. Ваши данные могут быть видны людям рядом с вами</string>
   <string name="camera_sounds_title">Звук затвора камеры</string>
   <string name="camera_sounds_summary">ВНИМАНИЕ: отключение звуков камеры в некоторых местах может быть незаконным!</string>
   <string name="enable_acra_title">Включить сообщения об ошибках</string>
   <string name="enable_acra_summary">Если отмечено, ошибки автоматически отправляются в NamelessRom</string>
   <string name="new_recents_screen_title">Использовать новые недавние</string>
   <string name="new_recents_screen_summary">Заменяет панель недавних на новую, основанную на карточках новых очков Google.</string>
-  <string name="power_menu_onthego_title">Режим On-The-Go</string>
-  <string name="title_tile_onthego">On-The-Go</string>
-  <string name="disable_safe_volume_title">Выключить предупреждение о безопасной громкости</string>
-  <string name="disable_safe_volume_summary">Это отключит предупреждения о безопасной громкости когда используются наушники. Перезагрузка необходима для применения.</string>
-  <string name="misc_tweaks_srec">Запись экрана</string>
   <string name="srec_enable_touches_title">Включить указатель</string>
   <string name="srec_enable_touches_summary">Включить видимый указатель когда касаетесь во время записи экрана</string>
   <string name="srec_enable_mic_title">Использовать микрофон</string>
@@ -297,4 +282,6 @@
   <string name="privacy_guard_notification_summary">Показывать уведомления если включен режим приватности.</string>
   <string name="wallpaper_picker_not_found">Не получается запустить приложение выбора обоев</string>
   <string name="long_press_kill_delay">Задержка принудительного завершения приложений</string>
+  <string name="force_highend_gfx_title">Высококачественная графика</string>
+  <string name="force_highend_gfx_summary">Использовать высококачественные эффекты, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
 </resources>

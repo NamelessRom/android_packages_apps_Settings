@@ -29,7 +29,6 @@
   <string name="interface_animation_title">Animatie-instellingen</string>
   <string name="show_activity_indicators_on_status_bar_title">Netwerk activiteitsindicator</string>
   <string name="show_activity_indicators_on_status_bar_summary">Netwerkactiviteit weergeven in statusbalk</string>
-  <string name="power_menu_screenrecord_title">Scherm opnemen</string>
   <string name="volume_steps_title">Volume stappen</string>
   <string name="volume_steps_alarm_title">Alarm</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -94,16 +93,6 @@
   <string name="listview_decelerate_interpolator">Vertragen</string>
   <string name="listview_accelerate_decelerate_interpolator">Versnellen en vertragen</string>
   <string name="listview_overshoot_interpolator">Overschrijding</string>
-  <string name="animation_default">Standaard</string>
-  <string name="animation_fade">Vervagen</string>
-  <string name="animation_slide_right">Rechts inschuiven</string>
-  <string name="animation_slide_left">Links inschuiven</string>
-  <string name="animation_slide_right_no_fade">Rechts inschuiven (Geen vervagen)</string>
-  <string name="animation_slide_left_no_fade">Links inschuiven (Geen vervaging)</string>
-  <string name="animation_slide_up">Van onder inschuiven</string>
-  <string name="animation_slide_down">Van boven inschuiven</string>
-  <string name="animation_translucent">Doorschijnend</string>
-  <string name="animation_random">Willekeurig</string>
   <string name="scrolling_title">Scrollen</string>
   <string name="animation_no_scroll_summary_on">Ingeschakeld</string>
   <string name="animation_no_scroll_summary_off">Uitgeschakeld</string>
@@ -150,7 +139,6 @@
   <string name="navigation_bar_width_title">Navigatiebalk breedte</string>
   <string name="navigation_bar_width_summary">Navigatiebalk hoogte als de balk langs een kant is</string>
   <string name="navbar_force_enable_title">Navigatiebalk forceren</string>
-  <string name="navbar_force_enable_summary">Vereist een herstart</string>
   <string name="smart_pulldown_off">Uit</string>
   <string name="show_cpu_info">Toon CPU info</string>
   <string name="more_app_settings">Meer app instellingen</string>

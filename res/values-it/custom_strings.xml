@@ -30,7 +30,6 @@
   <string name="interface_animation_title">Controllo animazione</string>
   <string name="show_activity_indicators_on_status_bar_title">Indicatore attività di rete</string>
   <string name="show_activity_indicators_on_status_bar_summary">Mostra attività di rete nella barra di stato</string>
-  <string name="power_menu_screenrecord_title">Registrazione schermo</string>
   <string name="volume_steps_title">Modifica volume</string>
   <string name="volume_steps_alarm_title">Allarme</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -92,6 +91,8 @@
   <string name="excluded_apps_title">Applicazioni escluse</string>
   <string name="excluded_apps_summary">Le applicazioni escluse non appariranno come notifiche di blocco schermo</string>
   <string name="notification_color">Colore di sfondo della notifica</string>
+  <string name="dynamic_width">Larghezza dinamica</string>
+  <string name="dynamic_width_summary">Imposta la larghezza dinamica delle notifiche, per così singolo utilizzare spazio veramente necessario</string>
   <string name="bars_and_menus_category_system_title">Sistema</string>
   <string name="listview_title">Visualizzazione elenco</string>
   <string name="listview_animation_title">Animazione visualizzazione elenco</string>
@@ -144,21 +145,6 @@
   <string name="animation_no_override_title">Evita la revoca di Applicazioni</string>
   <string name="animation_no_override_summary_on">Impedisci alla app di annullare le transizioni.</string>
   <string name="animation_no_override_summary_off">Le App possono annullare le transizioni.</string>
-  <string name="animation_default">Predefinito</string>
-  <string name="animation_fade">Dissolvenza</string>
-  <string name="animation_slide_right">Scorri verso destra</string>
-  <string name="animation_slide_left">Scorri verso sinistra</string>
-  <string name="animation_slide_right_no_fade">Scorri verso destra (senza dissolvenza)</string>
-  <string name="animation_slide_left_no_fade">Scorri verso sinistra (senza dissolvenza)</string>
-  <string name="animation_slide_up">Scorri verso il basso</string>
-  <string name="animation_slide_down">Scorri verso l\'alto</string>
-  <string name="animation_translucent">Traslucido</string>
-  <string name="animation_grow_shrink">Cresci (verso l\'alto)</string>
-  <string name="animation_grow_shrink_center">Cresci (dal centro)</string>
-  <string name="animation_grow_shrink_bottom">Cresci (dal basso)</string>
-  <string name="animation_grow_shrink_left">Cresci (da sinistra)</string>
-  <string name="animation_grow_shrink_right">Cresci (da destra)</string>
-  <string name="animation_random">A caso</string>
   <string name="scrolling_title">Scorrimento</string>
   <string name="animation_fling_velocity_title">Velocità di scorrimento</string>
   <string name="animation_scroll_friction_title">Attrito di scorrimento</string>
@@ -251,7 +237,9 @@
   <string name="navigation_bar_size_48_dp_default">42 dp (predefinito)</string>
   <string name="navigation_bar_size_0_dp">0 dp (spento)</string>
   <string name="navbar_force_enable_title">Forza Barra di navigazione</string>
-  <string name="navbar_force_enable_summary">Richiede un riavvio</string>
+  <string name="navbar_force_enable_summary">Può richiedere di un riavvio</string>
+  <string name="hardware_keys_disable_title">Disattivato i tasti fisici</string>
+  <string name="hardware_keys_disable_summary">Trattamento dei bloccare di la tasti fisici e invalidanti</string>
   <string name="smart_pulldown_title">Pulldown intelligente</string>
   <string name="smart_pulldown_summary">Apri Impostazioni rapide quando non ci sono le notifiche presenti</string>
   <string name="smart_pulldown_off">Off</string>
@@ -274,17 +262,14 @@
   <string name="haptic_qs_tiles_summary">Vibrazione quando vengono toccati i riquadri</string>
   <string name="lockscreen_glowpad_torch_title">Glowpad torcia</string>
   <string name="lockscreen_glowpad_torch_summary">Toccare due volte e tieni premuto il dispositivo di scorrimento per avviare la torcia</string>
+  <string name="see_through_title">Vedere attraverso di</string>
+  <string name="see_through_summary">Mostra i contenuto del dispositivo la vostra schermata di blocco, i dati possono essere visibili da intorno a te</string>
   <string name="camera_sounds_title">Suono dell\'otturatore della fotocamera</string>
   <string name="camera_sounds_summary">Attenzione: Disattivando l\'otturatore della fotocamera il suono è illegale in alcune zone!</string>
   <string name="enable_acra_title">Abilita notifica crash</string>
   <string name="enable_acra_summary">Se selezionata, i crash vengono inviati a NamelessRom immediatamente</string>
   <string name="new_recents_screen_title">Utilizza nuovi recenti</string>
   <string name="new_recents_screen_summary">Sostituisce lo schermo recents con uno basato sulla nuova ottica di schede di google.</string>
-  <string name="power_menu_onthego_title">Modalità On-The-Go</string>
-  <string name="title_tile_onthego">On-The-Go</string>
-  <string name="disable_safe_volume_title">Disabilita avvisi di sicurezza</string>
-  <string name="disable_safe_volume_summary">Questo disabiliterà l\'avviso di sicurezza quando si utilizzano le cuffie. Un riavvio è necessario al fine di renderlo effettivo.</string>
-  <string name="misc_tweaks_srec">Registrazione dello schermo</string>
   <string name="srec_enable_touches_title">Abilita il puntatore</string>
   <string name="srec_enable_touches_summary">Abilita il puntatore visivo per mostrare i tocchi durante la registrazione dello schermo</string>
   <string name="srec_enable_mic_title">Utilizza il microfono</string>
@@ -297,4 +282,6 @@
   <string name="privacy_guard_notification_summary">Visualizza notifica se privacy guard è attivo.</string>
   <string name="wallpaper_picker_not_found">Impossibile lanciare la selezione sfondo</string>
   <string name="long_press_kill_delay">Ritardo termina app</string>
+  <string name="force_highend_gfx_title">Forzare il miglioramenti grafici di alta fascia</string>
+  <string name="force_highend_gfx_summary">Attiva il forzare il miglioramenti grafici di alta fascia come il trasparenza nella barra di stato/navigazione (richiede di riavvio)</string>
 </resources>
