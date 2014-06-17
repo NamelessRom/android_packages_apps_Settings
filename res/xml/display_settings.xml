@@ -89,6 +89,12 @@
                 android:summary="@string/adaptive_backlight_summary"
                 android:defaultValue="true" />
 
+           <CheckBoxPreference
+                android:key="color_enhancement"
+                android:title="@string/color_enhancement_title"
+                android:summary="@string/color_enhancement_summary"
+                android:defaultValue="true" />
+
             <CheckBoxPreference
                 android:key="wake_when_plugged_or_unplugged"
                 android:title="@string/wake_when_plugged_or_unplugged_title"
