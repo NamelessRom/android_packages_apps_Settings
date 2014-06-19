@@ -53,17 +53,32 @@
             android:fragment="com.android.settings.cyanogenmod.NavRing"
             android:title="@string/navigation_ring_title" />
 
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="navigation_bar_menu_arrow_keys"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:summary="@string/navigation_bar_arrow_keys_summary"
+            android:defaultValue="true" />
+
         <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
             android:key="navigation_bar_left"
             android:title="@string/navigation_bar_left_title"
             android:summary="@string/navigation_bar_left_summary"
             android:defaultValue="false" />
 
+        <!-- Enable navigation bar in status bar -->
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="navigation_bar_menu_arrow_keys"
-            android:title="@string/navigation_bar_arrow_keys_title"
-            android:summary="@string/navigation_bar_arrow_keys_summary"
-            android:defaultValue="true" />
+            android:key="status_bar_show_nav"
+            android:title="@string/status_bar_show_nav_title"
+            android:summary="@string/status_bar_show_nav_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="nav_bar_position"
+            android:title="@string/nav_pos_dialog_title"
+            android:summary="@string/nav_pos_option_title"
+            android:entries="@array/nav_pos_entries"
+            android:entryValues="@array/nav_pos_values"
+            android:defaultValue="center" />
 
         <ListPreference
             android:key="navigation_bar_height"

@@ -34,9 +34,11 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEY_NAVIGATION_BAR_WIDTH  = "navigation_bar_width";
+    private static final String KEY_NAV_BAR_POSITION      = "nav_bar_position";
 
     private ListPreference mNavigationBarHeight;
     private ListPreference mNavigationBarWidth;
+    private ListPreference mNavBarPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,16 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             mNavigationBarWidth.setOnPreferenceChangeListener(this);
         }
 
+        mNavBarPosition = (ListPreference) prefScreen.findPreference(KEY_NAV_BAR_POSITION);
+        if (Utils.isTablet(getActivity())) {
+            /*mNavPos.setValue(Settings.System.getInt(getContentResolver(),
+                    Settings.System.NAV_BAR_POSITION, 4));*/
+            mNavPos.setOnPreferenceChangeListener(this);
+            category.removePreference(category.findPreference("navigation_bar_left"));
+        } else {
+            category.removePreference(mNavBarPosition);
+        }
+
         updateDimensionValues();
     }
 
@@ -79,6 +91,11 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         } else if (preference == mNavigationBarHeight) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NAVIGATION_BAR_HEIGHT,
+                    Integer.parseInt((String) objValue));
+            return true;
+        } else if (preference == mNavPos) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAV_BAR_POSITON,
                     Integer.parseInt((String) objValue));
             return true;
         }

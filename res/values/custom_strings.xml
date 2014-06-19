@@ -417,4 +417,14 @@
     <string name="smart_cover_wake_summary">Wakeup device when smart cover opens</string>
     <string name="smart_cover_sleep_title">Smart cover sleep</string>
     <string name="smart_cover_sleep_summary">Put the device to sleep when smart cover closes</string>
+
+    <!-- Navigation bar position -->
+    <string name="nav_pos_dialog_title">Navigation bar position</string>
+    <string name="nav_pos_option_title">Select your prefered navigation bar position</string>
+    <string name="status_bar_show_nav_title">Enable Navigation in status bar</string>
+    <string name="status_bar_show_nav_summary">Only when extended desktop is active</string>
+
+    <string name="left">Left</string>
+    <string name="center">Center</string>
+    <string name="right">Right</string>
 </resources>
