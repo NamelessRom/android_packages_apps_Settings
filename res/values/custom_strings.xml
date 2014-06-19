@@ -393,4 +393,6 @@
 
     <string name="force_highend_gfx_title">Force high-end graphics</string>
     <string name="force_highend_gfx_summary">Enables high-end visual effects such as transparent status/navigation bar (requires reboot)</string>
+
+    <string name="more_device_controls_title">More\u2026</string>
 </resources>
