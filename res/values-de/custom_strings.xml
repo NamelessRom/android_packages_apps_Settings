@@ -284,4 +284,15 @@
   <string name="long_press_kill_delay">App beenden Verzögerung</string>
   <string name="force_highend_gfx_title">Erzwinge verbesserte Grafikeffekte</string>
   <string name="force_highend_gfx_summary">Verbesserte Transparenz- und Animationseffekte wie z.B. Status- und Navigationsleistentransparenz verwenden (Neustart erforderlich)</string>
+
+    <!-- Navigation bar position dialog title -->
+    <string name="nav_pos_dialog_title">Position Navigationsleiste</string>
+    <!-- Navigation bar position option -->
+    <string name="nav_pos_option_title">Waehle die Position der Navigation</string>
+    <!-- Navigation bar help title -->
+    <string name="navigation_bar_help_title">Navigationsleiste Hilfe</string>
+    <!-- Enable navigation bar in status bar dialog title -->
+    <string name="status_bar_show_nav_title">Aktiviere Navigationsleiste in der Statusleiste</string>
+    <!-- Enable navigation bar in status bar checkbox-->
+    <string name="status_bar_show_nav_summary">Nur wenn erweiterte Ansicht aktiv ist</string>
 </resources>

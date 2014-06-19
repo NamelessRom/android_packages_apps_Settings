@@ -53,6 +53,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mStatusBarNetworkActivity;
     private CheckBoxPreference mStatusBarTraffic;
 
+    private static final String STATUS_BAR_NAVI = "status_bar_show_nav";
+    private CheckBoxPreference mStatusBarNav;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +69,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBatteryShowPercent =
                 (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
+
+        mStatusBarNav = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NAVI);
 
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
@@ -107,8 +112,16 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarTraffic.setChecked(intState > 0);
         mStatusBarTraffic.setOnPreferenceChangeListener(this);
 
-        if (Utils.isTablet(getActivity())) {
-            prefSet.removePreference(statusBarBrightnessControl);
+/** Enable brightness control by swiping on the status bar for tablets! **/
+//        if (Utils.isTablet(getActivity())) {
+//            prefSet.removePreference(statusBarBrightnessControl);
+//        }
+
+/** Make navigation in status bar switchable if we are a tablet **/
+        mStatusBarNav.setOnPreferenceChangeListener(this);
+        if (!Utils.isTablet(getActivity())) {
+                prefSet.removePreference(mStatusBarNav);
+                Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 1);
         }
 
         enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
@@ -149,6 +162,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             intState = setStatusBarTrafficSummary(intState);
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, intState);
             return intState <= 1;
+        } else if (preference == mStatusBarNav) {
+            if (newValue.toString().equals("true")) {
+                    Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 0);
+            } else {
+                    Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 1);
+            }
+            int StatusBarNavValue = Settings.System.getInt(resolver,
+                    Settings.System.STATUS_BAR_NAVIGATION, 0);
+            return true;
         }
 
         return false;
