@@ -61,6 +61,11 @@
             android:title="@string/see_through_title"
             android:summary="@string/see_through_summary" />
 
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="lockscreen_rotation"
+            android:title="@string/display_lockscreen_rotation_title"
+            android:defaultValue="true" />
+
         <ListPreference
             android:key="lockscreen_battery_status"
             android:persistent="false"

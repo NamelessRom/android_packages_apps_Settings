@@ -17,13 +17,14 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
-import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
+import android.database.ContentObserver;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -31,43 +32,52 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
+import com.android.internal.util.nameless.NamelessUtils;
+import com.android.internal.util.nameless.constants.FlashLightConstants;
+import com.android.internal.view.RotationPolicy;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.ChooseLockSettingsHelper;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-
-import com.android.internal.util.nameless.NamelessUtils;
-import com.android.internal.util.nameless.constants.FlashLightConstants;
+import com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference;
 
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
+    private static final String LOCKSCREEN_GENERAL_CATEGORY         = "lockscreen_general_category";
     private static final String LOCKSCREEN_PERSONALIZATION_CATEGORY = "lockscreen_pers_category";
-    private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
-    private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
-    private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
-    private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
-    private static final String KEY_LOCK_CLOCK = "lock_clock";
-    private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
-    private static final String KEY_ENABLE_MAXIMIZE_WIGETS = "lockscreen_maximize_widgets";
-    private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
-    private static final String KEY_LOCKSCREEN_TARGETS = "lockscreen_targets";
+    private static final String LOCKSCREEN_WIDGETS_CATEGORY         = "lockscreen_widgets_category";
+    private static final String KEY_LOCKSCREEN_ROT                  = "lockscreen_rotation";
+    private static final String KEY_BATTERY_STATUS                  = "lockscreen_battery_status";
+    private static final String KEY_LOCKSCREEN_BUTTONS              = "lockscreen_buttons";
+    private static final String KEY_ENABLE_WIDGETS                  = "keyguard_enable_widgets";
+    private static final String KEY_LOCK_CLOCK                      = "lock_clock";
+    private static final String KEY_ENABLE_CAMERA                   = "keyguard_enable_camera";
+    private static final String KEY_ENABLE_MAXIMIZE_WIGETS          = "lockscreen_maximize_widgets";
+    private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED      = "lockscreen_modlock_enabled";
+    private static final String KEY_LOCKSCREEN_TARGETS              = "lockscreen_targets";
 
     // Nameless Additions
     private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_glowpad_torch";
+
+    private SystemSettingCheckBoxPreference mLockscreenRotation;
 
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mEnableModLock;
     private CheckBoxPreference mEnableMaximizeWidgets;
-    private ListPreference mBatteryStatus;
-    private Preference mLockscreenTargets;
+    private ListPreference     mBatteryStatus;
+    private Preference         mLockscreenTargets;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
-    private LockPatternUtils mLockUtils;
-    private DevicePolicyManager mDPM;
+    private LockPatternUtils         mLockUtils;
+    private DevicePolicyManager      mDPM;
+
+    private final ContentObserver mRotationObserver = new ContentObserver(new Handler()) {
+        @Override
+        public void onChange(final boolean selfChange) { updateRotation(); }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +87,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
         mLockUtils = mChooseLockSettingsHelper.utils();
         mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+        final Activity activity = getActivity();
 
         // Find categories
         final PreferenceCategory generalCategory = (PreferenceCategory)
@@ -96,6 +108,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mEnableModLock != null) {
             mEnableModLock.setOnPreferenceChangeListener(this);
         }
+
+        mLockscreenRotation = (SystemSettingCheckBoxPreference) findPreference(KEY_LOCKSCREEN_ROT);
 
         mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
         if (mBatteryStatus != null) {
@@ -120,8 +134,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         boolean canEnableModLockscreen = false;
         final String keyguardPackage = getActivity().getString(
                 com.android.internal.R.string.config_keyguardPackage);
-        final Bundle keyguard_metadata = Utils.getApplicationMetadata(
-                getActivity(), keyguardPackage);
+        final Bundle keyguard_metadata = Utils.getApplicationMetadata(activity, keyguardPackage);
         if (keyguard_metadata != null) {
             canEnableModLockscreen = keyguard_metadata.getBoolean(
                     "com.cyanogenmod.keyguard", false);
@@ -133,19 +146,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         }
 
         // Glowpad Torch
-        if (!NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
+        if (!NamelessUtils.isPackageInstalled(activity, FlashLightConstants.APP_PACKAGE_NAME)) {
             personalizationCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
         }
 
         // Remove cLock settings item if not installed
-        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
+        if (!Utils.isPackageInstalled(activity, "com.cyanogenmod.lockclock")) {
             widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
         }
 
         // Remove maximize widgets on tablets
-        if (!Utils.isPhone(getActivity())) {
-            widgetsCategory.removePreference(
-                    mEnableMaximizeWidgets);
+        if (!Utils.isPhone(activity)) {
+            widgetsCategory.removePreference(mEnableMaximizeWidgets);
         }
 
     }
@@ -180,6 +192,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         }
 
         updateAvailableModLockPreferences();
+        updateRotation();
+
+        cr.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
+                mRotationObserver);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getContentResolver().unregisterContentObserver(mRotationObserver);
     }
 
     private void updateAvailableModLockPreferences() {
@@ -190,7 +213,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         boolean enabled = !mEnableModLock.isChecked();
         if (mEnableKeyguardWidgets != null) {
             // Enable or disable lockscreen widgets based on policy
-            if(!checkDisabledByPolicy(mEnableKeyguardWidgets,
+            if (!checkDisabledByPolicy(mEnableKeyguardWidgets,
                     DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL)) {
                 mEnableKeyguardWidgets.setEnabled(enabled);
             }
@@ -242,6 +265,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     /**
      * Checks if the device has hardware buttons.
+     *
      * @return has Buttons
      */
     public boolean hasButtons() {
@@ -252,8 +276,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     /**
      * Checks if a specific policy is disabled by a device administrator, and disables the
      * provided preference if so.
+     *
      * @param preference Preference
-     * @param feature Feature
+     * @param feature    Feature
      * @return True if disabled.
      */
     private boolean checkDisabledByPolicy(Preference preference, int feature) {
@@ -269,10 +294,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     /**
      * Checks if a specific policy is disabled by a device administrator.
+     *
      * @param feature Feature
      * @return Is disabled
      */
     private boolean featureIsDisabled(int feature) {
         return (mDPM.getKeyguardDisabledFeatures(null) & feature) != 0;
+    }
+
+    /**
+     * Disables LockscreenRotation preference is device is rotation locked.
+     */
+    private void updateRotation() {
+        mLockscreenRotation.setEnabled(!RotationPolicy.isRotationLocked(getActivity()));
     }
 }
