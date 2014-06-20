@@ -26,6 +26,7 @@ import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
 import android.app.backup.IBackupManager;
 import android.bluetooth.BluetoothAdapter;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -1458,7 +1459,14 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             return false;
         }
 
-        if (preference == mEnableAdb) {
+        if (preference == mDevelopmentTools) {
+            final Intent i = new Intent();
+            i.setComponent(new ComponentName("com.android.development", "com.android.development.Development"));
+            i.setAction("android.settings.development.LAUNCH_TOOLS");
+            try {
+                startActivity(i);
+            } catch (Exception ignored) { }
+        } else if (preference == mEnableAdb) {
             if (mEnableAdb.isChecked()) {
                 mDialogClicked = false;
                 if (mAdbDialog != null) {
