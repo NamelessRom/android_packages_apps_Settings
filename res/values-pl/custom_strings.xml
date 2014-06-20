@@ -237,6 +237,9 @@
   <string name="navigation_bar_size_48_dp_default">48 dp (domyślnie)</string>
   <string name="navigation_bar_size_0_dp">0 dp (wyłączone)</string>
   <string name="navbar_force_enable_title">Wymuś pasek nawigacji</string>
+  <string name="navbar_force_enable_summary">Może wymagać ponownego uruchomienia</string>
+  <string name="hardware_keys_disable_title">Wyłącz klawisze sprzętowe</string>
+  <string name="hardware_keys_disable_summary">Zatrzymuje działania klawiszy sprzętowych i wyłącza je</string>
   <string name="smart_pulldown_title">Inteligentne rozwijanie</string>
   <string name="smart_pulldown_summary">Otwórz Szybkie Ustawienia gdy nie ma powiadomień</string>
   <string name="smart_pulldown_off">Wyłączone</string>
@@ -259,6 +262,8 @@
   <string name="haptic_qs_tiles_summary">Wibracje podczas dotykania kafelków</string>
   <string name="lockscreen_glowpad_torch_title">Latarka Glowpad</string>
   <string name="lockscreen_glowpad_torch_summary">Dwukrotnie dotknij i przytrzymaj suwak, aby włączyć latarkę</string>
+  <string name="see_through_title">Przejrzystość</string>
+  <string name="see_through_summary">Pokazuje zawartość ekranu będąca za ekranem blokady. Twoje dane mogą być widoczne dla osób postronnych.</string>
   <string name="camera_sounds_title">Dźwięk migawki aparatu</string>
   <string name="camera_sounds_summary">Uwaga: Wyłączenie dźwięku migawki aparatu jest nielegalne w niektórych krajach!</string>
   <string name="enable_acra_title">Włącz raportowanie błędów</string>
