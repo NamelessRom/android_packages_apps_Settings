@@ -26,6 +26,11 @@
         android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
 
+    <PreferenceScreen
+            android:key="heads_up"
+            android:fragment="com.android.settings.headsup.HeadsUpDoNotDisturbSettings"
+            android:title="@string/category_heads_up" />
+
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 
