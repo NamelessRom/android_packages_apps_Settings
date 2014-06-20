@@ -426,6 +426,4 @@
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">System interface</string>
 
-    <!-- Automatic brightness customization -->
-    <string name="auto_brightness_adjustment_title">Brightness adjustment</string>
 </resources>

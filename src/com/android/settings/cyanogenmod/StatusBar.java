@@ -18,10 +18,12 @@ package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Resources;
 import android.net.TrafficStats;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
@@ -64,6 +66,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private int MASK_DOWN;
     private int MASK_UNIT;
     private int MASK_PERIOD;
+    private CheckBoxPreference mStatusBarBrightnessControl;
+
+    private ContentObserver mSettingsObserver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,18 +86,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
 
-        CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
+        mStatusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
-
-        try {
-            if (Settings.System.getInt(resolver, Settings.System.SCREEN_BRIGHTNESS_MODE)
-                    == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-                statusBarBrightnessControl.setEnabled(false);
-                statusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
-            }
-        } catch (SettingNotFoundException e) {
-            // Do nothing
-        }
+        refreshBrightnessControl();
 
         int batteryStyle = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_BATTERY, 0);
         mStatusBarBattery.setValue(String.valueOf(batteryStyle));
@@ -160,6 +156,32 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         if(!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
                 prefSet.removePreference(findPreference("breathing_notifications_title"));
         }
+
+        mSettingsObserver = new ContentObserver(new Handler()) {
+            @Override
+            public void onChange(boolean selfChange, Uri uri) {
+                refreshBrightnessControl();
+            }
+
+            @Override
+            public void onChange(boolean selfChange) {
+                onChange(selfChange, null);
+            }
+        };
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE),
+                true, mSettingsObserver);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getContentResolver().unregisterContentObserver(mSettingsObserver);
     }
 
     @Override
@@ -213,6 +235,20 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             mNetTrafficPeriod.setSummary(mNetTrafficPeriod.getEntries()[index]);
         }
         return false;
+    }
+
+    private void refreshBrightnessControl() {
+        try {
+            if (Settings.System.getInt(getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE)
+                    == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
+            } else {
+                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_brightness_summary);
+            }
+        } catch (SettingNotFoundException e) {
+            // Do nothing
+        }
     }
 
     private void enableStatusBarBatteryDependents(String value) {
