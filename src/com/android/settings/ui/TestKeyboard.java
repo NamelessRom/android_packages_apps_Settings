@@ -30,7 +30,7 @@ public class TestKeyboard extends Preference{
 
        public TestKeyboard(Context context, AttributeSet attrs) {
            super(context, attrs);
-           mHint = attrs.getAttributeResourceValue(null, "hint", 0);
+           mHint = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res/android", "hint", 0);
        }
 
        @Override
