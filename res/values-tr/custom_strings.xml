@@ -38,7 +38,7 @@
   <string name="volume_steps_ring_title">Zil sesi</string>
   <string name="volume_steps_system_title">Sistem</string>
   <string name="volume_steps_voice_call_title">Sesli arama</string>
-  <string name="battery_around_lockscreen_ring">Ekran kilitinde pil göstergesi</string>
+  <string name="battery_around_lockscreen_ring">Tuş kilitinde pil miktarını göster</string>
   <string name="system_ui_recent_panel_title">Geçmiş Paneli</string>
   <string name="custom_statusbar_header_title">Bağlamsal bildirim panel başlığı</string>
   <string name="custom_statusbar_header_summary">Geçerli tarih ve zamana dayalı bir görüntüye bildirim paneli başlığının arka planını ayarlar</string>
@@ -239,8 +239,8 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="navigation_bar_size_0_dp">0 dp (kapalı)</string>
   <string name="navbar_force_enable_title">Gezinti çubuğunu başlat</string>
   <string name="navbar_force_enable_summary">Bir yeniden başlatma gerektirebilir</string>
-  <string name="hardware_keys_disable_title">Donanım anahtarları devre dışı</string>
-  <string name="hardware_keys_disable_summary">Blok donanım tuşlarını işlemeyi devre dışı bırakır</string>
+  <string name="hardware_keys_disable_title">Donanım tuşları devredışı olsun</string>
+  <string name="hardware_keys_disable_summary">Altta yer alan blok donanım tuşlarını devre dışı bırakmaya yarar</string>
   <string name="smart_pulldown_title">Akıllı açılma</string>
   <string name="smart_pulldown_summary">Mevcut hiçbir bildirim olmadığında hızlı ayarları açın</string>
   <string name="smart_pulldown_off">Kapalı</string>
@@ -261,8 +261,8 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="flip_qs_tiles_summary">Çevrilen başlıklar için dokunun</string>
   <string name="haptic_qs_tiles_title">Titreşim ayarı için dokunun</string>
   <string name="haptic_qs_tiles_summary">Başlık dokunmadan titreşimle</string>
-  <string name="lockscreen_glowpad_torch_title">Glowpad el feneri</string>
-  <string name="lockscreen_glowpad_torch_summary">El fenerini başlatmak için çift dokunun ve kaydırıcıyı basılı tutun</string>
+  <string name="lockscreen_glowpad_torch_title">El feneri kısayolu</string>
+  <string name="lockscreen_glowpad_torch_summary">El feneri kısayolunu başlatmak için çift dokunmalı ve basılı tutmalısınız</string>
   <string name="see_through_title">Şeffaf görünüm</string>
   <string name="see_through_summary">Kilit ekranının arkasındaki içeriği gösterir, ana ekrandaki bilgileriniz görünür</string>
   <string name="camera_sounds_title">Kamera deklanşör sesi</string>
