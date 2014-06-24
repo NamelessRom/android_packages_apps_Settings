@@ -18,9 +18,12 @@ package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
+import android.net.TrafficStats;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -40,24 +43,35 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             = "status_bar_battery_show_percent";
 
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
-    private static final String STATUS_BAR_NETWORK_ACTIVITY = "status_bar_network_activity";
-    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
-
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
+    private static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+    private static final String NETWORK_TRAFFIC_UNIT = "network_traffic_unit";
+    private static final String NETWORK_TRAFFIC_PERIOD = "network_traffic_period";
+    private static final String STATUS_BAR_NETWORK_ACTIVITY = "status_bar_network_activity";
 
     private ListPreference mStatusBarBattery;
     private CheckBoxPreference mStatusBarBatteryShowPercent;
 
     private ListPreference mStatusBarCmSignal;
+    private ListPreference mNetTrafficState;
+    private ListPreference mNetTrafficUnit;
+    private ListPreference mNetTrafficPeriod;
     private CheckBoxPreference mStatusBarNetworkActivity;
-    private CheckBoxPreference mStatusBarTraffic;
+
+    private int mNetTrafficVal;
+    private int MASK_UP;
+    private int MASK_DOWN;
+    private int MASK_UNIT;
+    private int MASK_PERIOD;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar);
+
+	loadResources();
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -90,22 +104,49 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
 
+        mStatusBarNetworkActivity =
+                (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NETWORK_ACTIVITY);
+        mStatusBarNetworkActivity.setChecked(Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 0) == 1);
+        mStatusBarNetworkActivity.setOnPreferenceChangeListener(this);
+
+        mNetTrafficState = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_STATE);
+        mNetTrafficUnit = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_UNIT);
+        mNetTrafficPeriod = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_PERIOD);
+
+        // TrafficStats will return UNSUPPORTED if the device does not support it.
+        if (TrafficStats.getTotalTxBytes() != TrafficStats.UNSUPPORTED &&
+                TrafficStats.getTotalRxBytes() != TrafficStats.UNSUPPORTED) {
+            mNetTrafficVal = Settings.System.getInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, 0);
+            int intIndex = mNetTrafficVal & (MASK_UP + MASK_DOWN);
+            intIndex = mNetTrafficState.findIndexOfValue(String.valueOf(intIndex));
+            if (intIndex <= 0) {
+                mNetTrafficUnit.setEnabled(false);
+                mNetTrafficPeriod.setEnabled(false);
+            }
+            mNetTrafficState.setValueIndex(intIndex >= 0 ? intIndex : 0);
+            mNetTrafficState.setSummary(mNetTrafficState.getEntry());
+            mNetTrafficState.setOnPreferenceChangeListener(this);
+
+            mNetTrafficUnit.setValueIndex(getBit(mNetTrafficVal, MASK_UNIT) ? 1 : 0);
+            mNetTrafficUnit.setSummary(mNetTrafficUnit.getEntry());
+            mNetTrafficUnit.setOnPreferenceChangeListener(this);
+
+            intIndex = (mNetTrafficVal & MASK_PERIOD) >>> 16;
+            intIndex = mNetTrafficPeriod.findIndexOfValue(String.valueOf(intIndex));
+            mNetTrafficPeriod.setValueIndex(intIndex >= 0 ? intIndex : 1);
+            mNetTrafficPeriod.setSummary(mNetTrafficPeriod.getEntry());
+            mNetTrafficPeriod.setOnPreferenceChangeListener(this);
+        } else {
+            prefSet.removePreference(findPreference(NETWORK_TRAFFIC_STATE));
+            prefSet.removePreference(findPreference(NETWORK_TRAFFIC_UNIT));
+            prefSet.removePreference(findPreference(NETWORK_TRAFFIC_PERIOD));
+        }
+
         if (Utils.isWifiOnly(getActivity())
                 || (MSimTelephonyManager.getDefault().isMultiSimEnabled())) {
             prefSet.removePreference(mStatusBarCmSignal);
         }
-
-        mStatusBarNetworkActivity = (CheckBoxPreference)
-                prefSet.findPreference(STATUS_BAR_NETWORK_ACTIVITY);
-        mStatusBarNetworkActivity.setChecked(Settings.System.getInt(resolver,
-            Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 0) == 1);
-        mStatusBarNetworkActivity.setOnPreferenceChangeListener(this);
-
-        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
-        int intState = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, 0);
-        intState = setStatusBarTrafficSummary(intState);
-        mStatusBarTraffic.setChecked(intState > 0);
-        mStatusBarTraffic.setOnPreferenceChangeListener(this);
 
         if (Utils.isTablet(getActivity())) {
             prefSet.removePreference(statusBarBrightnessControl);
@@ -138,20 +179,39 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarNetworkActivity) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY, value ? 1 : 0);
-            return true;
-        } else if (preference == mStatusBarTraffic) {
-            // Increment the state and then update the label
-            int intState = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, 0);
-            intState++;
-            intState = setStatusBarTrafficSummary(intState);
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_TRAFFIC, intState);
-            return intState <= 1;
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NETWORK_ACTIVITY,
+                    value ? 1 : 0);
+        } else if (preference == mNetTrafficState) {
+            int intState = Integer.valueOf((String)objValue);
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_UP, getBit(intState, MASK_UP));
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_DOWN, getBit(intState, MASK_DOWN));
+            Settings.System.putInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, mNetTrafficVal);
+            int index = mNetTrafficState.findIndexOfValue((String) objValue);
+            mNetTrafficState.setSummary(mNetTrafficState.getEntries()[index]);
+            if (intState == 0) {
+                mNetTrafficUnit.setEnabled(false);
+                mNetTrafficPeriod.setEnabled(false);
+            } else {
+                mNetTrafficUnit.setEnabled(true);
+                mNetTrafficPeriod.setEnabled(true);
+            }
+        } else if (preference == mNetTrafficUnit) {
+            // 1 = Display as Byte/s; default is bit/s
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_UNIT, ((String)objValue).equals("1"));
+            Settings.System.putInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, mNetTrafficVal);
+            int index = mNetTrafficUnit.findIndexOfValue((String) objValue);
+            mNetTrafficUnit.setSummary(mNetTrafficUnit.getEntries()[index]);
+        } else if (preference == mNetTrafficPeriod) {
+            int intState = Integer.valueOf((String)objValue);
+            mNetTrafficVal = setBit(mNetTrafficVal, MASK_PERIOD, false) + (intState << 16);
+            Settings.System.putInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, mNetTrafficVal);
+            int index = mNetTrafficPeriod.findIndexOfValue((String) objValue);
+            mNetTrafficPeriod.setSummary(mNetTrafficPeriod.getEntries()[index]);
+     } else {
+            return false;
         }
-
-        return false;
+        return true;
     }
 
     private void enableStatusBarBatteryDependents(String value) {
@@ -160,16 +220,24 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBatteryShowPercent.setEnabled(enabled);
     }
 
-    private int setStatusBarTrafficSummary(int intState) {
-        // These states must match com.android.systemui.statusbar.policy.Traffic
-        if (intState == 1) {
-            mStatusBarTraffic.setSummary(R.string.show_network_speed_bits);
-        } else if (intState == 2) {
-            mStatusBarTraffic.setSummary(R.string.show_network_speed_bytes);
-        } else {
-            mStatusBarTraffic.setSummary(R.string.show_network_speed_summary);
-            return 0;
-        }
-        return intState;
+    private void loadResources() {
+        Resources resources = getActivity().getResources();
+        MASK_UP = resources.getInteger(R.integer.maskUp);
+        MASK_DOWN = resources.getInteger(R.integer.maskDown);
+        MASK_UNIT = resources.getInteger(R.integer.maskUnit);
+        MASK_PERIOD = resources.getInteger(R.integer.maskPeriod);
     }
+
+    // intMask should only have the desired bit(s) set
+    private int setBit(int intNumber, int intMask, boolean blnState) {
+        if (blnState) {
+            return (intNumber | intMask);
+        }
+        return (intNumber & ~intMask);
+    }
+
+    private boolean getBit(int intNumber, int intMask) {
+        return (intNumber & intMask) == intMask;
+    }
+
 }
