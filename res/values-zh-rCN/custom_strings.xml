@@ -15,4 +15,41 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources/>
+<resources>
+  <string name="nameless_mod_version">Nameless版本</string>
+  <string name="rom_developers">Rom 开发人员</string>
+  <string name="device_maintainers">设备维护人员</string>
+  <string name="reset">重置</string>
+  <string name="enabled">启用</string>
+  <string name="attention">注意</string>
+  <string name="default_string">默认</string>
+  <string name="volume_steps_alarm_title">闹钟</string>
+  <string name="volume_steps_music_title">音乐</string>
+  <string name="volume_steps_notification_title">通知</string>
+  <string name="volume_steps_system_title">系统</string>
+  <string name="low_battery_warning_policy_popup_sound">弹出窗口和声音</string>
+  <string name="low_battery_warning_policy_notif_sound">通知和声音</string>
+  <string name="low_battery_warning_policy_notif">仅通知</string>
+  <string name="low_battery_warning_policy_sound">仅声音</string>
+  <string name="battery_prefs_title">选项</string>
+  <string name="dialog_color_picker">颜色选择器</string>
+  <string name="set">设置</string>
+  <string name="color_default">默认</string>
+  <string name="general">常规</string>
+  <string name="layout">布局</string>
+  <string name="privacy">隐私</string>
+  <string name="Lockscreen_notifications_header">锁屏界面通知</string>
+  <string name="lockscreen_notifications">锁屏界面通知</string>
+  <string name="show_always">总是显示</string>
+  <string name="wake_on_notification">在收到通知时唤醒屏幕</string>
+  <string name="privacy_mode">隐私模式</string>
+  <string name="bars_and_menus_category_system_title">系统</string>
+  <string name="listview_off">关闭</string>
+  <string name="listview_wave_left">波浪（左）</string>
+  <string name="listview_wave_right">波浪（右）</string>
+  <string name="listview_scale">缩放</string>
+  <string name="listview_translate_left">翻转（左）</string>
+  <string name="listview_translate_right">翻转（右）</string>
+  <string name="wakelock_blocker_title">启用</string>
+  <string name="privacy_guard_notification_title">通知</string>
+</resources>
