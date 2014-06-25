@@ -197,12 +197,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 mNetTrafficUnit.setEnabled(true);
                 mNetTrafficPeriod.setEnabled(true);
             }
+            return true;
         } else if (preference == mNetTrafficUnit) {
             // 1 = Display as Byte/s; default is bit/s
             mNetTrafficVal = setBit(mNetTrafficVal, MASK_UNIT, ((String) newValue).equals("1"));
             Settings.System.putInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, mNetTrafficVal);
             int index = mNetTrafficUnit.findIndexOfValue((String) newValue);
             mNetTrafficUnit.setSummary(mNetTrafficUnit.getEntries()[index]);
+            return true;
         } else if (preference == mNetTrafficPeriod) {
             int intState = Integer.valueOf((String) newValue);
             mNetTrafficVal = setBit(mNetTrafficVal, MASK_PERIOD, false) + (intState << 16);
