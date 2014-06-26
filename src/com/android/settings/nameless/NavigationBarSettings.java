@@ -75,9 +75,12 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 }
                 Settings.System.putInt(getContentResolver(), Settings.System.BUTTON_BRIGHTNESS, 0);
             } else {
-                Settings.System.putInt(getContentResolver(), Settings.System.BUTTON_BRIGHTNESS,
-                        prefs.getInt(PREF_BUTTON_BACKLIGHT, defaultBrightness));
-                editor.remove(PREF_BUTTON_BACKLIGHT);
+                final int oldBright = prefs.getInt(PREF_BUTTON_BACKLIGHT, -1);
+                if (oldBright != -1) {
+                    Settings.System.putInt(getContentResolver(),
+                            Settings.System.BUTTON_BRIGHTNESS, oldBright);
+                    editor.remove(PREF_BUTTON_BACKLIGHT);
+                }
             }
             editor.commit();
             return true;
