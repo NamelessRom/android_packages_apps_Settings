@@ -436,4 +436,8 @@
 
     <string name="power_menu_mobile_data_title">Mobile Data</string>
     <string name="power_menu_wifi_title">Wifi</string>
+
+    <!-- S-Pen -->
+    <string name="enable_navbar_spen_title">Enable navigation bar</string>
+    <string name="enable_navbar_spen_summary">Enable navigation bar when s-pen is in use</string>
 </resources>

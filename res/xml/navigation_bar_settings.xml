@@ -24,11 +24,11 @@
         android:key="navigation_bar_force"
         android:title="@string/navigation_bar_force_category">
 
-        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+        <CheckBoxPreference
             android:key="navbar_force_enable"
             android:title="@string/navbar_force_enable_title"
             android:summary="@string/navbar_force_enable_summary"
-            android:defaultValue="false" />
+            android:persistent="false" />
 
         <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
             android:key="hardware_keys_disable"
@@ -36,6 +36,12 @@
             android:summary="@string/hardware_keys_disable_summary"
             android:defaultValue="false"
             android:dependency="navbar_force_enable" />
+
+        <CheckBoxPreference
+            android:key="enable_navbar_spen"
+            android:title="@string/enable_navbar_spen_title"
+            android:summary="@string/enable_navbar_spen_summary"
+            android:persistent="false" />
 
     </PreferenceCategory>
 
