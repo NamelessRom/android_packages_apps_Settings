@@ -36,7 +36,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
     private ListPreference mCollapseOnDismiss;
     private CheckBoxPreference mStatusBarCustomHeader;
-    private SystemSettingSwitchPreference mSwitchPreference;
     private Preference mHeadsUp;
 
     @Override
