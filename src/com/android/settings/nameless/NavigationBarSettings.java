@@ -18,6 +18,7 @@
 package com.android.settings.nameless;
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -34,9 +35,13 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEY_NAVIGATION_BAR_WIDTH  = "navigation_bar_width";
+    private static final String KEY_NAVIGATION_BAR_FORCE_ENABLE  = "navbar_force_enable";
+    private static final String KEY_NAVIGATION_BAR_ENABLE_SPEN  = "enable_navbar_spen";
 
     private ListPreference mNavigationBarHeight;
     private ListPreference mNavigationBarWidth;
+    private CheckBoxPreference mNavBarForceEnable;
+    private CheckBoxPreference mNavBarEnableSPen;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,17 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         }
 
         updateDimensionValues();
+
+        mNavBarForceEnable = (CheckBoxPreference) findPreference(KEY_NAVIGATION_BAR_FORCE_ENABLE);
+        mNavBarForceEnable.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.NAVBAR_FORCE_ENABLE, 0) == 1);
+        mNavBarForceEnable.setOnPreferenceChangeListener(this);
+
+        mNavBarEnableSPen = (CheckBoxPreference) findPreference(KEY_NAVIGATION_BAR_ENABLE_SPEN);
+        mNavBarEnableSPen.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.ENABLE_NAVBAR_SPEN, 0) == 1);
+        mNavBarEnableSPen.setOnPreferenceChangeListener(this);
+        mNavBarEnableSPen.setEnabled(!mNavBarForceEnable.isChecked());
     }
 
     public boolean onPreferenceChange(final Preference preference, final Object objValue) {
@@ -80,6 +96,21 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NAVIGATION_BAR_HEIGHT,
                     Integer.parseInt((String) objValue));
+            return true;
+        } else if (preference == mNavBarForceEnable) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAVBAR_FORCE_ENABLE, value ? 1 : 0);
+            if (value) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.ENABLE_NAVBAR_SPEN, 0);
+            }
+            mNavBarEnableSPen.setEnabled(!mNavBarForceEnable.isChecked());
+            return true;
+        } else if (preference == mNavBarEnableSPen) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAVBAR_FORCE_ENABLE, value ? 1 : 0);
             return true;
         }
         return false;
