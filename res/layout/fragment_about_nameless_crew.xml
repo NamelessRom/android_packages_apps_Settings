@@ -10,6 +10,14 @@
         style="@style/settingsFragmentStyle">
 
         <com.android.settings.nameless.widgets.DeveloperPreference
+            nameless:nameDev="@string/maintainers_dheeraj_name"
+            nameless:githubLink="@string/maintainers_dheeraj_github"
+            nameless:emailDev="@string/maintainers_dheeraj_email"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.android.settings.nameless.widgets.DeveloperPreference
             nameless:nameDev="@string/maintainers_evisceration_name"
             nameless:githubLink="@string/maintainers_evisceration_github"
             nameless:emailDev="@string/maintainers_evisceration_email"
