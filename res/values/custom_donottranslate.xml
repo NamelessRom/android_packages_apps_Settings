@@ -23,6 +23,9 @@
     <string name="maintainers_nameless_github">https://github.com/NamelessRom</string>
     <string name="maintainers_nameless_email">namelessromofficial@gmail.com</string>
     <!-- Team List -->
+    <string name="maintainers_dheeraj_name" translatable="false">dhiru1602</string>
+    <string name="maintainers_dheeraj_github" translatable="false">https://github.com/dhiru1602</string>
+    <string name="maintainers_dheeraj_email" translatable="false">cvr.dheeraj@gmail.com</string>
     <string name="maintainers_evisceration_name" translatable="false">Evisceration</string>
     <string name="maintainers_evisceration_github" translatable="false">https://github.com/Evisceration</string>
     <string name="maintainers_evisceration_email" translatable="false">eviscerationls@gmail.com</string>
