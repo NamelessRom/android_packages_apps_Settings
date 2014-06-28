@@ -164,17 +164,6 @@
 
     <!-- CYANOGENMOD -->
     <!--header android:title="@string/header_category_cyanogenmod" /-->
-    <!-- Gestures -->
-    <header
-        android:id="@+id/device_specific_gesture_settings"
-        android:icon="@drawable/ic_settings_gestures"
-        android:title="@string/gestures_settings_header_title">
-        <intent
-            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
-    </header>
-
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
@@ -199,6 +188,17 @@
         android:icon="@drawable/ic_settings_buttons"
         android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
         android:title="@string/button_settings" />
+
+    <!-- Gestures -->
+    <header
+        android:id="@+id/device_specific_gesture_settings"
+        android:icon="@drawable/ic_settings_gestures"
+        android:title="@string/gestures_settings_header_title">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN$
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.Touc$
+    </header>
 
     <!-- Storage -->
     <header
