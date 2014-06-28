@@ -405,4 +405,24 @@
     <string name="force_highend_gfx_summary">Enables high-end visual effects such as transparent status/navigation bar (requires reboot)</string>
 
     <string name="more_device_controls_title">More\u2026</string>
+
+    <!-- Slide lock delay -->
+    <string name="delay_and_timeout_title">Lock delay</string>
+    <string name="slide_lock_delay_title">Delay screen lock</string>
+    <string name="slide_lock_timeout_delay_title">Delay after timeout</string>
+    <string name="slide_lock_screenoff_delay_title">Delay after turned off</string>
+    <string name="slide_lock_delay_none">None</string>
+    <string name="slide_lock_delay_1s">1 second</string>
+    <string name="slide_lock_delay_5s">5 seconds</string>
+    <string name="slide_lock_delay_10s">10 seconds</string>
+    <string name="slide_lock_delay_15s">15 seconds</string>
+    <string name="slide_lock_delay_30s">30 seconds</string>
+    <string name="slide_lock_delay_1m">1 minute</string>
+    <string name="slide_lock_delay_5m">5 minutes</string>
+    <string name="slide_lock_delay_10m">10 minutes</string>
+    <string name="slide_lock_delay_30m">30 minutes</string>
+
+    <!-- System Interface settings  -->
+    <string name="system_settings_title">Interface</string>
+    <string name="system_interface_title">System interface</string>
 </resources>
