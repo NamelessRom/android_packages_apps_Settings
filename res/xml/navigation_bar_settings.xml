@@ -59,6 +59,12 @@
             android:summary="@string/navigation_bar_left_summary"
             android:defaultValue="false" />
 
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="navigation_bar_menu_arrow_keys"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:summary="@string/navigation_bar_arrow_keys_summary"
+            android:defaultValue="true" />
+
         <ListPreference
             android:key="navigation_bar_height"
             android:entries="@array/navigation_bar_height_entries"
