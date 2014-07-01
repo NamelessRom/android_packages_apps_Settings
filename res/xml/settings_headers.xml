@@ -60,6 +60,17 @@
         <intent android:action="com.android.settings.OPERATOR_APPLICATION_SETTING" />
     </header>
 
+    <!-- Multi Sim Settings - this is in the settings process -->
+    <header
+        android:id="@+id/multi_sim_settings"
+        android:icon="@drawable/ic_settings_sim"
+        android:title="@string/multi_sim_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.MultiSimSettings" />
+    </header>
+
     <!-- Other wireless and network controls -->
     <header
         android:id="@+id/wireless_settings"
@@ -73,14 +84,6 @@
         android:id="@+id/nameless_section"
         android:title="@string/header_category_nameless" />
 
-    <!-- Crazy Lab -->
-    <header
-        android:id="@+id/crazy_lab"
-        android:icon="@drawable/ic_settings_secret"
-        android:breadCrumbTitle="@string/crazy_lab"
-        android:title="@string/crazy_lab"
-        android:fragment="com.android.settings.nameless.secret.CrazyLabSettings"/>
-
     <!-- Device Control -->
     <header
         android:id="@+id/device_control_settings"
@@ -93,24 +96,13 @@
         android:icon="@drawable/ic_settings_updatecenter"
         android:title="@string/device_update_center" />
 
-    <!-- Other interface controls -->
+    <!-- Crazy Lab -->
     <header
-        android:id="@+id/interface_more"
-        android:title="@string/more_device_controls_title"
-        android:breadCrumbTitle="@string/more_device_controls_title"
-        android:icon="@drawable/empty_icon"
-        android:fragment="com.android.settings.nameless.NamelessMoreSettings" />
-
-    <!-- Multi Sim Settings - this is in the settings process -->
-    <header
-        android:id="@+id/multi_sim_settings"
-        android:icon="@drawable/ic_settings_sim"
-        android:title="@string/multi_sim_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.MultiSimSettings" />
-    </header>
+        android:id="@+id/crazy_lab"
+        android:icon="@drawable/ic_settings_secret"
+        android:breadCrumbTitle="@string/crazy_lab"
+        android:title="@string/crazy_lab"
+        android:fragment="com.android.settings.nameless.secret.CrazyLabSettings"/>
 
     <!-- INTERFACE -->
     <header

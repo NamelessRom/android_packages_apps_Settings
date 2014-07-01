@@ -405,7 +405,6 @@ public class Settings extends PreferenceActivity
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
         com.android.settings.cyanogenmod.QuietHours.class.getName(),
         com.android.settings.nameless.secret.CrazyLabSettings.class.getName(),
-        com.android.settings.nameless.NamelessMoreSettings.class.getName(),
         com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName(),
         NavigationBarSettings.class.getName(),
         com.android.settings.ThemeSettings.class.getName()
@@ -705,10 +704,6 @@ public class Settings extends PreferenceActivity
                     target.get(i).intent = new Intent().setAction(ACTION_UPDATE_CENTER);
                     target.get(i).titleRes = R.string.device_update_center;
                 } else {
-                    target.remove(i);
-                }
-            } else if (id == R.id.crazy_lab) {
-                if (!Helpers.isSecretModeEnabled()) {
                     target.remove(i);
                 }
             } else if (id == R.id.supersu_settings) {
