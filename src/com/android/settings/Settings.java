@@ -313,9 +313,6 @@ public class Settings extends PreferenceActivity
 
         startPopulatingSearchData();
 
-        mActionBar = getActionBar();
-        mActionBar.setDisplayShowCustomEnabled(true);
-
         mAuthenticatorHelper = new AuthenticatorHelper();
         mAuthenticatorHelper.updateAuthDescriptions(this);
         mAuthenticatorHelper.onAccountsUpdated(this, null);
@@ -368,10 +365,14 @@ public class Settings extends PreferenceActivity
 
     @Override
     public boolean onIsMultiPane() {
+        mActionBar = getActionBar();
+        mActionBar.setDisplayShowCustomEnabled(true);
+
         if (android.provider.Settings.Nameless.getBoolean(getContentResolver(),
                 android.provider.Settings.Nameless.FORCE_MULTI_PANE, false)) {
             return true;
         }
+
         return super.onIsMultiPane();
     }
 
