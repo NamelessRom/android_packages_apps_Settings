@@ -18,10 +18,8 @@
 package com.android.settings.cyanogenmod;
 
 import android.app.admin.DevicePolicyManager;
-import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -144,8 +142,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // Remove maximize widgets on tablets
         if (!Utils.isPhone(getActivity())) {
-            widgetsCategory.removePreference(
-                    mEnableMaximizeWidgets);
+            widgetsCategory.removePreference(mEnableMaximizeWidgets);
         }
 
     }
@@ -229,8 +226,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mEnableModLock) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED,
-                    value ? 1 : 0);
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED, value ? 1 : 0);
             // force it so update picks up correct values
             ((CheckBoxPreference) preference).setChecked(value);
             updateAvailableModLockPreferences();
