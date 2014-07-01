@@ -69,4 +69,9 @@
     <string name="navigation_bar_size_30_dp" translatable="false">30 dp</string>
     <string name="navigation_bar_size_24_dp" translatable="false">24 dp</string>
 
+    <string name="show_network_traffic_500" translatable="false">500 ms</string>
+    <string name="show_network_traffic_1000" translatable="false">1000 ms</string>
+    <string name="show_network_traffic_1500" translatable="false">1500 ms</string>
+    <string name="show_network_traffic_2000" translatable="false">2000 ms</string>
+
 </resources>
