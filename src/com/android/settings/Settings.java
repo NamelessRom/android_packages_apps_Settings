@@ -85,6 +85,7 @@ import com.android.settings.cyanogenmod.SystemUiSettings;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
+import com.android.settings.headsup.HeadsUpEnabler;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.inputmethod.KeyboardLayoutPickerFragment;
 import com.android.settings.inputmethod.SpellCheckersSettings;
@@ -921,6 +922,7 @@ public class Settings extends PreferenceActivity
         private final WifiEnabler mWifiEnabler;
         private final BluetoothEnabler mBluetoothEnabler;
         private final MobileDataEnabler mMobileDataEnabler;
+        private final HeadsUpEnabler mHeadsUpEnabler;
         private final ProfileEnabler mProfileEnabler;
         private final LocationEnabler mLocationEnabler;
         private final VoiceWakeupEnabler mVoiceWakeupEnabler;
@@ -944,6 +946,7 @@ public class Settings extends PreferenceActivity
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
                     || header.id == R.id.mobile_network_settings
+                    || header.id == R.id.heads_up
                     || header.id == R.id.profiles_settings
                     || header.id == R.id.voice_wakeup_settings
                     || header.id == R.id.location_settings) {
@@ -993,6 +996,7 @@ public class Settings extends PreferenceActivity
             mWifiEnabler = new WifiEnabler(context, new Switch(context));
             mBluetoothEnabler = new BluetoothEnabler(context, new Switch(context));
             mMobileDataEnabler = new MobileDataEnabler(context, new Switch(context));
+            mHeadsUpEnabler = new HeadsUpEnabler(context, new Switch(context));
             mProfileEnabler = new ProfileEnabler(context, new Switch(context));
             mLocationEnabler = new LocationEnabler(context, new Switch(context));
             mVoiceWakeupEnabler = new VoiceWakeupEnabler(context, new Switch(context));
@@ -1069,6 +1073,8 @@ public class Settings extends PreferenceActivity
                         mBluetoothEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.mobile_network_settings) {
                         mMobileDataEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.heads_up) {
+                        mHeadsUpEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.profiles_settings) {
                         mProfileEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.location_settings) {
@@ -1149,6 +1155,7 @@ public class Settings extends PreferenceActivity
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
             mMobileDataEnabler.resume();
+            mHeadsUpEnabler.resume();
             mProfileEnabler.resume();
             mLocationEnabler.resume();
             mVoiceWakeupEnabler.resume();
@@ -1158,6 +1165,7 @@ public class Settings extends PreferenceActivity
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
             mMobileDataEnabler.pause();
+            mHeadsUpEnabler.pause();
             mProfileEnabler.pause();
             mLocationEnabler.pause();
             mVoiceWakeupEnabler.pause();

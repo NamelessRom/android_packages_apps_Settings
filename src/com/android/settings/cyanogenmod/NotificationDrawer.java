@@ -36,14 +36,11 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
     private ListPreference mCollapseOnDismiss;
     private CheckBoxPreference mStatusBarCustomHeader;
-    private Preference mHeadsUp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notification_drawer);
-
-        mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
 
         // Notification drawer
         int collapseBehaviour = Settings.System.getInt(getContentResolver(),
@@ -58,16 +55,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mStatusBarCustomHeader.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
         mStatusBarCustomHeader.setOnPreferenceChangeListener(this);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        boolean headsUpEnabled = Settings.System.getInt(
-                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION, 0) == 1;
-        mHeadsUp.setSummary(headsUpEnabled
-                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

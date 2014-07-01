@@ -124,6 +124,13 @@
         android:fragment="com.android.settings.HomeSettings"
         android:title="@string/home_settings" />
 
+    <!-- Heads up -->
+    <header
+        android:id="@+id/heads_up"
+        android:icon="@drawable/ic_settings_headsup"
+        android:fragment="com.android.settings.headsup.HeadsUpSettings"
+        android:title="@string/category_heads_up" />
+
     <!-- System UI -->
     <header
         android:id="@+id/system_settings"
