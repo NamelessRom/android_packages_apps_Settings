@@ -28,8 +28,6 @@
   <string name="attention">Dikkat</string>
   <string name="default_string">Varsayılan</string>
   <string name="interface_animation_title">Animasyon kontrolü</string>
-  <string name="show_activity_indicators_on_status_bar_title">Ağ etkinlik göstergesi</string>
-  <string name="show_activity_indicators_on_status_bar_summary">Durum çubuğunda ağ etkinliği göster</string>
   <string name="volume_steps_title">Ses Seviyesi</string>
   <string name="volume_steps_alarm_title">Alarm</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -174,10 +172,9 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="notification_drawer_custom_background_dialog_title">Renk seçin</string>
   <string name="notif_wallpaper_alpha_title">Arka plan saydamlığı</string>
   <string name="notif_alpha_title">Bildirim şeffaflık</string>
-  <string name="show_network_speed">Ağ hız göstergesi</string>
-  <string name="show_network_speed_summary">Ağ hızını durum çubuğunda göster</string>
-  <string name="show_network_speed_bits">Hızı saniyede bit olarak göster</string>
-  <string name="show_network_speed_bytes">Hızı saniyede bayt göster</string>
+  <string name="show_network_traffic_disable">Etkisizleştirildi</string>
+  <string name="show_activity_indicators_on_status_bar_title">Ağ etkinlik göstergesi</string>
+  <string name="show_activity_indicators_on_status_bar_summary">Durum çubuğunda ağ etkinliği göster</string>
   <string name="notification_carrier_label_title">Taşıyıcı etiketi</string>
   <string name="notification_custom_carrier_label_title">Özel taşıyıcı etiketi</string>
   <string name="notification_custom_carrier_label_explain">Lütfen yeni bir etiket girin. Stok etiket dönmek için boş bir etiket girin.</string>
@@ -285,4 +282,5 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="long_press_kill_delay">Uygulamaları öldürme gecikmesi</string>
   <string name="force_highend_gfx_title">Yüksek-Düşük grafik ayarı</string>
   <string name="force_highend_gfx_summary">Yüksek-düşük grafik efekleri durum çubuğu/gezinme çubuğu şeffaflığını sağlar.(Yeniden başlatma gerektirebilir.)</string>
+  <string name="navigation_bar_force_category">Gezinti çubuğu gücü</string>
 </resources>

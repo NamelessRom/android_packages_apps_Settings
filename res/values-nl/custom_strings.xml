@@ -27,8 +27,6 @@
   <string name="attention">Let op</string>
   <string name="default_string">Standaard</string>
   <string name="interface_animation_title">Animatie-instellingen</string>
-  <string name="show_activity_indicators_on_status_bar_title">Netwerk activiteitsindicator</string>
-  <string name="show_activity_indicators_on_status_bar_summary">Netwerkactiviteit weergeven in statusbalk</string>
   <string name="volume_steps_title">Volume stappen</string>
   <string name="volume_steps_alarm_title">Alarm</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -104,10 +102,9 @@
   <string name="notification_drawer_custom_background_dialog_title">Een kleur kiezen</string>
   <string name="notif_wallpaper_alpha_title">Achtergrond transparantie</string>
   <string name="notif_alpha_title">Melding transparantie</string>
-  <string name="show_network_speed">Netwerk snelheid indicator</string>
-  <string name="show_network_speed_summary">Toon netwerksnelheden in statusbalk</string>
-  <string name="show_network_speed_bits">Toon snelheid als bits per seconde</string>
-  <string name="show_network_speed_bytes">Toon snelheid als Bytes per seconde</string>
+  <string name="show_network_traffic_disable">Uitgeschakeld</string>
+  <string name="show_activity_indicators_on_status_bar_title">Netwerk activiteitsindicator</string>
+  <string name="show_activity_indicators_on_status_bar_summary">Netwerkactiviteit weergeven in statusbalk</string>
   <string name="advanced_device_info_title">Geavanceerde apparaat Info</string>
   <string name="advanced_device_info_summary">Informatie over CPU, GPU enz.</string>
   <string name="cpu_features">Processor functies</string>
@@ -154,4 +151,5 @@
   <string name="disable_fc_notifications_title">FC Meldingen Uitschakelen</string>
   <string name="misc_others">Andere</string>
   <string name="privacy_guard_notification_title">Melding</string>
+  <string name="navigation_bar_force_category">Navigatiebalk forceren</string>
 </resources>

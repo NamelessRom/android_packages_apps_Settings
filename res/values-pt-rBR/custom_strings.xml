@@ -28,8 +28,6 @@
   <string name="attention">Atenção</string>
   <string name="default_string">Padrão</string>
   <string name="interface_animation_title">Controle de animação</string>
-  <string name="show_activity_indicators_on_status_bar_title">Indicador de atividade de rede</string>
-  <string name="show_activity_indicators_on_status_bar_summary">Mostrar a atividade da rede na barra de status</string>
   <string name="volume_steps_title">Níveis de volume</string>
   <string name="volume_steps_alarm_title">Alarme</string>
   <string name="volume_steps_dtmf_title">DTMF</string>
@@ -174,10 +172,9 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="notification_drawer_custom_background_dialog_title">Escolher a cor</string>
   <string name="notif_wallpaper_alpha_title">Transparência de plano de fundo</string>
   <string name="notif_alpha_title">Transparência de notificação</string>
-  <string name="show_network_speed">Indicador de velocidade de rede</string>
-  <string name="show_network_speed_summary">Exibir velocidade de rede na barra de status</string>
-  <string name="show_network_speed_bits">Mostrar a velocidade como bits por segundo</string>
-  <string name="show_network_speed_bytes">Mostrar a velocidade como Bytes por segundo</string>
+  <string name="show_network_traffic_disable">Desativado</string>
+  <string name="show_activity_indicators_on_status_bar_title">Indicador de atividade de rede</string>
+  <string name="show_activity_indicators_on_status_bar_summary">Mostrar a atividade da rede na barra de status</string>
   <string name="notification_carrier_label_title">Nome da operadora</string>
   <string name="notification_custom_carrier_label_title">Personalizar nome de operadora</string>
   <string name="notification_custom_carrier_label_explain">Por favor, insira um novo rótulo. Insira um rótulo vazio para reverter para o padrão.</string>
@@ -285,4 +282,5 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="long_press_kill_delay">Atraso no encerramento de aplicativos</string>
   <string name="force_highend_gfx_title">Forçar as melhoras gráficas de alta faixa</string>
   <string name="force_highend_gfx_summary">Ativar o forçado das melhoras gráficas de alta faixa como a transparência na barra de status/navegação (requer de reinicio)</string>
+  <string name="navigation_bar_force_category">Forçar barra de navegação</string>
 </resources>
