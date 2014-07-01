@@ -91,6 +91,7 @@ import com.android.settings.inputmethod.SpellCheckersSettings;
 import com.android.settings.inputmethod.UserDictionaryList;
 import com.android.settings.location.LocationEnabler;
 import com.android.settings.location.LocationSettings;
+import com.android.settings.nameless.NavigationBarSettings;
 import com.android.settings.nameless.utils.Helpers;
 import com.android.settings.net.MobileDataEnabler;
 import com.android.settings.nfc.AndroidBeam;
@@ -405,6 +406,7 @@ public class Settings extends PreferenceActivity
         com.android.settings.nameless.secret.CrazyLabSettings.class.getName(),
         com.android.settings.nameless.NamelessMoreSettings.class.getName(),
         com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName(),
+        NavigationBarSettings.class.getName(),
         com.android.settings.ThemeSettings.class.getName()
     };
 

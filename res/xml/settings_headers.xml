@@ -181,6 +181,14 @@
         android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
         android:title="@string/button_settings" />
 
+    <!-- Navigation Bar -->
+
+    <header
+        android:id="@+id/navigation_bar"
+        android:icon="@drawable/ic_settings_navigation_bar"
+        android:fragment="com.android.settings.nameless.NavigationBarSettings"
+        android:title="@string/navigation_bar_category" />
+
     <!-- Gestures -->
     <header
         android:id="@+id/device_specific_gesture_settings"
