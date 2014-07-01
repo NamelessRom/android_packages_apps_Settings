@@ -33,8 +33,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -66,7 +64,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.internal.util.ArrayUtils;
-import com.android.settings.ActivityPicker;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accessibility.ToggleAccessibilityServicePreferenceFragment;
@@ -86,6 +83,7 @@ import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.headsup.HeadsUpEnabler;
+import com.android.settings.headsup.HeadsUpSettings;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.inputmethod.KeyboardLayoutPickerFragment;
 import com.android.settings.inputmethod.SpellCheckersSettings;
@@ -407,6 +405,7 @@ public class Settings extends PreferenceActivity
         com.android.settings.nameless.secret.CrazyLabSettings.class.getName(),
         com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName(),
         NavigationBarSettings.class.getName(),
+        HeadsUpSettings.class.getName(),
         com.android.settings.ThemeSettings.class.getName()
     };
 
