@@ -41,11 +41,29 @@
             android:title="@string/title_collapse_panel"
             android:summary="@string/summary_collapse_panel" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="quick_settings_pers_category"
+        android:title="@string/header_category_interface">
+
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="qs_small_icons"
             android:title="@string/title_qs_small_icons"
             android:defaultValue="false"
             android:summary="@string/summary_qs_small_icons" />
+
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="quick_settings_tiles_flip"
+            android:title="@string/flip_qs_tiles_title"
+            android:summary="@string/flip_qs_tiles_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="quick_settings_tiles_vibrate"
+            android:title="@string/haptic_qs_tiles_title"
+            android:summary="@string/haptic_qs_tiles_summary"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 
@@ -80,18 +98,6 @@
             android:title="@string/pref_screentimeout_mode_title"
             android:entries="@array/entries_screentimeout_widget"
             android:entryValues="@array/values_screentimeout_widget" />
-
-        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
-            android:key="quick_settings_tiles_flip"
-            android:title="@string/flip_qs_tiles_title"
-            android:summary="@string/flip_qs_tiles_summary"
-            android:defaultValue="true" />
-
-        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
-            android:key="quick_settings_tiles_vibrate"
-            android:title="@string/haptic_qs_tiles_title"
-            android:summary="@string/haptic_qs_tiles_summary"
-            android:defaultValue="true" />
 
     </PreferenceCategory>
 
