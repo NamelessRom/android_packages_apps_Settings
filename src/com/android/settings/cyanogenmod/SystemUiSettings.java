@@ -27,7 +27,6 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.ViewConfiguration;
 
-import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -56,6 +55,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
+        PreferenceCategory category;
 
         // Expanded desktop
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
@@ -68,20 +68,16 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
         final boolean hasRealNavigationBar = getResources()
                 .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
         if (hasRealNavigationBar) { // only disable on devices with REAL navigation bars
-            Preference pref = findPreference("hardware_keys_disable");
-            if (pref != null) {
-                prefScreen.removePreference(pref);
-            }
-            pref = findPreference("navbar_force_enable");
-            if (pref != null) {
-                prefScreen.removePreference(pref);
+            category = (PreferenceCategory) findPreference("navigation_bar_force");
+            if (category != null) {
+                prefScreen.removePreference(category);
             }
         }
 
         // Allows us to support devices, which have the navigation bar force enabled.
         final boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
 
-        final PreferenceCategory navbarCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
+        category = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
         if (hasNavBar) {
             mExpandedDesktopPref.setOnPreferenceChangeListener(this);
             mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
@@ -92,8 +88,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
             mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
             mNavigationBarWidth = (ListPreference) findPreference(KEY_NAVIGATION_BAR_WIDTH);
-            if (!DeviceUtils.isPhone(getActivity())) {
-                navbarCat.removePreference(mNavigationBarWidth);
+            if (!Utils.isPhone(getActivity())) {
+                category.removePreference(mNavigationBarWidth);
                 mNavigationBarWidth = null;
             } else {
                 mNavigationBarWidth.setOnPreferenceChangeListener(this);
@@ -106,7 +102,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment implements
             mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
             prefScreen.removePreference(mExpandedDesktopPref);
             // Hide navigation bar category
-            prefScreen.removePreference(navbarCat);
+            prefScreen.removePreference(category);
         }
 
     }

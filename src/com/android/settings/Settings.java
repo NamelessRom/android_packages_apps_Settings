@@ -403,7 +403,6 @@ public class Settings extends PreferenceActivity
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
         com.android.settings.cyanogenmod.QuietHours.class.getName(),
         com.android.settings.nameless.secret.CrazyLabSettings.class.getName(),
-        com.android.settings.nameless.InterfaceMoreSettings.class.getName(),
         com.android.settings.nameless.NamelessMoreSettings.class.getName(),
         com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName(),
         com.android.settings.ThemeSettings.class.getName()
