@@ -1239,4 +1239,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Stay Awake while plugged in -->
     <string name="keep_screen_on_summary_cm">Screen will never sleep while plugged in</string>
+
+    <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
+    <string name="enable_adb_cm">Android debugging</string>
+    <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
+    <string name="enable_adb_summary_cm">Enable the Android Debug Bridge (adb) interface</string>
 </resources>
