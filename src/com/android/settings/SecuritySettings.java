@@ -102,7 +102,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
         if (root != null) {
             root.removeAll();
         }
-        addPreferencesFromResource(R.xml.security_settings_owner);
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
 
@@ -134,12 +133,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
         }
 
-        // Append the rest of the settings
-        // App security settings
-        addPreferencesFromResource(R.xml.security_settings_app_cyanogenmod);
+        mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
         // Determine options based on device telephony support
-        if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-            mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
+        if (mPM.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
             mSmsSecurityCheck.setOnPreferenceChangeListener(this);
             int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
             updateSmsSecuritySummary(smsSecurityCheck);
@@ -151,8 +147,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
             root.removePreference(appCategory);
         }
 
-        addPreferencesFromResource(R.xml.security_settings_misc);
-
         if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
             MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
             int numPhones = MSimTelephonyManager.getDefault().getPhoneCount();
@@ -160,7 +154,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
             boolean removeLock = true;
             for (int i = 0; i < numPhones; i++) {
                 // Do not display SIM lock for devices without an Icc card
-                TelephonyManager tm = TelephonyManager.getDefault();
                 if (tm.hasIccCard(i)) {
                     // Disable SIM lock if sim card is missing or unknown
                     removeLock = false;
