@@ -426,4 +426,11 @@
 
     <!-- Automatic brightness customization -->
     <string name="auto_brightness_adjustment_title">Brightness adjustment</string>
+
+    <!-- Lockscreen Lid Settings -->
+    <string name="smart_cover">Smart cover</string>
+    <string name="smart_cover_wake_title">Smart cover wake</string>
+    <string name="smart_cover_wake_summary">Wakeup device when smart cover opens</string>
+    <string name="smart_cover_sleep_title">Smart cover sleep</string>
+    <string name="smart_cover_sleep_summary">Put the device to sleep when smart cover opens</string>
 </resources>

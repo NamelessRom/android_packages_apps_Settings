@@ -78,6 +78,25 @@
 
         </PreferenceCategory>
 
+        <PreferenceCategory
+            android:key="smart_cover"
+            android:title="@string/smart_cover">
+
+            <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+                android:key="lockscreen_lid_wake"
+                android:title="@string/smart_cover_wake_title"
+                android:summary="@string/smart_cover_wake_summary"
+                android:defaultValue="true" />
+
+
+            <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+                android:key="lockscreen_lid_sleep"
+                android:title="@string/smart_cover_sleep_title"
+                android:summary="@string/smart_cover_sleep_summary"
+                android:defaultValue="true" />
+
+        </PreferenceCategory>
+
         <!-- DeviceParts Device Specific Display settings -->
         <PreferenceCategory
             android:key="advanced_display_prefs"
