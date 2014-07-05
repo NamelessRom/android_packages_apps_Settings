@@ -87,15 +87,21 @@
 
     <!-- Device Control -->
     <header
-        android:id="@+id/device_control_settings"
+        android:id="@+id/device_control"
         android:icon="@drawable/ic_settings_devicecontrol"
-        android:title="@string/device_control_settings" />
+        android:title="@string/device_control" />
 
     <!-- Update Center -->
     <header
-        android:id="@+id/device_update_center"
+        android:id="@+id/update_center"
         android:icon="@drawable/ic_settings_updatecenter"
-        android:title="@string/device_update_center" />
+        android:title="@string/update_center" />
+
+    <!-- Nameless Provider -->
+    <header
+        android:id="@+id/nameless_provider"
+        android:icon="@drawable/ic_settings_nameless_provider"
+        android:title="@string/nameless_provider" />
 
     <!-- Crazy Lab -->
     <header

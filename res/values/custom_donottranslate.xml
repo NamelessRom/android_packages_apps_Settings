@@ -59,8 +59,9 @@
     <string name="gpu_title" translatable="false">GPU / OpenGL</string>
 
     <!-- Sub list strings -->
-    <string name="device_control_settings" translatable="false">Device Control</string>
-    <string name="device_update_center" translatable="false">Update Center</string>
+    <string name="device_control" translatable="false">Device Control</string>
+    <string name="update_center" translatable="false">Update Center</string>
+    <string name="nameless_provider" translatable="false">Nameless Provider</string>
 
     <string name="navigation_bar_size_44_dp" translatable="false">44 dp</string>
     <string name="navigation_bar_size_40_dp" translatable="false">40 dp</string>

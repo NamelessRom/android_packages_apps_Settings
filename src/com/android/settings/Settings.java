@@ -160,6 +160,8 @@ public class Settings extends PreferenceActivity
             "org.namelessrom.devicecontrol.activities.MainActivity";
     private static final String ACTION_UPDATE_CENTER =
             "org.namelessrom.updatecenter.activities.MainActivity";
+    private static final String ACTION_NAMELESS_PROVIDER =
+            "org.namelessrom.providers.activities.Preferences";
     private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
 
     private static final String GESTURE_SETTINGS_PACKAGE_NAME = "com.cyanogenmod.settings";
@@ -813,17 +815,24 @@ public class Settings extends PreferenceActivity
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
                     target.remove(i);
                 }
-            } else if (id == R.id.device_control_settings) {
+            } else if (id == R.id.device_control) {
                 if (actionExists(ACTION_DEVICE_CONTROL)) {
                     target.get(i).intent = new Intent().setAction(ACTION_DEVICE_CONTROL);
-                    target.get(i).titleRes = R.string.device_control_settings;
+                    target.get(i).titleRes = R.string.device_control;
                 } else {
                     target.remove(i);
                 }
-            } else if (id == R.id.device_update_center) {
+            } else if (id == R.id.update_center) {
                 if (actionExists(ACTION_UPDATE_CENTER)) {
                     target.get(i).intent = new Intent().setAction(ACTION_UPDATE_CENTER);
-                    target.get(i).titleRes = R.string.device_update_center;
+                    target.get(i).titleRes = R.string.update_center;
+                } else {
+                    target.remove(i);
+                }
+            } else if (id == R.id.nameless_provider) {
+                if (actionExists(ACTION_NAMELESS_PROVIDER)) {
+                    target.get(i).intent = new Intent().setAction(ACTION_NAMELESS_PROVIDER);
+                    target.get(i).titleRes = R.string.nameless_provider;
                 } else {
                     target.remove(i);
                 }
