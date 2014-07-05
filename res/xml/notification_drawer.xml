@@ -26,6 +26,22 @@
         android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
 
+    <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="floating_window_scale"
+            android:title="@string/floating_window_scale_title"
+            settings:max="90"
+            settings:min="70"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="%"
+            android:persistent="false" />
+
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="heads_up_float"
+            android:title="@string/floating_window_swipe_title"
+            android:summary="@string/floating_window_swipe_summary"
+            android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 

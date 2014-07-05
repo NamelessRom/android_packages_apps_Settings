@@ -33,9 +33,12 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
+    private static final String FLOATING_WINDOW_SCALE = "floating_window_scale";
 
     private ListPreference mCollapseOnDismiss;
     private CheckBoxPreference mStatusBarCustomHeader;
+
+    private SeekBarPreference mFloatingWindowScale;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,12 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mCollapseOnDismiss.setValue(String.valueOf(collapseBehaviour));
         mCollapseOnDismiss.setOnPreferenceChangeListener(this);
         updateCollapseBehaviourSummary(collapseBehaviour);
+
+        mFloatingWindowScale = (SeekBarPreference) findPreference(FLOATING_WINDOW_SCALE);
+        mFloatingWindowScale.setValue((int)(Settings.System.getFloat(getContentResolver(),
+                Settings.System.FLOATING_WINDOW_SCALE, 0.8f) * 100));
+        mFloatingWindowScale.setOnPreferenceChangeListener(this);
+    }
 
         mStatusBarCustomHeader = (CheckBoxPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
         mStatusBarCustomHeader.setChecked(Settings.System.getInt(getContentResolver(),
@@ -68,6 +77,10 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
+            return true;
+        } else if (preference == mFloatingWindowScale) {
+            Settings.System.putFloat(getContentResolver(),
+                    Settings.System.FLOATING_WINDOW_SCALE, (Integer)objValue / 100f);
             return true;
         }
 
