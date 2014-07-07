@@ -139,7 +139,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
 
         mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
         // Determine options based on device telephony support
-        if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+        if (mPM.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
             mSmsSecurityCheck.setOnPreferenceChangeListener(this);
             int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
             updateSmsSecuritySummary(smsSecurityCheck);
@@ -174,83 +174,82 @@ public class SecuritySettings extends RestrictedSettingsFragment
                         root.findPreference(KEY_SIM_LOCK).setEnabled(false);
                     }
                 }
+            }
+        } else {
+            // Do not display SIM lock for devices without an Icc card
+            TelephonyManager tm = TelephonyManager.getDefault();
+            if (!mIsPrimary || !tm.hasIccCard()) {
+                root.removePreference(root.findPreference(KEY_SIM_LOCK));
             } else {
-                // Do not display SIM lock for devices without an Icc card
-                TelephonyManager tm = TelephonyManager.getDefault();
-                if (!mIsPrimary || !tm.hasIccCard()) {
-                    root.removePreference(root.findPreference(KEY_SIM_LOCK));
-                } else {
-                    // Disable SIM lock if sim card is missing or unknown
-                    if ((TelephonyManager.getDefault().getSimState() ==
-                                     TelephonyManager.SIM_STATE_ABSENT) ||
-                            (TelephonyManager.getDefault().getSimState() ==
-                                     TelephonyManager.SIM_STATE_UNKNOWN)) {
-                        root.findPreference(KEY_SIM_LOCK).setEnabled(false);
-                    }
+                // Disable SIM lock if sim card is missing or unknown
+                if ((TelephonyManager.getDefault().getSimState() ==
+                                 TelephonyManager.SIM_STATE_ABSENT) ||
+                        (TelephonyManager.getDefault().getSimState() ==
+                                 TelephonyManager.SIM_STATE_UNKNOWN)) {
+                    root.findPreference(KEY_SIM_LOCK).setEnabled(false);
                 }
             }
+        }
 
-            // Show password
-            mShowPassword = (CheckBoxPreference) root.findPreference(KEY_SHOW_PASSWORD);
-            mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);
+        // Show password
+        mShowPassword = (CheckBoxPreference) root.findPreference(KEY_SHOW_PASSWORD);
+        mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);
 
-            if (root.findPreference(KEY_SIM_LOCK) != null) {
-                // SIM/RUIM lock
-                Preference iccLock = root.findPreference(KEY_SIM_LOCK_SETTINGS);
+        if (root.findPreference(KEY_SIM_LOCK) != null) {
+            // SIM/RUIM lock
+            Preference iccLock = root.findPreference(KEY_SIM_LOCK_SETTINGS);
 
-                Intent intent = new Intent();
-                if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
-                    intent.setClassName("com.android.settings",
-                            "com.android.settings.SelectSubscription");
-                    intent.putExtra(SelectSubscription.PACKAGE, "com.android.settings");
-                    intent.putExtra(SelectSubscription.TARGET_CLASS,
-                            "com.android.settings.IccLockSettings");
-                } else {
-                    intent.setClassName("com.android.settings", "com.android.settings.IccLockSettings");
-                }
-                iccLock.setIntent(intent);
-            }
-
-            // Credential storage
-            final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
-            mKeyStore = KeyStore.getInstance(); // needs to be initialized for onResume()
-            if (!um.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
-                Preference credentialStorageType = root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE);
-
-                final int storageSummaryRes =
-                    mKeyStore.isHardwareBacked() ? R.string.credential_storage_type_hardware
-                            : R.string.credential_storage_type_software;
-                credentialStorageType.setSummary(storageSummaryRes);
-
+            Intent intent = new Intent();
+            if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+                intent.setClassName("com.android.settings",
+                        "com.android.settings.SelectSubscription");
+                intent.putExtra(SelectSubscription.PACKAGE, "com.android.settings");
+                intent.putExtra(SelectSubscription.TARGET_CLASS,
+                        "com.android.settings.IccLockSettings");
             } else {
-                removePreference(KEY_CREDENTIALS_MANAGER);
+                intent.setClassName("com.android.settings", "com.android.settings.IccLockSettings");
             }
+            iccLock.setIntent(intent);
+        }
 
-            // Application install
-            PreferenceGroup deviceAdminCategory = (PreferenceGroup)
-                    root.findPreference(KEY_DEVICE_ADMIN_CATEGORY);
-            mToggleAppInstallation = (CheckBoxPreference) findPreference(
-                    KEY_TOGGLE_INSTALL_APPLICATIONS);
-            mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
+        // Credential storage
+        final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
+        mKeyStore = KeyStore.getInstance(); // needs to be initialized for onResume()
+        if (!um.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
+            Preference credentialStorageType = root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE);
 
-            // Side loading of apps.
-            mToggleAppInstallation.setEnabled(mIsPrimary);
+            final int storageSummaryRes =
+                mKeyStore.isHardwareBacked() ? R.string.credential_storage_type_hardware
+                        : R.string.credential_storage_type_software;
+            credentialStorageType.setSummary(storageSummaryRes);
+        } else {
+            removePreference(KEY_CREDENTIALS_MANAGER);
+        }
 
-            // Package verification, only visible to primary user and if enabled
-            mToggleVerifyApps = (CheckBoxPreference) findPreference(KEY_TOGGLE_VERIFY_APPLICATIONS);
-            if (mIsPrimary && showVerifierSetting()) {
-                if (isVerifierInstalled()) {
-                    mToggleVerifyApps.setChecked(isVerifyAppsEnabled());
-                } else {
-                    mToggleVerifyApps.setChecked(false);
-                    mToggleVerifyApps.setEnabled(false);
-                }
+        // Application install
+        PreferenceGroup deviceAdminCategory = (PreferenceGroup)
+                root.findPreference(KEY_DEVICE_ADMIN_CATEGORY);
+        mToggleAppInstallation = (CheckBoxPreference) findPreference(
+                KEY_TOGGLE_INSTALL_APPLICATIONS);
+        mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
+
+        // Side loading of apps.
+        mToggleAppInstallation.setEnabled(mIsPrimary);
+
+        // Package verification, only visible to primary user and if enabled
+        mToggleVerifyApps = (CheckBoxPreference) findPreference(KEY_TOGGLE_VERIFY_APPLICATIONS);
+        if (mIsPrimary && showVerifierSetting()) {
+            if (isVerifierInstalled()) {
+                mToggleVerifyApps.setChecked(isVerifyAppsEnabled());
             } else {
-                if (deviceAdminCategory != null) {
-                    deviceAdminCategory.removePreference(mToggleVerifyApps);
-                } else {
-                    mToggleVerifyApps.setEnabled(false);
-                }
+                mToggleVerifyApps.setChecked(false);
+                mToggleVerifyApps.setEnabled(false);
+            }
+        } else {
+            if (deviceAdminCategory != null) {
+                deviceAdminCategory.removePreference(mToggleVerifyApps);
+            } else {
+                mToggleVerifyApps.setEnabled(false);
             }
         }
 
@@ -258,8 +257,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
         if (mNotificationAccess != null) {
             final int total = NotificationAccessSettings.getListenersCount(mPM);
             if (total == 0) {
-                PreferenceGroup deviceAdminCategory = (PreferenceGroup)
-                        root.findPreference(KEY_DEVICE_ADMIN_CATEGORY);
                 if (deviceAdminCategory != null) {
                     deviceAdminCategory.removePreference(mNotificationAccess);
                 }
