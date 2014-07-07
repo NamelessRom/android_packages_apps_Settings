@@ -167,7 +167,6 @@
   <string name="clock_date_display_none">Nu se afișează</string>
   <string name="clock_date_style_normal">Normal</string>
   <string name="navbar_force_enable_title">Forţeaza bara de navigaţie</string>
-  <string name="smart_pulldown_off">Off</string>
   <string name="wakelock_blocker_save">Salvaţi</string>
   <string name="flip_qs_tiles_summary">Roteşte dala la atingere</string>
   <string name="haptic_qs_tiles_title">Vibrează la atingere</string>
