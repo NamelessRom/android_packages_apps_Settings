@@ -1153,7 +1153,7 @@
                 android:label="@string/device_status_activity_title"
                 android:theme="@style/Theme.DialogWhenLarge"
                 android:process="com.android.phone">
-        
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2094,8 +2094,8 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="false">
-            <intent-filter>
+        <receiver android:name=".nameless.BootReceiver">
+            <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
