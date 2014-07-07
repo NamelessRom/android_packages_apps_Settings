@@ -21,13 +21,13 @@ import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.UserManager;
 import android.preference.*;
 import android.provider.Settings;
 import android.util.Log;
+
 import com.android.internal.widget.LockPatternUtils;
 
 import java.util.ArrayList;
@@ -56,7 +56,6 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF = 125;
 
-    private PackageManager mPM;
     private DevicePolicyManager mDPM;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
@@ -77,7 +76,6 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPM = getActivity().getPackageManager();
         mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 
         mLockPatternUtils = new LockPatternUtils(getActivity());
@@ -89,11 +87,6 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         if (root != null) {
             root.removeAll();
         }
-        addPreferencesFromResource(R.xml.security_settings);
-        root = getPreferenceScreen();
-
-        // Add package manager to check if features are available
-        PackageManager pm = getPackageManager();
 
         // Add options for lock/unlock screen
         int resid = 0;
@@ -127,6 +120,7 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
             }
         }
         addPreferencesFromResource(resid);
+        root = getPreferenceScreen();
 
         // lock after preference
         mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
