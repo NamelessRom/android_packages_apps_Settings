@@ -62,6 +62,13 @@
             android:dependency="lockscreen_notifications"
             android:summary="@string/dismiss_all_summary" />
 
+        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="lockscreen_notifications_button"
+            android:title="@string/lockscreen_notifications_button"
+            android:summary="@string/lockscreen_notifications_button_summary"
+            android:dependency="lockscreen_notifications"
+            android:defaultValue="true" />
+
         <com.android.settings.nameless.AppMultiSelectListPreference
             android:key="excluded_apps"
             android:persistent="false"

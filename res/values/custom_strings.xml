@@ -118,6 +118,8 @@
     <string name="notification_color">Notification background color</string>
     <string name="dynamic_width">Dynamic width</string>
     <string name="dynamic_width_summary">Sets the width of notifications dynamic, so that they only use the space they really need</string>
+    <string name="lockscreen_notifications_button">Lockscreen button</string>
+    <string name="lockscreen_notifications_button_summary">Show a button for expanding / dismissing notifications on the lockscreen</string>
 
     <!-- ListView animation -->
     <string name="bars_and_menus_category_system_title">System</string>
