@@ -12,10 +12,12 @@ import android.preference.Preference;
 import android.preference.SeekBarPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.ViewConfiguration;
 import android.view.WindowManager;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
+import com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -41,6 +43,7 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
     private static final String KEY_EXCLUDED_APPS = "excluded_apps";
     private static final String KEY_NOTIFICATION_COLOR = "notification_color";
     private static final String KEY_DYNAMIC_WIDTH = "dynamic_width";
+    private static final String KEY_LOCKSCREEN_BUTTON = "lockscreen_notifications_button";
 
     private CheckBoxPreference mLockscreenNotifications;
     private CheckBoxPreference mPocketMode;
@@ -57,6 +60,7 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
     private AppMultiSelectListPreference mExcludedAppsPref;
     private ColorPickerPreference mNotificationColor;
     private CheckBoxPreference mDynamicWidth;
+    private SystemSettingCheckBoxPreference mLockscreenButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -155,11 +159,17 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
                     Settings.System.LOCKSCREEN_NOTIFICATIONS_DYNAMIC_WIDTH, 1) == 1);
         mDynamicWidth.setEnabled(mLockscreenNotifications.isChecked());
 
+        PreferenceCategory general = (PreferenceCategory) prefs.findPreference(KEY_CATEGORY_GENERAL);
         boolean hasProximitySensor = getPackageManager().hasSystemFeature(PackageManager.FEATURE_SENSOR_PROXIMITY);
         if (!hasProximitySensor) {
-            PreferenceCategory general = (PreferenceCategory) prefs.findPreference(KEY_CATEGORY_GENERAL);
             general.removePreference(mPocketMode);
             general.removePreference(mShowAlways);
+        }
+
+        mLockscreenButton = (SystemSettingCheckBoxPreference) prefs.findPreference(KEY_LOCKSCREEN_BUTTON);
+        final boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
+        if (!hasNavBar) {
+            general.removePreference(mLockscreenButton);
         }
     }
 
