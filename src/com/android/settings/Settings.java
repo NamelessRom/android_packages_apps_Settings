@@ -162,10 +162,8 @@ public class Settings extends PreferenceActivity
 
     private static final String ACTION_DEVICE_CONTROL =
             "org.namelessrom.devicecontrol.activities.MainActivity";
-    private static final String ACTION_UPDATE_CENTER =
-            "org.namelessrom.updatecenter.activities.MainActivity";
-    private static final String ACTION_NAMELESS_PROVIDER =
-            "org.namelessrom.providers.activities.Preferences";
+    private static final String ACTION_NAMELESS_CENTER =
+            "org.namelessrom.center.activities.MainActivity";
     private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
 
     private static final String GESTURE_SETTINGS_PACKAGE_NAME = "com.cyanogenmod.settings";
@@ -820,17 +818,10 @@ public class Settings extends PreferenceActivity
                 } else {
                     target.remove(i);
                 }
-            } else if (id == R.id.update_center) {
-                if (actionExists(ACTION_UPDATE_CENTER)) {
-                    target.get(i).intent = new Intent().setAction(ACTION_UPDATE_CENTER);
-                    target.get(i).titleRes = R.string.update_center;
-                } else {
-                    target.remove(i);
-                }
-            } else if (id == R.id.nameless_provider) {
-                if (actionExists(ACTION_NAMELESS_PROVIDER)) {
-                    target.get(i).intent = new Intent().setAction(ACTION_NAMELESS_PROVIDER);
-                    target.get(i).titleRes = R.string.nameless_provider;
+            } else if (id == R.id.nameless_center) {
+                if (actionExists(ACTION_NAMELESS_CENTER)) {
+                    target.get(i).intent = new Intent().setAction(ACTION_NAMELESS_CENTER);
+                    target.get(i).titleRes = R.string.nameless_center;
                 } else {
                     target.remove(i);
                 }

@@ -60,8 +60,7 @@
 
     <!-- Sub list strings -->
     <string name="device_control" translatable="false">Device Control</string>
-    <string name="update_center" translatable="false">Update Center</string>
-    <string name="nameless_provider" translatable="false">Nameless Provider</string>
+    <string name="nameless_center" translatable="false">Nameless Center</string>
 
     <string name="navigation_bar_size_44_dp" translatable="false">44 dp</string>
     <string name="navigation_bar_size_40_dp" translatable="false">40 dp</string>
