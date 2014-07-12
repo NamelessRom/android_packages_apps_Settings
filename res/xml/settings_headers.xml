@@ -93,9 +93,9 @@
 
     <!-- Update Center -->
     <header
-        android:id="@+id/update_center"
+        android:id="@+id/nameless_center"
         android:icon="@drawable/ic_settings_updatecenter"
-        android:title="@string/update_center" />
+        android:title="@string/nameless_center" />
 
     <!-- Nameless Provider -->
     <header
