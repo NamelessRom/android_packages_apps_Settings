@@ -338,7 +338,7 @@ public class ManageApplications extends Fragment implements
                 if (mContainerService != null) {
                     try {
                         final long[] stats = mContainerService.getFileSystemStats(
-                                Environment.getExternalAppsVolumeDirectory().getPath());
+                                Environment.getExternalStorageDirectory().getPath());
                         mTotalStorage = stats[0];
                         mFreeStorage = stats[1];
                     } catch (RemoteException e) {
@@ -366,13 +366,13 @@ public class ManageApplications extends Fragment implements
                     }
                 }
 
-                final boolean externalApps = Environment.isExternalAppsAvailableAndMounted();
+                final boolean emulatedStorage = Environment.isExternalStorageEmulated();
                 if (mApplications != null) {
                     final int N = mApplications.getCount();
                     for (int i=0; i<N; i++) {
                         ApplicationsState.AppEntry ae = mApplications.getAppEntry(i);
                         mAppStorage += ae.codeSize + ae.dataSize;
-                        if (!externalApps) {
+                        if (emulatedStorage) {
                             mAppStorage += ae.externalCodeSize + ae.externalDataSize;
                         }
                     }
@@ -608,8 +608,8 @@ public class ManageApplications extends Fragment implements
             if (DEBUG) Log.i(TAG, "Rebuilding app list...");
             ApplicationsState.AppFilter filterObj;
             Comparator<AppEntry> comparatorObj;
-            boolean externalApps = Environment.isExternalAppsAvailableAndMounted();
-            if (!externalApps) {
+            boolean emulated = Environment.isExternalStorageEmulated();
+            if (emulated) {
                 mWhichSize = SIZE_TOTAL;
             } else {
                 mWhichSize = SIZE_INTERNAL;
@@ -620,7 +620,7 @@ public class ManageApplications extends Fragment implements
                     break;
                 case FILTER_APPS_SDCARD:
                     filterObj = ApplicationsState.ON_SD_CARD_FILTER;
-                    if (externalApps) {
+                    if (!emulated) {
                         mWhichSize = SIZE_EXTERNAL;
                     }
                     break;
@@ -873,7 +873,7 @@ public class ManageApplications extends Fragment implements
                 LIST_TYPE_DOWNLOADED, this, savedInstanceState);
         mTabs.add(tab);
 
-        if (Environment.isExternalAppsAvailableAndMounted()) {
+        if (!Environment.isExternalStorageEmulated()) {
             tab = new TabInfo(this, mApplicationsState,
                     getActivity().getString(R.string.filter_apps_onsdcard),
                     LIST_TYPE_SDCARD, this, savedInstanceState);
