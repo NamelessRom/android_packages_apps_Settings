@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:src="@drawable/ic_notify_open_normal"
+        android:src="@drawable/ic_settings_notifications"
         android:layout_marginRight="10dp"
         android:gravity="top"
         android:layout_gravity="top"
