@@ -171,7 +171,6 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="notification_background_default_wallpaper">Varsayılan arkaplan</string>
   <string name="notification_drawer_custom_background_dialog_title">Renk seçin</string>
   <string name="notif_wallpaper_alpha_title">Arka plan saydamlığı</string>
-  <string name="notif_alpha_title">Bildirim şeffaflık</string>
   <string name="network_traffic_title">Ağ trafiği</string>
   <string name="show_network_traffic_state">Durum çubuğu trafik monitörü</string>
   <string name="show_network_traffic_unit">Ekran ünitesi</string>
@@ -229,7 +228,6 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="clock_date_display_summary">Saatten önce özel tarihi gösterir</string>
   <string name="clock_date_style">Tarih tarzı</string>
   <string name="clock_date_format">Tarih biçimi</string>
-  <string name="clock_date_string_edittext_title">Tarih formatı örneğin olmalıdır. AA / gg / yy</string>
   <string name="clock_date_string_edittext_summary">Dizesini girin</string>
   <string name="am_pm_clock_normal">Normal yazı tipi boyutu</string>
   <string name="am_pm_clock_small">Küçük yazı tipi boyutu</string>
@@ -304,7 +302,6 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="delay_and_timeout_title">Kilit gecikmesi</string>
   <string name="slide_lock_delay_title">Ekran kilidi gecikmesi</string>
   <string name="slide_lock_timeout_delay_title">Zaman aşımından sonraya ertele</string>
-  <string name="slide_lock_screenoff_delay_title">Gecikme sonrası kapat</string>
   <string name="slide_lock_delay_none">Hiçbiri</string>
   <string name="slide_lock_delay_1s">1 saniye</string>
   <string name="slide_lock_delay_5s">5 saniye</string>
