@@ -174,10 +174,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mTapToWake = (CheckBoxPreference) findPreference(KEY_TAP_TO_WAKE);
         if (!isTapToWakeSupported()) {
-            getPreferenceScreen().removePreference(mTapToWake);
+            advancedPrefs.removePreference(mTapToWake);
             mTapToWake = null;
         }
-
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 advancedPrefs, KEY_ADVANCED_DISPLAY_SETTINGS);
