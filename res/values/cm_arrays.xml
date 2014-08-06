@@ -756,4 +756,19 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
+    <!-- Network traffic indicator -->
+    <string-array name="status_bar_network_stats_update_entries" translatable="false">
+        <item>@string/status_bar_network_stats_update_500</item>
+        <item>@string/status_bar_network_stats_update_1000</item>
+        <item>@string/status_bar_network_stats_update_1500</item>
+        <item>@string/status_bar_network_stats_update_2000</item>
+    </string-array>
+
+    <string-array name="status_bar_network_stats_update_values" translatable="false">
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+    </string-array>
 </resources>
