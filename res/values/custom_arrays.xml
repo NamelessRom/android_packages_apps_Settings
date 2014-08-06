@@ -304,4 +304,28 @@
         <item>2000</item>
     </string-array>
 
+    <!-- Profile screen timeout options. Do not translate. -->
+    <string-array name="profile_screen_timeout_entries" translatable="false">
+        <item>@string/default_string</item>
+        <item>@string/fifteen_seconds</item>
+        <item>@string/thirty_seconds</item>
+        <item>@string/one_minute</item>
+        <item>@string/two_minutes</item>
+        <item>@string/five_minutes</item>
+        <item>@string/ten_minutes</item>
+        <item>@string/thirty_minutes</item>
+    </string-array>
+
+    <!-- Values for profile screen timeout. Do not translate. -->
+    <string-array name="profile_screen_timeout_values" translatable="false">
+        <item>0</item>
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>1800000</item>
+    </string-array>
+
 </resources>
