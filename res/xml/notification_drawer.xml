@@ -26,6 +26,12 @@
         android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
 
+    <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
+            android:key="qs_swipe_anywhere"
+            android:title="@string/title_qs_swipe_anywhere"
+            android:summary="@string/summary_qs_swipe_anywhere"
+            android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 
