@@ -255,6 +255,30 @@
         <item>2</item>
     </string-array>
 
+    <!-- Profile screen timeout options. Do not translate. -->
+    <string-array name="profile_screen_timeout_entries">
+        <item>Default</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>30 minutes</item>
+    </string-array>
+
+    <!-- Values for profile screen timeout. Do not translate. -->
+    <string-array name="profile_screen_timeout_values" translatable="false">
+        <item>0</item>
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>1800000</item>
+    </string-array>
+
     <!-- Volume Overlay options. -->
     <string-array name="volume_overlay_entries" translatable="false">
         <item>@string/volume_overlay_single</item>

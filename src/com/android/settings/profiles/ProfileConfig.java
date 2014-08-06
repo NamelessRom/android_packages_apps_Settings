@@ -74,6 +74,8 @@ public class ProfileConfig extends SettingsPreferenceFragment
 
     private ListPreference mExpandedDesktopModePreference;
 
+    private ListPreference mScreenTimeoutPreference;
+
     // constant value that can be used to check return code from sub activity.
     private static final int PROFILE_GROUP_DETAILS = 1;
 
@@ -289,6 +291,18 @@ public class ProfileConfig extends SettingsPreferenceFragment
             mExpandedDesktopModePreference.setOnPreferenceChangeListener(this);
 
             systemPrefs.addPreference(mExpandedDesktopModePreference);
+
+            // Screen Timeout
+            mScreenTimeoutPreference = new ListPreference(getActivity());
+            mScreenTimeoutPreference.setTitle(R.string.screen_timeout);
+            mScreenTimeoutPreference.setEntries(R.array.profile_screen_timeout_entries);
+            mScreenTimeoutPreference.setEntryValues(R.array.profile_screen_timeout_values);
+            mScreenTimeoutPreference.setPersistent(false);
+            mScreenTimeoutPreference.setValue(String.valueOf(mProfile.getScreenTimeout()));
+            mScreenTimeoutPreference.setSummary(mScreenTimeoutPreference.getEntry());
+            mScreenTimeoutPreference.setOnPreferenceChangeListener(this);
+
+            systemPrefs.addPreference(mScreenTimeoutPreference);
         }
 
         // Populate the audio streams list
@@ -393,6 +407,11 @@ public class ProfileConfig extends SettingsPreferenceFragment
             mProfile.setExpandedDesktopMode(Integer.valueOf((String) newValue));
             mExpandedDesktopModePreference.setSummary(getResources().getStringArray(
                     R.array.profile_expanded_desktop_entries)[mProfile.getExpandedDesktopMode()]);
+        } else if (preference == mScreenTimeoutPreference) {
+            int value = Integer.parseInt((String) newValue);
+            mProfile.setScreenTimeout(value);
+            int index = mScreenTimeoutPreference.findIndexOfValue((String) newValue);
+            mScreenTimeoutPreference.setSummary(mScreenTimeoutPreference.getEntries()[index]);
         }
         return true;
     }
