@@ -15,13 +15,4 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-  <string name="general">Опште</string>
-  <string name="listview_off">Искључено</string>
-  <string name="clock_date_style_normal">Нормално</string>
-  <string name="navbar_force_enable_title">Принудна навигациона трака</string>
-  <string name="smart_pulldown_off">Искључено</string>
-  <string name="wakelock_blocker_save">Сачувај</string>
-  <string name="misc_others">Остало</string>
-  <string name="navigation_bar_force_category">Принудна навигациона трака</string>
-</resources>
+<resources/>
