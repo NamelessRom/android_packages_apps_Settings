@@ -442,4 +442,10 @@
     <!-- Actions -->
     <string name="hardware_keys_action_last_app">Switch to last app</string>
     <string name="hardware_keys_action_immersive_mode">Toggle immersive mode</string>
+
+    <!-- Floating window -->
+    <string name="floating_window_category">Floating window</string>
+    <string name="floating_window_scale_title">Floating window scale</string>
+    <string name="floating_window_swipe_title">Swipe to float</string>
+    <string name="floating_window_swipe_summary">Swipe heads up notification left to open app in floating window</string>
 </resources>
