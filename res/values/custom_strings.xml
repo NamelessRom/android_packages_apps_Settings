@@ -445,4 +445,10 @@
     <string name="button_backlight_off">Off</string>
     <string name="button_backlight_force_on">Force on</string>
     <string name="button_backlight_force_off">Force off</string>
+
+    <!-- Floating window -->
+    <string name="floating_window_category">Floating window</string>
+    <string name="floating_window_scale_title">Floating window scale</string>
+    <string name="floating_window_swipe_title">Swipe to float</string>
+    <string name="floating_window_swipe_summary">Swipe heads up notification left to open app in floating window</string>
 </resources>
