@@ -301,22 +301,9 @@
   <string name="force_highend_gfx_title">Forçar les millores gràfiques d\'alta gamma</string>
   <string name="force_highend_gfx_summary">Activar el forçat de les millores gràfiques d\'alta gamma com la transparència en la barra d\'estat/navegació (requereix de reinicio)</string>
   <string name="more_device_controls_title">Més\u2026</string>
-  <string name="delay_and_timeout_title">Retard del tancament</string>
-  <string name="slide_lock_delay_title">Retard del bloqueig de pantalla</string>
-  <string name="slide_lock_timeout_delay_title">Retard després del temps d\'espera</string>
-  <string name="slide_lock_screenoff_delay_title">Retard després de l\'apagat</string>
-  <string name="slide_lock_delay_none">Cap</string>
-  <string name="slide_lock_delay_1s">1 segon</string>
-  <string name="slide_lock_delay_5s">5 segons</string>
-  <string name="slide_lock_delay_10s">10 segons</string>
-  <string name="slide_lock_delay_15s">15 segons</string>
-  <string name="slide_lock_delay_30s">30 segons</string>
-  <string name="slide_lock_delay_1m">1 minut</string>
-  <string name="slide_lock_delay_5m">5 minuts</string>
-  <string name="slide_lock_delay_10m">10 minuts</string>
-  <string name="slide_lock_delay_30m">30 minuts</string>
   <string name="system_settings_title">Interfície</string>
   <string name="system_interface_title">Interfície del sistema</string>
   <string name="navigation_bar_force_category">Forçar la barra de navegació</string>
   <string name="auto_brightness_adjustment_title">Ajustos de lluentor</string>
+  <string name="thirty_minutes">30 minuts</string>
 </resources>

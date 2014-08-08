@@ -299,20 +299,8 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="force_highend_gfx_title">Yüksek-Düşük grafik ayarı</string>
   <string name="force_highend_gfx_summary">Yüksek-düşük grafik efekleri durum çubuğu/gezinme çubuğu şeffaflığını sağlar.(Yeniden başlatma gerektirebilir.)</string>
   <string name="more_device_controls_title">Daha\u2026</string>
-  <string name="delay_and_timeout_title">Kilit gecikmesi</string>
-  <string name="slide_lock_delay_title">Ekran kilidi gecikmesi</string>
-  <string name="slide_lock_timeout_delay_title">Zaman aşımından sonraya ertele</string>
-  <string name="slide_lock_delay_none">Hiçbiri</string>
-  <string name="slide_lock_delay_1s">1 saniye</string>
-  <string name="slide_lock_delay_5s">5 saniye</string>
-  <string name="slide_lock_delay_10s">10 saniye</string>
-  <string name="slide_lock_delay_15s">15 saniye</string>
-  <string name="slide_lock_delay_30s">30 saniye</string>
-  <string name="slide_lock_delay_1m">1 dakika</string>
-  <string name="slide_lock_delay_5m">5 dakika</string>
-  <string name="slide_lock_delay_10m">10 dakika</string>
-  <string name="slide_lock_delay_30m">30 dakika</string>
   <string name="system_settings_title">Arayüz</string>
   <string name="system_interface_title">Sistem arabirimi</string>
   <string name="auto_brightness_adjustment_title">Parlaklık ayarı</string>
+  <string name="thirty_minutes">30 dakika</string>
 </resources>

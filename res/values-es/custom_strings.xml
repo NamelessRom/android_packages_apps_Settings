@@ -301,22 +301,9 @@
   <string name="force_highend_gfx_title">Forzar las mejoras gráficas de alta gama</string>
   <string name="force_highend_gfx_summary">Activar el forzado de las mejoras gráficas de alta gama como la transparencia en la barra de estado/navegación (requiere de reinicio)</string>
   <string name="more_device_controls_title">Más\u2026</string>
-  <string name="delay_and_timeout_title">Retardo del cierre</string>
-  <string name="slide_lock_delay_title">Retardo del bloqueo de pantalla</string>
-  <string name="slide_lock_timeout_delay_title">Retardo tras el tiempo de espera</string>
-  <string name="slide_lock_screenoff_delay_title">Retardo tras el apagado</string>
-  <string name="slide_lock_delay_none">Ninguno</string>
-  <string name="slide_lock_delay_1s">1 segundo</string>
-  <string name="slide_lock_delay_5s">5 segundos</string>
-  <string name="slide_lock_delay_10s">10 segundos</string>
-  <string name="slide_lock_delay_15s">15 segundos</string>
-  <string name="slide_lock_delay_30s">30 segundos</string>
-  <string name="slide_lock_delay_1m">1 minuto</string>
-  <string name="slide_lock_delay_5m">5 minutos</string>
-  <string name="slide_lock_delay_10m">10 minutos</string>
-  <string name="slide_lock_delay_30m">30 minutos</string>
   <string name="system_settings_title">Interfaz</string>
   <string name="system_interface_title">Interfaz del sistema</string>
   <string name="navigation_bar_force_category">Forzar la barra de navegación</string>
   <string name="auto_brightness_adjustment_title">Ajustes de brillo</string>
+  <string name="thirty_minutes">30 minutos</string>
 </resources>

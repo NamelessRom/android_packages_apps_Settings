@@ -302,22 +302,9 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="force_highend_gfx_title">Forçar as melhoras gráficas de alta faixa</string>
   <string name="force_highend_gfx_summary">Ativar o forçado das melhoras gráficas de alta faixa como a transparência na barra de status/navegação (requer de reinicio)</string>
   <string name="more_device_controls_title">Mais\u2026</string>
-  <string name="delay_and_timeout_title">Atraso de bloqueio</string>
-  <string name="slide_lock_delay_title">Atrasar bloqueio de tela</string>
-  <string name="slide_lock_timeout_delay_title">Atraso do tempo limite de tela</string>
-  <string name="slide_lock_screenoff_delay_title">Atraso depois de desligado</string>
-  <string name="slide_lock_delay_none">Nenhum</string>
-  <string name="slide_lock_delay_1s">1 segundo</string>
-  <string name="slide_lock_delay_5s">5 segundos</string>
-  <string name="slide_lock_delay_10s">10 segundos</string>
-  <string name="slide_lock_delay_15s">15 segundos</string>
-  <string name="slide_lock_delay_30s">30 segundos</string>
-  <string name="slide_lock_delay_1m">1 minuto</string>
-  <string name="slide_lock_delay_5m">5 minutos</string>
-  <string name="slide_lock_delay_10m">10 minutos</string>
-  <string name="slide_lock_delay_30m">30 minutos</string>
   <string name="system_settings_title">Interface</string>
   <string name="system_interface_title">Interface do sistema</string>
   <string name="navigation_bar_force_category">Forçar barra de navegação</string>
   <string name="auto_brightness_adjustment_title">Ajuste do brilho</string>
+  <string name="thirty_minutes">30 minutos</string>
 </resources>
