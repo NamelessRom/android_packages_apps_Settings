@@ -437,4 +437,10 @@
 
     <string name="power_menu_mobile_data_title">Mobile Data</string>
     <string name="power_menu_wifi_title">Wifi</string>
+
+    <!-- Floating window -->
+    <string name="floating_window_category">Floating window</string>
+    <string name="floating_window_scale_title">Floating window scale</string>
+    <string name="floating_window_swipe_title">Swipe to float</string>
+    <string name="floating_window_swipe_summary">Swipe heads up notification left to open app in floating window</string>
 </resources>
