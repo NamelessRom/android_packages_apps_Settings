@@ -301,22 +301,9 @@
   <string name="force_highend_gfx_title">Forza la grafica di fascia alta</string>
   <string name="force_highend_gfx_summary">Attiva gli effetti visivi di fascia alta come la trasparenza nella barra di stato/navigazione (richiede riavvio)</string>
   <string name="more_device_controls_title">Altro\u2026</string>
-  <string name="delay_and_timeout_title">Ritardo di blocco</string>
-  <string name="slide_lock_delay_title">Ritardo schermata blocco</string>
-  <string name="slide_lock_timeout_delay_title">Ritardo dopo timeout</string>
-  <string name="slide_lock_screenoff_delay_title">Ritardo dopo spegnimento</string>
-  <string name="slide_lock_delay_none">Nessuno</string>
-  <string name="slide_lock_delay_1s">1 secondo</string>
-  <string name="slide_lock_delay_5s">5 secondi</string>
-  <string name="slide_lock_delay_10s">10 secondi</string>
-  <string name="slide_lock_delay_15s">15 secondi</string>
-  <string name="slide_lock_delay_30s">30 secondi</string>
-  <string name="slide_lock_delay_1m">1 minuto</string>
-  <string name="slide_lock_delay_5m">5 minuti</string>
-  <string name="slide_lock_delay_10m">10 minuti</string>
-  <string name="slide_lock_delay_30m">30 minuti</string>
   <string name="system_settings_title">Interfaccia</string>
   <string name="system_interface_title">Interfaccia di sistema</string>
   <string name="navigation_bar_force_category">Forza Barra di navigazione</string>
   <string name="auto_brightness_adjustment_title">Regolazione della luminosità</string>
+  <string name="thirty_minutes">30 minuti</string>
 </resources>

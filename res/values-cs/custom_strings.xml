@@ -301,22 +301,9 @@
   <string name="force_highend_gfx_title">Vynutit high-end grafické efekty</string>
   <string name="force_highend_gfx_summary">Povolí high-end grafické efekty jako je průhledná stavová/navigační lišta (vyžaduje restart)</string>
   <string name="more_device_controls_title">Více\u2026</string>
-  <string name="delay_and_timeout_title">Zpoždění uzamknutí</string>
-  <string name="slide_lock_delay_title">Zpoždění uzamknutí obrazovky</string>
-  <string name="slide_lock_timeout_delay_title">Zpoždění uzamknutí po vypršení časovače</string>
-  <string name="slide_lock_screenoff_delay_title">Prodleva po vypnutí</string>
-  <string name="slide_lock_delay_none">Žádná</string>
-  <string name="slide_lock_delay_1s">1 sekunda</string>
-  <string name="slide_lock_delay_5s">5 sekund</string>
-  <string name="slide_lock_delay_10s">10 sekund</string>
-  <string name="slide_lock_delay_15s">15 sekund</string>
-  <string name="slide_lock_delay_30s">30 sekund</string>
-  <string name="slide_lock_delay_1m">1 minuta</string>
-  <string name="slide_lock_delay_5m">5 minut</string>
-  <string name="slide_lock_delay_10m">10 minut</string>
-  <string name="slide_lock_delay_30m">30 minut</string>
   <string name="system_settings_title">Rozhraní</string>
   <string name="system_interface_title">Systémové rozhraní</string>
   <string name="navigation_bar_force_category">Vynutit navigační lištu</string>
   <string name="auto_brightness_adjustment_title">Nastavení jasu</string>
+  <string name="thirty_minutes">30 minut</string>
 </resources>

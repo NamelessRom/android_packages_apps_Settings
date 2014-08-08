@@ -301,22 +301,9 @@
   <string name="force_highend_gfx_title">Высококачественная графика</string>
   <string name="force_highend_gfx_summary">Использовать высококачественные эффекты, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
   <string name="more_device_controls_title">Больше\u2026</string>
-  <string name="delay_and_timeout_title">Задержка блокировки</string>
-  <string name="slide_lock_delay_title">Задержка при блокировки экрана</string>
-  <string name="slide_lock_timeout_delay_title">Задержка после тайм-аута</string>
-  <string name="slide_lock_screenoff_delay_title">Задержка после выключения экрана</string>
-  <string name="slide_lock_delay_none">Нет сети</string>
-  <string name="slide_lock_delay_1s">1 секунда</string>
-  <string name="slide_lock_delay_5s">Через 5 секунд</string>
-  <string name="slide_lock_delay_10s">Каждые 10 секунд</string>
-  <string name="slide_lock_delay_15s">15 секунд</string>
-  <string name="slide_lock_delay_30s">30 секунд</string>
-  <string name="slide_lock_delay_1m">1 минута</string>
-  <string name="slide_lock_delay_5m">5 минут</string>
-  <string name="slide_lock_delay_10m">10 минут</string>
-  <string name="slide_lock_delay_30m">30 минут</string>
   <string name="system_settings_title">Интерфейс</string>
   <string name="system_interface_title">Интерфейс системы</string>
   <string name="navigation_bar_force_category">Принудительно показывать панель навигации</string>
   <string name="auto_brightness_adjustment_title">Уровень яркости</string>
+  <string name="thirty_minutes">30 минут</string>
 </resources>
