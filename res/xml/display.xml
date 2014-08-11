@@ -17,6 +17,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Smart cover -->
+    <PreferenceScreen
+        android:key="smart_cover"
+        android:title="@string/smart_cover_title"
+        android:fragment="com.android.settings.nameless.SmartCoverSettings" />
+
     <PreferenceCategory
         android:key="display"
         android:title="@string/display_label">
@@ -149,25 +155,25 @@
 
     </PreferenceCategory>
 
-        <PreferenceCategory
-                android:key="display_density_prefs"
+    <PreferenceCategory
+            android:key="display_density_prefs"
+            android:title="@string/display_density"
+            settings:advanced="true">
+
+        <EditTextPreference
+                android:key="display_density"
                 android:title="@string/display_density"
-                settings:advanced="true">
+                android:summary="@string/display_density_summary"
+                android:persistent="false"
+                android:inputType="numberSigned" />
 
-            <EditTextPreference
-                    android:key="display_density"
-                    android:title="@string/display_density"
-                    android:summary="@string/display_density_summary"
-                    android:persistent="false"
-                    android:inputType="numberSigned" />
+        <EditTextPreference
+                android:key="display_density_override"
+                android:title="@string/display_density_override"
+                android:summary="@string/display_density_override_summary"
+                android:persistent="false"
+                android:inputType="numberSigned" />
 
-            <EditTextPreference
-                    android:key="display_density_override"
-                    android:title="@string/display_density_override"
-                    android:summary="@string/display_density_override_summary"
-                    android:persistent="false"
-                    android:inputType="numberSigned" />
-
-        </PreferenceCategory>
+    </PreferenceCategory>
 
 </PreferenceScreen>
