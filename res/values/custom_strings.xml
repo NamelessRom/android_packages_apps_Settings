@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
      Copyright (C) 2013 - 2014 The NamelessROM Project
 
@@ -15,7 +14,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
 
     <string name="nameless_mod_version">Nameless version</string>
@@ -89,7 +87,7 @@
     <string name="general">General</string>
     <string name="layout">Layout</string>
     <string name="privacy">Privacy</string>
-    <string name="proximity_sensor">Features requiring proximity sensor</string>
+    <string name="proximity_sensor">Proximity sensor</string>
 
     <string name="lockscreen_notifications">Lockscreen notifications</string>
     <string name="lockscreen_notifications_summary">Show pending notifications on lockscreen</string>
