@@ -437,11 +437,4 @@
     <!-- Actions -->
     <string name="hardware_keys_action_last_app">Switch to last app</string>
     <string name="hardware_keys_action_immersive_mode">Toggle immersive mode</string>
-
-    <!-- Button backlight mode -->
-    <string name="button_backlight_auto">Auto</string>
-    <string name="button_backlight_on">On</string>
-    <string name="button_backlight_off">Off</string>
-    <string name="button_backlight_force_on">Force on</string>
-    <string name="button_backlight_force_off">Force off</string>
 </resources>

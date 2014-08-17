@@ -28,7 +28,6 @@ import android.provider.Settings;
 import android.view.IWindowManager;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
-import android.view.ViewConfiguration;
 import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
@@ -51,7 +50,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
-    private static final String KEY_BUTTON_BACKLIGHT_MODE = "button_backlight_mode";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -99,8 +97,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mSwapVolumeButtons;
     private CheckBoxPreference mPowerEndCall;
     private CheckBoxPreference mHomeAnswerCall;
-
-    private ListPreference mButtonBacklightPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -280,19 +276,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
-
-        final boolean hasNavBar = !ViewConfiguration.get(getActivity()).hasPermanentMenuKey();
-
-        mButtonBacklightPref = (ListPreference) findPreference(KEY_BUTTON_BACKLIGHT_MODE);
-        if (hasNavBar) {
-            prefScreen.removePreference(mButtonBacklightPref);
-        } else {
-            final int currentButtonBacklight = Settings.System.getInt(getContentResolver(),
-                    Settings.System.BUTTON_BACKLIGHT_MODE, 0);
-            mButtonBacklightPref.setValueIndex(currentButtonBacklight);
-            mButtonBacklightPref.setOnPreferenceChangeListener(this);
-            mButtonBacklightPref.setSummary(mButtonBacklightPref.getEntries()[currentButtonBacklight]);
-        }
     }
 
     @Override
@@ -373,12 +356,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else if (preference == mVolumeKeyCursorControl) {
             handleActionListChange(mVolumeKeyCursorControl, newValue,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
-            return true;
-        } else if (preference == mButtonBacklightPref) {
-            final int value = Integer.parseInt((String) newValue);
-            mButtonBacklightPref.setSummary(mButtonBacklightPref.getEntries()[value]);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.BUTTON_BACKLIGHT_MODE, value);
             return true;
         }
 
