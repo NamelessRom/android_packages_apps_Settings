@@ -235,6 +235,8 @@
     <string name="show_network_traffic_all">Outgoing and incoming</string>
     <string name="show_network_traffic_bit">Bits per second</string>
     <string name="show_network_traffic_byte">Bytes per second</string>
+    <string name="network_traffic_autohide">Auto hide</string>
+    <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
 
     <!-- Status Bar Activity Indicators -->
     <string name="show_activity_indicators_on_status_bar_title">Activity indicators</string>
