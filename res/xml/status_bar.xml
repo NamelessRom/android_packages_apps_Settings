@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/status_bar_title">
 
     <PreferenceScreen
@@ -131,6 +132,21 @@
                 android:entries="@array/show_network_traffic_frequency_entries"
                 android:entryValues="@array/show_network_traffic_frequency_values"
                 android:persistent="false" />
+
+        <CheckBoxPreference
+            android:key="network_traffic_autohide"
+            android:title="@string/network_traffic_autohide"
+            android:defaultValue="false" />
+
+        <com.android.settings.chameleonos.SeekBarPreference
+            android:key="network_traffic_autohide_threshold"
+            android:title="@string/network_traffic_autohide_threshold"
+            android:max="100"
+            settings:min="0"
+            settings:unitsLeft=""
+            settings:unitsRight="kB/s"
+            android:dependency="network_traffic_autohide"
+            android:persistent="false" />
 
     </PreferenceCategory>
 
