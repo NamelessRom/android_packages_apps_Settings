@@ -280,7 +280,7 @@
   <string name="flip_qs_tiles_summary">Kachel flippen bei Berührung</string>
   <string name="haptic_qs_tiles_title">Vibration bei Berührung</string>
   <string name="haptic_qs_tiles_summary">Vibrieren beim Berühren der Kacheln</string>
-  <string name="lockscreen_glowpad_torch_title">GlowPad Tachenlampe</string>
+  <string name="lockscreen_glowpad_torch_title">Sperrbildschirm-Taschenlampe</string>
   <string name="lockscreen_glowpad_torch_summary">Tippen Sie doppelt und halten Sie das Entsperr-Symbol, um die Taschenlampe zu starten</string>
   <string name="see_through_title">Transparenter Sperrbildschirm</string>
   <string name="see_through_summary">Zeige den Inhalt verschwommen hinter dem Sperrbildschirm an. Ihre Daten sind möglicherweise für Dritte in Ihrer Nähe sichtbar</string>
