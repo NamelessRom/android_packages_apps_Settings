@@ -217,7 +217,6 @@
   <string name="voicemail_breath_title">Animowane powiadomienie o poczcie głosowej</string>
   <string name="voicemail_breath_summary">Powiadomienie o poczcie głosowej na pasku stanu będzie animowane</string>
   <string name="status_bar_clock">Zegar i data</string>
-  <string name="status_bar_clock_title">Styl zegara i daty</string>
   <string name="clock_title_enable">Wyrównanie</string>
   <string name="clock_enabled">Włączone</string>
   <string name="clock_disabled">Wyłączone</string>

@@ -211,7 +211,6 @@
   <string name="voicemail_breath_title">Casella Vocale lampeggiante</string>
   <string name="voicemail_breath_summary">Darà alle tue notifiche di casella vocale un effetto lampeggiante nella barra di stato</string>
   <string name="status_bar_clock">Orologio e data</string>
-  <string name="status_bar_clock_title">Stile orologio e data</string>
   <string name="clock_title_enable">Allineamento</string>
   <string name="clock_enabled">Attivo</string>
   <string name="clock_disabled">Disabilitato</string>

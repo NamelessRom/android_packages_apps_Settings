@@ -211,7 +211,6 @@
   <string name="voicemail_breath_title">Effet respiration pour la messagerie vocale</string>
   <string name="voicemail_breath_summary">Donnera à vos notifications de messagerie vocale un effet respiration dans la barre d\'état</string>
   <string name="status_bar_clock">Date et heure</string>
-  <string name="status_bar_clock_title">Style de date et heure</string>
   <string name="clock_title_enable">Alignement</string>
   <string name="clock_enabled">Activé</string>
   <string name="clock_disabled">Désactivé</string>
