@@ -275,7 +275,6 @@
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Clock and date</string>
-    <string name="status_bar_clock_title">Clock and date style</string>
     <string name="clock_title_enable">Alignment</string>
     <string name="clock_enabled">Enabled</string>
     <string name="clock_disabled">Disabled</string>
