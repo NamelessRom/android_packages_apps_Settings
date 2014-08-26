@@ -764,12 +764,10 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.user_settings) {
-                if (!Helpers.isSecretModeEnabled()) {
-                    if (!UserHandle.MU_ENABLED
-                            || !UserManager.supportsMultipleUsers()
-                            || Utils.isMonkeyRunning()) {
-                        target.remove(i);
-                    }
+                if (!UserHandle.MU_ENABLED
+                        || !UserManager.supportsMultipleUsers()
+                        || Utils.isMonkeyRunning()) {
+                    target.remove(i);
                 }
             } else if (id == R.id.nfc_payment_settings) {
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC)) {
