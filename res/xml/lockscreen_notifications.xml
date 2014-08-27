@@ -7,7 +7,8 @@
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="lockscreen_notifications"
             android:title="@string/lockscreen_notifications"
-            android:summary="@string/lockscreen_notifications_summary" />
+            android:summary="@string/lockscreen_notifications_summary"
+            android:defaultValue="true" />
 
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="lockscreen_notifications_hide_non_clearable"
