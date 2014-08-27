@@ -211,7 +211,6 @@
   <string name="voicemail_breath_title">Respiración en Correo de voz</string>
   <string name="voicemail_breath_summary">Le dará un efecto de respiración en las notificaciones de correo de voz en la barra de estado</string>
   <string name="status_bar_clock">Reloj y fecha</string>
-  <string name="status_bar_clock_title">Estilo de reloj y fecha</string>
   <string name="clock_title_enable">Alineación</string>
   <string name="clock_enabled">Habilitado</string>
   <string name="clock_disabled">Deshabilitado</string>

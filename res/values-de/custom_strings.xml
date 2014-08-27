@@ -217,7 +217,6 @@
   <string name="voicemail_breath_title">Atmende Voicemail-Benachrichtigung</string>
   <string name="voicemail_breath_summary">Gibt Ihren Voicemail-Benachrichtigungen einen atmenden Effekt</string>
   <string name="status_bar_clock">Uhr und Datum</string>
-  <string name="status_bar_clock_title">Uhrzeit und Datumsformat</string>
   <string name="clock_title_enable">Ausrichtung</string>
   <string name="clock_enabled">Aktiviert</string>
   <string name="clock_disabled">Deaktiviert</string>

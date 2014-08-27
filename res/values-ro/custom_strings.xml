@@ -217,7 +217,6 @@
   <string name="voicemail_breath_title">Respiraţie Voicemail</string>
   <string name="voicemail_breath_summary">Va da notificărilor de voicemail pierdute un efect de respiraţie în bara de stare</string>
   <string name="status_bar_clock">Ceasul și data</string>
-  <string name="status_bar_clock_title">Stil oră și dată</string>
   <string name="clock_title_enable">Aliniament</string>
   <string name="clock_enabled">Activat</string>
   <string name="clock_disabled">Dezactivat</string>
