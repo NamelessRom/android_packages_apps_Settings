@@ -211,7 +211,6 @@
   <string name="voicemail_breath_title">Dýchající Hlasová Schránka</string>
   <string name="voicemail_breath_summary">Dodá oznámením hlasové schránky ve stavové liště efekt dýchání</string>
   <string name="status_bar_clock">Hodiny a datum</string>
-  <string name="status_bar_clock_title">Styl hodin a data</string>
   <string name="clock_title_enable">Zarovnání</string>
   <string name="clock_enabled">Povoleno</string>
   <string name="clock_disabled">Zakázáno</string>
