@@ -212,6 +212,7 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="voicemail_breath_title">Respirando de correio de voz</string>
   <string name="voicemail_breath_summary">Vai dar suas notificações de caixa postal um efeito de respiração na barra de estado</string>
   <string name="status_bar_clock">Data e hora</string>
+  <string name="status_bar_clock_title">Estilo da data e hora</string>
   <string name="clock_title_enable">Alinhamento</string>
   <string name="clock_enabled">Ativado</string>
   <string name="clock_disabled">Desativado</string>

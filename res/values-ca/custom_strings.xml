@@ -211,6 +211,7 @@
   <string name="voicemail_breath_title">Respiració en Correu de veu</string>
   <string name="voicemail_breath_summary">Li donarà un efecte de respiració en les notificacions de correu de veu a la barra d\'estat</string>
   <string name="status_bar_clock">Rellotge i data</string>
+  <string name="status_bar_clock_title">Estil de rellotge i data</string>
   <string name="clock_title_enable">Alineació</string>
   <string name="clock_enabled">Habilitat</string>
   <string name="clock_disabled">Deshabilitat</string>

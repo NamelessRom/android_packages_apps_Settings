@@ -62,14 +62,19 @@
   <string name="general">Generale</string>
   <string name="layout">Disposizione</string>
   <string name="privacy">Privacy</string>
+  <string name="proximity_sensor">Sensore di prossimità</string>
   <string name="lockscreen_notifications">Notifiche sulla schermata di sblocco</string>
   <string name="lockscreen_notifications_summary">Visualizza le notifiche in sospeso sulla schermata di sblocco</string>
   <string name="hide_non_clearable">Nascondi non cancellabile</string>
   <string name="hide_non_clearable_summary">Nascondi tutte le notifiche non cancellabili</string>
   <string name="dismiss_all">Permetti di rimuovere tutte le notifiche</string>
   <string name="dismiss_all_summary">Permetti la rimozione delle notifiche non eliminabili. Ovviamente esse saranno nascoste solamente dalla schermata di sblocco e non dal pannello delle notifiche.</string>
+  <string name="dismiss_notification">Rimuovi notifica</string>
+  <string name="dismiss_notification_summary">La notifica verrà rimossa se viene eseguito uno swipe</string>
   <string name="hide_low_priority">Nascondi notifiche a bassa priorità</string>
   <string name="hide_low_priority_summary">Nascondi le notifiche a bassa priorità come le notifiche meteo di Google Now</string>
+  <string name="included_apps_title">Applicazioni incluse</string>
+  <string name="included_apps_summary">Verranno mostrate le notifiche a priorità bassa delle applicazioni incluse</string>
   <string name="excluded_apps_title">Applicazioni escluse</string>
   <string name="excluded_apps_summary">Le applicazioni escluse non appariranno come notifiche sulla schermata di sblocco</string>
   <string name="pocket_mode">Modalità tasca</string>
@@ -87,6 +92,7 @@
   <string name="privacy_mode">Modalità privacy</string>
   <string name="privacy_mode_summary">Disabilita la visualizzazione e la rimozione delle notifiche. In questo modo, vedrai soltanto le icone delle tue notifiche.</string>
   <string name="expanded_view">Visualizzazione espansa delle notifiche</string>
+  <string name="expanded_view_summary">Aggiungi la possibilità di passare dalla visualizzazione normale a quella espansa con una pressione prolungata. La modalità espansa a volte mostra informazioni private dunque potresti volerla disabilitare.</string>
   <string name="force_expanded_view">Forza visualizzazione espansa</string>
   <string name="force_expanded_view_summary">Visualizza notifiche espanse per impostazione predefinita. Sarai in grado di alternare la visualizzazione espansa e normale.</string>
   <string name="bars_and_menus_category_system_title">Sistema</string>
@@ -211,6 +217,7 @@
   <string name="voicemail_breath_title">Casella Vocale lampeggiante</string>
   <string name="voicemail_breath_summary">Darà alle tue notifiche di casella vocale un effetto lampeggiante nella barra di stato</string>
   <string name="status_bar_clock">Orologio e data</string>
+  <string name="status_bar_clock_title">Stile orologio e data</string>
   <string name="clock_title_enable">Allineamento</string>
   <string name="clock_enabled">Attivo</string>
   <string name="clock_disabled">Disabilitato</string>
@@ -303,6 +310,12 @@
   <string name="navigation_bar_force_category">Forza Barra di navigazione</string>
   <string name="auto_brightness_adjustment_title">Regolazione della luminosità</string>
   <string name="smart_cover">Smart cover</string>
+  <string name="smart_cover_title">Usa smart cover</string>
+  <string name="smart_cover_summary">Sostituisce la lockscreen con una smart cover quando il coperchio è chiuso</string>
+  <string name="smart_cover_wake_title">Risveglia dispositivo</string>
+  <string name="smart_cover_wake_summary">Risveglia il dispositivo quando il coperchio viene aperto</string>
+  <string name="smart_cover_sleep_title">Metti in modalità sleep</string>
+  <string name="smart_cover_sleep_summary">Metti il dispositivo in modalità sleep quando il coperchio viene chiuso</string>
   <string name="title_qs_swipe_anywhere">Swipe ovunque</string>
   <string name="summary_qs_swipe_anywhere">Permetti lo swipe ovunque per passare tra le notifiche e i quicktiles</string>
   <string name="fifteen_seconds">15 secondi</string>
@@ -314,4 +327,6 @@
   <string name="thirty_minutes">30 minuti</string>
   <string name="power_menu_mobile_data_title">Dati mobili</string>
   <string name="power_menu_wifi_title">Wifi</string>
+  <string name="hardware_keys_action_last_app">Passa all\'ultima app</string>
+  <string name="hardware_keys_action_immersive_mode">Attiva la modalità immersiva</string>
 </resources>

@@ -215,6 +215,7 @@
   <string name="voicemail_breath_title">\"Дышащая\" голосовая почта</string>
   <string name="voicemail_breath_summary">Придаст вашим уведомлениям голосовой почты эффект дыхания в строке состояния</string>
   <string name="status_bar_clock">Часы и дата</string>
+  <string name="status_bar_clock_title">Стиль часов и даты</string>
   <string name="clock_title_enable">Расположение</string>
   <string name="clock_enabled">Включены</string>
   <string name="clock_disabled">Выключены</string>

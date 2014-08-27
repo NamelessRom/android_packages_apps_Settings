@@ -211,6 +211,7 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="voicemail_breath_title">Nefes Seslimesajı</string>
   <string name="voicemail_breath_summary">Sesli mesaj bildirimleriniz geldiğinde statusbara bir nefes efekti verecek</string>
   <string name="status_bar_clock">Saat ve tarih</string>
+  <string name="status_bar_clock_title">Saat ve tarih tarzı</string>
   <string name="clock_title_enable">Hiza</string>
   <string name="clock_enabled">Etkin</string>
   <string name="clock_disabled">Etkin değil</string>

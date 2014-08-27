@@ -204,6 +204,7 @@
   <string name="voicemail_breath_title">Lélegző hangüzenet ikon</string>
   <string name="voicemail_breath_summary">Az értesítési sávon lélegző ikonnal mutatja a hangüzeneteket</string>
   <string name="status_bar_clock">Óra és dátum</string>
+  <string name="status_bar_clock_title">Óra és dátum stílus</string>
   <string name="clock_title_enable">Igazítás</string>
   <string name="clock_enabled">Engedélyezve</string>
   <string name="clock_disabled">Kikapcsolva</string>
