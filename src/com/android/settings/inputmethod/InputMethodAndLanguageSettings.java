@@ -183,11 +183,17 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
 
         mStylusGestures = (PreferenceScreen) findPreference(KEY_STYLUS_GESTURES);
         mStylusIconEnabled = (CheckBoxPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
+        mHighTouchSensitivity = (CheckBoxPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
+
         // remove stylus preference for non stylus devices
         if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
             PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
                     findPreference(KEY_POINTER_SETTINGS_CATEGORY);
             if (pointerSettingsCategory != null) {
+
+        if (pointerSettingsCategory != null) {
+            // remove stylus preference for non stylus devices
+            if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
                 pointerSettingsCategory.removePreference(mStylusGestures);
                 pointerSettingsCategory.removePreference(mStylusIconEnabled);
                 Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
@@ -205,7 +211,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                             pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
             if (pointerSettingsCategory.getPreferenceCount() == 0) {
                 getPreferenceScreen().removePreference(pointerSettingsCategory);
->>>>>>> 770b22d... Fix HighTouchSensivity (1/2)
             }
         }
 
@@ -217,13 +222,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
-        }
-
-        // High touch sensitivity
-        mHighTouchSensitivity = (CheckBoxPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
-        if (!isHighTouchSensitivitySupported()) {
-            getPreferenceScreen().removePreference(mHighTouchSensitivity);
-            mHighTouchSensitivity = null;
         }
 
         // Spell Checker
