@@ -435,4 +435,7 @@
 
     <!-- Actions -->
     <string name="hardware_keys_action_immersive_mode">Toggle immersive mode</string>
+
+    <string name="power_menu_reboot_oneclick">One-click reboot</string>
+    <string name="power_menu_reboot_oneclick_summary">Instantly trigger reboot action</string>
 </resources>
