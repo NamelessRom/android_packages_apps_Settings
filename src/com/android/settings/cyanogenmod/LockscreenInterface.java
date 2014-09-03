@@ -35,8 +35,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import com.android.internal.util.cm.TorchConstants;
 import com.android.internal.util.nameless.NamelessUtils;
-import com.android.internal.util.nameless.constants.FlashLightConstants;
 
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -131,7 +131,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         }
 
         // Glowpad Torch
-        if (!NamelessUtils.isPackageInstalled(getActivity(), FlashLightConstants.APP_PACKAGE_NAME)) {
+        if (!NamelessUtils.isPackageInstalled(getActivity(), TorchConstants.APP_PACKAGE_NAME)) {
             personalizationCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
         }
 
