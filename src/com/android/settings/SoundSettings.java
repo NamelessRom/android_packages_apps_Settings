@@ -227,7 +227,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             removePreference(KEY_VIBRATION_INTENSITY);
             removePreference(KEY_CONVERT_SOUND_TO_VIBRATE);
             removePreference(KEY_VIBRATE_DURING_CALLS);
-        } else if (true /* !VibratorIntensity.isSupported() */) {
+        } else if (!VibratorIntensity.isSupported()) {
             removePreference(KEY_VIBRATION_INTENSITY);
         }
 
