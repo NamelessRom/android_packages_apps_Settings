@@ -54,6 +54,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_COPYRIGHT = "copyright";
     private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
+    private static final String PROPERTY_RELEASE_TYPE = "ro.nameless.releasetype";
     private static final String KEY_BUILD_NUMBER = "build_number";
     private static final String KEY_DEVICE_MODEL = "device_model";
     private static final String KEY_SELINUX_STATUS = "selinux_status";
@@ -68,6 +69,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_CM_UPDATES = "cm_updates";
     private static final String KEY_STATUS = "status_info";
+    private static final String KEY_RELEASE_TYPE = "release_type";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     long[] mHits = new long[3];
@@ -99,6 +101,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         setValueSummary(KEY_MOD_VERSION, "ro.nameless.version");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+        setValueSummary(KEY_RELEASE_TYPE, PROPERTY_RELEASE_TYPE);
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -129,6 +132,10 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         if (Utils.isWifiOnly(getActivity())) {
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
         }
+
+        // Remove Release type preference if PROPERTY_RELEASE_TYPE is not set
+        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_RELEASE_TYPE,
+                PROPERTY_RELEASE_TYPE);
 
         /*
          * Settings is a generic app and should not contain any device-specific
@@ -268,8 +275,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
     private void setValueSummary(String preference, String property) {
         try {
-            findPreference(preference).setSummary(
-                    SystemProperties.get(property,
+            findPreference(preference).setSummary(SystemProperties.get(property,
                             getResources().getString(R.string.device_info_default)));
         } catch (RuntimeException e) {
             // No recovery
