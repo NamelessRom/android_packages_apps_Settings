@@ -144,7 +144,13 @@
                 android:title="@string/nameless_mod_version"
                 android:summary="@string/mod_version_default" />
 
-        <!-- Mod build date -->
+        <!-- Release type -->
+        <Preference android:key="release_type"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/release_type"
+                android:summary="@string/device_info_default" />
+
+        <!-- Build date -->
         <Preference android:key="build_date"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/build_date"
