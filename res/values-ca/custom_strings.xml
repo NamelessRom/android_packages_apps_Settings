@@ -281,8 +281,6 @@
   <string name="camera_sounds_summary">ADVERTÈNCIA: Desactivar el so de l\'obturador de la càmera és il·legal en algunes àrees!</string>
   <string name="enable_acra_title">Activar informes de Bloqueig</string>
   <string name="enable_acra_summary">Si està marcada, es bloquegessin automàticament els enviaments a NamelessRom</string>
-  <string name="new_recents_screen_title">Ús de nou recents</string>
-  <string name="new_recents_screen_summary">Reemplaça la pantalla recents amb una basada en l\'òptica de les noves targetes de google.</string>
   <string name="srec_enable_touches_title">Activar punter</string>
   <string name="srec_enable_touches_summary">Activar indicador visual mostrant detalls durant la gravació de pantalla</string>
   <string name="srec_enable_mic_title">Ús del micròfon</string>

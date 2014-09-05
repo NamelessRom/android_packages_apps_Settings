@@ -281,8 +281,6 @@
   <string name="camera_sounds_summary">ADVERTENCIA: ¡Desactivar el sonido del obturador de la cámara es ilegal en algunas áreas!</string>
   <string name="enable_acra_title">Activar reportes de Bloqueo</string>
   <string name="enable_acra_summary">Si está marcada, se bloquearan automáticamente los envios a NamelessRom</string>
-  <string name="new_recents_screen_title">Uso de nuevo recientes</string>
-  <string name="new_recents_screen_summary">Reemplaza la pantalla recientes con una basada en la óptica de las nuevas tarjetas de google.</string>
   <string name="srec_enable_touches_title">Activar puntero</string>
   <string name="srec_enable_touches_summary">Activar indicador visual mostrando detalles durante la grabación de pantalla</string>
   <string name="srec_enable_mic_title">Uso del micrófono</string>

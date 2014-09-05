@@ -20,6 +20,7 @@
   <string name="rom_developers">Rom-Entwickler</string>
   <string name="device_maintainers">Geräte-Betreuer</string>
   <string name="translators">Übersetzer</string>
+  <string name="release_type">Release-Typ</string>
   <string name="crazy_lab">Das verrückte Labor</string>
   <string name="force_multi_pane">Multi-Pane erzwingen</string>
   <string name="force_multi_pane_summary">Erzwingen des Multi-Pane-Layouts in Systemeinstellungen</string>
@@ -287,8 +288,6 @@
   <string name="camera_sounds_summary">WARNUNG: Es kann in bestimmten Gebieten illegal sein den Ton der Kamerablende zu deaktivieren!</string>
   <string name="enable_acra_title">Absturzberichte aktivieren</string>
   <string name="enable_acra_summary">Wenn diese Option aktiviert ist, werden Abstürze automatisch an NamelessRom gesendet</string>
-  <string name="new_recents_screen_title">Verwende den neuen \"Zuletzt geöffnete Anwendungen\" Bildschirm</string>
-  <string name="new_recents_screen_summary">Ersetzt den \"Zuletzt geöffnete Anwendungen\" Bildschirm mit dem neuen, welcher auf der Google Karten Optik basiert.</string>
   <string name="srec_enable_touches_title">Aktiviere Zeiger</string>
   <string name="srec_enable_touches_summary">Aktiviert einen visuellen Zeiger, welcher Berührungen während der Bildschirmaufnahme darstellt</string>
   <string name="srec_enable_mic_title">Mikrofon verwenden</string>
@@ -326,6 +325,9 @@
   <string name="thirty_minutes">30 Minuten</string>
   <string name="power_menu_mobile_data_title">Mobile Daten</string>
   <string name="power_menu_wifi_title">WiFi</string>
-  <string name="hardware_keys_action_last_app">Zur letzten Anwendung wechseln</string>
   <string name="hardware_keys_action_immersive_mode">Erweiterten Desktop umschalten</string>
+  <string name="hardware_keys_action_screen_off">Bildschirm ausschalten</string>
+  <string name="hardware_keys_action_toggle_torch">Taschenlampe</string>
+  <string name="power_menu_reboot_oneclick">Ein-Klick-Neustart</string>
+  <string name="power_menu_reboot_oneclick_summary">Neustart-Aktion bei Auswahl sofort auslösen</string>
 </resources>

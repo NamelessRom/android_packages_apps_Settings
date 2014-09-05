@@ -281,8 +281,6 @@
   <string name="camera_sounds_summary">ATTENTION: La désactivation du son du déclencheur de l\'appareil photo est illégale dans certaines régions!</string>
   <string name="enable_acra_title">Activer le rapport d\'erreur</string>
   <string name="enable_acra_summary">Si cochée, les plantages sont automatiquement envoyés à NamelessRom</string>
-  <string name="new_recents_screen_title">Utilisation des nouveaux récents</string>
-  <string name="new_recents_screen_summary">Remplace l\'écran récents par un basé sur la nouvelle vue cartes de google.</string>
   <string name="srec_enable_touches_title">Activer le pointeur</string>
   <string name="srec_enable_touches_summary">Activer le pointeur visuel pour afficher les touches pendant l\'enregistrement de l\'écran</string>
   <string name="srec_enable_mic_title">Utiliser le microphone</string>

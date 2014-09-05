@@ -274,7 +274,6 @@
   <string name="camera_sounds_summary">Figyelmeztetés: A kamera exponáló hang letiltása az illegális egyes területeken!</string>
   <string name="enable_acra_title">Engedélyezi a hibajelentést</string>
   <string name="enable_acra_summary">Ha be van jelölve, automatikusan küldi a hibajelentéseket a NamelessRom fejlesztőinek</string>
-  <string name="new_recents_screen_title">Használja a legutóbbiakat</string>
   <string name="srec_enable_touches_title">Engedélyezi a mutatót</string>
   <string name="srec_enable_touches_summary">Engedélyezi a vizuális mutatót, hogy mutassa az érintéseket képernyő felvétel közben</string>
   <string name="srec_enable_mic_title">Mikrofon használata</string>

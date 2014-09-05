@@ -285,8 +285,6 @@
   <string name="camera_sounds_summary">ВНИМАНИЕ: отключение звуков камеры в некоторых местах может быть незаконным!</string>
   <string name="enable_acra_title">Включить сообщения об ошибках</string>
   <string name="enable_acra_summary">Если отмечено, ошибки автоматически отправляются в NamelessRom</string>
-  <string name="new_recents_screen_title">Использовать новые недавние</string>
-  <string name="new_recents_screen_summary">Заменяет панель недавних на новую, основанную на карточках новых очков Google.</string>
   <string name="srec_enable_touches_title">Включить указатель</string>
   <string name="srec_enable_touches_summary">Включить видимый указатель когда касаетесь во время записи экрана</string>
   <string name="srec_enable_mic_title">Использовать микрофон</string>
@@ -323,5 +321,4 @@
   <string name="thirty_minutes">30 минут</string>
   <string name="power_menu_mobile_data_title">Мобильные данные</string>
   <string name="power_menu_wifi_title">Wi-Fi</string>
-  <string name="hardware_keys_action_last_app">Переключиться на последнее приложение</string>
 </resources>

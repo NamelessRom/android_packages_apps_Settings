@@ -282,8 +282,6 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="camera_sounds_summary">Atenção: Desabilitar o som do obturador da câmera é ilegal em algumas áreas!</string>
   <string name="enable_acra_title">Habilitar relatório de falhas</string>
   <string name="enable_acra_summary">Se marcada, falhas são automaticamente enviar para NamelessRom</string>
-  <string name="new_recents_screen_title">Utilizar novo recente</string>
-  <string name="new_recents_screen_summary">Substitui a tela recentes com uma baseada na óptica dos novos cartões do google.</string>
   <string name="srec_enable_touches_title">Ativar ponteiro</string>
   <string name="srec_enable_touches_summary">Ativar ponteiro visual para mostrar toques durante a gravação de tela</string>
   <string name="srec_enable_mic_title">Usar o microfone</string>

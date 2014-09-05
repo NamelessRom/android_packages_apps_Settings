@@ -20,6 +20,7 @@
   <string name="rom_developers">Deweloperzy ROMu</string>
   <string name="device_maintainers">Device Maintainers</string>
   <string name="translators">Tłumacze</string>
+  <string name="release_type">Typ wydania</string>
   <string name="crazy_lab">Crazy Lab</string>
   <string name="force_multi_pane">Wymuś układ wielopanelowy</string>
   <string name="force_multi_pane_summary">Wymuś układ wielopanelowy dla menu ustawień systemowych</string>
@@ -287,8 +288,6 @@
   <string name="camera_sounds_summary">Uwaga: Wyłączenie dźwięku migawki aparatu jest nielegalne w niektórych krajach!</string>
   <string name="enable_acra_title">Włącz raportowanie błędów</string>
   <string name="enable_acra_summary">Jeśli zaznaczone, informacje o błędach są automatycznie wysyłane do zespołu NamelessRom</string>
-  <string name="new_recents_screen_title">Użyj nowego ekranu ostatnio użytych aplikacji</string>
-  <string name="new_recents_screen_summary">Zastępuje ekran ostatnio otwartych aplikacji nowym ekranem opartym na \'google cards optic\'.</string>
   <string name="srec_enable_touches_title">Pokaż dotknięcia</string>
   <string name="srec_enable_touches_summary">Pokazuje potwierdzenia dotknięcia podczas nagrywania ekranu</string>
   <string name="srec_enable_mic_title">Użyj mikrofonu</string>
@@ -326,6 +325,9 @@
   <string name="thirty_minutes">30 minut</string>
   <string name="power_menu_mobile_data_title">Dane mobilne</string>
   <string name="power_menu_wifi_title">Wifi</string>
-  <string name="hardware_keys_action_last_app">Przełącz do ostatniej aplikacji</string>
   <string name="hardware_keys_action_immersive_mode">Przełącz tryb immersji</string>
+  <string name="hardware_keys_action_screen_off">Wyłączyć ekran</string>
+  <string name="hardware_keys_action_toggle_torch">Przełącz latarkę</string>
+  <string name="power_menu_reboot_oneclick">Reset poprzez jedno kliknięcie</string>
+  <string name="power_menu_reboot_oneclick_summary">Natychmiastowo wyzwól ponowne uruchomienie</string>
 </resources>

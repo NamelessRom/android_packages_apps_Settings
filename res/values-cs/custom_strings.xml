@@ -281,8 +281,6 @@
   <string name="camera_sounds_summary">VAROVÁNÍ: Vypnutí zvuku závěrky fotoaparátu je v některých oblastech nezákonné!</string>
   <string name="enable_acra_title">Povolit Hlášení pádů</string>
   <string name="enable_acra_summary">Je-li zaškrtnuto, pády jsou automaticky odesílány vývojářům NamelessRom</string>
-  <string name="new_recents_screen_title">Nová obrazovka nedávných aplikací</string>
-  <string name="new_recents_screen_summary">Nahrazuje obrazovku nedávných aplikací obrazovkou založenou na \'google card optic\'.</string>
   <string name="srec_enable_touches_title">Zobrazit dotek</string>
   <string name="srec_enable_touches_summary">Povolit vizuální ukazatel pro zobrazení dotyků při nahrávání obrazovky</string>
   <string name="srec_enable_mic_title">Použít Mikrofon</string>

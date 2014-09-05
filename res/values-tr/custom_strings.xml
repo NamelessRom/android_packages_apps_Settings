@@ -279,8 +279,6 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="camera_sounds_summary">UYARI: Deklanşör sesi devre dışı bırakılması, bazı bölgelerde yasadışı!</string>
   <string name="enable_acra_title">Hata raporu göndermeyi etkinleştirme</string>
   <string name="enable_acra_summary">Eğer işaretli ise, otomatik olarak NamelessRom\'a gönderilmektedir</string>
-  <string name="new_recents_screen_title">Yeni Son uygulamaları kullanın</string>
-  <string name="new_recents_screen_summary">Yeni google optik karta dayalı tek merkezli son uygulamalar ekranını kullanın.</string>
   <string name="srec_enable_touches_title">İşaretçiyi etkinleştirin</string>
   <string name="srec_enable_touches_summary">Ekran kayıt sırasında dokunmaları göstermek için görsel işaretçisini etkinleştirmek</string>
   <string name="srec_enable_mic_title">Mikrofon kullanımı</string>
@@ -298,6 +296,7 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="more_device_controls_title">Daha\u2026</string>
   <string name="system_settings_title">Arayüz</string>
   <string name="system_interface_title">Sistem arabirimi</string>
+  <string name="navigation_bar_force_category">Gezinti çubuğunu başlat</string>
   <string name="auto_brightness_adjustment_title">Parlaklık ayarı</string>
   <string name="thirty_minutes">30 dakika</string>
 </resources>

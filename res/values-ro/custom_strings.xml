@@ -287,8 +287,6 @@
   <string name="camera_sounds_summary">Avertisment: Dezactivarea sunetului camerei este ilegal în unele zone!</string>
   <string name="enable_acra_title">Activați reportările de avarii</string>
   <string name="enable_acra_summary">Dacă este bifat, avariile sunt trimise automat la NamelessRom</string>
-  <string name="new_recents_screen_title">Utilizarea noului panou de Recente</string>
-  <string name="new_recents_screen_summary">Înlocuiește ecranele recente cu unul bazat pe noile carduri optice de la Google.</string>
   <string name="srec_enable_touches_title">Activare indicator</string>
   <string name="srec_enable_touches_summary">Activează indicatorul vizual pentru a arăta atingerile în timpul înregistrării ecranului</string>
   <string name="srec_enable_mic_title">Utilizare microfon</string>
@@ -326,6 +324,5 @@
   <string name="thirty_minutes">30 de minute</string>
   <string name="power_menu_mobile_data_title">Date mobile</string>
   <string name="power_menu_wifi_title">Wifi</string>
-  <string name="hardware_keys_action_last_app">Comutare la ultima aplicație</string>
   <string name="hardware_keys_action_immersive_mode">Comută modul immersive</string>
 </resources>
