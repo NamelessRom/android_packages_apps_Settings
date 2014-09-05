@@ -466,6 +466,7 @@
         <item>@string/hardware_keys_action_last_app</item>
         <item>@string/hardware_keys_action_immersive_mode</item>
         <item>@string/hardware_keys_action_screen_off</item>
+        <item>@string/hardware_keys_action_toggle_torch</item>
     </string-array>
 
     <string-array name="hardware_keys_action_values" translatable="false">
@@ -479,6 +480,7 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+        <item>10</item>
     </string-array>
 
     <!-- Volume key cursor control -->
