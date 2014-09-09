@@ -189,6 +189,19 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                         pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
             }
+
+            if (!isHighTouchSensitivitySupported()) {
+                pointerSettingsCategory.removePreference(mHighTouchSensitivity);
+                mHighTouchSensitivity = null;
+            } else {
+                mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+            }
+
+            Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                            pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
+            if (pointerSettingsCategory.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(pointerSettingsCategory);
+            }
         }
 
         // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
@@ -394,6 +407,9 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 System.putInt(getContentResolver(), Settings.System.VIBRATE_INPUT_DEVICES,
                         chkPref.isChecked() ? 1 : 0);
                 return true;
+            }
+            if (preference == mHighTouchSensitivity) {
+                return HighTouchSensitivity.setEnabled(mHighTouchSensitivity.isChecked());
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -617,6 +633,15 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                     Settings.System.VIBRATE_INPUT_DEVICES, 1) > 0);
         } else {
             getPreferenceScreen().removePreference(mGameControllerCategory);
+        }
+    }
+
+    private static boolean isHighTouchSensitivitySupported() {
+        try {
+            return HighTouchSensitivity.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed
+            return false;
         }
     }
 
