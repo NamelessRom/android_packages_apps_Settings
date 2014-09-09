@@ -193,6 +193,20 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                         pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
             }
+
+            if (!isHighTouchSensitivitySupported()) {
+                pointerSettingsCategory.removePreference(mHighTouchSensitivity);
+                mHighTouchSensitivity = null;
+            } else {
+                mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+            }
+
+            Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                            pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
+            if (pointerSettingsCategory.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(pointerSettingsCategory);
+>>>>>>> 770b22d... Fix HighTouchSensivity (1/2)
+            }
         }
 
         // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
@@ -406,8 +420,9 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                         chkPref.isChecked() ? 1 : 0);
                 return true;
             }
-        } else if (preference == mHighTouchSensitivity) {
-            return HighTouchSensitivity.setEnabled(mHighTouchSensitivity.isChecked());
+            if (preference == mHighTouchSensitivity) {
+                return HighTouchSensitivity.setEnabled(mHighTouchSensitivity.isChecked());
+            }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -638,7 +653,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             return HighTouchSensitivity.isSupported();
         } catch (NoClassDefFoundError e) {
             // Hardware abstraction framework not installed
-             return false;
+            return false;
         }
     }
 
