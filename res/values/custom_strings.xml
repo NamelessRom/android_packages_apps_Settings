@@ -358,12 +358,6 @@
     <string name="enable_acra_title">Enable Crashreporting</string>
     <string name="enable_acra_summary">If checked, crashes are automatically send to NamelessRom</string>
 
-    <!-- Screen Recording -->
-    <string name="srec_enable_touches_title">Enable Pointer</string>
-    <string name="srec_enable_touches_summary">Enable visual pointer to show touches during screen recording</string>
-    <string name="srec_enable_mic_title">Use Microphone</string>
-    <string name="srec_enable_mic_summary">Use microphone as audio input during screen recording</string>
-
     <!-- Menu Entries in Nameless -> more -->
     <string name="misc_crash_report">Crash Report</string>
     <string name="misc_others">Others</string>
