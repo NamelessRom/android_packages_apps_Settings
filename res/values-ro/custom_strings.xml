@@ -20,6 +20,7 @@
   <string name="rom_developers">Dezvoltatori Rom</string>
   <string name="device_maintainers">Administratori dispozitiv</string>
   <string name="translators">Traducători</string>
+  <string name="release_type">Tip versiune</string>
   <string name="crazy_lab">Crazy Lab</string>
   <string name="force_multi_pane">Forțează multi-panou</string>
   <string name="force_multi_pane_summary">Forțează aspectul multi-panou în setări sistem</string>
@@ -325,4 +326,8 @@
   <string name="power_menu_mobile_data_title">Date mobile</string>
   <string name="power_menu_wifi_title">Wifi</string>
   <string name="hardware_keys_action_immersive_mode">Comută modul immersive</string>
+  <string name="hardware_keys_action_screen_off">Oprire ecran</string>
+  <string name="hardware_keys_action_toggle_torch">Comutare lanternă</string>
+  <string name="power_menu_reboot_oneclick">Repornire printr-un click</string>
+  <string name="power_menu_reboot_oneclick_summary">Declanșează instantaneu acțiunea de repornire</string>
 </resources>

@@ -20,6 +20,7 @@
   <string name="rom_developers">Sviluppatori Rom</string>
   <string name="device_maintainers">Manutentori Dispositivo</string>
   <string name="translators">Traduttori</string>
+  <string name="release_type">Tipo di rilascio</string>
   <string name="crazy_lab">Laboratorio matto</string>
   <string name="force_multi_pane">Forza multiriquadri</string>
   <string name="force_multi_pane_summary">Forza l\'uso del layout multiriquadri nelle impostazioni di sistema</string>
@@ -325,4 +326,8 @@
   <string name="power_menu_mobile_data_title">Dati mobili</string>
   <string name="power_menu_wifi_title">Wifi</string>
   <string name="hardware_keys_action_immersive_mode">Attiva la modalità immersiva</string>
+  <string name="hardware_keys_action_screen_off">Spegni schermo</string>
+  <string name="hardware_keys_action_toggle_torch">Accendi/Spegni Torcia</string>
+  <string name="power_menu_reboot_oneclick">Riavvio con un click</string>
+  <string name="power_menu_reboot_oneclick_summary">Innesca istantaneamente un\'azione di riavvio</string>
 </resources>
