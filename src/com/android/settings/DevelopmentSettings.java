@@ -56,6 +56,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -730,7 +731,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         int count = validValues.size();
         if (count <= 1) {
             // no choices, so remove preference
-            removePreference(selectRuntime);
+            ((PreferenceCategory) findPreference("debug_applications_category"))
+                    .removePreference(selectRuntime);
         } else {
             pref.setEntryValues(validValues.toArray(new String[count]));
             pref.setEntries(validSummaries.toArray(new String[count]));
