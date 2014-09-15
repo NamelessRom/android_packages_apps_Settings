@@ -1298,4 +1298,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="maximum_head_level">Head: %1$s W/kg</string>
     <string name="maximum_body_level">Body: %1$s W/kg</string>
 
+    <!-- Wifi AP: connected devices -->
+    <string name="wifi_ap_clients_title">Connected devices</string>
+    <string name="wifi_ap_client_ap_disabled">Hotspot is disabled</string>
+    <string name="wifi_ap_client_none_connected">No devices connected</string>
 </resources>

@@ -508,6 +508,8 @@ public class Settings extends PreferenceActivity
         HeadsUpSettings.class.getName(),
         com.android.settings.ThemeSettings.class.getName(),
         SmartCoverSettings.class.getName(),
+        ThemeSettings.class.getName(),
+        com.android.settings.wifi.WifiApSettings.class.getName()
     };
 
     @Override
@@ -1446,9 +1448,8 @@ public class Settings extends PreferenceActivity
     public static class QuickSettingsConfigActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
     public static class ThemeSettingsActivity extends Settings { /* empty */ }
-
-    /* NamelessROM */
     public static class AnimationInterfaceSettingsActivity extends Settings { /* empty */ }
     public static class MoreInterfaceSettingsActivity extends Settings { /* empty */ }
     public static class CrazyLabSettingsActivity extends Settings { /* empty */ }
+    public static class WifiApSettingsActivity extends Settings { /* empty */ }
 }
