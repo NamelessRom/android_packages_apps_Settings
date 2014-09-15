@@ -1292,4 +1292,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Keep the referenced menu string consistent with status_bar_notification_spam_item_title in frameworks/base/packages/SystemUI -->
     <string name="no_filters_title">No filters set. To filter a notification, long press it and choose \'Ignore messages like this\'.</string>
 
+    <!-- Wifi AP: connected devices -->
+    <string name="wifi_ap_clients_title">Connected devices</string>
+    <string name="wifi_ap_client_ap_disabled">Hotspot is disabled</string>
+    <string name="wifi_ap_client_none_connected">No devices connected</string>
 </resources>
