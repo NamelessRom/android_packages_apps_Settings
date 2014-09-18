@@ -22,6 +22,21 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 LOCAL_AAPT_INCLUDE_ALL_RESOURCES := true
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
+## Holocolorpicker
+
+library_src_files := ../../../external/holocolorpicker/src
+LOCAL_SRC_FILES   += $(call all-java-files-under, $(library_src_files))
+
+LOCAL_RESOURCE_DIR += $(LOCAL_PATH)/../../../external/holocolorpicker/res
+
+######
+
+LOCAL_AAPT_FLAGS := \
+    --auto-add-overlay \
+    --extra-packages com.larswerkman.holocolorpicker \
+
+######
+
 LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 
 include $(BUILD_PACKAGE)
