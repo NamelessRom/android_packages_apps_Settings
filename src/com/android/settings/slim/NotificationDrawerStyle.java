@@ -17,49 +17,46 @@
 package com.android.settings.slim;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Color;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceScreen;
-import android.provider.Settings;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.widget.Toast;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.nameless.ColorPickerDialogFragment;
 import com.android.settings.widget.SeekBarPreference;
 
 import java.io.File;
 
-import net.margaritov.preference.colorpicker.ColorPickerView;
-
 public class NotificationDrawerStyle extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, ColorPickerDialogFragment.OnColorPickedListener {
 
     private static final String TAG = "NotificationDrawerStyle";
 
-    private static final String PREF_NOTIFICATION_WALLPAPER =
+    private static final String PREF_NOTIFICATION_WALLPAPER           =
             "notification_wallpaper";
     private static final String PREF_NOTIFICATION_WALLPAPER_LANDSCAPE =
             "notification_wallpaper_landscape";
-    private static final String PREF_NOTIFICATION_WALLPAPER_ALPHA =
+    private static final String PREF_NOTIFICATION_WALLPAPER_ALPHA     =
             "notification_wallpaper_alpha";
-    private static final String PREF_NOTIFICATION_ALPHA =
+    private static final String PREF_NOTIFICATION_ALPHA               =
             "notification_alpha";
 
     private static final int DLG_PICK_COLOR = 0;
+
+    private DialogFragment dialogColorPicker;
 
     private ListPreference mNotificationWallpaper;
     private ListPreference mNotificationWallpaperLandscape;
@@ -68,7 +65,7 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
     private File mImageTmp;
 
-    private static final int REQUEST_PICK_WALLPAPER = 201;
+    private static final int REQUEST_PICK_WALLPAPER           = 201;
     private static final int REQUEST_PICK_WALLPAPER_LANDSCAPE = 202;
 
     private Activity mActivity;
@@ -81,12 +78,9 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
         addPreferencesFromResource(R.xml.notification_bg_pref);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
-
         mImageTmp = new File(getActivity().getFilesDir() + "/notifi_bg.tmp");
 
-        mNotificationWallpaper =
-                (ListPreference) findPreference(PREF_NOTIFICATION_WALLPAPER);
+        mNotificationWallpaper = (ListPreference) findPreference(PREF_NOTIFICATION_WALLPAPER);
         mNotificationWallpaper.setOnPreferenceChangeListener(this);
 
         mNotificationWallpaperLandscape =
@@ -130,7 +124,6 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
         updateCustomBackgroundSummary();
     }
 
-
     private void updateCustomBackgroundSummary() {
         int resId;
         String value = Settings.System.getString(getContentResolver(),
@@ -168,8 +161,7 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
         if (path != null && !path.startsWith("color=")) {
             File wallpaperToDelete = new File(Uri.parse(path).getPath());
 
-            if (wallpaperToDelete != null
-                    && wallpaperToDelete.exists() && !orientation) {
+            if (wallpaperToDelete.exists() && !orientation) {
                 wallpaperToDelete.delete();
             }
         }
@@ -179,13 +171,12 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
         if (path != null) {
             File wallpaperToDelete = new File(Uri.parse(path).getPath());
 
-            if (wallpaperToDelete != null
-                    && wallpaperToDelete.exists() && orientation) {
+            if (wallpaperToDelete.exists() && orientation) {
                 wallpaperToDelete.delete();
             }
             if (orientation) {
                 Settings.System.putString(getContentResolver(),
-                    Settings.System.NOTIFICATION_BACKGROUND_LANDSCAPE, null);
+                        Settings.System.NOTIFICATION_BACKGROUND_LANDSCAPE, null);
             }
         }
     }
@@ -209,10 +200,10 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
                 if (requestCode == REQUEST_PICK_WALLPAPER) {
                     Settings.System.putString(getContentResolver(),
-                        Settings.System.NOTIFICATION_BACKGROUND, path);
+                            Settings.System.NOTIFICATION_BACKGROUND, path);
                 } else {
                     Settings.System.putString(getContentResolver(),
-                        Settings.System.NOTIFICATION_BACKGROUND_LANDSCAPE, path);
+                            Settings.System.NOTIFICATION_BACKGROUND_LANDSCAPE, path);
                 }
             }
         } else {
@@ -225,14 +216,16 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
     private void startPictureCrop(int request, boolean landscape) {
         Display display = getActivity().getWindowManager().getDefaultDisplay();
-        int width = display.getWidth();
-        int height = display.getHeight();
-        Intent intent = new Intent(Intent.ACTION_PICK,
+        final Point point = new Point();
+        display.getSize(point);
+        final int width = point.x;
+        final int height = point.y;
+        final Intent intent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
         intent.putExtra("crop", "true");
         boolean isPortrait = getResources()
-            .getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
+                .getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
         intent.putExtra("aspectX", (landscape ? !isPortrait : isPortrait)
                 ? width : height);
         intent.putExtra("aspectY", (landscape ? !isPortrait : isPortrait)
@@ -265,7 +258,7 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
             Settings.System.putFloat(getContentResolver(),
                     Settings.System.NOTIFICATION_ALPHA, valNav / 100);
             return true;
-        }else if (preference == mNotificationWallpaper) {
+        } else if (preference == mNotificationWallpaper) {
             int indexOf = mNotificationWallpaper.findIndexOfValue(newValue.toString());
             switch (indexOf) {
                 //Displays color dialog when user has chosen color fill
@@ -286,7 +279,7 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
                     break;
             }
             return true;
-        }else if (preference == mNotificationWallpaperLandscape) {
+        } else if (preference == mNotificationWallpaperLandscape) {
             int indexOf = mNotificationWallpaperLandscape.findIndexOfValue(newValue.toString());
             switch (indexOf) {
                 //Launches intent for user to select an image/crop it to set as background
@@ -304,66 +297,28 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
         return false;
     }
 
-    private void showDialogInner(int id) {
-        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
-        newFragment.setTargetFragment(this, 0);
-        newFragment.show(getFragmentManager(), "dialog " + id);
+    private void showDialogInner(final int id) {
+        if (dialogColorPicker != null) {
+            dialogColorPicker.dismiss();
+            dialogColorPicker = null;
+        }
+
+        dialogColorPicker = ColorPickerDialogFragment.newInstance(id, this,
+                getActivity().getResources().getColor(android.R.color.holo_blue_light));
+        dialogColorPicker.setTargetFragment(this, 0);
+        dialogColorPicker.show(getFragmentManager(), "dialog " + id);
     }
 
-    public static class MyAlertDialogFragment extends DialogFragment {
-
-        public static MyAlertDialogFragment newInstance(int id) {
-            MyAlertDialogFragment frag = new MyAlertDialogFragment();
-            Bundle args = new Bundle();
-            args.putInt("id", id);
-            frag.setArguments(args);
-            return frag;
-        }
-
-        NotificationDrawerStyle getOwner() {
-            return (NotificationDrawerStyle) getTargetFragment();
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            int id = getArguments().getInt("id");
-            switch (id) {
-                case DLG_PICK_COLOR:
-                    final ColorPickerView colorView = new ColorPickerView(getOwner().mActivity);
-                    String currentColor = Settings.System.getString(
-                            getOwner().getContentResolver(),
-                            Settings.System.NOTIFICATION_BACKGROUND);
-                    if (currentColor != null && currentColor.startsWith("color=")) {
-                        int color = Color.parseColor(currentColor.substring("color=".length()));
-                        colorView.setColor(color);
-                    }
-                    colorView.setAlphaSliderVisible(false);
-
-                    return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.notification_drawer_custom_background_dialog_title)
-                    .setView(colorView)
-                    .setNegativeButton(R.string.cancel, null)
-                    .setPositiveButton(R.string.dlg_ok,
-                        new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            getOwner().deleteWallpaper(false);
-                            getOwner().deleteWallpaper(true);
-                            Settings.System.putString(
-                                getOwner().getContentResolver(),
-                                Settings.System.NOTIFICATION_BACKGROUND,
-                                "color=" + String.format("#%06X",
-                                (0xFFFFFF & colorView.getColor())));
-                            getOwner().updateCustomBackgroundSummary();
-                        }
-                    })
-                    .create();
-            }
-            throw new IllegalArgumentException("unknown id " + id);
-        }
-
-        @Override
-        public void onCancel(DialogInterface dialog) {
-
+    @Override
+    public void onColorPicked(final int color) {
+        deleteWallpaper(false);
+        deleteWallpaper(true);
+        Settings.System.putString(getContentResolver(),
+                Settings.System.NOTIFICATION_BACKGROUND,
+                "color=" + String.format("#%06X", (0xFFFFFF & color)));
+        updateCustomBackgroundSummary();
+        if (dialogColorPicker != null) {
+            dialogColorPicker.dismiss();
         }
     }
 
