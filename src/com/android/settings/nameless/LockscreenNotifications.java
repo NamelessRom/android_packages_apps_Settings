@@ -1,13 +1,14 @@
 package com.android.settings.nameless;
 
+import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.PreferenceScreen;
 import android.preference.Preference;
+import android.preference.PreferenceScreen;
 import android.preference.SeekBarPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -16,40 +17,37 @@ import android.view.WindowManager;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference;
-import com.android.settings.nameless.AppMultiSelectListPreference;
-import com.android.settings.nameless.NumberPickerPreference;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
 public class LockscreenNotifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String LOCKSCREEN_NOTIFICATIONS = "lockscreen_notifications";
-    private static final String INCLUDED_APPS = "included_apps";
-    private static final String EXCLUDED_APPS = "excluded_apps";
-    private static final String POCKET_MODE = "lockscreen_notifications_pocket_mode";
-    private static final String SHOW_ALWAYS = "lockscreen_notifications_show_always";
-    private static final String WAKE_ON_NOTIFICATION = "lockscreen_notifications_wake_on_notification";
-    private static final String OFFSET_TOP = "offset_top";
-    private static final String NOTIFICATIONS_HEIGHT = "notifications_height";
-    private static final String NOTIFICATION_COLOR = "notification_color";
-    private static final String PRIVACY_MODE = "privacy_mode";
-    private static final String EXPANDED_VIEW = "lockscreen_notifications_expanded_view";
+    private static final String INCLUDED_APPS            = "included_apps";
+    private static final String EXCLUDED_APPS            = "excluded_apps";
+    private static final String POCKET_MODE              = "lockscreen_notifications_pocket_mode";
+    private static final String SHOW_ALWAYS              = "lockscreen_notifications_show_always";
+    private static final String WAKE_ON_NOTIFICATION     =
+            "lockscreen_notifications_wake_on_notification";
+    private static final String OFFSET_TOP               = "offset_top";
+    private static final String NOTIFICATIONS_HEIGHT     = "notifications_height";
+    private static final String NOTIFICATION_COLOR       = "notification_color";
+    private static final String PRIVACY_MODE             = "privacy_mode";
+    private static final String EXPANDED_VIEW            = "lockscreen_notifications_expanded_view";
 
     private SystemSettingCheckBoxPreference mLockscreenNotifications;
-    private AppMultiSelectListPreference mExcludedAppsPref;
-    private AppMultiSelectListPreference mIncludedAppsPref;
+    private AppMultiSelectListPreference    mExcludedAppsPref;
+    private AppMultiSelectListPreference    mIncludedAppsPref;
     private SystemSettingCheckBoxPreference mPocketMode;
     private SystemSettingCheckBoxPreference mShowAlways;
     private SystemSettingCheckBoxPreference mWakeOnNotification;
-    private SeekBarPreference mOffsetTop;
-    private NumberPickerPreference mNotificationsHeight;
-    private ColorPickerPreference mNotificationColor;
-    private CheckBoxPreference mPrivacyMode;
+    private SeekBarPreference               mOffsetTop;
+    private NumberPickerPreference          mNotificationsHeight;
+    private Preference                      mNotificationColor;
+    private CheckBoxPreference              mPrivacyMode;
     private SystemSettingCheckBoxPreference mExpandedView;
 
     private Context mContext;
@@ -64,7 +62,8 @@ public class LockscreenNotifications extends SettingsPreferenceFragment
 
         mContext = getActivity().getApplicationContext();
 
-        mLockscreenNotifications = (SystemSettingCheckBoxPreference) prefs.findPreference(LOCKSCREEN_NOTIFICATIONS);
+        mLockscreenNotifications =
+                (SystemSettingCheckBoxPreference) prefs.findPreference(LOCKSCREEN_NOTIFICATIONS);
         mLockscreenNotifications.setOnPreferenceChangeListener(this);
 
         mExcludedAppsPref = (AppMultiSelectListPreference) prefs.findPreference(EXCLUDED_APPS);
@@ -83,8 +82,10 @@ public class LockscreenNotifications extends SettingsPreferenceFragment
 
         mPocketMode = (SystemSettingCheckBoxPreference) prefs.findPreference(POCKET_MODE);
         mShowAlways = (SystemSettingCheckBoxPreference) prefs.findPreference(SHOW_ALWAYS);
-        mWakeOnNotification = (SystemSettingCheckBoxPreference) prefs.findPreference(WAKE_ON_NOTIFICATION);
-        boolean hasProximitySensor = getPackageManager().hasSystemFeature(PackageManager.FEATURE_SENSOR_PROXIMITY);
+        mWakeOnNotification =
+                (SystemSettingCheckBoxPreference) prefs.findPreference(WAKE_ON_NOTIFICATION);
+        boolean hasProximitySensor =
+                getPackageManager().hasSystemFeature(PackageManager.FEATURE_SENSOR_PROXIMITY);
         if (!hasProximitySensor) {
             prefs.removePreference(mPocketMode);
             prefs.removePreference(mShowAlways);
@@ -92,31 +93,30 @@ public class LockscreenNotifications extends SettingsPreferenceFragment
         }
 
         mOffsetTop = (SeekBarPreference) prefs.findPreference(OFFSET_TOP);
-        mOffsetTop.setProgress((int)(Settings.System.getFloat(cr,
+        mOffsetTop.setProgress((int) (Settings.System.getFloat(cr,
                 Settings.System.LOCKSCREEN_NOTIFICATIONS_OFFSET_TOP, 0.3f) * 100));
-        mOffsetTop.setTitle(getResources().getText(R.string.offset_top) + " " + mOffsetTop.getProgress() + "%");
+        mOffsetTop.setTitle(
+                getResources().getText(R.string.offset_top) + " " + mOffsetTop.getProgress() + "%");
         mOffsetTop.setOnPreferenceChangeListener(this);
 
         mNotificationsHeight = (NumberPickerPreference) prefs.findPreference(NOTIFICATIONS_HEIGHT);
         mNotificationsHeight.setValue(Settings.System.getInt(cr,
-                    Settings.System.LOCKSCREEN_NOTIFICATIONS_HEIGHT, 4));
+                Settings.System.LOCKSCREEN_NOTIFICATIONS_HEIGHT, 4));
         Point displaySize = new Point();
-        ((WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getSize(displaySize);
-        int max = Math.round((float)displaySize.y * (1f - (mOffsetTop.getProgress() / 100f)) /
-                (float)mContext.getResources().getDimensionPixelSize(R.dimen.notification_row_min_height));
+        ((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay()
+                .getSize(displaySize);
+        int max = Math.round((float) displaySize.y * (1f - (mOffsetTop.getProgress() / 100f)) /
+                (float) mContext.getResources()
+                        .getDimensionPixelSize(R.dimen.notification_row_min_height));
         mNotificationsHeight.setMinValue(1);
         mNotificationsHeight.setMaxValue(max);
         mNotificationsHeight.setOnPreferenceChangeListener(this);
 
-        mNotificationColor = (ColorPickerPreference) prefs.findPreference(NOTIFICATION_COLOR);
-        mNotificationColor.setAlphaSliderEnabled(true);
-        int color = Settings.System.getInt(cr,
+        final int color = Settings.System.getInt(cr,
                 Settings.System.LOCKSCREEN_NOTIFICATIONS_COLOR, 0x55555555);
-        String hexColor = String.format("#%08x", (0xffffffff & color));
+        final String hexColor = String.format("#%08x", color);
+        mNotificationColor = prefs.findPreference(NOTIFICATION_COLOR);
         mNotificationColor.setSummary(hexColor);
-        mNotificationColor.setDefaultValue(color);
-        mNotificationColor.setNewPreviewColor(color);
-        mNotificationColor.setOnPreferenceChangeListener(this);
 
         mPrivacyMode = (CheckBoxPreference) prefs.findPreference(PRIVACY_MODE);
         mPrivacyMode.setChecked(Settings.System.getInt(cr,
@@ -145,25 +145,31 @@ public class LockscreenNotifications extends SettingsPreferenceFragment
             mExpandedView.setEnabled(!privacyMode && mLockscreenNotifications.isChecked());
         } else if (pref == mOffsetTop) {
             Settings.System.putFloat(getContentResolver(),
-                    Settings.System.LOCKSCREEN_NOTIFICATIONS_OFFSET_TOP, (Integer)value / 100f);
-            mOffsetTop.setTitle(getResources().getText(R.string.offset_top) + " " + (Integer)value + "%");
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_OFFSET_TOP, (Integer) value / 100f);
+            mOffsetTop.setTitle(
+                    getResources().getText(R.string.offset_top) + " " + (Integer) value + "%");
             Point displaySize = new Point();
-            ((WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getSize(displaySize);
-            int max = Math.round((float)displaySize.y * (1f - (mOffsetTop.getProgress() / 100f)) /
-                    (float)mContext.getResources().getDimensionPixelSize(R.dimen.notification_row_min_height));
+            ((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay()
+                    .getSize(displaySize);
+            int max = Math.round((float) displaySize.y * (1f - (mOffsetTop.getProgress() / 100f)) /
+                    (float) mContext.getResources()
+                            .getDimensionPixelSize(R.dimen.notification_row_min_height));
             mNotificationsHeight.setMaxValue(max);
         } else if (pref == mNotificationsHeight) {
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_NOTIFICATIONS_HEIGHT, (Integer)value);
-        } else if (pref == mNotificationColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(value)));
-            pref.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_NOTIFICATIONS_COLOR, intHex);
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_HEIGHT, (Integer) value);
         }
         return true;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+            Preference preference) {
+        if (mNotificationColor == preference) {
+            showDialogInner(0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private HashSet<String> getIncludedApps() {
@@ -209,4 +215,23 @@ public class LockscreenNotifications extends SettingsPreferenceFragment
         Settings.System.putString(getContentResolver(),
                 Settings.System.LOCKSCREEN_NOTIFICATIONS_EXCLUDED_APPS, builder.toString());
     }
+
+    private void showDialogInner(final int id) {
+        final int customColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_NOTIFICATIONS_COLOR, 0x55555555);
+        final DialogFragment newFragment = ColorPickerDialogFragment.newInstance(id,
+                new ColorPickerDialogFragment.OnColorPickedListener() {
+                    @Override public void onColorPicked(final int color) {
+                        final String hex = ColorPickerDialogFragment.convertToARGB(color);
+                        mNotificationColor.setSummary(hex);
+
+                        final int intHex = ColorPickerDialogFragment.convertToColorInt(hex);
+                        Settings.System.putInt(getContentResolver(),
+                                Settings.System.LOCKSCREEN_NOTIFICATIONS_COLOR, intHex);
+                    }
+                }, customColor);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
 }
