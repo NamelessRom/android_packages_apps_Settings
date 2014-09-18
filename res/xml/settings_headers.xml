@@ -125,14 +125,6 @@
         android:fragment="com.android.settings.headsup.HeadsUpSettings"
         android:title="@string/category_heads_up" />
 
-    <!-- System UI -->
-    <header
-        settings:includeXmlForSearch="@xml/system_ui_settings"
-        android:id="@+id/system_settings"
-        android:icon="@drawable/ic_settings_system"
-        android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
-        android:title="@string/system_settings_title" />
-
     <!-- Themes -->
     <header
         settings:includeXmlForSearch="@xml/theme_settings"
@@ -142,6 +134,14 @@
         android:fragment="com.android.settings.ThemeSettings"
         android:icon="@drawable/prd_ic_themepacks" />
 
+    <!-- System UI -->
+    <header
+        settings:includeXmlForSearch="@xml/system_ui_settings"
+        android:id="@+id/system_settings"
+        android:icon="@drawable/ic_settings_system"
+        android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
+        android:title="@string/system_settings_title" />
+
     <!-- Lock screen -->
     <header
         settings:includeXmlForSearch="@xml/lockscreen_interface_settings"
@@ -150,16 +150,17 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
 
-    <!-- Animation Control -->
+    <!-- Gestures -->
     <header
-        android:id="@+id/interface_animation"
-        android:title="@string/interface_animation_title"
-        android:breadCrumbTitle="@string/interface_animation_title"
-        android:fragment="com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings"
-        android:icon="@drawable/ic_rom_control_animations" />
+        android:id="@+id/device_specific_gesture_settings"
+        android:icon="@drawable/ic_settings_gestures"
+        android:title="@string/gestures_settings_header_title">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+    </header>
 
-    <!-- CYANOGENMOD -->
-    <!--header android:title="@string/header_category_cyanogenmod" /-->
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
@@ -189,24 +190,12 @@
         android:title="@string/button_settings" />
 
     <!-- Navigation Bar -->
-
     <header
         settings:includeXmlForSearch="@xml/navigation_bar_settings"
         android:id="@+id/navigation_bar"
         android:icon="@drawable/ic_settings_navigation_bar"
         android:fragment="com.android.settings.nameless.NavigationBarSettings"
         android:title="@string/navigation_bar_category" />
-
-    <!-- Gestures -->
-    <header
-        android:id="@+id/device_specific_gesture_settings"
-        android:icon="@drawable/ic_settings_gestures"
-        android:title="@string/gestures_settings_header_title">
-        <intent
-            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
-    </header>
 
     <!-- Storage -->
     <header

@@ -40,6 +40,12 @@
         android:fragment="com.android.settings.quicksettings.QuickSettings"
         android:title="@string/quick_settings_panel_title" />
 
+    <PreferenceScreen
+        android:key="interface_animation"
+        android:title="@string/interface_animation_title"
+        android:fragment="com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings"
+        android:icon="@drawable/ic_rom_control_animations" />
+
     <ListPreference
         android:key="expanded_desktop"
         android:title="@string/power_menu_expanded_desktop"
