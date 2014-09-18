@@ -103,6 +103,7 @@ import com.android.settings.inputmethod.UserDictionaryList;
 import com.android.settings.location.LocationEnabler;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.nameless.NavigationBarSettings;
+import com.android.settings.nameless.SmartCoverSettings;
 import com.android.settings.net.MobileDataEnabler;
 import com.android.settings.nfc.AndroidBeam;
 import com.android.settings.nfc.PaymentSettings;
@@ -505,7 +506,8 @@ public class Settings extends PreferenceActivity
         com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName(),
         NavigationBarSettings.class.getName(),
         HeadsUpSettings.class.getName(),
-        com.android.settings.ThemeSettings.class.getName()
+        com.android.settings.ThemeSettings.class.getName(),
+        SmartCoverSettings.class.getName(),
     };
 
     @Override
@@ -822,6 +824,12 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.voice_wakeup_settings) {
                 if(!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME)) {
                     target.remove(header);
+                }
+            } else if (id == R.id.smart_cover_settings) {
+                final int[] mSmartCoverCoords = getResources().getIntArray(
+                        com.android.internal.R.array.config_smartCoverWindowCoords);
+                if (mSmartCoverCoords.length != 4) {
+                    target.remove(i);
                 }
             }
 
