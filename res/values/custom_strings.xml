@@ -397,6 +397,8 @@
     <string name="smart_cover_sleep_title">Put to sleep</string>
     <string name="smart_cover_sleep_summary">Put the device to sleep when the lid closes</string>
 
+    <string name="smart_cover_customize">Customize smart cover</string>
+
     <string name="title_qs_swipe_anywhere">Swipe anywhere</string>
     <string name="summary_qs_swipe_anywhere">Allow to swipe anywhere to switch between notifications and quicktiles</string>
 
