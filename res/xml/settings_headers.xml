@@ -150,6 +150,14 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
 
+    <!-- Smart Cover -->
+    <header
+        settings:includeXmlForSearch="@xml/smart_cover_settings"
+        android:id="@+id/smart_cover_settings"
+        android:fragment="com.android.settings.nameless.SmartCoverSettings"
+        android:title="@string/smart_cover"
+        android:icon="@drawable/ic_settings_smart_cover" />
+
     <!-- Gestures -->
     <header
         android:id="@+id/device_specific_gesture_settings"
