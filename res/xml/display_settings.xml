@@ -39,6 +39,12 @@
                     android:entries="@array/screen_timeout_entries"
                     android:entryValues="@array/screen_timeout_values" />
 
+            <EditTextPreference
+                    android:key="display_density"
+                    android:title="@string/display_density"
+                    android:summary="@string/display_density_summary"
+                    android:persistent="false" />
+
             <com.android.settings.FontDialogPreference
                     android:key="font_size"
                     android:title="@string/title_font_size"
