@@ -49,6 +49,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.SystemProperties;
+import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
@@ -74,6 +75,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
+    private static final String PROP_DISPLAY_DENSITY = "persist.sf.lcd_density";
+    private static final String PROP_DISPLAY_DENSITY_MAX = "ro.sf.lcd_density.max";
+    private static final String PROP_DISPLAY_DENSITY_MIN = "ro.sf.lcd_density.min";
+    private static final String PROP_DISPLAY_DENSITY_OVERRIDE = "persist.sf.lcd_density.override";
+
     private static final String KEY_CATEGORY_LIGHTS = "lights";
     private static final String KEY_CATEGORY_DISPLAY = "display";
     private static final String KEY_CATEGORY_INTERFACE = "interface";
@@ -90,6 +96,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
+    private static final String KEY_DISPLAY_DENSITY = "display_density";
+    private static final String KEY_DISPLAY_DENSITY_OVERRIDE = "display_density_override";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -106,6 +114,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mTapToWake;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
+
+    private EditTextPreference mDisplayDensity;
+    private EditTextPreference mDisplayDensityOverride;
 
     private CmHardwareManager mCmHardwareManager;
 
@@ -214,6 +225,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
 
         initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
+
+        mDisplayDensity = (EditTextPreference) findPreference(KEY_DISPLAY_DENSITY);
+        mDisplayDensity.setText(SystemProperties.get(PROP_DISPLAY_DENSITY, "0"));
+        mDisplayDensity.setOnPreferenceChangeListener(this);
+
+        mDisplayDensityOverride = (EditTextPreference) findPreference(KEY_DISPLAY_DENSITY_OVERRIDE);
+        mDisplayDensityOverride.setText(SystemProperties.get(PROP_DISPLAY_DENSITY_OVERRIDE, "0"));
+        mDisplayDensityOverride.setOnPreferenceChangeListener(this);
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -535,6 +554,47 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (preference == mDozePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
+        }
+        if (KEY_DISPLAY_DENSITY.equals(key)) {
+            final int max = SystemProperties.getInt(PROP_DISPLAY_DENSITY_MAX, 480);
+            final int min = SystemProperties.getInt(PROP_DISPLAY_DENSITY_MIN, 240);
+
+            int value = SystemProperties.getInt(PROP_DISPLAY_DENSITY, 0);
+            try {
+                value = Integer.parseInt(String.valueOf(objValue));
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "Invalid input", e);
+            }
+
+            // 0 disables the custom density, so do not check for the value, else…
+            if (value != 0) {
+                // …cap the value
+                if (value < min) {
+                    value = min;
+                } else if (value > max) {
+                    value = max;
+                }
+            }
+
+            SystemProperties.set(PROP_DISPLAY_DENSITY, String.valueOf(value));
+            mDisplayDensity.setText(String.valueOf(value));
+
+            // we handle it, return false
+            return false;
+        }
+        if (KEY_DISPLAY_DENSITY_OVERRIDE.equals(key)) {
+            int value = SystemProperties.getInt(PROP_DISPLAY_DENSITY_OVERRIDE, 0);
+            try {
+                value = Integer.parseInt(String.valueOf(objValue));
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "Invalid input", e);
+            }
+
+            SystemProperties.set(PROP_DISPLAY_DENSITY_OVERRIDE, String.valueOf(value));
+            mDisplayDensityOverride.setText(String.valueOf(value));
+
+            // we handle it, return false
+            return false;
         }
         return true;
     }
