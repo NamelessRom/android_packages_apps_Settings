@@ -424,4 +424,7 @@
 
     <string name="color_reset">Reset color</string>
     <string name="color_pick">Pick color</string>
+
+    <string name="display_density">Display density</string>
+    <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
 </resources>
