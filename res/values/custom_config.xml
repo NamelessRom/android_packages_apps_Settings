@@ -20,4 +20,8 @@
         <item>nameless</item>
     </string-array>
 
+    <!-- maximum value for the custom display density -->
+    <integer name="display_density_max">640</integer>
+    <!-- minimum value for the custom display density -->
+    <integer name="display_density_min">240</integer>
 </resources>
