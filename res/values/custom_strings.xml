@@ -37,4 +37,10 @@
     <string name="camera_sounds_title">Camera shutter sound</string>
 
     <string name="long_press_kill_delay">App kill delay</string>
+
+    <!-- Display density -->
+    <string name="display_density">Display density</string>
+    <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
+    <string name="display_density_override">Reported density</string>
+    <string name="display_density_override_summary">Overrides the display density reported to apps (0 to disable, requires a reboot)</string>
 </resources>
