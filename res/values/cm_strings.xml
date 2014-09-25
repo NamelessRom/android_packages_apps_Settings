@@ -1292,4 +1292,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Keep the referenced menu string consistent with status_bar_notification_spam_item_title in frameworks/base/packages/SystemUI -->
     <string name="no_filters_title">No filters set. To filter a notification, long press it and choose \'Ignore messages like this\'.</string>
 
+    <!-- SAR information -->
+    <string name="sar_info">Maximum SAR</string>
+    <string name="maximum_head_level">Head: %1$s W/kg</string>
+    <string name="maximum_body_level">Body: %1$s W/kg</string>
+
 </resources>
