@@ -245,8 +245,6 @@
   <string name="clock_date_style_uppercase">Majuscule</string>
   <string name="clock_date_format_custom">Formatul particularizat java</string>
   <string name="status_bar_clock_style_reset_message">Reinițializare culoare ceas?</string>
-  <string name="screen_on_notification_led_title">Lumină de notificare Ecran pornit</string>
-  <string name="screen_on_notification_led_summary">Activează lumina de notificare chiar si atunci când ecranul este pornit</string>
   <string name="navbar_dimen_title">Dimensiuni</string>
   <string name="navbar_dimensions_reset_message">Reinițializați toate dimensiunile la cele inițiale?</string>
   <string name="navigation_bar_height_title">Înălţimea barei de navigare</string>
@@ -267,15 +265,6 @@
   <string name="smart_pulldown_persistent">Derulează dacă nu sunt notificări</string>
   <string name="show_cpu_info">Arată informațiile CPU-lui</string>
   <string name="show_cpu_info_summary">Suprapunerea de ecran afişează informația curentă a CPU</string>
-  <string name="more_app_settings">Setări suplimentare</string>
-  <string name="wakelock_blocker">Blocarea Wakelock-ului</string>
-  <string name="wakelock_blocker_title">Activați</string>
-  <string name="wakelock_blocker_summary">Activează blocarea pentru wakelock-urile selectate</string>
-  <string name="wakelock_blocker_save">Salvaţi</string>
-  <string name="wakelock_list_header">Wakelock-uri disponibile</string>
-  <string name="wakelock_blocker_reload">Reîncărcare</string>
-  <string name="wakelock_blocker_warning_title">Continuați cu precauție</string>
-  <string name="wakelock_blocker_warning">Bolcarea wakelock-urilor are potențialul de a cauza instabilitate, crashes sau pierderi de date.</string>
   <string name="flip_qs_tiles_title">Răsucește dalale</string>
   <string name="flip_qs_tiles_summary">Roteşte dala la atingere</string>
   <string name="haptic_qs_tiles_title">Vibrează la atingere</string>
@@ -288,12 +277,6 @@
   <string name="camera_sounds_summary">Avertisment: Dezactivarea sunetului camerei este ilegal în unele zone!</string>
   <string name="enable_acra_title">Activați reportările de avarii</string>
   <string name="enable_acra_summary">Dacă este bifat, avariile sunt trimise automat la NamelessRom</string>
-  <string name="srec_enable_touches_title">Activare indicator</string>
-  <string name="srec_enable_touches_summary">Activează indicatorul vizual pentru a arăta atingerile în timpul înregistrării ecranului</string>
-  <string name="srec_enable_mic_title">Utilizare microfon</string>
-  <string name="srec_enable_mic_summary">Utilizare microfon ca intrare audio în timpul înregistrării ecranului</string>
-  <string name="disable_fc_notifications_title">Dezactivare notificarile de oprire forţată</string>
-  <string name="disable_fc_notifications_summary">Aceasta va ascunde toate notificarile de oprire forţată</string>
   <string name="misc_crash_report">Raportul de avarie</string>
   <string name="misc_others">Altele</string>
   <string name="privacy_guard_notification_title">Notificări</string>
@@ -330,4 +313,6 @@
   <string name="hardware_keys_action_toggle_torch">Comutare lanternă</string>
   <string name="power_menu_reboot_oneclick">Repornire printr-un click</string>
   <string name="power_menu_reboot_oneclick_summary">Declanșează instantaneu acțiunea de repornire</string>
+  <string name="color_reset">Resetare culoare</string>
+  <string name="color_pick">Alege culoare</string>
 </resources>

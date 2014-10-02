@@ -239,8 +239,6 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="clock_date_style_uppercase">Maiúsculas</string>
   <string name="clock_date_format_custom">Formato personalizado de java</string>
   <string name="status_bar_clock_style_reset_message">Restaurar cor do relógio?</string>
-  <string name="screen_on_notification_led_title">Luz de notificação de tela ligada</string>
-  <string name="screen_on_notification_led_summary">Habilitar luz de notificação, mesmo quando a tela está ligada</string>
   <string name="navbar_dimen_title">Dimensões</string>
   <string name="navbar_dimensions_reset_message">Redefinir todas as entradas de dimensões para o padrão?</string>
   <string name="navigation_bar_height_title">Altura da barra de navegação</string>
@@ -261,15 +259,6 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="smart_pulldown_persistent">Cair se não houver notificações</string>
   <string name="show_cpu_info">Mostrar informações de CPU</string>
   <string name="show_cpu_info_summary">Superposição de tela mostrando informações de CPU atual</string>
-  <string name="more_app_settings">Mais configurações de aplicativo</string>
-  <string name="wakelock_blocker">Bloqueador de despertador de bloqueio</string>
-  <string name="wakelock_blocker_title">Habilitar</string>
-  <string name="wakelock_blocker_summary">Ativar bloqueio para despertadores de bloqueio marcados</string>
-  <string name="wakelock_blocker_save">Salvar</string>
-  <string name="wakelock_list_header">Despertador de bloqueios disponíveis</string>
-  <string name="wakelock_blocker_reload">Recarregar</string>
-  <string name="wakelock_blocker_warning_title">Proceda com cautela</string>
-  <string name="wakelock_blocker_warning">Bloquear o despertador de bloqueios têm o potencial de causar instabilidade, travamentos ou perda de dados.</string>
   <string name="flip_qs_tiles_title">Virar telhas</string>
   <string name="flip_qs_tiles_summary">Virar as telhas ao tocar</string>
   <string name="haptic_qs_tiles_title">Vibrar ao tocar</string>
@@ -282,12 +271,6 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="camera_sounds_summary">Atenção: Desabilitar o som do obturador da câmera é ilegal em algumas áreas!</string>
   <string name="enable_acra_title">Habilitar relatório de falhas</string>
   <string name="enable_acra_summary">Se marcada, falhas são automaticamente enviar para NamelessRom</string>
-  <string name="srec_enable_touches_title">Ativar ponteiro</string>
-  <string name="srec_enable_touches_summary">Ativar ponteiro visual para mostrar toques durante a gravação de tela</string>
-  <string name="srec_enable_mic_title">Usar o microfone</string>
-  <string name="srec_enable_mic_summary">Usar o microfone como entrada de áudio durante a gravação de tela</string>
-  <string name="disable_fc_notifications_title">Desabilitar notificações de FC</string>
-  <string name="disable_fc_notifications_summary">Isto esconderá todas as notificações de fechamento forçado</string>
   <string name="misc_crash_report">Relatório de erro</string>
   <string name="misc_others">Outros</string>
   <string name="privacy_guard_notification_title">Notificação</string>

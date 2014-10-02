@@ -49,6 +49,5 @@
   <string name="listview_scale">缩放</string>
   <string name="listview_translate_left">翻转（左）</string>
   <string name="listview_translate_right">翻转（右）</string>
-  <string name="wakelock_blocker_title">启用</string>
   <string name="privacy_guard_notification_title">通知</string>
 </resources>

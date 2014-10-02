@@ -231,8 +231,6 @@
   <string name="clock_date_style_uppercase">Nagybetűs</string>
   <string name="clock_date_format_custom">Egyéni java formátum</string>
   <string name="status_bar_clock_style_reset_message">Óra színének visszaállítása?</string>
-  <string name="screen_on_notification_led_title">Bekapcsolt kijelző értesítési fény</string>
-  <string name="screen_on_notification_led_summary">Egnedélyezi bekapcsolt kijelzőnél is az értesítési fényt</string>
   <string name="navbar_dimen_title">Értékek</string>
   <string name="navbar_dimensions_reset_message">Alapértelmezett értékek visszaállítása?</string>
   <string name="navigation_bar_height_title">Navigációs sáv magasság</string>
@@ -253,15 +251,6 @@
   <string name="smart_pulldown_persistent">Legördítés, ha nincsenek értesítések</string>
   <string name="show_cpu_info">CPU-információk megjelenítése</string>
   <string name="show_cpu_info_summary">Képernyő átfedés mutatja a CPU infót</string>
-  <string name="more_app_settings">További alkalmazás beállítások</string>
-  <string name="wakelock_blocker">Wakelock blokkolás</string>
-  <string name="wakelock_blocker_title">Engedélyezése</string>
-  <string name="wakelock_blocker_summary">Észlelt Wakelock blokkolása</string>
-  <string name="wakelock_blocker_save">Mentés</string>
-  <string name="wakelock_list_header">Elérhető Wakelocks</string>
-  <string name="wakelock_blocker_reload">Újratöltés</string>
-  <string name="wakelock_blocker_warning_title">Óvatosan</string>
-  <string name="wakelock_blocker_warning">Blokkolt wakelocks-ok okozhatnak instabilitást, összeomlást vagy adatvesztést</string>
   <string name="flip_qs_tiles_title">Forduló csempék</string>
   <string name="flip_qs_tiles_summary">Érintésre forduló csempék</string>
   <string name="haptic_qs_tiles_title">Érintésre rezeg</string>
@@ -274,12 +263,6 @@
   <string name="camera_sounds_summary">Figyelmeztetés: A kamera exponáló hang letiltása az illegális egyes területeken!</string>
   <string name="enable_acra_title">Engedélyezi a hibajelentést</string>
   <string name="enable_acra_summary">Ha be van jelölve, automatikusan küldi a hibajelentéseket a NamelessRom fejlesztőinek</string>
-  <string name="srec_enable_touches_title">Engedélyezi a mutatót</string>
-  <string name="srec_enable_touches_summary">Engedélyezi a vizuális mutatót, hogy mutassa az érintéseket képernyő felvétel közben</string>
-  <string name="srec_enable_mic_title">Mikrofon használata</string>
-  <string name="srec_enable_mic_summary">Képernyő felvétel közben a mikrofon bemenet hazsnálata</string>
-  <string name="disable_fc_notifications_title">FC értesítések letiltása</string>
-  <string name="disable_fc_notifications_summary">Elrejt minden kényszerített értesítést</string>
   <string name="misc_crash_report">Hibajelentés</string>
   <string name="misc_others">Egyebek</string>
   <string name="privacy_guard_notification_title">Értesítés</string>

@@ -56,6 +56,8 @@
   <string name="press_color_to_apply">Drücken Sie unten auf die Farbe zum Anwenden</string>
   <string name="set">Festlegen</string>
   <string name="color_default">Standard</string>
+  <string name="recents_bar">Aktionsleiste</string>
+  <string name="recents_bar_summary">Zeigt eine Aktionsleiste am unteren Bildschirmrand an</string>
   <string name="ram_bar_title">Anzeige des derzeit genutzten RAMs</string>
   <string name="ram_bar_summary">RAM-Auslastung in \"Zuletzt geöffnete Anwendungen\" anzeigen</string>
   <string name="ram_bar_cached_title">Zwischengespeicherte Anwendungen inkludieren</string>
@@ -245,8 +247,6 @@
   <string name="clock_date_style_uppercase">Großbuchstaben</string>
   <string name="clock_date_format_custom">Benutzerdefiniertes Java-Format</string>
   <string name="status_bar_clock_style_reset_message">Farbe der Uhr zurücksetzen?</string>
-  <string name="screen_on_notification_led_title">Benachrichtigungs-Licht bei eingeschaltetem Bildschirm</string>
-  <string name="screen_on_notification_led_summary">Aktiviere Benachrichtigungs-Licht, selbst wenn der Bildschirm eingeschalten ist</string>
   <string name="navbar_dimen_title">Dimensionen</string>
   <string name="navbar_dimensions_reset_message">Alle Dimensionen auf Standardwerte zurücksetzen?</string>
   <string name="navigation_bar_height_title">Navigationsbar-Höhe</string>
@@ -267,15 +267,6 @@
   <string name="smart_pulldown_persistent">Wechseln, wenn keine Benachrichtigungen vorhanden sind</string>
   <string name="show_cpu_info">CPU-Info anzeigen</string>
   <string name="show_cpu_info_summary">Bildschirm-Overlay, welches Informationen über den aktuelle CPU-Status anzeigt</string>
-  <string name="more_app_settings">Weitere Anwendungs-Einstellungen</string>
-  <string name="wakelock_blocker">Wakelock Blocker</string>
-  <string name="wakelock_blocker_title">Aktivieren</string>
-  <string name="wakelock_blocker_summary">Aktiviere Blocken der ausgewählten Wakelocks</string>
-  <string name="wakelock_blocker_save">Speichern</string>
-  <string name="wakelock_list_header">Verfügbare Wakelocks</string>
-  <string name="wakelock_blocker_reload">Neu Laden</string>
-  <string name="wakelock_blocker_warning_title">Weiter mit besonderer Vorsicht</string>
-  <string name="wakelock_blocker_warning">Blockieren von Wakelocks kann zu Instabilität, Abstürzen oder Datenverlust führen.</string>
   <string name="flip_qs_tiles_title">Kacheln flippen</string>
   <string name="flip_qs_tiles_summary">Kachel flippen bei Berührung</string>
   <string name="haptic_qs_tiles_title">Vibration bei Berührung</string>
@@ -288,12 +279,6 @@
   <string name="camera_sounds_summary">WARNUNG: Es kann in bestimmten Gebieten illegal sein den Ton der Kamerablende zu deaktivieren!</string>
   <string name="enable_acra_title">Absturzberichte aktivieren</string>
   <string name="enable_acra_summary">Wenn diese Option aktiviert ist, werden Abstürze automatisch an NamelessRom gesendet</string>
-  <string name="srec_enable_touches_title">Aktiviere Zeiger</string>
-  <string name="srec_enable_touches_summary">Aktiviert einen visuellen Zeiger, welcher Berührungen während der Bildschirmaufnahme darstellt</string>
-  <string name="srec_enable_mic_title">Mikrofon verwenden</string>
-  <string name="srec_enable_mic_summary">Benutze das Mikrofon als Audioeingang während der Bildschirmaufnahme</string>
-  <string name="disable_fc_notifications_title">FC-Benachrichtigungen deaktivieren</string>
-  <string name="disable_fc_notifications_summary">Dadurch werden alle Force-Close Benachrichtigungen ausgeblendet</string>
   <string name="misc_crash_report">Fehlerbericht</string>
   <string name="misc_others">Sonstiges</string>
   <string name="privacy_guard_notification_title">Benachrichtigung</string>
@@ -314,6 +299,7 @@
   <string name="smart_cover_wake_summary">Weckt das Gerät auf, wenn der Deckel geöffnet wird</string>
   <string name="smart_cover_sleep_title">Gerät in Standby versetzen</string>
   <string name="smart_cover_sleep_summary">Versetzt das Gerät in den Standby-Modus, wenn der Deckel geschlossen wird</string>
+  <string name="smart_cover_customize">Smart Cover anpassen</string>
   <string name="title_qs_swipe_anywhere">Wischen zum Wechseln</string>
   <string name="summary_qs_swipe_anywhere">Wischen überall erlauben um zwischen Benachrichtigungen und Schnelleinstellungen zu wechseln</string>
   <string name="fifteen_seconds">15 Sekunden</string>
@@ -330,4 +316,6 @@
   <string name="hardware_keys_action_toggle_torch">Taschenlampe</string>
   <string name="power_menu_reboot_oneclick">Ein-Klick-Neustart</string>
   <string name="power_menu_reboot_oneclick_summary">Neustart-Aktion bei Auswahl sofort auslösen</string>
+  <string name="color_reset">Farbe zurücksetzen</string>
+  <string name="color_pick">Farbe auswählen</string>
 </resources>

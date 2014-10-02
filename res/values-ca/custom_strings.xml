@@ -238,8 +238,6 @@
   <string name="clock_date_style_uppercase">Majúscula</string>
   <string name="clock_date_format_custom">Format personalitzat de java</string>
   <string name="status_bar_clock_style_reset_message">Restaurar color del rellotge?</string>
-  <string name="screen_on_notification_led_title">Llum en pantalla de notificació</string>
-  <string name="screen_on_notification_led_summary">Permet llum de notificació fins i tot quan la pantalla està activada</string>
   <string name="navbar_dimen_title">Dimensions</string>
   <string name="navbar_dimensions_reset_message">Restablir totes les entrades de dimensions a fàbrica?</string>
   <string name="navigation_bar_height_title">Alçada de la barra de navegació</string>
@@ -260,15 +258,6 @@
   <string name="smart_pulldown_persistent">Desplegable si no hi ha notificacions</string>
   <string name="show_cpu_info">Mostrar informació de la CPU</string>
   <string name="show_cpu_info_summary">Superposició en pantalla mostrant informació actual de la CPU</string>
-  <string name="more_app_settings">Configuracions de més aplicacions</string>
-  <string name="wakelock_blocker">Bloquejar el despertador de Bloqueig</string>
-  <string name="wakelock_blocker_title">Activar</string>
-  <string name="wakelock_blocker_summary">Activar el bloqueig en el comprovador del despertador de Bloqueig</string>
-  <string name="wakelock_blocker_save">Guardar</string>
-  <string name="wakelock_list_header">Despertador de Bloqueig disponible</string>
-  <string name="wakelock_blocker_reload">Recarregar</string>
-  <string name="wakelock_blocker_warning_title">Procedir amb Precaució</string>
-  <string name="wakelock_blocker_warning">Bloquejos en el despertador de Bloqueig tendeix potencialment a causar inestabilitat, accidents o pèrdues de dades.</string>
   <string name="flip_qs_tiles_title">Voltejar les rajoles</string>
   <string name="flip_qs_tiles_summary">Volteja les rajoles en tocar</string>
   <string name="haptic_qs_tiles_title">Vibrar en tocar</string>
@@ -281,12 +270,6 @@
   <string name="camera_sounds_summary">ADVERTÈNCIA: Desactivar el so de l\'obturador de la càmera és il·legal en algunes àrees!</string>
   <string name="enable_acra_title">Activar informes de Bloqueig</string>
   <string name="enable_acra_summary">Si està marcada, es bloquegessin automàticament els enviaments a NamelessRom</string>
-  <string name="srec_enable_touches_title">Activar punter</string>
-  <string name="srec_enable_touches_summary">Activar indicador visual mostrant detalls durant la gravació de pantalla</string>
-  <string name="srec_enable_mic_title">Ús del micròfon</string>
-  <string name="srec_enable_mic_summary">Utilitzeu el micròfon com a entrada d\'àudio durant la gravació de pantalla</string>
-  <string name="disable_fc_notifications_title">Desactivar notificacions FC</string>
-  <string name="disable_fc_notifications_summary">Això ocultarà totes les notificacions forçades</string>
   <string name="misc_crash_report">Informes de Bloqueig</string>
   <string name="misc_others">Altres</string>
   <string name="privacy_guard_notification_title">Notificació</string>

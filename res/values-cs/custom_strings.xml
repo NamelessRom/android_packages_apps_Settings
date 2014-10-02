@@ -238,8 +238,6 @@
   <string name="clock_date_style_uppercase">Velká písmena</string>
   <string name="clock_date_format_custom">Vlastní formát java</string>
   <string name="status_bar_clock_style_reset_message">Obnovit výchozí barvu hodin?</string>
-  <string name="screen_on_notification_led_title">Kontrolka oznámení při zapnutém displeji</string>
-  <string name="screen_on_notification_led_summary">Povolí kontrolku oznámení, i když je zapnut displej</string>
   <string name="navbar_dimen_title">Rozměry</string>
   <string name="navbar_dimensions_reset_message">Obnovit výchozí hodnoty všech rozměrů?</string>
   <string name="navigation_bar_height_title">Výška navigační lišty</string>
@@ -260,15 +258,6 @@
   <string name="smart_pulldown_persistent">Zabalit pokud zde nejsou žádné oznámení</string>
   <string name="show_cpu_info">Zobrazit využití CPU</string>
   <string name="show_cpu_info_summary">Překrytí obrazovky informacemi o aktuálním vytížení CPU</string>
-  <string name="more_app_settings">Další nastavení aplikace</string>
-  <string name="wakelock_blocker">Wakelock Blocker</string>
-  <string name="wakelock_blocker_title">Povolit</string>
-  <string name="wakelock_blocker_summary">Aktivovat blokování pro zatržené wakelocks</string>
-  <string name="wakelock_blocker_save">Uložit</string>
-  <string name="wakelock_list_header">Dostupné Wakelocks</string>
-  <string name="wakelock_blocker_reload">Nahrát znovu</string>
-  <string name="wakelock_blocker_warning_title">Postupujte s opatrností</string>
-  <string name="wakelock_blocker_warning">Blokováním wakelocks můžete způsobit nestabilitu, pády nebo ztrátu dat.</string>
   <string name="flip_qs_tiles_title">Překlopení dlaždic</string>
   <string name="flip_qs_tiles_summary">Překlopit dlaždice dotykem</string>
   <string name="haptic_qs_tiles_title">Vibrace při dotyku</string>
@@ -281,12 +270,6 @@
   <string name="camera_sounds_summary">VAROVÁNÍ: Vypnutí zvuku závěrky fotoaparátu je v některých oblastech nezákonné!</string>
   <string name="enable_acra_title">Povolit Hlášení pádů</string>
   <string name="enable_acra_summary">Je-li zaškrtnuto, pády jsou automaticky odesílány vývojářům NamelessRom</string>
-  <string name="srec_enable_touches_title">Zobrazit dotek</string>
-  <string name="srec_enable_touches_summary">Povolit vizuální ukazatel pro zobrazení dotyků při nahrávání obrazovky</string>
-  <string name="srec_enable_mic_title">Použít Mikrofon</string>
-  <string name="srec_enable_mic_summary">Použít mikrofon jako vstup zvuku při nahrávání obrazovky</string>
-  <string name="disable_fc_notifications_title">Vypnout oznámení FC</string>
-  <string name="disable_fc_notifications_summary">Skryje všechny oznámení při vynuceném ukončení aplikace \'Force Close\'</string>
   <string name="misc_crash_report">Hlášení o pádu</string>
   <string name="misc_others">Ostatní</string>
   <string name="privacy_guard_notification_title">Oznámení</string>

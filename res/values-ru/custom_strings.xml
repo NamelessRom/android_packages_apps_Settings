@@ -245,8 +245,6 @@
   <string name="clock_date_style_uppercase">Верхний регистр</string>
   <string name="clock_date_format_custom">Пользовательский Java-формат</string>
   <string name="status_bar_clock_style_reset_message">Сбросить цвет часов?</string>
-  <string name="screen_on_notification_led_title">Индикатор событий при включенном экране</string>
-  <string name="screen_on_notification_led_summary">Включать индикатор событий даже когда экран включен</string>
   <string name="navbar_dimen_title">Размеры</string>
   <string name="navbar_dimensions_reset_message">Сбросить все записи размеров на стандартные?</string>
   <string name="navigation_bar_height_title">Высота панели навигации</string>
@@ -267,15 +265,6 @@
   <string name="smart_pulldown_persistent">Открывать когда нет уведомлений</string>
   <string name="show_cpu_info">Показать информацию процессора</string>
   <string name="show_cpu_info_summary">Накладываемый слой, показывающий текущую информацию о процессоре</string>
-  <string name="more_app_settings">Больше настроек приложения</string>
-  <string name="wakelock_blocker">Блокировщик блокировки сна</string>
-  <string name="wakelock_blocker_title">Включен</string>
-  <string name="wakelock_blocker_summary">Активировать блокировку для проверенных блокировок сна</string>
-  <string name="wakelock_blocker_save">Сохранить</string>
-  <string name="wakelock_list_header">Доступные блокировки сна</string>
-  <string name="wakelock_blocker_reload">Обновить</string>
-  <string name="wakelock_blocker_warning_title">Продолжайте с осторожностью</string>
-  <string name="wakelock_blocker_warning">Блокировка блокировок сна может вызывать нестабильность, ошибки и потерю данных.</string>
   <string name="flip_qs_tiles_title">Переворачивать плитки</string>
   <string name="flip_qs_tiles_summary">Переворачивать плитки при нажатии</string>
   <string name="haptic_qs_tiles_title">Вибрировать при касании</string>
@@ -288,12 +277,6 @@
   <string name="camera_sounds_summary">ВНИМАНИЕ: отключение звуков камеры в некоторых местах может быть незаконным!</string>
   <string name="enable_acra_title">Включить сообщения об ошибках</string>
   <string name="enable_acra_summary">Если отмечено, ошибки автоматически отправляются в NamelessRom</string>
-  <string name="srec_enable_touches_title">Включить указатель</string>
-  <string name="srec_enable_touches_summary">Включить видимый указатель когда касаетесь во время записи экрана</string>
-  <string name="srec_enable_mic_title">Использовать микрофон</string>
-  <string name="srec_enable_mic_summary">Использовать микрофон как аудиовход во время записи экрана</string>
-  <string name="disable_fc_notifications_title">Отключить уведомления о принудительном закрытии</string>
-  <string name="disable_fc_notifications_summary">Это скроет все уведомления о принудительном закрытии</string>
   <string name="misc_crash_report">Сообщение об ошибке</string>
   <string name="misc_others">Другие</string>
   <string name="privacy_guard_notification_title">Уведомление</string>
@@ -330,4 +313,6 @@
   <string name="hardware_keys_action_toggle_torch">Фонарик</string>
   <string name="power_menu_reboot_oneclick">Перезагрузка в один клик</string>
   <string name="power_menu_reboot_oneclick_summary">Мгновенно вызывать перезагрузку устройства</string>
+  <string name="color_reset">Сбросить настройки цвета</string>
+  <string name="color_pick">Выбрать цвет</string>
 </resources>

@@ -203,17 +203,9 @@
   <string name="navbar_force_enable_title">Navigatiebalk forceren</string>
   <string name="smart_pulldown_off">Uit</string>
   <string name="show_cpu_info">Toon CPU info</string>
-  <string name="more_app_settings">Meer app instellingen</string>
-  <string name="wakelock_blocker_title">Inschakelen</string>
-  <string name="wakelock_blocker_save">Opslaan</string>
-  <string name="wakelock_blocker_reload">Herladen</string>
-  <string name="wakelock_blocker_warning_title">Ga voorzichtig te werk</string>
   <string name="haptic_qs_tiles_title">Trillen bij aanraken</string>
   <string name="camera_sounds_title">Camera sluiter geluid</string>
   <string name="camera_sounds_summary">Waarschuwing: Het uitschakelen van de camera sluiter geluid is illegaal in sommige gebieden!</string>
-  <string name="srec_enable_mic_title">Gebruik Microfoon</string>
-  <string name="srec_enable_mic_summary">Microfoon gebruiken als audio input tijdens het scherm opnemen</string>
-  <string name="disable_fc_notifications_title">FC Meldingen Uitschakelen</string>
   <string name="misc_others">Andere</string>
   <string name="privacy_guard_notification_title">Melding</string>
   <string name="navigation_bar_force_category">Navigatiebalk forceren</string>

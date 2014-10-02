@@ -238,8 +238,6 @@
   <string name="clock_date_style_uppercase">Mayúscula</string>
   <string name="clock_date_format_custom">Formato personalizado de java</string>
   <string name="status_bar_clock_style_reset_message">¿Restaurar color del reloj?</string>
-  <string name="screen_on_notification_led_title">Luz en pantalla de notificación</string>
-  <string name="screen_on_notification_led_summary">Permite luz de notificación incluso cuando la pantalla está activada</string>
   <string name="navbar_dimen_title">Dimensiones</string>
   <string name="navbar_dimensions_reset_message">¿Restablecer todas las entradas de dimensiones a fábrica?</string>
   <string name="navigation_bar_height_title">Altura de la barra de navegación</string>
@@ -260,15 +258,6 @@
   <string name="smart_pulldown_persistent">Desplegable si no hay notificaciones</string>
   <string name="show_cpu_info">Mostrar información de la CPU</string>
   <string name="show_cpu_info_summary">Superposición en pantalla mostrando información actual de la CPU</string>
-  <string name="more_app_settings">Configuraciones de más aplicaciones</string>
-  <string name="wakelock_blocker">Bloquear el despertador de Bloqueo</string>
-  <string name="wakelock_blocker_title">Activar</string>
-  <string name="wakelock_blocker_summary">Activar el bloqueo en el comprobador del despertador de Bloqueo</string>
-  <string name="wakelock_blocker_save">Guardar</string>
-  <string name="wakelock_list_header">Despertador de Bloqueo disponible</string>
-  <string name="wakelock_blocker_reload">Recargar</string>
-  <string name="wakelock_blocker_warning_title">Proceder con Precaución</string>
-  <string name="wakelock_blocker_warning">Bloqueos en el despertador de Bloqueo tiende potencialmente a causar inestabilidad, accidentes o pérdidas de datos.</string>
   <string name="flip_qs_tiles_title">Voltear los azulejos</string>
   <string name="flip_qs_tiles_summary">Voltea los azulejos al tocar</string>
   <string name="haptic_qs_tiles_title">Vibrar al tocar</string>
@@ -281,12 +270,6 @@
   <string name="camera_sounds_summary">ADVERTENCIA: ¡Desactivar el sonido del obturador de la cámara es ilegal en algunas áreas!</string>
   <string name="enable_acra_title">Activar reportes de Bloqueo</string>
   <string name="enable_acra_summary">Si está marcada, se bloquearan automáticamente los envios a NamelessRom</string>
-  <string name="srec_enable_touches_title">Activar puntero</string>
-  <string name="srec_enable_touches_summary">Activar indicador visual mostrando detalles durante la grabación de pantalla</string>
-  <string name="srec_enable_mic_title">Uso del micrófono</string>
-  <string name="srec_enable_mic_summary">Utilice el micrófono como entrada de audio durante la grabación de pantalla</string>
-  <string name="disable_fc_notifications_title">Desactivar notificaciones FC</string>
-  <string name="disable_fc_notifications_summary">Esto ocultará todas las notificaciones forzadas</string>
   <string name="misc_crash_report">Reportes de Bloqueo</string>
   <string name="misc_others">Otros</string>
   <string name="privacy_guard_notification_title">Notificación</string>
