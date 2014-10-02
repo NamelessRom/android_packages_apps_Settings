@@ -56,6 +56,8 @@
   <string name="press_color_to_apply">Premi sul colore sottostante per applicare</string>
   <string name="set">Imposta</string>
   <string name="color_default">Predefinito</string>
+  <string name="recents_bar">Barra dei recenti</string>
+  <string name="recents_bar_summary">Visualizza una rapida barra delle azioni sul fondo della schermata dei recenti</string>
   <string name="ram_bar_title">Barra della RAM nelle applicazioni recenti</string>
   <string name="ram_bar_summary">Mostra l\'uso della RAM nella finestra delle applicazioni recenti</string>
   <string name="ram_bar_cached_title">Includi le applicazioni nella cache</string>
@@ -245,8 +247,6 @@
   <string name="clock_date_style_uppercase">Maiuscolo</string>
   <string name="clock_date_format_custom">Formato personalizzato java</string>
   <string name="status_bar_clock_style_reset_message">Reimpostare colore orologio?</string>
-  <string name="screen_on_notification_led_title">Luce di notifica schermo attivato</string>
-  <string name="screen_on_notification_led_summary">Attiva la luce di notifica anche quando lo schermo è acceso</string>
   <string name="navbar_dimen_title">Dimensioni</string>
   <string name="navbar_dimensions_reset_message">Reimpostare tutte le voci riguardanti le dimensioni?</string>
   <string name="navigation_bar_height_title">Altezza barra di navigazione</string>
@@ -267,15 +267,6 @@
   <string name="smart_pulldown_persistent">Pulldown se non ci sono notifiche</string>
   <string name="show_cpu_info">Mostra informazioni CPU</string>
   <string name="show_cpu_info_summary">Sovrapposizione schermo sta mostrando le attuali informazioni della CPU</string>
-  <string name="more_app_settings">Ulteriori impostazioni app</string>
-  <string name="wakelock_blocker">Wakelock Blocker</string>
-  <string name="wakelock_blocker_title">Abilita</string>
-  <string name="wakelock_blocker_summary">Attiva il blocco per i wakelocks selezionati</string>
-  <string name="wakelock_blocker_save">Salva</string>
-  <string name="wakelock_list_header">Wakelock disponibili</string>
-  <string name="wakelock_blocker_reload">Ricarica</string>
-  <string name="wakelock_blocker_warning_title">Procedi con cautela</string>
-  <string name="wakelock_blocker_warning">Bloccare i wakelocks potrebbe causare instabilità, crash o perdita di dati.</string>
   <string name="flip_qs_tiles_title">Capovolgi riquadri</string>
   <string name="flip_qs_tiles_summary">Capovolge riquadri al tocco</string>
   <string name="haptic_qs_tiles_title">Vibrazione al tocco</string>
@@ -288,12 +279,6 @@
   <string name="camera_sounds_summary">Attenzione: Disabilitare il suono dell\'otturatore della fotocamera è illegale in alcune zone!</string>
   <string name="enable_acra_title">Abilita l\'invio delle segnalazione degli errori</string>
   <string name="enable_acra_summary">Se selezionata, i crash vengono automaticamente inviati a NamelessRom</string>
-  <string name="srec_enable_touches_title">Abilita il puntatore</string>
-  <string name="srec_enable_touches_summary">Abilita il puntatore visivo per mostrare i tocchi durante la registrazione dello schermo</string>
-  <string name="srec_enable_mic_title">Utilizza il microfono</string>
-  <string name="srec_enable_mic_summary">Utilizza il microfono come ingresso audio durante la registrazione dello schermo</string>
-  <string name="disable_fc_notifications_title">Disattiva le notifiche di FC</string>
-  <string name="disable_fc_notifications_summary">Questo nasconderà tutte le notifiche di chiusura forzata</string>
   <string name="misc_crash_report">Segnalazione crash</string>
   <string name="misc_others">Altri</string>
   <string name="privacy_guard_notification_title">Notifica</string>
@@ -314,6 +299,7 @@
   <string name="smart_cover_wake_summary">Risveglia il dispositivo quando il coperchio viene aperto</string>
   <string name="smart_cover_sleep_title">Metti in modalità sleep</string>
   <string name="smart_cover_sleep_summary">Metti il dispositivo in modalità sleep quando il coperchio viene chiuso</string>
+  <string name="smart_cover_customize">Personalizzare la smart cover</string>
   <string name="title_qs_swipe_anywhere">Swipe ovunque</string>
   <string name="summary_qs_swipe_anywhere">Permetti lo swipe ovunque per passare tra le notifiche e i quicktiles</string>
   <string name="fifteen_seconds">15 secondi</string>
@@ -330,4 +316,6 @@
   <string name="hardware_keys_action_toggle_torch">Accendi/Spegni Torcia</string>
   <string name="power_menu_reboot_oneclick">Riavvio con un click</string>
   <string name="power_menu_reboot_oneclick_summary">Innesca istantaneamente un\'azione di riavvio</string>
+  <string name="color_reset">Ripristina colore</string>
+  <string name="color_pick">Scegli colore</string>
 </resources>

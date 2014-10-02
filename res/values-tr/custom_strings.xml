@@ -237,8 +237,6 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="clock_date_style_uppercase">Büyük harf</string>
   <string name="clock_date_format_custom">Özel java biçimi</string>
   <string name="status_bar_clock_style_reset_message">Saatin rengi sıfırlansın mı?</string>
-  <string name="screen_on_notification_led_title">Bildirim ışığı Ekran üzerinde</string>
-  <string name="screen_on_notification_led_summary">Ekran üzerinde bile bildirim ışığı etkinleştirin</string>
   <string name="navbar_dimen_title">Boyutlar</string>
   <string name="navbar_dimensions_reset_message">Tüm boyut girişleri varsayılana sıfırlansın mı?</string>
   <string name="navigation_bar_height_title">Gezinti çubuğu yüksekliği</string>
@@ -259,14 +257,6 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="smart_pulldown_persistent">Hiçbir bildirim yoksa açılan</string>
   <string name="show_cpu_info">İşlemci bilgisini göster</string>
   <string name="show_cpu_info_summary">Geçerli İşlemci bilgisini gösteren ekran kaplaması</string>
-  <string name="more_app_settings">Diğer uygulama ayarları</string>
-  <string name="wakelock_blocker">Uyandırma kilidi Engelleyici</string>
-  <string name="wakelock_blocker_title">Aktif</string>
-  <string name="wakelock_blocker_summary">Uyandırma kilidi kontrolü için engellemeyi etkinleştirin</string>
-  <string name="wakelock_list_header">Mevcut uyandırma kilitleri</string>
-  <string name="wakelock_blocker_reload">Güncelle</string>
-  <string name="wakelock_blocker_warning_title">Dikkat ile devam</string>
-  <string name="wakelock_blocker_warning">Uyandırma kilitlerini engellemek istikrarsızlık, çökme veya veri kaybına neden olabilir.</string>
   <string name="flip_qs_tiles_title">Başlıkları çevirin</string>
   <string name="flip_qs_tiles_summary">Çevrilen başlıklar için dokunun</string>
   <string name="haptic_qs_tiles_title">Titreşim ayarı için dokunun</string>
@@ -279,12 +269,6 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="camera_sounds_summary">UYARI: Deklanşör sesi devre dışı bırakılması, bazı bölgelerde yasadışı!</string>
   <string name="enable_acra_title">Hata raporu göndermeyi etkinleştirme</string>
   <string name="enable_acra_summary">Eğer işaretli ise, otomatik olarak NamelessRom\'a gönderilmektedir</string>
-  <string name="srec_enable_touches_title">İşaretçiyi etkinleştirin</string>
-  <string name="srec_enable_touches_summary">Ekran kayıt sırasında dokunmaları göstermek için görsel işaretçisini etkinleştirmek</string>
-  <string name="srec_enable_mic_title">Mikrofon kullanımı</string>
-  <string name="srec_enable_mic_summary">Ekran kayıt sırasında ses girişi olarak mikrofonu kullanın</string>
-  <string name="disable_fc_notifications_title">FC Bildirimleri devre dışı</string>
-  <string name="disable_fc_notifications_summary">Bu tüm güç bildirimlerini gizleyecek</string>
   <string name="misc_crash_report">Hata raporu</string>
   <string name="misc_others">Diğerleri</string>
   <string name="privacy_guard_notification_title">Bildirimler</string>

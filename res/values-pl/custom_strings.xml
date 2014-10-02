@@ -245,8 +245,6 @@
   <string name="clock_date_style_uppercase">Wielkie litery</string>
   <string name="clock_date_format_custom">Dowolny format java</string>
   <string name="status_bar_clock_style_reset_message">Zresetować kolor zegara?</string>
-  <string name="screen_on_notification_led_title">Światła powiadomienia</string>
-  <string name="screen_on_notification_led_summary">Włącz światło powiadomienia, nawet, gdy ekran jest włączony</string>
   <string name="navbar_dimen_title">Wymiary</string>
   <string name="navbar_dimensions_reset_message">Czy zresetować wszystkie wymiary do domyślnych?</string>
   <string name="navigation_bar_height_title">Wysokość paska nawigacji</string>
@@ -267,15 +265,6 @@
   <string name="smart_pulldown_persistent">Rozwiń, gdy nie ma powiadomień</string>
   <string name="show_cpu_info">Pokaż informacje o procesorze</string>
   <string name="show_cpu_info_summary">Nakładka ekranowa pokazująca bieżące wykorzystanie CPU</string>
-  <string name="more_app_settings">Więcej ustawień aplikacji</string>
-  <string name="wakelock_blocker">Wakelock Blocker</string>
-  <string name="wakelock_blocker_title">Włącz</string>
-  <string name="wakelock_blocker_summary">Aktywuj blokowanie zaznaczonych wybudzeń</string>
-  <string name="wakelock_blocker_save">Zapisz</string>
-  <string name="wakelock_list_header">Dostępne Wakelocks</string>
-  <string name="wakelock_blocker_reload">Załaduj ponownie</string>
-  <string name="wakelock_blocker_warning_title">Postępuj ostrożnie</string>
-  <string name="wakelock_blocker_warning">Blokowanie wakelocks może spowodować niestabilność, awarię lub utratę danych.</string>
   <string name="flip_qs_tiles_title">Odwróc kafelki</string>
   <string name="flip_qs_tiles_summary">Odwraca kafelki przy dotknięciu</string>
   <string name="haptic_qs_tiles_title">Wibruj przy dotknięciu</string>
@@ -288,12 +277,6 @@
   <string name="camera_sounds_summary">Uwaga: Wyłączenie dźwięku migawki aparatu jest nielegalne w niektórych krajach!</string>
   <string name="enable_acra_title">Włącz raportowanie błędów</string>
   <string name="enable_acra_summary">Jeśli zaznaczone, informacje o błędach są automatycznie wysyłane do zespołu NamelessRom</string>
-  <string name="srec_enable_touches_title">Pokaż dotknięcia</string>
-  <string name="srec_enable_touches_summary">Pokazuje potwierdzenia dotknięcia podczas nagrywania ekranu</string>
-  <string name="srec_enable_mic_title">Użyj mikrofonu</string>
-  <string name="srec_enable_mic_summary">Użyj mikrofon jako wejścia dźwięku podczas nagrywania ekranu</string>
-  <string name="disable_fc_notifications_title">Wyłącz powiadomienia o FC</string>
-  <string name="disable_fc_notifications_summary">Wyłącza powiadomienia o wymuszonych zamknięciach</string>
   <string name="misc_crash_report">Raport problemu</string>
   <string name="misc_others">Inne</string>
   <string name="privacy_guard_notification_title">Powiadomienia</string>
@@ -330,4 +313,6 @@
   <string name="hardware_keys_action_toggle_torch">Przełącz latarkę</string>
   <string name="power_menu_reboot_oneclick">Reset poprzez jedno kliknięcie</string>
   <string name="power_menu_reboot_oneclick_summary">Natychmiastowo wyzwól ponowne uruchomienie</string>
+  <string name="color_reset">Zresetuj kolor</string>
+  <string name="color_pick">Wybierz kolor</string>
 </resources>

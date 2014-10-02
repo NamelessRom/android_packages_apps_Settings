@@ -238,8 +238,6 @@
   <string name="clock_date_style_uppercase">Majuscules</string>
   <string name="clock_date_format_custom">Format personnalisé de java</string>
   <string name="status_bar_clock_style_reset_message">Réinitialiser la couleur de l\'horloge?</string>
-  <string name="screen_on_notification_led_title">Voyant de notification sur écran allumé</string>
-  <string name="screen_on_notification_led_summary">Activez le voyant de notification même lorsque l\'écran est allumé</string>
   <string name="navbar_dimen_title">Dimensions</string>
   <string name="navbar_dimensions_reset_message">Réinitialiser toutes les dimensions par défaut ?</string>
   <string name="navigation_bar_height_title">Hauteur de la barre de navigation</string>
@@ -260,15 +258,6 @@
   <string name="smart_pulldown_persistent">Menu déroulant s\'il n\'y a aucune notification</string>
   <string name="show_cpu_info">Afficher les infos du CPU</string>
   <string name="show_cpu_info_summary">Montrer les infos CPU en surimpression écran</string>
-  <string name="more_app_settings">Paramètres avancés</string>
-  <string name="wakelock_blocker">Wakelock Blocker</string>
-  <string name="wakelock_blocker_title">Activer</string>
-  <string name="wakelock_blocker_summary">Activer le blocage des wakelocks vérifiés</string>
-  <string name="wakelock_blocker_save">Enregistrer</string>
-  <string name="wakelock_list_header">Wakelocks disponibles</string>
-  <string name="wakelock_blocker_reload">Recharger</string>
-  <string name="wakelock_blocker_warning_title">Procéder avec prudence</string>
-  <string name="wakelock_blocker_warning">Le blocage de wakelocks peut potentiellement causer de l\'instabilité, des plantages ou la perte de données.</string>
   <string name="flip_qs_tiles_title">Faire tourner les dalles</string>
   <string name="flip_qs_tiles_summary">Faire tourner les dalles au toucher</string>
   <string name="haptic_qs_tiles_title">Vibrer au toucher</string>
@@ -281,12 +270,6 @@
   <string name="camera_sounds_summary">ATTENTION: La désactivation du son du déclencheur de l\'appareil photo est illégale dans certaines régions!</string>
   <string name="enable_acra_title">Activer le rapport d\'erreur</string>
   <string name="enable_acra_summary">Si cochée, les plantages sont automatiquement envoyés à NamelessRom</string>
-  <string name="srec_enable_touches_title">Activer le pointeur</string>
-  <string name="srec_enable_touches_summary">Activer le pointeur visuel pour afficher les touches pendant l\'enregistrement de l\'écran</string>
-  <string name="srec_enable_mic_title">Utiliser le microphone</string>
-  <string name="srec_enable_mic_summary">Utilise le microphone comme entrée audio durant l\'enregistrement de l\'écran</string>
-  <string name="disable_fc_notifications_title">Désactiver les notifications lors des FC</string>
-  <string name="disable_fc_notifications_summary">Ceci permet de masquer toutes les notifications FC</string>
   <string name="misc_crash_report">Rapport d\'erreur</string>
   <string name="misc_others">Autres</string>
   <string name="privacy_guard_notification_title">Notification</string>
