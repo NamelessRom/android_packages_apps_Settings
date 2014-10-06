@@ -56,6 +56,8 @@
   <string name="press_color_to_apply">Apăsaţi pe culoarea de mai jos pentru a aplica</string>
   <string name="set">Setează</string>
   <string name="color_default">Implicit</string>
+  <string name="recents_bar">Recente</string>
+  <string name="recents_bar_summary">Afişează o bară de acţiune rapidă în partea de jos a ecranului cu recente</string>
   <string name="ram_bar_title">Bara RAM de activităţi recente</string>
   <string name="ram_bar_summary">Arată utilizarea RAM in fereastra de activităţi recente</string>
   <string name="ram_bar_cached_title">Include aplicaţiile din cache</string>
@@ -297,6 +299,7 @@
   <string name="smart_cover_wake_summary">Trezește dispozitivul când capacul se deschide</string>
   <string name="smart_cover_sleep_title">Pune la somn</string>
   <string name="smart_cover_sleep_summary">Pune dispozitivul la somn când capacul se închide</string>
+  <string name="smart_cover_customize">Personalizați coperta deșteaptă</string>
   <string name="title_qs_swipe_anywhere">Glisaţi oriunde</string>
   <string name="summary_qs_swipe_anywhere">Permite să glisaţi oriunde pentru a comuta între notificări şi titlurile rapide</string>
   <string name="fifteen_seconds">15 secunde</string>
