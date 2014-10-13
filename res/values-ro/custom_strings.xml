@@ -318,4 +318,6 @@
   <string name="power_menu_reboot_oneclick_summary">Declanșează instantaneu acțiunea de repornire</string>
   <string name="color_reset">Resetare culoare</string>
   <string name="color_pick">Alege culoare</string>
+  <string name="display_density">Densitatea afișajului</string>
+  <string name="display_density_summary">Suprascrie densitatea afişajului implicit (0 pentru a dezactiva, necesită o repornire)</string>
 </resources>

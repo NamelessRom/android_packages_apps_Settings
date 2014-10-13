@@ -318,4 +318,6 @@
   <string name="power_menu_reboot_oneclick_summary">Neustart-Aktion bei Auswahl sofort auslösen</string>
   <string name="color_reset">Farbe zurücksetzen</string>
   <string name="color_pick">Farbe auswählen</string>
+  <string name="display_density">Bildschirmauflösung</string>
+  <string name="display_density_summary">Überschreibt die Bildschirmauflösung (0 zum Deaktivieren, ein Neustart ist erforderlich)</string>
 </resources>
