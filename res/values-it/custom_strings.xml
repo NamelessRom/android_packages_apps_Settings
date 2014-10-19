@@ -318,4 +318,6 @@
   <string name="power_menu_reboot_oneclick_summary">Innesca istantaneamente un\'azione di riavvio</string>
   <string name="color_reset">Ripristina colore</string>
   <string name="color_pick">Scegli colore</string>
+  <string name="display_density">Visualizzare la densità</string>
+  <string name="display_density_summary">Sostituisci la densità predefinita dello schermo (0 per disabilitare, richiede un riavvio)</string>
 </resources>

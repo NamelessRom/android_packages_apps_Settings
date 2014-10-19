@@ -56,6 +56,8 @@
   <string name="press_color_to_apply">Naciśnij na kolor poniżej aby zastosować</string>
   <string name="set">Ustaw</string>
   <string name="color_default">Domyślne</string>
+  <string name="recents_bar">Niedawno używane aplikacje</string>
+  <string name="recents_bar_summary">Pokazuje pasek szybkie działanie na dole ekranu niedawno używanych aplikacji </string>
   <string name="ram_bar_title">Pasek RAM w oknie ostatnio otwartych aplikacji</string>
   <string name="ram_bar_summary">Pokazuje użycie RAM w oknie ostatnio użytych aplikacji</string>
   <string name="ram_bar_cached_title">Załącz buforowane aplikacje</string>
@@ -297,6 +299,7 @@
   <string name="smart_cover_wake_summary">Obudź urządzenie po otwarciu pokrywy</string>
   <string name="smart_cover_sleep_title">Uśpij</string>
   <string name="smart_cover_sleep_summary">Uśpij urządzenie po zamknięciu pokrywy</string>
+  <string name="smart_cover_customize">Dostosuj smart cover</string>
   <string name="title_qs_swipe_anywhere">Przesuń gdziekolwiek</string>
   <string name="summary_qs_swipe_anywhere">Zezwól na przesunięcie gdziekolwiek, w celu przejścia pomiędzy powiadomieniami i szybkimi ustawieniami</string>
   <string name="fifteen_seconds">15 sekund</string>
@@ -315,4 +318,6 @@
   <string name="power_menu_reboot_oneclick_summary">Natychmiastowo wyzwól ponowne uruchomienie</string>
   <string name="color_reset">Zresetuj kolor</string>
   <string name="color_pick">Wybierz kolor</string>
+  <string name="display_density">Wyświetlacz gęstości</string>
+  <string name="display_density_summary">Zastępuje domyślne wyświetlanie gęstości (0, aby wyłączyć, wymaga ponownego uruchomienia)</string>
 </resources>
