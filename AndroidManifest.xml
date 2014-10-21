@@ -82,6 +82,8 @@
         android:name="cyanogenmod.permission.PROTECTED_APP"
         android:protectionLevel="signatureOrSystem" />
 
+    <uses-feature android:name="org.namelessrom.android" android:required="true" />
+
     <application android:label="@string/settings_label"
             android:icon="@mipmap/ic_launcher_settings"
             android:taskAffinity=""
@@ -115,6 +117,20 @@
         <activity android:name=".CustomScreenColor" android:label="@string/custom_screencolor"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="nosensor">
+        </activity>
+
+        <!-- Nameless Rom additions -->
+        <activity android:name="org.namelessrom.settings.SettingsActivity"
+            android:label="@string/settings_label_launcher"
+            android:taskAffinity="com.android.settings"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- Settings -->

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <!-- PERSONAL -->
+    <PreferenceCategory
+        android:id="@+id/personal_section"
+        android:title="@string/header_category_personal" />
+
+    <!-- Profiles -->
+    <Preference
+        android:id="@+id/profiles_settings"
+        android:icon="@drawable/ic_settings_profiles"
+        android:fragment="com.android.settings.profiles.ProfilesSettings"
+        android:title="@string/profiles_settings_title" />
+
+    <!-- Location -->
+    <Preference
+        android:fragment="com.android.settings.location.LocationSettings"
+        android:icon="@drawable/ic_settings_location"
+        android:title="@string/location_settings_title"
+        android:id="@+id/location_settings" />
+
+    <!-- Voice Wakeup -->
+    <Preference
+        settings:excludeFromSearch="true"
+        android:fragment="com.android.settings.voicewakeup.VoiceWakeupSettings"
+        android:icon="@drawable/ic_voice_wakeup"
+        android:title="@string/voice_wakeup_settings_title"
+        android:id="@+id/voice_wakeup_settings" />
+
+    <!-- Security -->
+    <Preference
+        settings:includeXmlForSearch="@xml/security_settings"
+        android:fragment="com.android.settings.SecuritySettings"
+        android:icon="@drawable/ic_settings_security"
+        android:title="@string/security_settings_title"
+        android:id="@+id/security_settings" />
+
+    <!-- CyanogenMod Privacy Settings -->
+    <!-- This is the 'real' Privacy items and includes Privacy Guard, Blacklist & WhisperPush -->
+    <Preference
+        settings:includeXmlForSearch="@xml/privacy_settings_cyanogenmod"
+        android:fragment="com.android.settings.cyanogenmod.PrivacySettings"
+        android:icon="@drawable/ic_settings_privacy"
+        android:title="@string/privacy_settings_cyanogenmod_title"
+        android:id="@+id/privacy_settings_cyanogenmod" />
+
+    <!-- Language -->
+    <Preference
+        settings:includeXmlForSearch="@xml/language_settings"
+        android:id="@+id/language_settings"
+        android:fragment="com.android.settings.inputmethod.InputMethodAndLanguageSettings"
+        android:icon="@drawable/ic_settings_language"
+        android:title="@string/language_settings" />
+
+    <!-- Backup and reset -->
+    <!-- Google for some reason calls this class PrivacySettings even though it is "Backup & reset"
+         we are leaving it as-is in order to not complicate future merges but rather adding a new
+         PrivacySettings class under .cyanogenmod above to handle the 'real' privacy items -->
+    <Preference
+        android:fragment="com.android.settings.PrivacySettings"
+        android:icon="@drawable/ic_settings_backup"
+        android:title="@string/privacy_settings"
+        android:id="@+id/privacy_settings" />
+
+    <!--  ACCOUNTS section -->
+    <PreferenceCategory
+        android:id="@+id/account_settings"
+        android:title="@string/account_settings" />
+
+    <Preference
+        android:id="@+id/account_add"
+        android:title="@string/add_account_label"
+        android:icon="@drawable/ic_menu_add_dark">
+        <intent
+            android:action="android.settings.ADD_ACCOUNT_SETTINGS" />
+    </Preference>
+</PreferenceScreen>
