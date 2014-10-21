@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <!-- WIRELESS and NETWORKS -->
+    <PreferenceCategory
+        android:id="@+id/wireless_section"
+        android:title="@string/header_category_wireless_networks" />
+
+    <!-- Airplane mode -->
+    <Preference
+        android:id="@+id/toggle_airplane"
+        android:title="@string/airplane_mode"
+        android:breadCrumbTitle="@string/wireless_networks_settings_title"
+        android:fragment="com.android.settings.WirelessSettings"
+        android:key="toggle_airplane"
+        android:disableDependentsState="true"
+        android:icon="@drawable/ic_settings_airplane_mode" />
+
+    <!-- Wifi -->
+    <Preference
+        android:id="@+id/wifi_settings"
+        android:fragment="com.android.settings.wifi.WifiSettings"
+        android:title="@string/wifi_settings_title"
+        android:icon="@drawable/ic_settings_wireless" />
+
+    <!-- Bluetooth -->
+    <Preference
+        android:id="@+id/bluetooth_settings"
+        android:fragment="com.android.settings.bluetooth.BluetoothSettings"
+        android:title="@string/bluetooth_settings_title"
+        android:icon="@drawable/ic_settings_bluetooth2" />
+
+    <!-- Mobile networks -->
+    <Preference
+        android:id="@+id/mobile_network_settings"
+        android:icon="@drawable/ic_settings_mobilenetworks"
+        android:title="@string/network_settings_title"
+        android:dependency="toggle_airplane">
+        <intent
+            android:action="android.settings.DATA_ROAMING_SETTINGS" />
+    </Preference>
+
+    <!-- Data Usage -->
+    <Preference
+        android:id="@+id/data_usage_settings"
+        android:fragment="com.android.settings.DataUsageSummary"
+        android:title="@string/data_usage_summary_title"
+        android:icon="@drawable/ic_settings_data_usage" />
+
+    <!-- Operator hook -->
+    <Preference
+        android:fragment="com.android.settings.WirelessSettings"
+        android:id="@+id/operator_settings">
+        <intent android:action="com.android.settings.OPERATOR_APPLICATION_SETTING" />
+    </Preference>
+
+    <!-- Multi Sim Settings - this is in the settings process -->
+    <Preference
+        android:id="@+id/multi_sim_settings"
+        android:icon="@drawable/ic_settings_sim"
+        android:title="@string/multi_sim_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.MultiSimSettings" />
+    </Preference>
+
+    <!-- Other wireless and network controls -->
+    <Preference
+        settings:includeXmlForSearch="@xml/wireless_settings"
+        android:id="@+id/wireless_settings"
+        android:title="@string/radio_controls_title"
+        android:breadCrumbTitle="@string/wireless_networks_settings_title"
+        android:fragment="com.android.settings.WirelessSettings"
+        android:icon="@drawable/empty_icon" />
+
+    <!-- NAMELESS -->
+    <PreferenceCategory
+        android:id="@+id/nameless_section"
+        android:title="@string/header_category_nameless" />
+
+    <!-- Device Control -->
+    <Preference
+        android:id="@+id/device_control"
+        android:icon="@drawable/ic_settings_devicecontrol"
+        android:title="@string/device_control" />
+
+    <!-- Nameless Center -->
+    <Preference
+        android:id="@+id/nameless_center"
+        android:icon="@drawable/ic_settings_nameless_center"
+        android:title="@string/nameless_center" />
+
+    <!-- Crazy Lab -->
+    <Preference
+        settings:includeXmlForSearch="@xml/nameless_secret_settings"
+        android:id="@+id/crazy_lab"
+        android:icon="@drawable/ic_settings_secret"
+        android:breadCrumbTitle="@string/crazy_lab"
+        android:title="@string/crazy_lab"
+        android:fragment="com.android.settings.nameless.secret.CrazyLabSettings" />
+
+    <!-- INTERFACE -->
+    <PreferenceCategory
+        android:id="@+id/interface_section"
+        android:title="@string/header_category_interface" />
+
+    <!-- Home -->
+    <Preference
+        android:id="@+id/home_settings"
+        android:icon="@drawable/ic_settings_home"
+        android:fragment="com.android.settings.HomeSettings"
+        android:title="@string/home_settings" />
+
+    <!-- Heads up -->
+    <Preference
+        android:id="@+id/heads_up"
+        android:icon="@drawable/ic_settings_headsup"
+        android:fragment="com.android.settings.headsup.HeadsUpSettings"
+        android:title="@string/category_heads_up" />
+
+    <!-- Themes -->
+    <Preference
+        settings:includeXmlForSearch="@xml/theme_settings"
+        android:id="@+id/theme_settings"
+        android:title="@string/themes_settings_title"
+        android:breadCrumbTitle="@string/themes_settings_title"
+        android:fragment="com.android.settings.ThemeSettings"
+        android:icon="@drawable/prd_ic_themepacks" />
+
+    <!-- System UI -->
+    <Preference
+        settings:includeXmlForSearch="@xml/system_ui_settings"
+        android:id="@+id/system_settings"
+        android:icon="@drawable/ic_settings_system"
+        android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
+        android:title="@string/system_settings_title" />
+
+    <!-- Lock screen -->
+    <Preference
+        settings:includeXmlForSearch="@xml/lockscreen_interface_settings"
+        android:id="@+id/lock_screen_settings"
+        android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
+        android:title="@string/lock_screen_title"
+        android:icon="@drawable/ic_settings_lockscreen" />
+
+    <!-- Smart Cover -->
+    <Preference
+        settings:includeXmlForSearch="@xml/smart_cover_settings"
+        android:id="@+id/smart_cover_settings"
+        android:fragment="com.android.settings.nameless.SmartCoverSettings"
+        android:title="@string/smart_cover"
+        android:icon="@drawable/ic_settings_smart_cover" />
+
+    <!-- Gestures -->
+    <Preference
+        android:id="@+id/device_specific_gesture_settings"
+        android:icon="@drawable/ic_settings_gestures"
+        android:title="@string/gestures_settings_header_title">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+    </Preference>
+
+    <!-- SYSTEM -->
+    <PreferenceCategory
+        android:id="@+id/system_section"
+        android:title="@string/header_category_system" />
+
+    <!-- Date & Time -->
+    <Preference
+        settings:includeXmlForSearch="@xml/date_time_prefs"
+        android:id="@+id/date_time_settings"
+        android:fragment="com.android.settings.DateTimeSettings"
+        android:icon="@drawable/ic_settings_date_time"
+        android:title="@string/date_and_time_settings_title" />
+
+    <!-- Accessibility feedback -->
+    <Preference
+        settings:includeXmlForSearch="@xml/accessibility_settings"
+        android:id="@+id/accessibility_settings"
+        android:fragment="com.android.settings.accessibility.AccessibilitySettings"
+        android:icon="@drawable/ic_settings_accessibility"
+        android:title="@string/accessibility_settings" />
+
+    <!-- Print -->
+    <Preference
+        android:id="@+id/print_settings"
+        android:fragment="com.android.settings.print.PrintSettingsFragment"
+        android:icon="@*android:drawable/ic_print"
+        android:title="@string/print_settings" />
+
+    <!-- Development -->
+    <Preference
+        settings:includeXmlForSearch="@xml/development_prefs"
+        android:id="@+id/development_settings"
+        android:fragment="com.android.settings.DevelopmentSettings"
+        android:icon="@drawable/ic_settings_development"
+        android:title="@string/development_settings_title" />
+
+    <!-- SuperSU -->
+    <Preference
+        android:id="@+id/supersu_settings"
+        android:icon="@drawable/ic_settings_supersu"
+        android:title="@string/supersu_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="eu.chainfire.supersu"
+            android:targetClass="eu.chainfire.supersu.MainActivity" />
+    </Preference>
+
+    <!-- About Device -->
+    <Preference
+        settings:includeXmlForSearch="@xml/device_info_settings"
+        android:id="@+id/about_settings"
+        android:fragment="com.android.settings.DeviceInfoSettings"
+        android:icon="@drawable/ic_settings_about"
+        android:title="@string/about_settings" />
+</PreferenceScreen>

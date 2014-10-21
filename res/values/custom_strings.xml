@@ -427,4 +427,7 @@
 
     <string name="display_density">Display density</string>
     <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
+
+    <!-- Tabs -->
+    <string name="header_category_general">General</string>
 </resources>
