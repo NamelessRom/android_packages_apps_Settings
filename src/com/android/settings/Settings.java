@@ -44,6 +44,7 @@ import android.os.Bundle;
 import android.os.INetworkManagementService;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
@@ -71,6 +72,8 @@ import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.android.internal.telephony.TelephonyIntents;
+import com.android.internal.telephony.TelephonyProperties;
 import com.android.internal.util.ArrayUtils;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
@@ -168,6 +171,9 @@ public class Settings extends PreferenceActivity
     private static final String GESTURE_SETTINGS_PACKAGE_NAME = "com.cyanogenmod.settings";
 
     static final int DIALOG_ONLY_ONE_HOME = 1;
+
+    public static final String EXIT_ECM_RESULT = "exit_ecm_result";
+    public static final int REQUEST_CODE_EXIT_ECM = 1;
 
     private static boolean sShowNoHomeNotice = false;
 
@@ -717,6 +723,8 @@ public class Settings extends PreferenceActivity
             if (id == R.id.operator_settings || id == R.id.manufacturer_settings
                     || id == R.id.device_specific_gesture_settings) {
                 Utils.updateHeaderToSpecificActivityFromMetaDataOrRemove(this, target, header);
+            } else if (id == R.id.toggle_airplane) {
+                // TODO: remove if we do not have any toggleable radios
             } else if (id == R.id.wifi_settings) {
                 // Remove WiFi Settings if WiFi service is not available.
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI)) {
@@ -1043,6 +1051,7 @@ public class Settings extends PreferenceActivity
         static final int HEADER_TYPE_BUTTON = 3;
         private static final int HEADER_TYPE_COUNT = HEADER_TYPE_BUTTON + 1;
 
+        private final AirplaneModeEnabler mAirplaneModeEnabler;
         private final WifiEnabler mWifiEnabler;
         private final BluetoothEnabler mBluetoothEnabler;
         private final MobileDataEnabler mMobileDataEnabler;
@@ -1052,6 +1061,15 @@ public class Settings extends PreferenceActivity
         private final VoiceWakeupEnabler mVoiceWakeupEnabler;
         private AuthenticatorHelper mAuthHelper;
         private DevicePolicyManager mDevicePolicyManager;
+
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            if (requestCode == REQUEST_CODE_EXIT_ECM) {
+                Boolean isChoiceYes = data.getBooleanExtra(EXIT_ECM_RESULT, false);
+                // Set Airplane mode based on the return value and checkbox state
+                mAirplaneModeEnabler.setAirplaneModeInECM(isChoiceYes,
+                        mAirplaneModeEnabler.isChecked());
+            }
+        }
 
         private static class HeaderViewHolder {
             ImageView icon;
@@ -1067,7 +1085,8 @@ public class Settings extends PreferenceActivity
         static int getHeaderType(Header header) {
             if (header.fragment == null && header.intent == null) {
                 return HEADER_TYPE_CATEGORY;
-            } else if (header.id == R.id.wifi_settings
+            } else if (header.id == R.id.toggle_airplane
+                    || header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
                     || header.id == R.id.mobile_network_settings
                     || header.id == R.id.heads_up
@@ -1117,6 +1136,7 @@ public class Settings extends PreferenceActivity
 
             // Temp Switches provided as placeholder until the adapter replaces these with actual
             // Switches inflated from their layouts. Must be done before adapter is set in super
+            mAirplaneModeEnabler = new AirplaneModeEnabler(context, new Switch(context));
             mWifiEnabler = new WifiEnabler(context, new Switch(context));
             mBluetoothEnabler = new BluetoothEnabler(context, new Switch(context));
             mMobileDataEnabler = new MobileDataEnabler(context, new Switch(context));
@@ -1191,7 +1211,9 @@ public class Settings extends PreferenceActivity
 
                 case HEADER_TYPE_SWITCH:
                     // Would need a different treatment if the main menu had more switches
-                    if (header.id == R.id.wifi_settings) {
+                    if (header.id == R.id.toggle_airplane) {
+                        mAirplaneModeEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.wifi_settings) {
                         mWifiEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.bluetooth_settings) {
                         mBluetoothEnabler.setSwitch(holder.switch_);
@@ -1281,6 +1303,7 @@ public class Settings extends PreferenceActivity
         }
 
         public void resume() {
+            mAirplaneModeEnabler.resume();
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
             mMobileDataEnabler.resume();
@@ -1291,6 +1314,7 @@ public class Settings extends PreferenceActivity
         }
 
         public void pause() {
+            mAirplaneModeEnabler.pause();
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
             mMobileDataEnabler.pause();
@@ -1303,6 +1327,7 @@ public class Settings extends PreferenceActivity
 
     @Override
     public void onHeaderClick(Header header, int position) {
+        if (handleHeader(header)) return;
         boolean revert = false;
         if (header.id == R.id.account_add) {
             revert = true;
@@ -1376,6 +1401,29 @@ public class Settings extends PreferenceActivity
         List<ResolveInfo> list = getPackageManager().queryIntentActivities(i,
                 PackageManager.MATCH_DEFAULT_ONLY);
         return list.size() > 0;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (getListAdapter() instanceof HeaderAdapter) {
+            ((HeaderAdapter)getListAdapter()).onActivityResult(requestCode, resultCode, data);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private boolean handleHeader(final Header header) {
+        if (header.id == R.id.toggle_airplane) {
+            if (Boolean.parseBoolean(
+                    SystemProperties.get(TelephonyProperties.PROPERTY_INECM_MODE))) {
+                // In ECM mode launch ECM app dialog
+                startActivityForResult(
+                        new Intent(TelephonyIntents.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS, null),
+                        REQUEST_CODE_EXIT_ECM);
+            }
+            // always handle the airplane mode header
+            return true;
+        }
+        return false;
     }
 
     /*

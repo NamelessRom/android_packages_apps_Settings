@@ -22,6 +22,16 @@
     <header android:id="@+id/wireless_section"
         android:title="@string/header_category_wireless_networks" />
 
+    <!-- Airplane mode -->
+    <header
+        android:id="@+id/toggle_airplane"
+        android:title="@string/airplane_mode"
+        android:breadCrumbTitle="@string/wireless_networks_settings_title"
+        android:fragment="com.android.settings.WirelessSettings"
+        android:key="toggle_airplane"
+        android:disableDependentsState="true"
+        android:icon="@drawable/ic_settings_airplane_mode" />
+
     <!-- Wifi -->
     <header
         android:id="@+id/wifi_settings"

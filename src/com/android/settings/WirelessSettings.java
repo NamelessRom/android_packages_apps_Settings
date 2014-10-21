@@ -72,11 +72,6 @@ public class WirelessSettings extends RestrictedSettingsFragment
     private static final String KEY_TOGGLE_NSD = "toggle_nsd"; //network service discovery
     private static final String KEY_CELL_BROADCAST_SETTINGS = "cell_broadcast_settings";
 
-    public static final String EXIT_ECM_RESULT = "exit_ecm_result";
-    public static final int REQUEST_CODE_EXIT_ECM = 1;
-
-    private AirplaneModeEnabler mAirplaneModeEnabler;
-    private CheckBoxPreference mAirplaneModePreference;
     private NfcEnabler mNfcEnabler;
     private NfcAdapter mNfcAdapter;
     private NsdEnabler mNsdEnabler;
@@ -103,14 +98,7 @@ public class WirelessSettings extends RestrictedSettingsFragment
             return true;
         }
         log("onPreferenceTreeClick: preference=" + preference);
-        if (preference == mAirplaneModePreference && Boolean.parseBoolean(
-                SystemProperties.get(TelephonyProperties.PROPERTY_INECM_MODE))) {
-            // In ECM mode launch ECM app dialog
-            startActivityForResult(
-                new Intent(TelephonyIntents.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS, null),
-                REQUEST_CODE_EXIT_ECM);
-            return true;
-        } else if (preference == findPreference(KEY_MANAGE_MOBILE_PLAN)) {
+         if (preference == findPreference(KEY_MANAGE_MOBILE_PLAN)) {
             onManageMobilePlanClick();
         }
         // Let the intents be launched by the Preference manager
@@ -269,7 +257,6 @@ public class WirelessSettings extends RestrictedSettingsFragment
         final boolean isSecondaryUser = UserHandle.myUserId() != UserHandle.USER_OWNER;
 
         final Activity activity = getActivity();
-        mAirplaneModePreference = (CheckBoxPreference) findPreference(KEY_TOGGLE_AIRPLANE);
 
         if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
             // Mobile Networks menu will traverse to Select Subscription menu.
@@ -291,7 +278,6 @@ public class WirelessSettings extends RestrictedSettingsFragment
         PreferenceScreen androidBeam = (PreferenceScreen) findPreference(KEY_ANDROID_BEAM_SETTINGS);
         CheckBoxPreference nsd = (CheckBoxPreference) findPreference(KEY_TOGGLE_NSD);
 
-        mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
         mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
 
         mSmsApplicationPreference = (SmsListPreference) findPreference(KEY_SMS_APPLICATION);
@@ -432,7 +418,6 @@ public class WirelessSettings extends RestrictedSettingsFragment
     public void onResume() {
         super.onResume();
 
-        mAirplaneModeEnabler.resume();
         if (mNfcEnabler != null) {
             mNfcEnabler.resume();
         }
@@ -454,24 +439,12 @@ public class WirelessSettings extends RestrictedSettingsFragment
     public void onPause() {
         super.onPause();
 
-        mAirplaneModeEnabler.pause();
         if (mNfcEnabler != null) {
             mNfcEnabler.pause();
         }
         if (mNsdEnabler != null) {
             mNsdEnabler.pause();
         }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_EXIT_ECM) {
-            Boolean isChoiceYes = data.getBooleanExtra(EXIT_ECM_RESULT, false);
-            // Set Airplane mode based on the return value and checkbox state
-            mAirplaneModeEnabler.setAirplaneModeInECM(isChoiceYes,
-                    mAirplaneModePreference.isChecked());
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

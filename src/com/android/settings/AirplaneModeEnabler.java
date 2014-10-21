@@ -19,24 +19,25 @@ package com.android.settings;
 import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
+import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
 import android.os.UserHandle;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
 import android.provider.Settings;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import com.android.internal.telephony.PhoneStateIntentReceiver;
 import com.android.internal.telephony.TelephonyProperties;
 
-public class AirplaneModeEnabler implements Preference.OnPreferenceChangeListener {
+public class AirplaneModeEnabler implements CompoundButton.OnCheckedChangeListener {
 
     private final Context mContext;
 
     private PhoneStateIntentReceiver mPhoneStateReceiver;
-    
-    private final CheckBoxPreference mCheckBoxPref;
+
+    private Switch mSwitch;
 
     private static final int EVENT_SERVICE_STATE_CHANGED = 3;
 
@@ -58,31 +59,28 @@ public class AirplaneModeEnabler implements Preference.OnPreferenceChangeListene
         }
     };
 
-    public AirplaneModeEnabler(Context context, CheckBoxPreference airplaneModeCheckBoxPreference) {
-        
+    public AirplaneModeEnabler(Context context, Switch switch_) {
+
         mContext = context;
-        mCheckBoxPref = airplaneModeCheckBoxPreference;
-        
-        airplaneModeCheckBoxPreference.setPersistent(false);
-    
+        mSwitch = switch_;
+
         mPhoneStateReceiver = new PhoneStateIntentReceiver(mContext, mHandler);
         mPhoneStateReceiver.notifyServiceState(EVENT_SERVICE_STATE_CHANGED);
     }
 
     public void resume() {
-        
-        mCheckBoxPref.setChecked(isAirplaneModeOn(mContext));
+        mSwitch.setOnCheckedChangeListener(this);
+        onAirplaneModeChanged();
 
         mPhoneStateReceiver.registerIntent();
-        mCheckBoxPref.setOnPreferenceChangeListener(this);
         mContext.getContentResolver().registerContentObserver(
                 Settings.Global.getUriFor(Settings.Global.AIRPLANE_MODE_ON), true,
                 mAirplaneModeObserver);
     }
-    
+
     public void pause() {
         mPhoneStateReceiver.unregisterIntent();
-        mCheckBoxPref.setOnPreferenceChangeListener(null);
+        mSwitch.setOnCheckedChangeListener(null);
         mContext.getContentResolver().unregisterContentObserver(mAirplaneModeObserver);
     }
 
@@ -93,11 +91,11 @@ public class AirplaneModeEnabler implements Preference.OnPreferenceChangeListene
 
     private void setAirplaneModeOn(boolean enabling) {
         // Change the system setting
-        Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON, 
-                                enabling ? 1 : 0);
+        Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON,
+                enabling ? 1 : 0);
         // Update the UI to reflect system setting
-        mCheckBoxPref.setChecked(enabling);
-        
+        mSwitch.setChecked(enabling);
+
         // Post the intent
         Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         intent.putExtra("state", enabling);
@@ -113,20 +111,16 @@ public class AirplaneModeEnabler implements Preference.OnPreferenceChangeListene
      * - mobile does not send failure notification, fail on timeout.
      */
     private void onAirplaneModeChanged() {
-        mCheckBoxPref.setChecked(isAirplaneModeOn(mContext));
+        mSwitch.setChecked(isAirplaneModeOn(mContext));
     }
-    
-    /**
-     * Called when someone clicks on the checkbox preference.
-     */
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+    @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (Boolean.parseBoolean(
-                    SystemProperties.get(TelephonyProperties.PROPERTY_INECM_MODE))) {
+                SystemProperties.get(TelephonyProperties.PROPERTY_INECM_MODE))) {
             // In ECM mode, do not update database at this point
         } else {
-            setAirplaneModeOn((Boolean) newValue);
+            setAirplaneModeOn(isChecked);
         }
-        return true;
     }
 
     public void setAirplaneModeInECM(boolean isECMExit, boolean isAirplaneModeOn) {
@@ -139,4 +133,16 @@ public class AirplaneModeEnabler implements Preference.OnPreferenceChangeListene
         }
     }
 
+    public boolean isChecked() {
+        return mSwitch != null && mSwitch.isChecked();
+    }
+
+    public void setSwitch(Switch switch_) {
+        if (mSwitch == switch_ || switch_ == null) return;
+        mSwitch.setOnCheckedChangeListener(null);
+        mSwitch = switch_;
+        mSwitch.setOnCheckedChangeListener(this);
+
+        onAirplaneModeChanged();
+    }
 }
