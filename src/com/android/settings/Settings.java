@@ -753,7 +753,6 @@ public class Settings extends PreferenceActivity
                 }
             } else if (id == R.id.battery_settings) {
                 // Remove battery settings when battery is not available. (e.g. TV)
-
                 if (!mBatteryPresent) {
                     target.remove(i);
                 }
@@ -1008,7 +1007,7 @@ public class Settings extends PreferenceActivity
         SearchInfo info = (SearchInfo) parent.getItemAtPosition(position);
         mSearchBar.setText("");
         mSearchBar.clearFocus();
-        mSearchItem.collapseActionView();;
+        mSearchItem.collapseActionView();
 
         if (info.level == 0) {
             Bundle args = info.header.fragmentArguments;
