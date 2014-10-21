@@ -18,12 +18,6 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/wireless_networks_settings_title">
 
-    <CheckBoxPreference
-        android:key="toggle_airplane"
-        android:title="@string/airplane_mode"
-        android:persistent="false"
-        android:disableDependentsState="true" />
-
     <com.android.settings.SmsListPreference
         android:key="sms_application"
         android:title="@string/sms_application_title"
