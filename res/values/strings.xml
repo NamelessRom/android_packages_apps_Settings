@@ -34,13 +34,13 @@
     <string name="device_info_default">Unknown</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown">
-        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
-        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling development settings.</item>
+        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from being a developer.</item>
+        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from being a developer.</item>
     </plurals>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-    <string name="show_dev_on">You have enabled development settings!</string>
+    <string name="show_dev_on">You are now a developer!</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-    <string name="show_dev_already">No need, you have already enabled development settings.</string>
+    <string name="show_dev_already">No need, you are already a developer.</string>
 
     <!-- Category headings in left-pane header menu --> <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
@@ -1062,9 +1062,6 @@
     <!-- Message when bluetooth dialog for pin entry is showing. [CHAR LIMIT=NONE] -->
     <string name="bluetooth_enter_pin_msg">To pair with:<xliff:g id="bold">&lt;br>&lt;b></xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b>&lt;br>&lt;br></xliff:g>Type the device\'s required PIN:</string>
 
-    <!-- Message when bluetooth dialog for pin entry is showing  when HIGH security enabled-->
-    <string name="bluetooth_enter_pin_msg_hs">To pair with:<xliff:g id="bold">&lt;br>&lt;b></xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b>&lt;br>&lt;br></xliff:g>Type the device\'s required PIN (16 digits or more):</string>
-
     <!-- Message when bluetooth dialog for passkey entry is showing. [CHAR LIMIT=NONE] -->
     <string name="bluetooth_enter_passkey_msg">To pair with:<xliff:g id="bold">&lt;br>&lt;b></xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b>&lt;br>&lt;br></xliff:g>Type the device\'s required passkey:</string>
 
@@ -1158,10 +1155,6 @@
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the map profile. -->
     <string name="bluetooth_profile_map">Message Access</string>
 
-    <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the SAP profile. -->
-    <string name="bluetooth_profile_sap">SIM Access</string>
-    <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the DUN profile. -->
-    <string name="bluetooth_profile_dun">Dial-up Network Access</string>
     <!-- Bluetooth settings.  Message for disconnecting from the A2DP profile. [CHAR LIMIT=80] -->
     <string name="bluetooth_disconnect_a2dp_profile"><xliff:g id="device_name">%1$s</xliff:g> will be disconnected from media audio.</string>
     <!-- Bluetooth settings.  Message for disconnecting from the headset profile. [CHAR LIMIT=80] -->
@@ -1195,10 +1188,6 @@
     <string name="bluetooth_opp_profile_summary_connected">Connected to file transfer server</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the map checkbox preference when map is connected. -->
     <string name="bluetooth_map_profile_summary_connected">Connected to map</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the SAP checkbox preference when SAP is connected. -->
-    <string name="bluetooth_sap_profile_summary_connected">Connected to SIM Access server</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the DUN checkbox preference when DUN is connected. -->
-    <string name="bluetooth_dun_profile_summary_connected">Connected to DUN server</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is not connected. -->
     <string name="bluetooth_opp_profile_summary_not_connected">Not connected to file transfer server</string>
     <!-- Bluetooth settings. Connection options screen. The summary for the HID checkbox preference when HID is connected. -->
@@ -1214,10 +1203,6 @@
     <string name="bluetooth_headset_profile_summary_use_for">Use for phone audio</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
     <string name="bluetooth_opp_profile_summary_use_for">Use for file transfer</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the SAP checkbox preference that describes how checking it will set the SAP profile as preferred. -->
-    <string name="bluetooth_sap_profile_summary_use_for">Use for SIM Access</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the DUN checkbox preference that describes how checking it will set the DUN profile as preferred. -->
-    <string name="bluetooth_dun_profile_summary_use_for">Use for Dial-up Network Access</string>
     <!-- Bluetooth settings. Connection options screen. The summary
          for the HID checkbox preference that describes how checking it
          will set the HID profile as preferred. -->
@@ -1267,14 +1252,23 @@
     <string name="wifi_display_options_name">Name</string>
 
     <!-- Wifi Display settings. The sub heading for wireless display certification options. [CHAR LIMIT=40] -->
+    <string name="wifi_display_certification_heading" translatable="false">Certification</string>
     <!-- Wifi Display settings. The section title for wireless display session info. [CHAR LIMIT=40] -->
+    <string name="wifi_display_session_info" translatable="false">Session info</string>
     <!-- Wifi Display settings. The checkbox title for enabling listen mode during certification process. [CHAR LIMIT=40] -->
+    <string name="wifi_display_listen_mode" translatable="false">Enable listen mode</string>
     <!-- Wifi Display settings. The checkbox title for enabling autonomous GO during certification process. [CHAR LIMIT=40] -->
+    <string name="wifi_display_autonomous_go" translatable="false">Enable autonomous GO</string>
     <!-- Wifi Display settings. The button text for sending pause trigger during certification process. [CHAR LIMIT=40] -->
+    <string name="wifi_display_pause" translatable="false">Pause</string>
     <!-- Wifi Display settings. The button text for sending play (resume) trigger during certification process. [CHAR LIMIT=40] -->
+    <string name="wifi_display_resume" translatable="false">Resume</string>
     <!-- Wifi Display settings. The dropdown menu title for choosing WPS configuration during certification process. [CHAR LIMIT=40] -->
+    <string name="wifi_display_wps_config" translatable="false">WPS configuration</string>
     <!-- Wifi Display settings. The dropdown menu title for choosing listen channel during certification process. [CHAR LIMIT=40] -->
+    <string name="wifi_display_listen_channel" translatable="false">Listen channel</string>
     <!-- Wifi Display settings. The dropdown menu title for choosing operating channel during certification process. [CHAR LIMIT=40] -->
+    <string name="wifi_display_operating_channel" translatable="false">Operating channel</string>
 
     <!-- NFC settings -->
     <!-- Used in the 1st-level settings screen to turn on NFC -->
@@ -1465,8 +1459,6 @@
     <!-- Status for networks disabled from authentication failure (wrong password
          or certificate). -->
     <string name="wifi_disabled_password_failure">Authentication problem</string>
-    <!-- Status for netwoks disabled from assoc reject from Access Point -->
-    <string name="wifi_disabled_association_rejected">Association rejected</string>
     <!-- Summary for the remembered network but currently not in range. -->
     <string name="wifi_not_in_range">Not in range</string>
     <!-- Substring of status line when Wi-Fi Protected Setup (WPS) is available and
@@ -1748,6 +1740,7 @@
     <!-- Sound settings screen, setting option name -->
     <string name="notification_sound_title">Default notification sound</string>
     <!-- Sound settings screen, notification light repeat pulsing title -->
+    <string name="notification_pulse_title">Pulse notification light</string>
     <!-- Sound settings screen, the title of the volume bar to adjust the incoming call volume -->
     <string name="incoming_call_volume_title">Ringtone</string>
     <!-- Sound settings screen, the title of the volume bar to adjust the notification volume -->
@@ -1851,14 +1844,14 @@
     <string name="accelerometer_summary_off" product="default">Switch orientation automatically when rotating phone</string>
     <!-- Sound & display settings screen, setting option name to change brightness -->
     <string name="brightness">Brightness</string>
-    <string name="screencolor">Screen color</string>
-    <string name="custom_screencolor">Custom screen color</string>
     <!-- Sound & display settings screen, setting option summary to change brightness -->
     <string name="brightness_summary">Adjust the brightness of the screen</string>
     <!-- Sound & display settings screen, setting option name to change screen timeout -->
     <string name="screen_timeout">Sleep</string>
     <!-- Sound & display settings screen, setting option summary to change screen timeout -->
     <string name="screen_timeout_summary">After <xliff:g id="timeout_description">%1$s</xliff:g> of inactivity</string>
+    <!-- Wallpaper settings title [CHAR LIMIT=30] -->
+    <string name="wallpaper_settings_title">Wallpaper</string>
     <!-- Wallpaper settings fragment title [CHAR LIMIT=30] -->
     <string name="wallpaper_settings_fragment_title">Choose wallpaper from</string>
     <!-- Display settings screen, trigger for screen saver options -->
@@ -1983,11 +1976,7 @@
     <!-- About tablet screen, summary of the item that takes you to tablet status screen -->
     <string name="device_status_summary" product="tablet">Status of the battery, network, and other information</string>
     <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_status_summary" product="default">Battery status, battery level, etc.</string>
-    <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_additional_status_summary">Phone number, signal, IMEI, etc.</string>
-    <!-- In About phone->Status screen, title of the item to go into the subscription status screen -->
-    <string name="device_additional_status">Additional status info</string>
+    <string name="device_status_summary" product="default">Phone number, signal, etc.</string>
     <!-- Main settings screen item's title to go into the storage settings screen [CHAR LIMIT=25] -->
     <string name="storage_settings" >Storage</string>
     <!-- Storage settings screen title -->
@@ -2256,17 +2245,17 @@
     <!-- SD card & phone storage settings screen, setting option summary text under Internal phone storage heading -->
     <string name="master_clear_summary" product="default">Erases all data on phone</string>
     <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
-    <string name="master_clear_desc" product="tablet">"This will erase all data from your tablet\'s <b>internal storage</b>, including:\n\n<li>Your Google account</li>\n<li>System and app data and settings</li>\n<li>Downloaded apps</li>"</string>
+    <string name="master_clear_desc" product="tablet">This will erase all data from your tablet\'s <b>internal storage</b>, including:\n\n<li>Your Google account</li>\n<li>System and app data and settings</li>\n<li>Downloaded apps</li></string>
     <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
-    <string name="master_clear_desc" product="default">"This will erase all data from your phone\'s <b>internal storage</b>, including:\n\n<li>Your Google account</li>\n<li>System and app data and settings</li>\n<li>Downloaded apps"</li></string>
+    <string name="master_clear_desc" product="default">This will erase all data from your phone\'s <b>internal storage</b>, including:\n\n<li>Your Google account</li>\n<li>System and app data and settings</li>\n<li>Downloaded apps</li></string>
     <!-- SD card & phone storage settings screen, instructions and list of current accounts.  The list of accounts follows this text[CHAR LIMIT=NONE] -->
-    <string name="master_clear_accounts" product="default">"\n\nYou are currently signed into the following accounts:\n"</string>
+    <string name="master_clear_accounts" product="default">\n\nYou are currently signed into the following accounts:\n</string>
     <!-- SD card & phone storage settings screen, list of items in user data storage (USB storage or SD card) that will be erased during this operation [CHAR LIMIT=NONE] -->
-    <string name="master_clear_desc_also_erases_external">"<li>Music</li>\n<li>Photos</li>\n<li>Other user data</li>"</string>
+    <string name="master_clear_desc_also_erases_external"><li>Music</li>\n<li>Photos</li>\n<li>Other user data</li></string>
     <!-- SD card & phone storage settings screen, instructions about whether to also erase the external storage (SD card) when erasing the internal storage [CHAR LIMIT=NONE] -->
-    <string name="master_clear_desc_erase_external_storage" product="nosdcard">"\n\nTo clear music, pictures, and other user data, the <b>USB storage</b> needs to be erased."</string>
+    <string name="master_clear_desc_erase_external_storage" product="nosdcard">\n\nTo clear music, pictures, and other user data, the <b>USB storage</b> needs to be erased.</string>
     <!-- SD card & phone storage settings screen, instructions about whether to also erase the external storage (SD card) when erasing the internal storage [CHAR LIMIT=NONE] -->
-    <string name="master_clear_desc_erase_external_storage" product="default">"\n\nTo clear music, pictures, and other user data, the <b>SD card</b> needs to be erased."</string>
+    <string name="master_clear_desc_erase_external_storage" product="default">\n\nTo clear music, pictures, and other user data, the <b>SD card</b> needs to be erased.</string>
     <!-- SD card & phone storage settings screen, label for check box to erase USB storage [CHAR LIMIT=30] -->
     <string name="erase_external_storage" product="nosdcard">Erase USB storage</string>
     <!-- SD card & phone storage settings screen, label for check box to erase SD card [CHAR LIMIT=30] -->
@@ -3191,10 +3180,6 @@
     <string name="dev_settings_warning_title">Allow development settings?</string>
     <!-- Warning text to user about the implications of enabling USB debugging -->
     <string name="dev_settings_warning_message">These settings are intended for development use only.  They can cause your device and the applications on it to break or misbehave.</string>
-    <!-- Title of checkbox setting that enable quickboot. [CHAR LIMIT=32] -->
-    <string name="enable_quickboot_title">Enable QuickBoot mode</string>
-    <!-- Summary of checkbox setting that enable quickboot. [CHAR LIMIT=64] -->
-    <string name="enable_quickboot_summary">Put device into QuickBoot mode instead of normal power off.</string>
     <!-- Title of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=32] -->
     <string name="verify_apps_over_usb_title">Verify apps over USB</string>
     <!-- Summary of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=NONE] -->
@@ -3811,7 +3796,7 @@
     <!-- Text spoken by the TTS engine as an example if the engine doesn't provide sample text [CHAR LIMIT=100] -->
     <string name="tts_default_sample_string">This is an example of speech synthesis</string>
     <!-- On main TTS Settings screen, title of a field explaining current TTS engine status for
-     current default language [CHAR LIMIT=50] -->
+	 current default language [CHAR LIMIT=50] -->
     <string name="tts_status_title">Default language status</string>
     <!-- On main TTS Settings screen, current TTS engine status for the current default language,
          selected language is fully supported by the engine [CHAR LIMIT=150]-->
@@ -3823,7 +3808,7 @@
          selected language is not supported by the engine [CHAR LIMIT=150] -->
     <string name="tts_status_not_supported"><xliff:g id="locale" example="English (United States)">%1$s</xliff:g> is not supported</string>
     <!-- On main TTS Settings screen, current TTS engine status for the current default language,
-     tts engine is queried for status [CHAR LIMIT=150] -->
+	 tts engine is queried for status [CHAR LIMIT=150] -->
     <string name="tts_status_checking">Checking...</string>
     <!-- On main TTS Settings screen, text for divider under which all TTS engines are listed -->
     <string name="tts_engines_section">Engines</string>
@@ -4451,7 +4436,6 @@
     <string name="data_usage_tab_ethernet">Ethernet</string>
     <!-- Tab title for showing combined mobile data usage. [CHAR LIMIT=10] -->
     <string name="data_usage_tab_mobile">Mobile</string>
-    <string name="data_usage_tab_slot">SIM </string>
     <!-- Tab title for showing 4G data usage. [CHAR LIMIT=10] -->
     <string name="data_usage_tab_4g">4G</string>
     <!-- Tab title for showing 2G and 3G data usage. [CHAR LIMIT=10] -->
@@ -4497,8 +4481,7 @@
     <!-- Title of dialog for editing data usage cycle reset date. [CHAR LIMIT=48] -->
     <string name="data_usage_cycle_editor_title">Usage cycle reset date</string>
     <!-- Subtitle of dialog for editing data usage cycle reset date. [CHAR LIMIT=32] -->
-    <string name="data_usage_cycle_editor_subtitle">Date of each cycle:</string>
-    <!-- Subtitle of dialog for editing data usage cycle length. [CHAR LIMIT=32] -->
+    <string name="data_usage_cycle_editor_subtitle">Date of each month:</string>
     <!-- Positive button title for data usage cycle editor, confirming that changes should be saved. [CHAR LIMIT=32] -->
     <string name="data_usage_cycle_editor_positive">Set</string>
 
@@ -4667,48 +4650,6 @@
 
     <!-- Representation of a numerical percentage. [CHAR LIMIT=8] -->
     <string name="percentage"><xliff:g id="number" example="30">%d</xliff:g>%%</string>
-    <!-- Multi Sim Settings screen, Select Sub label -->
-    <string name="sel_sub_title">Configure subscriptions</string>
-    <!-- Multi Sim Settings screen, Select Sub Summary label -->
-    <string name="sel_sub_summary">Select your subscription</string>
-    <!-- Select Subscription screen title -->
-    <string name="select_subscription">Select subscription</string>
-    <!-- String displayed when no SIM info is present and Multi SIM settings is accessed-->
-    <string name="no_sim_info">SIM card info not available.\nMenu cannot be accessed</string>
-    <!-- Subscription settings title -->
-    <string name="subs_settings">Subscription status</string>
-
-    <!-- Main settings screen, Multi Sim settings summary for item to go into Multi settings -->
-    <string name="multi_sim_settings_summary">Set up Multi SIM settings for voice, data and SMS</string>
-
-    <!-- Multi Sim Settings screen, Voice Summary label -->
-    <string name="voice_summary">Select subscription for voice calls</string>
-
-    <!-- Multi Sim Settings screen, Voice Summary label -->
-    <string name="data_summary">Select subscription for data calls</string>
-
-    <!-- Multi Sim Settings screen, Voice Summary label -->
-    <string name="sms_summary">Select subscription for sending SMS</string>
-
-    <!-- Multi Sim Settings screen, Set DDS progress dialog message -->
-    <string name="set_data_subscription_progress">Setting data subscription\u2026</string>
-    <!-- Multi Sim Settings screen, Set DDS success message -->
-    <string name="set_dds_success">Data subscription was successfully set</string>
-    <!-- Multi Sim Settings screen, Set DDS failure message -->
-    <string name="set_dds_failed">Error while setting data subscription. Remove any existing data connections and try again.</string>
-    <!-- Multi Sim Settings screen, Set DDS error message -->
-    <string name="set_dds_error">Error while setting data subscription.</string>
-    <!-- Multi Sim Settings screen, Set SMS error message -->
-    <string name="set_sms_error">Error while setting SMS subscription. Subscription not active.</string>
-    <!-- Multi Sim Settings screen, Set VOICE error message -->
-    <string name="set_voice_error">Error while setting voice subscription. Subscription not active.</string>
-    <!-- Multi Sim Settings screen, Set PRIORITY SUB error message -->
-    <string name="set_priority_sub_error">Error while setting priority subscription. Subscription not active.</string>
-
-
-    <!--Prompt, used only for voice-->
-    <string name="prompt">Prompt</string>
-    <string name="prompt_user">Prompt user</string>
 
     <!-- A menu item in "About phone" that allows the user to update the phone with settings
     from their cell phone carrier. The use of the string is similar to the string
@@ -4735,15 +4676,6 @@
     <string name="ssl_ca_cert_warning_message">A third party is capable of monitoring your network activity, including emails, apps, and secure websites.\n\nA trusted credential installed on your device is making this possible.</string>
     <!-- Label on button that will take the user to the Trusted Credentials settings page.  [CHAR LIMIT=NONE]-->
     <string name="ssl_ca_cert_settings_button">Check trusted credentials</string>
-    <!-- Tune Away settings -->
-    <string name="tune_away_title">TuneAway</string>
-    <string name="tune_away_Default" translatable="false">Disable</string>
-    <!-- Summary for the TuneAway status displayed in Multi SIM Settings -->
-    <string name="tune_away_enabled">TuneAway enabled</string>
-    <string name="tune_away_disabled">TuneAway disabled</string>
-
-    <!-- Priority subscription settings -->
-    <string name="priority_sub_summary">Select priority subscription</string>
 
     <!-- User settings -->
     <skip/>
@@ -4972,17 +4904,4 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
-
-    <string name="screencolor_save">Save</string>
-    <string name="screencolor_cancel">Cancel</string>
-    <string name="previous_str">Previous</string>
-    <string name="new_str">New</string>
-    <string name="restore_preview">View default picture</string>
-    <string name="selectnewfile_menu">View new picture from Gallery</string>
-    <string name="selectfile_menu">View picture from Gallery</string>
-    <string name="restore_default_str">Reset</string>
-    <string name="hue_str">Hue: <xliff:g id="hue_value">%1$s</xliff:g></string>
-    <string name="saturation_str">Saturation: <xliff:g id="saturation_value">%1$s</xliff:g></string>
-    <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
-    <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
 </resources>

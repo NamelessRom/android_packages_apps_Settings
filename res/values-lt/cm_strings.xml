@@ -58,7 +58,6 @@
   <string name="profile_unknown_nfc_tag">Nežinomas profilis</string>
   <string name="profile_add_nfc_text">Ši ALR žymė priklauso nežinomam profiliui. Sujungiant šią žymę su esamu profiliu ateityje ji veiks tinkamai.</string>
   <string name="profile_select">Pasirinkite profilį</string>
-  <string name="add_profile_dialog_title">Kurti naują profilį</string>
   <string name="profile_name_title">Pavadinimas</string>
   <string name="profile_profile_name_prompt">Įveskite naujo profilio pavadinimą</string>
   <string name="menu_new_profile">Naujas profilis</string>
@@ -97,8 +96,6 @@
   <string name="ringer_mode">Skambintojo režimas</string>
   <string name="lights_mode">Šviesų režimas</string>
   <string name="vibrate_mode">Vibravimo režimas</string>
-  <string name="choose_soundtone">Pasirinkti pranešimo toną</string>
-  <string name="choose_ringtone">Pasirinkti skambėjimo toną</string>
   <string name="soundtone_title">Pranešimo tonas</string>
   <string name="profile_appgroups_title">Programų grupės</string>
   <string name="profile_applist_title">Programos</string>
@@ -163,6 +160,8 @@
   <string name="notification_light_voicemail_title">Balso paštas</string>
   <string name="adaptive_backlight_title">Prisitaikantis apšvietimas</string>
   <string name="adaptive_backlight_summary">Dinamiškai reguliuoti ekrano apšvietimo ryškumą, siekiant padidinti akumuliatoriaus ilgaamžiškumą</string>
+  <string name="sunlight_enhancement_title">Saulės šviesos gerinimas</string>
+  <string name="sunlight_enhancement_summary">Pagerinti ekrano ryškumą ir įskaitomumą ryškioje saulės šviesoje</string>
   <string name="color_enhancement_title">Spalvų stiprinimas</string>
   <string name="color_enhancement_summary">Dinamiškai padidinti ekrano spalvą</string>
   <string name="wake_when_plugged_or_unplugged_title">Pažadinti, kai prijungiama</string>
@@ -217,6 +216,7 @@
   <string name="lockscreen_maximize_widgets_summary">Padidinti valdiklius, kai ekranas yra įjungiamas</string>
   <string name="lockscreen_enable_camera_title">Fotoaparato valdiklis</string>
   <string name="safe_headset_volume_title">Saugus laisvų rankų įrangos garsumas</string>
+  <string name="safe_headset_volume_restore_title">Sumažinti garsumą prijungiant ausines</string>
   <string name="cyanogenmod_waiver_title">Atsisakymas</string>
   <string name="cyanogenmod_waiver_body">Pakeitus šį nustatymą, galimas jūsų valstybės įstatymų pažeidimas.\n\nPaspaudus „Gerai“, jūs patvirtinate, kad sutinkate su šia sąlyga ir atsisakote atlyginti žalą ir laikyti „CyanogenMod“ ir jo bendradarbius nekaltais nuo visų teisinių įsipareigojimų.</string>
   <string name="quick_settings_panel_title">Greitųjų nustatymų panėlė</string>
@@ -243,7 +243,7 @@
   <string name="title_tile_compass">Kompasas</string>
   <string name="title_tile_heads_up">Plaukiojantys pranešimai</string>
   <string name="title_tile_sleep">Užmigti</string>
-  <string name="title_tile_gps">GPS</string>
+  <string name="title_tile_gps">Vietovė</string>
   <string name="title_tile_torch">Žibintuvėlis</string>
   <string name="title_tile_lockscreen">Ekrano užraktas</string>
   <string name="title_tile_lte">LTE</string>
@@ -292,6 +292,10 @@
   <string name="cm_sound_mode_vibrate">Vibruoti</string>
   <string name="cm_sound_mode_sound">Skambės</string>
   <string name="cm_sound_mode_soundVibrate">Skambės ir vibruos</string>
+  <string name="pref_location_mode_title">Vietovės režimai</string>
+  <string name="cm_location_mode_battery_saving">Akumuliatoriaus tausojimas</string>
+  <string name="cm_location_mode_device_only">Tik įrenginys</string>
+  <string name="cm_location_mode_high_accuracy">Didelis tikslumas</string>
   <string name="tiles_reset_title">Atkurti</string>
   <string name="tiles_reset_message">Atkurti plyteles ir išdėstymą?</string>
   <string name="auto_brightness_setup_title">Automatinis ryškumas</string>
@@ -403,7 +407,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="preview_data_title">Žiūrėti duomenis</string>
   <string name="view_stats_title">Žiūrėti statistiką</string>
   <string name="anonymous_learn_more">Sužinokite daugiau</string>
-  <string name="anonymous_notification_desc">Įjunkite arba išjunkite „CyanogenMod“ statistiką</string>
   <string name="preview_id_title">Unikalus ID</string>
   <string name="preview_device_title">Prietaisas</string>
   <string name="preview_version_title">Versija</string>
@@ -444,14 +447,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="kill_app_longpress_back">Uždaryti programą atgal mygtuku</string>
   <string name="kill_app_longpress_back_summary">Uždaryti programą ilgai spaudžiant mygtuką atgal</string>
   <string name="changelog_title">Pakeitimų sąrašas</string>
-  <string name="changelog_loading">Įkeliamas pakeitimų sąrašas\u2026</string>
   <string name="changelog_error">Nepavyko įkelti pakeitimų sąrašo</string>
-  <string name="changelog_unknown">Nežinomas</string>
-  <string name="changelog_version">Versija</string>
   <string name="contributor_cloud_title">Pagalbininkai</string>
   <string name="cmupdate_settings_title">„CyanogenMod“ atnaujinimai</string>
   <string name="cmupdate_settings_summary">Tikrinti, žiūrėti ar įdiegti galimus atnaujinimus</string>
-  <string name="advanced_settings_title">Išplėstinis</string>
   <string name="development_tools_title">Kūrimo įrankiai</string>
   <string name="allow_mock_sms">Leisti netikrus SMS</string>
   <string name="privacy_settings_cyanogenmod_title">Privatumas</string>
@@ -464,13 +463,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="privacy_guard_manager_title">Privatumo sauga</string>
   <string name="privacy_guard_manager_summary">Valdyti programas, kurios gali turėti prieigą prie asmeninių duomenų</string>
   <string name="privacy_guard_no_user_apps">Nėra įdiegtų programų</string>
-  <string name="privacy_guard_filter_does_not_match">Nėra įdiegtų programų atitinkančių leidimus</string>
   <string name="privacy_guard_help_title">Vartotojo vadovas</string>
   <string name="privacy_guard_reset_title">Atkurti</string>
   <string name="privacy_guard_reset_text">Atkurti leidimus?</string>
   <string name="privacy_guard_help_text">Šiame ekrane galite pasirinkti kuriose programose privatumo sauga turėtų būti aktyvi, tiesiog paliesdami jas. Pasirinktos programos negalės prieiti prie asmeninių duomenų tokių kaip adresatai, pranešimai ar skambučių žurnalas. Ilgai paspaudus ant įrašo atsidaro tos programos išsamesnis ekranas.\n\nPagal nutylėjimą įdiegtos programos nėra rodomos, bet gali būti parodytos pasirenkant atitinkamą meniu parinktį.</string>
   <string name="privacy_guard_manager_show_system_apps">Rodyti įdiegtas programas</string>
-  <string name="privacy_guard_manager_filter_permissions">Leidimų filtras</string>
   <string name="privacy_guard_advanced_settings_title">Papildoma</string>
   <string name="blacklist_title">Juodasis sąrašas</string>
   <string name="blacklist_edit_dialog_title">Redaguoti juodojo sąrašo įrašą</string>
@@ -494,6 +491,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="blacklist_regex_summary">Naudoti kaip pakaitos simbolius, *reiškia pasikartojimą. Pvz 123, *Blokuoja numerius, prasidedančius skaičiais 123. Blokuoja numerius kuriuose yra skaičiai 123</string>
   <string name="blacklist_policy_block_calls">Blokuoti įeinančius skambučius</string>
   <string name="blacklist_policy_block_messages">Blokuoti įeinančius pranešimus</string>
+  <string name="blacklist_bad_number_add">Nepavyko pridėti netinkamo numerio į juodąjį sąrašą</string>
   <string name="add_blacklist_number">Įtraukti numerį</string>
   <string name="remove_blacklist_number_title">Pašalinti numerį</string>
   <string name="remove_blacklist_entry">Ar norite pašalinti šį juodojo sąrašo įrašą?</string>
@@ -508,9 +506,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="gamma_tuning_title_head">Gama kalibravimas</string>
   <string name="gamma_tuning_summary_head">Reguliuoti gama reikšmes</string>
   <string name="gamma_tuning_control_set_header">Grupė <xliff:g id="index">%d</xliff:g></string>
-  <string name="gamma_tuning_contrast">Kontrastas</string>
-  <string name="gamma_tuning_brightness">Ryškumas</string>
-  <string name="gamma_tuning_saturation">Saturacija</string>
   <string name="headset_connect_player_title">Paleisti muzikos programą</string>
   <string name="headset_connect_player_summary">Paleisti numatytąją muzikos programą, kai prijungiama laisvų rankų įranga</string>
   <string name="adb_notify">USB derinimo pranešimas</string>
@@ -528,6 +523,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="collapse_on_dismiss_if_empty_summary">Uždaryti pašalinus paskutinį pranešimą</string>
   <string name="collapse_on_dismiss_if_no_clearable_summary">Uždaryti pašalinus paskutinį nuimamąjį pranešimą</string>
   <string name="double_tap_to_wake_title">Dukart bakstelėti norint pažadinti</string>
+  <string name="double_tap_to_sleep_title">Dukart bakstelėti norint užmigdyti</string>
+  <string name="double_tap_to_sleep_summary">Dukart bakstelėkite būsenos juostą arba ekrano užrakto slankiklį norėdami užmigdyti prietaisą</string>
   <string name="proximity_wake_title">Išvengti atsitiktinio pažadinimo</string>
   <string name="proximity_wake_summary">Patikrinti artumo jutiklio prioritetą norint pažadinti ekraną</string>
   <string name="category_quick_access">Sparčiosios prieigos juosta</string>
@@ -663,6 +660,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="hardware_keys_action_voice_search">Paieška balsu</string>
   <string name="hardware_keys_action_in_app_search">Paieška programoje</string>
   <string name="hardware_keys_action_launch_camera">Įjungti fotoaparatą</string>
+  <string name="hardware_keys_action_last_app">Paskutinė programa</string>
+  <string name="hardware_keys_action_sleep">Išjungti ekraną</string>
   <string name="power_end_call_title">Baigti pokalbį</string>
   <string name="power_end_call_summary">Paspaudus maitinimo mygtuką bus baigtas pokalbis</string>
   <string name="button_wake_title">Pažadinti</string>
@@ -693,13 +692,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="backlight_summary_disabled">Išjungtas</string>
   <string name="backlight_summary_enabled_with_timeout">Delsti <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Įjungtas</string>
-  <string name="lockscreen_background">Fonas</string>
-  <string name="lockscreen_background_style_title">Ekrano užrakto fonas</string>
-  <string name="background_default">Numatytasis fonas</string>
-  <string name="background_wallpaper">Individualus darbalaukio fonas</string>
-  <string name="background_result_successful">Fonas pakeistas</string>
-  <string name="background_result_not_successful">Fonas nepakeistas</string>
-  <string name="setting_lockscreen_background">Taikomas fonas</string>
   <string name="confirm_delete_apn">APN bus ištrintas.</string>
   <string name="status_bar_title">Būsenos juosta</string>
   <string name="status_bar_clock_title">Laikrodžio stilius</string>
@@ -721,7 +713,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="status_bar_toggle_info">Negalimas, kai automatinis ryškumas įjungtas</string>
   <string name="status_bar_notif_count_title">Rodyti pranešimų skaičių</string>
   <string name="status_bar_notif_count_summary">Rodyti neperžiūrėtų pranešimų skaičių</string>
-  <string name="status_bar_double_tap_to_sleep_title">Dukart bakstelėti norint užmigdyti</string>
   <string name="development_shortcut_title">Kūrėjo nuoroda</string>
   <string name="development_shortcut_summary">Įjungti „Ištrinti duomenis“ ir „Priverstinai uždaryti“ pasirinkimus pranešimų srityje ir naujų programų sąraše</string>
   <string name="usb_mass_storage_title">Didelės talpos atmintis (UMS)</string>
@@ -744,7 +735,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="stylus_icon_enabled_title">Rodyti rašiklio piktogramą</string>
   <string name="stylus_icon_enabled_summary">Rodyti žymiklio piktogramą, kai slankiojama arba piešiama su rašikliu</string>
   <string name="gestures_settings_title">Rašiklio gestai</string>
-  <string name="category_spen_title">Rašiklio gestai</string>
   <string name="enable_subcat_title">Rašiklis</string>
   <string name="enable_spen_title_head">Įjungti gestus</string>
   <string name="enable_spen_summary_head">Naudoti braukiamuosius gestus laikant rašiklio mygtuką</string>
@@ -765,6 +755,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="stylus_app_not_installed">%s neįdiegta</string>
   <string name="ime_switcher_notify">Pasirinkimo pranešimas</string>
   <string name="ime_switcher_notify_summary">Rodyti įvesties metodo pasirinkimo pranešimą</string>
+  <string name="high_touch_sensitivity_title">Didelis lietimo jautrumas</string>
+  <string name="high_touch_sensitivity_summary">Padidinti liečiamojo ekrano jautrumą tam, kad juo būtų galima naudotis dėvint pirštines</string>
   <string name="app_ops_summaries_coarse_location">apytikslė vietovė</string>
   <string name="app_ops_summaries_fine_location">tiksli vietovė</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -924,5 +916,102 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="spam_last_blocked_title">Paskutinį kartą blokuota <xliff:g id="time_since" example="5 minutes ago">%1$s</xliff:g> (viso: <xliff:g id="count" example="2 times">%2$s</xliff:g>)</string>
   <string name="block_notifications_title">Filtruoti pranešimus</string>
   <string name="block_notifications_summary">Valdyti ignoruojamus pranešimus ir filtrus</string>
-  <string name="no_filters_title">Jokie filtrai nenustatyti. Norėdami filtruoti pranešimą, ilgai jį paspauskite ir pasirinkite \"Nepaisyti pranešimų kaip šis\".</string>
+  <string name="no_filters_title">Jokie filtrai nenustatyti. Norėdami filtruoti pranešimą, ilgai jį paspauskite ir pasirinkite „Nepaisyti pranešimų kaip šis“.</string>
+  <string name="usb_eject">Atjungti USB saugyklą</string>
+  <string name="usb_eject_summary">Atjunkite USB saugyklą tam kad saugiai ją pašalintumėte</string>
+  <string name="usb_insert_summary">Įdėkite USB saugyklą dėl prijungimo</string>
+  <string name="usb_mount">Prijungti USB saugyklą</string>
+  <string name="usb_format">Ištrinti USB saugyklą</string>
+  <string name="usb_format_summary">Ištrina visus duomenis USB saugykloje, pvz., muziką ir nuotraukas</string>
+  <string name="dlg_confirm_usb_unmount_title">Atjungti USB saugyklą?</string>
+  <string name="dlg_confirm_usb_unmount_text">Jei atjungsite USB saugyklą, kai kurios naudojamos programos sustos ir bus nepasiekiamos, kol jūs neprijungsite USB saugyklos iš naujo.</string>
+  <string name="dlg_error_usb_unmount_text">Nepavyko atjungti USB saugyklos. Bandykite vėliau dar kartą.</string>
+  <string name="usb_unmount_inform_text">USB saugykla bus atjungta.</string>
+  <string name="usb_ejecting_title">Atjungiama USB saugykla</string>
+  <string name="usb_ejecting_summary">Vyksta USB saugyklos atjungimas</string>
+  <string name="usb_media_format_title">Ištrinti USB saugyklą</string>
+  <string name="usb_media_format_desc">Ištrinti visą USB saugyklą? jūs prarasite <b>visus</b> išsaugotus duomenis!</string>
+  <string name="usb_media_format_button_text">Ištrinti USB saugyklą</string>
+  <string name="usb_media_format_final_desc">Ištrinti USB saugyklą, ištrynus visus joje saugomus failus? jūs negalėsite atšaukti šio veiksmo!</string>
+  <string name="usb_media_format_gesture_explanation">Jums reikia nubrėžti atrakinimo šabloną tam, kad patvirtintumėte jog norite ištrinti USB saugyklą.</string>
+  <string name="sd_eject">Atjungti SD kortelę</string>
+  <string name="sd_eject_summary">Atjunkite SD kortelę tam kad saugiai ją pašalintumėte</string>
+  <string name="sd_insert_summary">Įdėkite SD kortelę dėl prijungimo</string>
+  <string name="sd_mount">Prijungti SD kortelę</string>
+  <string name="sd_format">Ištrinti SD kortelę</string>
+  <string name="sd_format_summary">Ištrina visus SD kortelės duomenis, pvz., muziką ir nuotraukas</string>
+  <string name="dlg_confirm_sd_unmount_title">Atjungti SD kortelę?</string>
+  <string name="dlg_confirm_sd_unmount_text">Jei atjungsite SD kortelę, kai kurios naudojamos programos sustos ir bus nepasiekiamos, kol jūs neprijungsite SD kortelės iš naujo.</string>
+  <string name="dlg_error_sd_unmount_text">Nepavyko atjungti SD kortelės. Bandykite vėliau dar kartą.</string>
+  <string name="sd_unmount_inform_text">SD kortelė bus atjungta.</string>
+  <string name="sd_ejecting_title">Atjungiama SD kortelė</string>
+  <string name="sd_ejecting_summary">Vyksta SD kortelės atjungimas</string>
+  <string name="sd_media_format_title">Ištrinti SD kortelę</string>
+  <string name="sd_media_format_desc">Ištrinti SD kortelę? jūs prarasite <b>visus</b> kortelėje esančius duomenis!</string>
+  <string name="sd_media_format_button_text">Ištrinti SD kortelę</string>
+  <string name="sd_media_format_final_desc">Ištrinti SD kortelę, ištrynus visus joje saugomus failus? jūs negalėsite atšaukti šio veiksmo!</string>
+  <string name="sd_media_format_gesture_explanation">Jums reikia nubrėžti atrakinimo šabloną tam, kad patvirtintumėte jog norite ištrinti SD kortelę.</string>
+  <string name="bluetooth_enter_pin_msg_hs">Norėdami suporuoti su:<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g>Įveskite prietaisui reikalaujamą PIN kodą (16 arba daugiau skaitmenų):</string>
+  <string name="bluetooth_profile_sap">SIM prieiga</string>
+  <string name="bluetooth_profile_dun">Belaidžio tinklo prieiga</string>
+  <string name="bluetooth_sap_profile_summary_connected">Prisijungta prie SIM prieigos serverio</string>
+  <string name="bluetooth_dun_profile_summary_connected">Prisijungta prie DUN serverio</string>
+  <string name="bluetooth_sap_profile_summary_use_for">Naudoti SIM prieigai</string>
+  <string name="bluetooth_dun_profile_summary_use_for">Naudoti belaidžio tinklo prieigai</string>
+  <string name="wifi_disabled_association_rejected">Asociacija atmesta</string>
+  <string name="screencolor">Ekrano spalva</string>
+  <string name="custom_screencolor">Individuali ekrano spalva</string>
+  <string name="device_additional_status">Papildoma būsenos informacija</string>
+  <string name="enable_quickboot_title">Įjungti greitąjį įkrovos režimą</string>
+  <string name="enable_quickboot_summary">Įjungia greitąjį įkrovos režimą vietoj įprasto išsijungimo.</string>
+  <string name="data_usage_tab_slot">SIM </string>
+  <string name="sel_sub_title">Konfigūruoti prenumeratas</string>
+  <string name="sel_sub_summary">Pasirinkite savo prenumeratą</string>
+  <string name="no_sim_info">SIM kortelės informacijos nėra.\nMeniu negali būti atvertas</string>
+  <string name="subs_settings">Prenumeratos būsena</string>
+  <string name="set_data_subscription_progress">Nustatoma duomenų prenumerata\u2026</string>
+  <string name="set_dds_success">Duomenų prenumeratos nustatymas sėkmingas</string>
+  <string name="set_dds_failed">Klaida nustatant duomenų prenumeratą. Pašalinkite esamą duomenų ryšį ir bandykite dar kartą.</string>
+  <string name="set_dds_error">Klaida nustatant duomenų prenumeratą.</string>
+  <string name="set_sms_error">Klaida nustatant SMS prenumeratą. Prenumerata neaktyvi.</string>
+  <string name="set_voice_error">Klaida nustatant balso prenumeratą. Prenumerata neaktyvi.</string>
+  <string name="set_priority_sub_error">Klaida nustatant prenumeratos pirmenybę. Prenumerata neaktyvi.</string>
+  <string name="prompt">Klausti</string>
+  <string name="prompt_user">Klausti vartotojo</string>
+  <string name="maximum_head_level">Galva: %1$s W/kg</string>
+  <string name="maximum_body_level">Kūnas: %1$s W/kg</string>
+  <string name="tune_away_title">TuneAway</string>
+  <string name="tune_away_enabled">„TuneAway“ įjungta</string>
+  <string name="tune_away_disabled">„TuneAway“ išjungta</string>
+  <string name="screencolor_save">Išsaugoti</string>
+  <string name="screencolor_cancel">Atšaukti</string>
+  <string name="restore_preview">Žiūrėti numatytąjį vaizdą</string>
+  <string name="selectnewfile_menu">Žiūrėti naują vaizdą iš galerijos</string>
+  <string name="selectfile_menu">Žiūrėti vaizdą iš galerijos</string>
+  <string name="restore_default_str">Atkurti</string>
+  <string name="hue_str">Atspalvis: <xliff:g id="hue_value">%1$s</xliff:g></string>
+  <string name="saturation_str">Sotis: <xliff:g id="saturation_value">%1$s</xliff:g></string>
+  <string name="contrast_str">Kontrastas: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="intensity_str">Intensyvumas: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="device_status_summary_cm" product="tablet">Akumuliatoriaus, tinklo būsena ir kita informacija</string>
+  <string name="device_status_summary_cm" product="default">Akumuliatoriaus būsena, lygis ir kt.</string>
+  <string name="wifi_ap_clients_title">Prijungti įrenginiai</string>
+  <string name="wifi_ap_client_ap_disabled">Hotspot išjungtas</string>
+  <string name="wifi_ap_client_none_connected">Nėra prijungtų įrenginių</string>
+  <string name="profile_menu_delete_title">Ištrinti</string>
+  <string name="profile_menu_triggers_title">Modifikuoti paleidiklius</string>
+  <string name="profile_action_none">Nieko nedaryti</string>
+  <string name="profile_action_disabled">Išjungti</string>
+  <string name="profile_action_enable">Įjungti</string>
+  <string name="profile_tabs_wifi">Wi-Fi</string>
+  <string name="profile_tabs_bluetooth">Bluetooth</string>
+  <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_setup_setup_triggers_title">1 žingsnis: pridėti paleidiklius</string>
+  <string name="profile_setup_setup_triggers_title_config">Modifikuoti paleidiklius: <xliff:g id="profile_name">%1$s</xliff:g></string>
+  <string name="profile_setup_actions_title">2 žingsnis: sąrankos veiksmai</string>
+  <string name="profile_setup_actions_title_config">Konfigūruoti iš naujo</string>
+  <string name="no_bluetooth_triggers">Nėra „Bluetooth“ paleidiklių</string>
+  <string name="no_wifi_triggers">Nėra „Wi-Fi“ paleidiklių</string>
+  <string name="profile_setup_setup_triggers_description">Prašome pasirinkti paleidiklius, kurie aktyvuos šį profilį</string>
+  <string name="profile_setup_actions_description">Dabar nustatykite kas nutinka kai profilis yra aktyvuotas</string>
 </resources>
