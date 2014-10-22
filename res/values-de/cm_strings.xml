@@ -58,7 +58,6 @@
   <string name="profile_unknown_nfc_tag">Unbekanntes Profil</string>
   <string name="profile_add_nfc_text">Der NFC-Tag verweist auf ein unbekanntes Profil. Das Verknüpfen des NFC-Tags mit einem existierenden Profil ermöglicht es, das entsprechende Profil in Zukunft durch eine Berührung zu aktivieren.</string>
   <string name="profile_select">Profil auswählen</string>
-  <string name="add_profile_dialog_title">Neues Profil anlegen</string>
   <string name="profile_name_title">Name</string>
   <string name="profile_profile_name_prompt">Name des neuen Profils</string>
   <string name="menu_new_profile">Neues Profil</string>
@@ -97,8 +96,6 @@
   <string name="ringer_mode">Klingelton</string>
   <string name="lights_mode">Benachrichtigungslicht</string>
   <string name="vibrate_mode">Vibration</string>
-  <string name="choose_soundtone">Benachrichtigungston wählen</string>
-  <string name="choose_ringtone">Klingelton wählen</string>
   <string name="soundtone_title">Benachrichtigungston wählen</string>
   <string name="profile_appgroups_title">App-Gruppen</string>
   <string name="profile_applist_title">Apps</string>
@@ -163,6 +160,8 @@
   <string name="notification_light_voicemail_title">Sprachnachricht</string>
   <string name="adaptive_backlight_title">Adaptive Beleuchtung</string>
   <string name="adaptive_backlight_summary">Die Hintergrundbeleuchtung des Bildschirms dynamisch regeln, um die Akkulaufzeit zu verbessern</string>
+  <string name="sunlight_enhancement_title">Verbesserung bei Sonnenlicht</string>
+  <string name="sunlight_enhancement_summary">Ablesbarkeit des Displays bei hellem Sonnenlicht verbessern</string>
   <string name="color_enhancement_title">Farbverbesserung</string>
   <string name="color_enhancement_summary">Farbdarstellung des Displays dynamisch verbessern</string>
   <string name="wake_when_plugged_or_unplugged_title">Beim Einstecken aufwecken</string>
@@ -196,10 +195,13 @@
   <string name="battery_light_medium_color_title">Laden</string>
   <string name="battery_light_full_color_title">Aufgeladen</string>
   <string name="lockpattern_reset_button">Muster zurücksetzen</string>
+  <string name="lockpattern_settings_reset_summary">Geben Sie die Adresse Ihres primären E-Mail-Kontos und das dazugehörige Passwort ein, um das Muster zurückzusetzen</string>
   <string name="lockpattern_settings_enable_error_path_title">Fehler anzeigen</string>
   <string name="lockpattern_settings_enable_dots_title">Punkte anzeigen</string>
   <string name="screen_security_category">Bildschirmsicherheit</string>
   <string name="screen_security_summary">Sperrbildschirm-Einstellungen anzeigen oder ändern</string>
+  <string name="unlock_scramble_pin_layout_title">Zufällige Anordnung</string>
+  <string name="unlock_scramble_pin_layout_summary">Bei jedem Entsperrversuch die Ziffernanordnung zufällig neu wählen</string>
   <string name="unlock_menu_unlock_title">Mit Menü entsperren</string>
   <string name="unlock_menu_unlock_summary">Entsperren durch Drücken der Menü-Taste</string>
   <string name="unlock_home_unlock_title">Mit Home entsperren</string>
@@ -214,6 +216,7 @@
   <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert anzeigen</string>
   <string name="lockscreen_enable_camera_title">Kamera-Widget</string>
   <string name="safe_headset_volume_title">Headset-Lautstärkebegrenzung</string>
+  <string name="safe_headset_volume_restore_title">Lautstärke beim Verbinden von Kopfhörern verringern</string>
   <string name="cyanogenmod_waiver_title">Verzichtserklärung</string>
   <string name="cyanogenmod_waiver_body">Das Deaktivieren dieser Funktion kann gegen geltendes Recht verstoßen.\n\nDurch Ihre Bestätigung erklären Sie, dass Sie CyanogenMod sowie alle daran Mitwirkenden von sämtlichen damit verbunden rechtlichen Verbindlichkeiten, u.A. Schadensersatzpflichten, befreien.</string>
   <string name="quick_settings_panel_title">Schnelleinstellungen</string>
@@ -240,7 +243,7 @@
   <string name="title_tile_compass">Kompass</string>
   <string name="title_tile_heads_up">Pop-up-Benachrichtigungen</string>
   <string name="title_tile_sleep">Standby</string>
-  <string name="title_tile_gps">GPS</string>
+  <string name="title_tile_gps">Standort</string>
   <string name="title_tile_torch">Taschenlampe</string>
   <string name="title_tile_lockscreen">Bildschirmsperre</string>
   <string name="title_tile_lte">LTE</string>
@@ -289,6 +292,10 @@
   <string name="cm_sound_mode_vibrate">Vibration</string>
   <string name="cm_sound_mode_sound">Ton</string>
   <string name="cm_sound_mode_soundVibrate">Ton + Vibration</string>
+  <string name="pref_location_mode_title">Standortmodus</string>
+  <string name="cm_location_mode_battery_saving">Energiesparend</string>
+  <string name="cm_location_mode_device_only">Nur Gerät</string>
+  <string name="cm_location_mode_high_accuracy">Hohe Genauigkeit</string>
   <string name="tiles_reset_title">Zurücksetzen</string>
   <string name="tiles_reset_message">Auf Standard zurücksetzen?</string>
   <string name="auto_brightness_setup_title">Automatische Helligkeit</string>
@@ -354,6 +361,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="display_rotation_180_title">180 Grad</string>
   <string name="display_rotation_270_title">270 Grad</string>
   <string name="advanced_reboot_title">Erweitertes Neustartmenü</string>
+  <string name="advanced_reboot_summary">Bei entsperrtem Bildschirm dem Neustartmenü Optionen für Neustart in Recovery, Bootloader oder schnellen Neustart hinzufügen</string>
   <string name="app_security_title">App-Sicherheit</string>
   <string name="root_access">Root-Zugriff</string>
   <string name="root_access_warning_title">Root-Zugriff erlauben?</string>
@@ -400,7 +408,6 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="preview_data_title">Vorschau</string>
   <string name="view_stats_title">Statistiken ansehen</string>
   <string name="anonymous_learn_more">Mehr erfahren</string>
-  <string name="anonymous_notification_desc">Anonyme Statistiken ein- oder ausschalten</string>
   <string name="preview_id_title">Eindeutige ID</string>
   <string name="preview_device_title">Gerät</string>
   <string name="preview_version_title">Version</string>
@@ -441,14 +448,10 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="kill_app_longpress_back">App beenden</string>
   <string name="kill_app_longpress_back_summary">Gedrückt halten der Zurück-Taste beendet die Anwendung im Vordergrund</string>
   <string name="changelog_title">Changelog</string>
-  <string name="changelog_loading">Changelog wird geladen\u2026</string>
   <string name="changelog_error">Changelog kann nicht geladen werden</string>
-  <string name="changelog_unknown">Unbekannt</string>
-  <string name="changelog_version">Version</string>
   <string name="contributor_cloud_title">Mitwirkende</string>
   <string name="cmupdate_settings_title">CyanogenMod-Updates</string>
   <string name="cmupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
-  <string name="advanced_settings_title">Erweitert</string>
   <string name="development_tools_title">Entwickler-Werkzeuge</string>
   <string name="allow_mock_sms">Simulierte SMS zulassen</string>
   <string name="privacy_settings_cyanogenmod_title">Datenschutz</string>
@@ -461,13 +464,11 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="privacy_guard_manager_title">Datenschutz</string>
   <string name="privacy_guard_manager_summary">Apps mit Zugriff auf persönliche Daten verwalten</string>
   <string name="privacy_guard_no_user_apps">Es sind keine Apps installiert</string>
-  <string name="privacy_guard_filter_does_not_match">Es sind keine Apps mit passenden Berechtigungen installiert</string>
   <string name="privacy_guard_help_title">Hilfe</string>
   <string name="privacy_guard_reset_title">Zurücksetzen</string>
   <string name="privacy_guard_reset_text">Berechtigungen zurücksetzen?</string>
   <string name="privacy_guard_help_text">An dieser Stelle kann der Datenschutz für einzelne Apps durch einfache Berührung ein- und ausgeschaltet werden. Ausgewählte Apps haben keinen Zugriff auf persönliche Daten wie Kontakte, Nachrichten oder das Anrufprotokoll. Langes Drücken auf einen Eintrag öffnet die Detailanzeige für diese App.\n\nStandardmäßig werden in das System integrierte Apps nicht angezeigt. Wenn diese angezeigt werden sollen, kann dies mit der entsprechenden Menü-Option ausgewählt werden.</string>
   <string name="privacy_guard_manager_show_system_apps">Integrierte Apps anzeigen</string>
-  <string name="privacy_guard_manager_filter_permissions">Berechtigungsfilter</string>
   <string name="privacy_guard_advanced_settings_title">Erweitert</string>
   <string name="blacklist_title">Sperrliste</string>
   <string name="blacklist_edit_dialog_title">Sperrlisteneintrag bearbeiten</string>
@@ -491,6 +492,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="blacklist_regex_summary">Einen Punkt als Platzhalter und ein Stern für Wiederholungen verwenden.\nBeispielsweise würde 123.* alle Nummern, die mit 123 beginnen, und .*123.* alle Nummern, die 123 enthalten, abweisen.</string>
   <string name="blacklist_policy_block_calls">Eingehende Anrufe abweisen</string>
   <string name="blacklist_policy_block_messages">Eingehende Nachrichten abweisen</string>
+  <string name="blacklist_bad_number_add">Die Nummer konnte nicht zur Sperrliste hinzugefügt werden, da sie ungültig ist</string>
   <string name="add_blacklist_number">Nummer hinzufügen</string>
   <string name="remove_blacklist_number_title">Nummer entfernen</string>
   <string name="remove_blacklist_entry">Soll dieser Sperrlisteneintrag entfernt werden?</string>
@@ -505,9 +507,6 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="gamma_tuning_title_head">Gammakorrektur</string>
   <string name="gamma_tuning_summary_head">Gammawerte einstellen</string>
   <string name="gamma_tuning_control_set_header">Gruppe <xliff:g id="index">%d</xliff:g></string>
-  <string name="gamma_tuning_contrast">Kontrast</string>
-  <string name="gamma_tuning_brightness">Helligkeit</string>
-  <string name="gamma_tuning_saturation">Sättigung</string>
   <string name="headset_connect_player_title">Musik-App starten</string>
   <string name="headset_connect_player_summary">Beim Verbinden eines Kopfhörers die Standard-Musik-App starten</string>
   <string name="adb_notify">USB-Debugging-Info</string>
@@ -525,9 +524,13 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="collapse_on_dismiss_if_empty_summary">Nach dem Entfernen der letzten Benachrichtigung schließen</string>
   <string name="collapse_on_dismiss_if_no_clearable_summary">Nach dem Entfernen der letzten nicht dauerhaft angezeigten Benachrichtigung schließen</string>
   <string name="double_tap_to_wake_title">Aufwecken durch doppeltes Tippen</string>
+  <string name="double_tap_to_sleep_title">Standby durch doppeltes Tippen</string>
+  <string name="double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statuszeile oder den Sperrbildschirm-Schieber ausschalten</string>
+  <string name="proximity_wake_title">Unbeabsichtigtes Aufwecken verhindern</string>
   <string name="proximity_wake_summary">Vor dem Aufwecken des Gerätes Näherungssensor überprüfen</string>
   <string name="category_quick_access">Schnellzugriffsleiste</string>
   <string name="title_quick_access">In Benachrichtigungsleiste anzeigen</string>
+  <string name="title_quick_access_size">Kachelgröße</string>
   <string name="title_quick_access_linked">Anordnung koppeln</string>
   <string name="summary_quick_access_linked">Kachelauswahl und -anordnung der Schnelleinstellungen verwenden</string>
   <string name="font_size_sample">Beispieltext</string>
@@ -658,6 +661,8 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="hardware_keys_action_voice_search">Sprachsuche</string>
   <string name="hardware_keys_action_in_app_search">In-App-Suche</string>
   <string name="hardware_keys_action_launch_camera">Kamera öffnen</string>
+  <string name="hardware_keys_action_last_app">Vorherige App</string>
+  <string name="hardware_keys_action_sleep">Bildschirm ausschalten</string>
   <string name="power_end_call_title">Anruf beenden</string>
   <string name="power_end_call_summary">Ein laufendes Telefonat durch Drücken der Ein-/Aus-Taste beenden</string>
   <string name="button_wake_title">Aufwecken</string>
@@ -688,13 +693,6 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="backlight_summary_disabled">Deaktiviert</string>
   <string name="backlight_summary_enabled_with_timeout">Für <xliff:g id="timeout">%s</xliff:g> aktiviert</string>
   <string name="backlight_summary_enabled">Aktiviert</string>
-  <string name="lockscreen_background">Hintergrund</string>
-  <string name="lockscreen_background_style_title">Sperrbildschirm-Hintergrund</string>
-  <string name="background_default">Standardhintergrund</string>
-  <string name="background_wallpaper">Benutzerdefinierter Hintergrund</string>
-  <string name="background_result_successful">Hintergrund wurde geändert</string>
-  <string name="background_result_not_successful">Hintergrund wurde nicht geändert</string>
-  <string name="setting_lockscreen_background">Hintergrund anwenden</string>
   <string name="confirm_delete_apn">Der Zugangspunkt wird gelöscht</string>
   <string name="status_bar_title">Statusleiste</string>
   <string name="status_bar_clock_title">Darstellung der Uhr</string>
@@ -716,7 +714,6 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="status_bar_toggle_info">Nicht verfügbar, wenn automatische Helligkeit aktiviert ist</string>
   <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
   <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
-  <string name="status_bar_double_tap_to_sleep_title">Standby durch doppeltes Tippen</string>
   <string name="development_shortcut_title">Entwickler-Abkürzungen</string>
   <string name="development_shortcut_summary">\'Anwendungsdaten löschen\' und \'Beenden erzwingen\' in der Benachrichtungsleiste und im Anwendungsverlauf anzeigen</string>
   <string name="usb_mass_storage_title">Massenspeicher</string>
@@ -728,8 +725,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="logger_title">Anonyme Absturzberichte</string>
   <string name="logger_summary">Absturzbericht-Einstellungen</string>
   <string name="custom_runtime_warning_title">Warnung</string>
-  <string name="custom_runtime_warning_message">ART wird von CyanogenMod nicht unterstützt. Diese Einstellung ist experimentell und nur für Entwickler gedacht. Sie kann zu Instabilitäten, Abstürzen oder Datenverlust führen oder verhindern, dass Ihr Gerät startet. Besuchen Sie &lt;a href=\"http://source.android.com/devices/tech
-/dalvik/art.html\"&gt;Introducing ART&lt;/a&gt; für mehr Informationen.&lt;br/&gt;&lt;br/&gt;Melden Sie keine Fehler, wenn Sie ART als Laufzeitumgebung aktiviert haben.&lt;br/&gt;&lt;br/&gt;Sind Sie sicher, dass Sie das Gerät neu starten wollen, um die Laufzeitumgebung von <xliff:g id="old" example="libdvm.so">%1$s</xliff:g>
+  <string name="custom_runtime_warning_message">ART wird von CyanogenMod nicht unterstützt. Diese Einstellung ist experimentell und nur für Entwickler gedacht. Sie kann zu Instabilitäten, Abstürzen oder Datenverlust führen oder verhindern, dass Ihr Gerät startet. Besuchen Sie &lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\"&gt;Introducing ART&lt;/a&gt; für mehr Informationen.&lt;br/&gt;&lt;br/&gt;Melden Sie keine Fehler, wenn Sie ART als Laufzeitumgebung aktiviert haben.&lt;br/&gt;&lt;br/&gt;Sind Sie sicher, dass Sie das Gerät neu starten wollen, um die Laufzeitumgebung von <xliff:g id="old" example="libdvm.so">%1$s</xliff:g>
 auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="gps_download_data_wifi_only">A-GPS-Daten nur über WLAN herunterladen</string>
   <string name="battery_info_status_charging_dock_ac">Ladedock</string>
@@ -741,7 +737,6 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="stylus_icon_enabled_title">Stift-Symbol</string>
   <string name="stylus_icon_enabled_summary">Zeiger einblenden, wenn ein Stift verwendet wird</string>
   <string name="gestures_settings_title">Stiftgesten</string>
-  <string name="category_spen_title">Stiftgesten</string>
   <string name="enable_subcat_title">Stift</string>
   <string name="enable_spen_title_head">Gesten aktivieren</string>
   <string name="enable_spen_summary_head">Aktionen durch Wischgesten mit gedrücktem Knopf am Stift auslösen</string>
@@ -762,6 +757,8 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="stylus_app_not_installed">%s ist nicht installiert</string>
   <string name="ime_switcher_notify">Auswahlbenachrichtigung</string>
   <string name="ime_switcher_notify_summary">Benachrichtigung zur Auswahl der Eingabemethode in der Statusleiste anzeigen</string>
+  <string name="high_touch_sensitivity_title">Hohe Touch-Empfindlichkeit</string>
+  <string name="high_touch_sensitivity_summary">Touch-Empfindlichkeit erhöhen, um den Touchscreen auch mit Handschuhen bedienen zu können</string>
   <string name="app_ops_summaries_coarse_location">Ungefährer Standort</string>
   <string name="app_ops_summaries_fine_location">Genauer Standort</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -905,7 +902,8 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="pa_login_username_hint">Benutzername (E-Mail)</string>
   <string name="pa_login_password_hint">Passwort</string>
   <string name="pa_login_submit_button">Anmelden</string>
-  <string name="pa_login_checking_password">Konto wird überprüft\u2026</string>
+  <string name="pa_login_checking_password">Anmeldedaten werden überprüft\u2026</string>
+  <string name="pa_login_incorrect_login">Anmeldedaten sind nicht korrekt</string>
   <string name="keep_screen_on_summary_cm">Bildschirm wird nicht ausgeschaltet, während das Gerät eingesteckt ist</string>
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Sie sind <xliff:g id="step_count">%1$d</xliff:g> Schritt von der Aktivierung der Entwickleroptionen entfernt.</item>
@@ -920,4 +918,101 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="block_notifications_title">Benachrichtigungen filtern</string>
   <string name="block_notifications_summary">Ignorierte Benachrichtigungen und Filter verwalten</string>
   <string name="no_filters_title">Keine Filter eingerichtet. Um eine Benachrichtigung zu filtern, halten Sie diese gedrückt und wählen Sie \'Ähnliche Benachrichtigungen ignorieren\'.</string>
+  <string name="usb_eject">USB-Speicher auswerfen</string>
+  <string name="usb_eject_summary">USB-Speicher auswerfen, um ihn sicher entfernen zu können</string>
+  <string name="usb_insert_summary">USB-Speicher zum Einhängen einsetzen</string>
+  <string name="usb_mount">USB-Speicher einhängen</string>
+  <string name="usb_format">USB-Speicher löschen</string>
+  <string name="usb_format_summary">Löscht alle Daten auf dem USB-Speicher, z. B. Musik und Fotos</string>
+  <string name="dlg_confirm_usb_unmount_title">USB-Speicher auswerfen?</string>
+  <string name="dlg_confirm_usb_unmount_text">Das Auswerfen des USB-Speichers kann dazu führen, dass manche Anwendungen gestoppt werden und erst wieder verwendet werden können, wenn der USB-Speicher wieder eingehängt wurde.</string>
+  <string name="dlg_error_usb_unmount_text">USB-Speicher konnte nicht ausgeworfen werden. Versuchen Sie es später erneut.</string>
+  <string name="usb_unmount_inform_text">USB-Speicher wird ausgeworfen werden.</string>
+  <string name="usb_ejecting_title">USB-Speicher wird ausgeworfen</string>
+  <string name="usb_ejecting_summary">Auswerfen des USB-Speichers wird ausgeführt</string>
+  <string name="usb_media_format_title">USB-Speicher löschen</string>
+  <string name="usb_media_format_desc">Kompletten USB-Speicher löschen? Sie werden <b>alle</b> gespeicherten Daten verlieren!</string>
+  <string name="usb_media_format_button_text">USB-Speicher löschen</string>
+  <string name="usb_media_format_final_desc">Den USB-Speicher mit allen dort gespeicherten Dateien wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden!</string>
+  <string name="usb_media_format_gesture_explanation">Zeichnen Sie ihr Entsperrmuster um den USB- Speicher zu löschen.</string>
+  <string name="sd_eject">SD-Karte auswerfen</string>
+  <string name="sd_eject_summary">SD-Karte auswerfen, um sie sicher entfernen zu können</string>
+  <string name="sd_insert_summary">Legen Sie eine SD-Karte zum Einbinden ein</string>
+  <string name="sd_mount">SD-Karte einbinden</string>
+  <string name="sd_format">SD-Karte löschen</string>
+  <string name="sd_format_summary">Löscht alle Daten auf der SD-Karte, z. B. Musik und Fotos</string>
+  <string name="dlg_confirm_sd_unmount_title">SD-Karte auswerfen?</string>
+  <string name="dlg_confirm_sd_unmount_text">Wenn Sie die SD-Karte auswerfen, werden einige verwendete Anwendungen gestoppt und sind möglicherweise nicht mehr verfügbar, bis Sie die SD-Karte erneut einhängen.</string>
+  <string name="dlg_error_sd_unmount_text">SD-Karte konnte nicht ausgeworfen werden. Versuchen Sie es später erneut.</string>
+  <string name="sd_unmount_inform_text">SD-Karte wird ausgeworfen.</string>
+  <string name="sd_ejecting_title">SD-Karte auswerfen</string>
+  <string name="sd_ejecting_summary">SD-Karte wird ausgeworfen</string>
+  <string name="sd_media_format_title">SD-Karte löschen</string>
+  <string name="sd_media_format_desc">SD-Karte löschen? Sie werden <b>alle</b> auf der Karte gespeicherten Daten verlieren!</string>
+  <string name="sd_media_format_button_text">SD-Karte löschen</string>
+  <string name="sd_media_format_final_desc">SD-Karte mit allen darauf gespeicherten Dateien löschen? Sie können diese Aktion nicht umkehren!</string>
+  <string name="sd_media_format_gesture_explanation">Sie müssen Ihr Entsperrmuster zeichnen, um das Löschen Ihrer SD-Karte zu bestätigen.</string>
+  <string name="bluetooth_enter_pin_msg_hs">Geben Sie zum Pairing mit <xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g> die erforderliche, aus mindestens 16 Stellen bestehende, PIN des Geräts ein:</string>
+  <string name="bluetooth_profile_sap">SIM-Zugriff</string>
+  <string name="bluetooth_profile_dun">Internet-Einwahlverbindung</string>
+  <string name="bluetooth_sap_profile_summary_connected">Verbunden mit SIM-Zugriffsserver</string>
+  <string name="bluetooth_dun_profile_summary_connected">Verbunden mit Einwahldienst</string>
+  <string name="bluetooth_sap_profile_summary_use_for">Für SIM-Zugriff verwenden</string>
+  <string name="bluetooth_dun_profile_summary_use_for">Für Einwahlverbindungen verwenden</string>
+  <string name="wifi_disabled_association_rejected">Verbindung abgelehnt</string>
+  <string name="screencolor">Bildschirmfarbe</string>
+  <string name="custom_screencolor">Benutzerdefinierte Bildschirmfarbe</string>
+  <string name="device_additional_status">Weitere Statusinformationen</string>
+  <string name="enable_quickboot_title">Schnellstart-Modus aktivieren</string>
+  <string name="enable_quickboot_summary">Gerät für schnellen Neustart vorbereiten, anstatt es vollständig auszuschalten.</string>
+  <string name="data_usage_tab_slot">SIM </string>
+  <string name="sel_sub_title">SIM auswählen</string>
+  <string name="sel_sub_summary">SIM-Karte auswählen</string>
+  <string name="no_sim_info">Keine SIM-Informationen vorhanden.\nMenü nicht verfügbar</string>
+  <string name="subs_settings">SIM-Status</string>
+  <string name="set_data_subscription_progress">SIM für Datenverbindung wird ausgewählt\u2026</string>
+  <string name="set_dds_success">SIM für Datenverbindungen erfolgreich ausgewählt</string>
+  <string name="set_dds_failed">SIM für Datenverbindungen konnte nicht ausgewählt werden. Bitte deaktivieren Sie bestehende Datenverbindungen und versuchen Sie es erneut.</string>
+  <string name="set_dds_error">SIM für Datenverbindungen konnte nicht ausgewählt werden.</string>
+  <string name="set_sms_error">SIM für SMS-Versand konnte nicht ausgewählt werden.</string>
+  <string name="set_voice_error">SIM für Telefonate konnte nicht ausgewählt werden.</string>
+  <string name="set_priority_sub_error">Priorität der SIM konnte nicht gesetzt werden. Die SIM-Karte ist nicht aktiv.</string>
+  <string name="prompt">Nachfragen</string>
+  <string name="prompt_user">Bei jedem Anruf nachfragen</string>
+  <string name="maximum_head_level">Kopf: %1$s W/kg</string>
+  <string name="maximum_body_level">Körper: %1$s W/kg</string>
+  <string name="tune_away_title">TuneAway</string>
+  <string name="tune_away_enabled">TuneAway aktiviert</string>
+  <string name="tune_away_disabled">TuneAway deaktiviert</string>
+  <string name="screencolor_save">Speichern</string>
+  <string name="screencolor_cancel">Abbrechen</string>
+  <string name="restore_preview">Standardbild anzeigen</string>
+  <string name="selectnewfile_menu">Neues Bild aus Galerie anzeigen</string>
+  <string name="selectfile_menu">Bild aus Galerie anzeigen</string>
+  <string name="restore_default_str">Zurücksetzen</string>
+  <string name="hue_str">Farbton: <xliff:g id="hue_value">%1$s</xliff:g></string>
+  <string name="saturation_str">Sättigung: <xliff:g id="saturation_value">%1$s</xliff:g></string>
+  <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="intensity_str">Intensität: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="device_status_summary_cm" product="tablet">Status des Akkus, Netzwerks und andere Informationen</string>
+  <string name="device_status_summary_cm" product="default">Akkustatus, Akkukapazität, etc.</string>
+  <string name="wifi_ap_clients_title">Verbundene Geräte</string>
+  <string name="wifi_ap_client_ap_disabled">Hotspot ist deaktiviert</string>
+  <string name="wifi_ap_client_none_connected">Keine verbundenen Geräte</string>
+  <string name="profile_menu_delete_title">Löschen</string>
+  <string name="profile_menu_triggers_title">Auslöser ändern</string>
+  <string name="profile_action_none">Keine Aktion</string>
+  <string name="profile_action_disabled">Deaktivieren</string>
+  <string name="profile_action_enable">Aktivieren</string>
+  <string name="profile_tabs_wifi">WLAN</string>
+  <string name="profile_tabs_bluetooth">Bluetooth</string>
+  <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_setup_setup_triggers_title">Schritt 1: Auslöser hinzufügen</string>
+  <string name="profile_setup_setup_triggers_title_config">Auslöser ändern: <xliff:g id="profile_name">%1$s</xliff:g></string>
+  <string name="profile_setup_actions_title">Schritt 2: Aktionen bestimmen</string>
+  <string name="profile_setup_actions_title_config">Aktionen neu konfigurieren</string>
+  <string name="no_bluetooth_triggers">Keine Bluetooth-Auslöser vorhanden</string>
+  <string name="no_wifi_triggers">Keine WLAN-Auslöser vorhanden</string>
+  <string name="profile_setup_setup_triggers_description">Auslöser bestimmen, die dieses Profil aktivieren</string>
+  <string name="profile_setup_actions_description">Konfigurieren was passiert, wenn das Profil aktiviert ist</string>
 </resources>

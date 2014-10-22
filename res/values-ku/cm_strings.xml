@@ -58,7 +58,6 @@
   <string name="profile_unknown_nfc_tag">پرۆفایلی نەناسراو</string>
   <string name="profile_add_nfc_text">ئه‌م NFC ئاماژه‌یه‌ بۆ پرۆفایلی نه‌ناسراو.ناردنی ئه‌م NFC بۆ هه‌بوونی پرۆفایل ڕێگه‌ ئه‌دات به‌ دیریکردنی پرۆفایل له‌ داهاتوودا.</string>
   <string name="profile_select">دیاریکردنی پرۆفایل</string>
-  <string name="add_profile_dialog_title">سازکردنی پرۆفایلی نوێ</string>
   <string name="profile_name_title">نێو</string>
   <string name="profile_profile_name_prompt">دانانی ناوێکی تازه‌ بۆ پرۆفایل</string>
   <string name="menu_new_profile">پرۆفایلی نوێ</string>
@@ -99,8 +98,6 @@
   <string name="ringer_mode">جۆری زەنگ</string>
   <string name="lights_mode">جۆری لایت</string>
   <string name="vibrate_mode">جۆری لەرینەوە</string>
-  <string name="choose_soundtone">هەڵبژاردنی تۆنی تێبنینی</string>
-  <string name="choose_ringtone">هەڵبژاردنی زەنگ</string>
   <string name="soundtone_title">هەڵبژاردنی تۆن</string>
   <string name="profile_appgroups_title">گروپی بەرنامە</string>
   <string name="profile_applist_title">بەرنامەکان</string>
@@ -165,6 +162,8 @@
   <string name="notification_light_voicemail_title">دەنگەنامە</string>
   <string name="adaptive_backlight_title">لایتی دواوە</string>
   <string name="adaptive_backlight_summary">ڕێکخستنی جوڵەی ڕۆشنایی نیشاندانی لایتی دواوە وە ماوەی باتری</string>
+  <string name="sunlight_enhancement_title">هه‌ستیاری خۆر</string>
+  <string name="sunlight_enhancement_summary">هه‌ستیاری ڕووناکی شاشه‌ و خوێندنه‌وه‌ی له‌ژێر خۆر</string>
   <string name="color_enhancement_title">ڕەنگی زیادکراوەکان</string>
   <string name="color_enhancement_summary">زیادکردنی ڕه‌نگی ڕوونما </string>
   <string name="wake_when_plugged_or_unplugged_title">هەڵسان لە پلاگ</string>
@@ -214,10 +213,10 @@
   <string name="unlock_quick_unlock_control_title">چالاککردنی خێرا</string>
   <string name="unlock_quick_unlock_control_summary">چالاکردنی خۆکارانە کاتێک PIN/وشەی نێنی ڕاست لێدرا</string>
   <string name="unlock_buttons_disabled_by_security">قوفڵیڕوونما</string>
-  <string name="lockscreen_widgets_category_title">کورته‌ئایکۆنەکان</string>
-  <string name="lockscreen_maximize_widgets_title">گه‌وره‌کردنی کورته‌ئایکۆنەکان</string>
-  <string name="lockscreen_maximize_widgets_summary">پانکردنی کورته‌ئایکۆنەکان کاتێک ڕوونماکە کرایەوە</string>
-  <string name="lockscreen_enable_camera_title">کورته‌ئایکۆنەکانی کامێرا</string>
+  <string name="lockscreen_widgets_category_title">کورته‌وێنۆچکەکان</string>
+  <string name="lockscreen_maximize_widgets_title">گه‌وره‌کردنی کورته‌وێنۆچکەکان</string>
+  <string name="lockscreen_maximize_widgets_summary">پانکردنی کورته‌وێنۆچکەکان کاتێک ڕوونماکە کرایەوە</string>
+  <string name="lockscreen_enable_camera_title">کورته‌وێنۆچکەکانی کامێرا</string>
   <string name="safe_headset_volume_title">پاراستنی دەنگی بڵندگۆی سەر</string>
   <string name="cyanogenmod_waiver_title">پاشگەزبونەوە</string>
   <string name="cyanogenmod_waiver_body">گۆڕینی ئەم ڕێکخستنە لەوە دەچێت دژی یاسای وڵاتەکەت بێت.\n\nIn دیاریکردنی\'باشە\' لەخوارەوە, تۆ ئەم زانیاریە ئەز سایۆنجن مۆد پێت دەڵێت.</string>
@@ -245,7 +244,6 @@
   <string name="title_tile_compass">قیبلە نما</string>
   <string name="title_tile_heads_up">ده‌رکه‌وته‌کان</string>
   <string name="title_tile_sleep">بڕۆ بۆ خەوتن</string>
-  <string name="title_tile_gps">GPS</string>
   <string name="title_tile_torch">مەشغەڵ</string>
   <string name="title_tile_lockscreen">قوفڵی ڕوونما</string>
   <string name="title_tile_lte">LTE</string>
@@ -270,7 +268,7 @@
   <string name="dynamic_tiles_note_title">تێبینی</string>
   <string name="dynamic_tiles_note_summary">جووڵەیی  هەمیشە لەکارا نیە جارەجار دەرەکەوێت لە سیستەمەوە</string>
   <string name="title_dynamic_alarm">کاژێری بیرخەرەوە</string>
-  <string name="title_dynamic_bugreport">ڕاپۆرتکردنی کەموکورتی بۆ فەلاح کەلاری</string>
+  <string name="title_dynamic_bugreport">ڕاپۆرتکردنی کەموکورتی بۆسیستەم</string>
   <string name="title_dynamic_dock_battery">دۆکی باتری</string>
   <string name="title_dynamic_equalizer">یه‌کسانکه‌ری ده‌نگ</string>
   <string name="title_dynamic_ime">IME گۆڕەڕ</string>
@@ -358,6 +356,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="display_rotation_180_title">180 پلە</string>
   <string name="display_rotation_270_title">270 پلە</string>
   <string name="advanced_reboot_title">خستنەوەگەڕی پێشکەوتوو</string>
+  <string name="advanced_reboot_summary">کاتێک قوفڵ کراوه‌یه‌، هه‌ڵبژاردنێک هه‌بێ بۆ لیستی دوگمه‌ی پاوه‌ر بۆ کوژانه‌وه‌ و دووباره‌ کارپێکردنه‌وه‌</string>
   <string name="app_security_title">ئاسایشی بەرنامە</string>
   <string name="root_access">ڕێگای ڕەگ</string>
   <string name="root_access_warning_title">ڕێگەدان بە ڕێگەکان؟</string>
@@ -366,7 +365,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="root_access_apps">بەرنامەکان تەنها</string>
   <string name="root_access_adb">تەنها ADB</string>
   <string name="root_access_all">بەرنامەکان و ADB</string>
-  <string name="update_recovery_title">تازەکردنەوەی ڕیکەڤەری ساینۆجنمۆد</string>
+  <string name="update_recovery_title">تازەکردنەوەی ڕیکەڤەری وەشانەکە</string>
   <string name="update_recovery_summary">تازەی بکەرەوە کاتێک سیستەم تازە ئەکرێتەوە</string>
   <string name="ok">باشە</string>
   <string name="quiet_hours_title">کاژێرەکانی بێدەنگ</string>
@@ -390,14 +389,14 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="quiet_hours_ringer_mute_all">کپکردنی زنگ بۆ هەموو تەلەفۆنەکان</string>
   <string name="start_time_title">دەستپێکردن</string>
   <string name="end_time_title">کۆتای</string>
-  <string name="mod_version">وەشانی ساینۆجن</string>
+  <string name="mod_version">وەشانی کوردی</string>
   <string name="mod_version_default">نەناسراو</string>
   <string name="build_date">بنیاتنانی ڕۆژ</string>
   <string name="cpu_info">CPU</string>
   <string name="mem_info">بیرگە</string>
   <string name="phone_service_state">دەنگ: <xliff:g id="دەنگ">%1$s</xliff:g>, داتا: <xliff:g id="data_state">%2$s</xliff:g></string>
-  <string name="anonymous_statistics_title">ئاماری ساینۆجنمۆد</string>
-  <string name="anonymous_statistics_summary">یارمەتی ساینۆجنمۆد بدە بۆ باشکردنی سیستەمەکە بە ڕاپۆرتکردن بۆ دیلان کەلاری</string>
+  <string name="anonymous_statistics_title">ئاماری وەشانەکە</string>
+  <string name="anonymous_statistics_summary">یارمەتی وەشانەکە بدە بۆ باشکردنی سیستەمەکە بە ڕاپۆرتکردن بۆ دیلان کەلاری</string>
   <string name="anonymous_statistics_warning_title">دەربارەی</string>
   <string name="anonymous_statistics_warning">Opting into CyanogenMod Statistics will allow non-personal data to be submitted to the
         developers of CyanogenMod to track unique installations across devices. The information submitted includes an unique identifier,
@@ -406,7 +405,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="preview_data_title">پیشاندانی داتا</string>
   <string name="view_stats_title">پیشاندانی ئامار</string>
   <string name="anonymous_learn_more">فێربوونی زۆر</string>
-  <string name="anonymous_notification_desc">چالاکردن یان لەکارخستنی ئاماری ساینۆنجمۆد</string>
   <string name="preview_id_title">دانسقە ID</string>
   <string name="preview_device_title">ئامێر</string>
   <string name="preview_version_title">وەشان</string>
@@ -447,14 +445,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="kill_app_longpress_back">کوشتنی بەرنامە لە دوگمەی دواوە</string>
   <string name="kill_app_longpress_back_summary">کوشتنی پێشبنەما بەرنامە لەلایەن دەستنانی زۆر بە دوگمەی دواوە</string>
   <string name="changelog_title">تۆماری گۆڕانکاری</string>
-  <string name="changelog_loading">دابەزینی changelog\u2026</string>
   <string name="changelog_error">دابەزاندن لەکارانیە changelog</string>
-  <string name="changelog_unknown">نەناسراوە</string>
-  <string name="changelog_version">وەشان-فەلاح کەلاری</string>
   <string name="contributor_cloud_title">به‌شداره‌کان</string>
-  <string name="cmupdate_settings_title">نوێکردنه‌وه‌ی ساینۆجنمۆد</string>
+  <string name="cmupdate_settings_title">نوێکردنه‌وه‌ی وەشانەکە</string>
   <string name="cmupdate_settings_summary">گەڕان بۆ یان نیشاندان و دامەزراندنی تازەچالاکردنی لەکارە</string>
-  <string name="advanced_settings_title">پەرەسەندوو</string>
   <string name="development_tools_title">خستنەکاری ئامرازەکان</string>
   <string name="allow_mock_sms">ڕێگەدان mock SMS</string>
   <string name="privacy_settings_cyanogenmod_title">تایبەتی</string>
@@ -467,13 +461,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="privacy_guard_manager_title">پاسکردنی تایبەتی</string>
   <string name="privacy_guard_manager_summary">ڕێکخستی چ بەرنامەیەک ڕێگەیان هەیە بۆ داتای تایبەتیت</string>
   <string name="privacy_guard_no_user_apps">هیچ بەرنامەیەک دانەمەزراوە</string>
-  <string name="privacy_guard_filter_does_not_match">هیچ بەرنامەیەک پەیوەندی پێوە بێت دانەمەزراوە</string>
   <string name="privacy_guard_help_title">یارمەتی</string>
   <string name="privacy_guard_reset_title">ڕێکخستنەوە</string>
   <string name="privacy_guard_reset_text">ڕێکخستنەوەی مۆڵەت پێدان؟</string>
   <string name="privacy_guard_help_text">لەسەر ڕوونماکە ئەتوانی بەرنامەیەک هەڵبژێریت بۆ پاسەوانی تایبەتی بۆ ئەکتڤکردنی بۆ ئاسانی لێدانی.بەرنامەی دیاریکراو دەستناداتە داتای تایبەتییتەوە وەکو ناوەکان،نامەکان،تۆماری تەلەفۆن.دەستنانی بەرنامە کردنەوەی زانیاری بەرنامە لەسەر ڕوونما\n\n دیارنادات لە بنەڕەتەوە لە هەڵبژاردەی دیاریکراوی پێڕست.</string>
   <string name="privacy_guard_manager_show_system_apps">پیشاندانی بنیاتنانی بەرنامەکان</string>
-  <string name="privacy_guard_manager_filter_permissions">مۆڵەتدانی فلتەرکردن</string>
   <string name="privacy_guard_advanced_settings_title">پێشکەتوو</string>
   <string name="blacklist_title">لیستی ڕەش</string>
   <string name="blacklist_edit_dialog_title">دەستکاریکردنی لیستی ڕەش</string>
@@ -511,9 +503,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="gamma_tuning_title_head">کالیبره‌یشنی سێیه‌م</string>
   <string name="gamma_tuning_summary_head">به‌های تویک</string>
   <string name="gamma_tuning_control_set_header">گرووپ<xliff:g id="index">%d</xliff:g></string>
-  <string name="gamma_tuning_contrast">جیاوازی</string>
-  <string name="gamma_tuning_brightness">ڕوشنای</string>
-  <string name="gamma_tuning_saturation">تێرایی</string>
   <string name="headset_connect_player_title">کردنه‌وه‌ی به‌رنامه‌ی ده‌نگ</string>
   <string name="headset_connect_player_summary">کردنه‌وه‌ی به‌رنامه‌ی مۆسیقای بنه‌ڕه‌تی کاتێک بڵندگۆ په‌یوه‌ستکرا</string>
   <string name="adb_notify">USB تێبینی خه‌واندنی</string>
@@ -666,6 +655,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="hardware_keys_action_voice_search">گەڕانی دەنگی</string>
   <string name="hardware_keys_action_in_app_search">گەڕانی بەرنامە</string>
   <string name="hardware_keys_action_launch_camera">کامێرا کردنەوە</string>
+  <string name="hardware_keys_action_last_app">کۆتا به‌رنامه‌</string>
   <string name="power_end_call_title">کۆتاییهاتنی پەیوەندی</string>
   <string name="power_end_call_summary">ده‌ستنان به‌ دوگمه‌ی پاوه‌ر کۆتایی به‌ په‌یوه‌ندی ده‌هێنێت</string>
   <string name="button_wake_title">لەخەوهەستان</string>
@@ -696,13 +686,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="backlight_summary_disabled">له‌کارخرا</string>
   <string name="backlight_summary_enabled_with_timeout">چالاکردنی  <xliff:g id="کات">%s</xliff:g></string>
   <string name="backlight_summary_enabled">چالاکرا</string>
-  <string name="lockscreen_background">پشتگەڵاڵە</string>
-  <string name="lockscreen_background_style_title">پشتگەڵاڵە قوفڵی ڕوونما</string>
-  <string name="background_default">پشتگەڵاڵە بنه‌ڕه‌ت</string>
-  <string name="background_wallpaper">دیوارپۆش ده‌ستکاری کراو</string>
-  <string name="background_result_successful">پشته‌گه‌ڵاڵه‌ گۆڕا</string>
-  <string name="background_result_not_successful">پشته‌گه‌ڵاڵه‌ نه‌گۆڕرا</string>
-  <string name="setting_lockscreen_background">دانانی پشته‌گه‌ڵاڵه‌</string>
   <string name="confirm_delete_apn">APN ئه‌سڕێته‌وه‌.</string>
   <string name="status_bar_title">شریتی دۆخ</string>
   <string name="status_bar_clock_title">شێوازی ستایل</string>
@@ -724,7 +707,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="status_bar_toggle_info">ئاماده‌ نییه‌ کاتێک ڕووناکی خۆکارانه‌ کارده‌کات</string>
   <string name="status_bar_notif_count_title">پێشاندانی تێبینی</string>
   <string name="status_bar_notif_count_summary">پیشاندانی ژماره‌ی ته‌له‌فۆن که‌ نه‌کراونه‌ته‌وه‌ له‌ تێبینی</string>
-  <string name="status_bar_double_tap_to_sleep_title">دوجار-لێدان بۆ خه‌وتن</string>
   <string name="development_shortcut_title">قه‌دبڕی گه‌شه‌</string>
   <string name="development_shortcut_summary">چالاکردنی\'سڕینی داتا\'و\'داخستنی پالنان\' هه‌ڵبژارده‌ له‌ به‌رنامه‌ی تازه‌</string>
   <string name="usb_mass_storage_title">بیرگه‌ی ناوه‌کی (UMS)</string>
@@ -741,13 +723,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
   <string name="battery_info_status_charging_dock_ac">(DockAC)</string>
   <string name="battery_info_status_charging_dock_usb">(DockUSB)</string>
   <string name="menu_stats_reset">ڕێکخستنه‌وه‌</string>
-  <string name="cmlicense_title">یاسای ساینۆجنمۆد</string>
-  <string name="settings_cmlicense_activity_title">یاسای ساینۆجنمۆد</string>
+  <string name="cmlicense_title">یاسای وەشانەکە</string>
+  <string name="settings_cmlicense_activity_title">یاسای وەشانەکە</string>
   <string name="settings_cmlicense_activity_unreachable">په‌یوه‌ندی داتات نیه‌ .بۆ ده‌رخستنی ئه‌م زانیاریانه‌، بڕۆ بۆ  %s له‌ کۆمپیوته‌ره‌که‌ت که‌ په‌یوه‌ندی بکه‌ به‌ تۆڕه‌وه‌</string>
   <string name="stylus_icon_enabled_title">پیشاندانی وێنۆچکه‌ به‌کارهێنانی ستایلوس</string>
   <string name="stylus_icon_enabled_summary">خاڵی وێنۆچکه‌ دیاری بده‌ بۆ ڕاکێشان</string>
   <string name="gestures_settings_title">جوڵانی ستایل</string>
-  <string name="category_spen_title">جوڵانی ستایل</string>
   <string name="enable_subcat_title">ستایلوس</string>
   <string name="enable_spen_title_head">چالاکردنی جوڵه‌کان</string>
   <string name="enable_spen_summary_head">به‌کارهێنانی سوین بۆ جۆلان به‌ ده‌ستنان به‌ دوگمه‌ی ستایلوس بۆ خوار</string>

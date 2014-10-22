@@ -58,7 +58,6 @@
   <string name="profile_unknown_nfc_tag">Невідомий профіль</string>
   <string name="profile_add_nfc_text">Ця NFC-мітка присвоєна невідомому профілю. Прив’язка NFC-мітки до існуючого профілю дозволить використовувати мітку для його вибору.</string>
   <string name="profile_select">Виберіть профіль</string>
-  <string name="add_profile_dialog_title">Створити новий профіль</string>
   <string name="profile_name_title">Ім’я</string>
   <string name="profile_profile_name_prompt">Введіть ім’я для нового профілю</string>
   <string name="menu_new_profile">Новий профіль</string>
@@ -97,8 +96,6 @@
   <string name="ringer_mode">Режим дзвінка</string>
   <string name="lights_mode">Режим індикаторів</string>
   <string name="vibrate_mode">Режим вібрації</string>
-  <string name="choose_soundtone">Звук сповіщення</string>
-  <string name="choose_ringtone">Мелодія дзвінка</string>
   <string name="soundtone_title">Звук сповіщення</string>
   <string name="profile_appgroups_title">Групи програм</string>
   <string name="profile_applist_title">Програми</string>
@@ -163,6 +160,8 @@
   <string name="notification_light_voicemail_title">Голосова пошта</string>
   <string name="adaptive_backlight_title">Адаптивна яскравість</string>
   <string name="adaptive_backlight_summary">Інтелектуальна зміна яскравості екрану для збереження заряду акумулятора</string>
+  <string name="sunlight_enhancement_title">Режим для сонячного світла</string>
+  <string name="sunlight_enhancement_summary">Підвищення яскравості дисплея під час яскравого сонячного світла</string>
   <string name="color_enhancement_title">Покращення кольору</string>
   <string name="color_enhancement_summary">Динамічне покращення кольорів на екрані</string>
   <string name="wake_when_plugged_or_unplugged_title">Екран прокидається при підключені</string>
@@ -217,6 +216,7 @@
   <string name="lockscreen_maximize_widgets_summary">Показувати віджети екрану блокування розгорнутими, а екран розблокування — в згорнутому вигляді</string>
   <string name="lockscreen_enable_camera_title">Віджет камери</string>
   <string name="safe_headset_volume_title">Безпечна гучність гарнітури</string>
+  <string name="safe_headset_volume_restore_title">Знижувати гучність навушників при їх підключенні</string>
   <string name="cyanogenmod_waiver_title">Відмова від відповідальності</string>
   <string name="cyanogenmod_waiver_body">Зміна цих налаштувань може суперечити законам вашої країни.\n\nНатискаючи \'OK\' Ви погоджуєтесь із цим попередженням та звільняєте CyanogenMod і всіх його розробників від будь-яких юридичних зобов’язань.</string>
   <string name="quick_settings_panel_title">Панель Швидких Налаштувань</string>
@@ -243,7 +243,7 @@
   <string name="title_tile_compass">Компас</string>
   <string name="title_tile_heads_up">Спливаючі сповіщення</string>
   <string name="title_tile_sleep">Сон</string>
-  <string name="title_tile_gps">GPS</string>
+  <string name="title_tile_gps">Місцезнаходження</string>
   <string name="title_tile_torch">Ліхтарик</string>
   <string name="title_tile_lockscreen">Екран блокування</string>
   <string name="title_tile_lte">LTE</string>
@@ -292,6 +292,10 @@
   <string name="cm_sound_mode_vibrate">Вібро</string>
   <string name="cm_sound_mode_sound">Звук</string>
   <string name="cm_sound_mode_soundVibrate">Звук &amp; Вібро</string>
+  <string name="pref_location_mode_title">Позиціонування</string>
+  <string name="cm_location_mode_battery_saving">Економія батареї</string>
+  <string name="cm_location_mode_device_only">По датчиках пристрою</string>
+  <string name="cm_location_mode_high_accuracy">Висока точність</string>
   <string name="tiles_reset_title">Скидання</string>
   <string name="tiles_reset_message">Відновити плитки та їх розташування до типових значень?</string>
   <string name="auto_brightness_setup_title">Автоматична яскравість</string>
@@ -389,7 +393,6 @@
   <string name="preview_data_title">Показати дані</string>
   <string name="view_stats_title">Перегляд статистики встановлень</string>
   <string name="anonymous_learn_more">Докладніше</string>
-  <string name="anonymous_notification_desc">Увімкнути або вимкнути статистику CyanogenMod</string>
   <string name="preview_id_title">Унікальний ідентифікатор</string>
   <string name="preview_device_title">Пристрій</string>
   <string name="preview_version_title">Версія</string>
@@ -430,14 +433,10 @@
   <string name="kill_app_longpress_back">Закрити програму</string>
   <string name="kill_app_longpress_back_summary">Довгий натиск на кнопку Назад закриє запущену програму</string>
   <string name="changelog_title">Журнал змін</string>
-  <string name="changelog_loading">Завантажується журнал змін\u2026</string>
   <string name="changelog_error">Не можу завантажити журнал змін</string>
-  <string name="changelog_unknown">Невідомий</string>
-  <string name="changelog_version">Версія</string>
   <string name="contributor_cloud_title">Учасники</string>
   <string name="cmupdate_settings_title">Оновлення CyanogenMod</string>
   <string name="cmupdate_settings_summary">Перевірка та встановлення доступних оновлень</string>
-  <string name="advanced_settings_title">Додаткові</string>
   <string name="development_tools_title">Запуск утиліти розробника</string>
   <string name="allow_mock_sms">Фіктивні SMS</string>
   <string name="privacy_settings_cyanogenmod_title">Приватність</string>
@@ -450,13 +449,11 @@
   <string name="privacy_guard_manager_title">Сторож Приватності</string>
   <string name="privacy_guard_manager_summary">Налаштуйте які програми мають доступ до ваших персональних даних</string>
   <string name="privacy_guard_no_user_apps">Ніяких програм не встановлено</string>
-  <string name="privacy_guard_filter_does_not_match">Ніяких програм з відповідними дозволами не встановлено</string>
   <string name="privacy_guard_help_title">Допомога</string>
   <string name="privacy_guard_reset_title">Скинути</string>
   <string name="privacy_guard_reset_text">Скинути дозволи?</string>
   <string name="privacy_guard_help_text">У цьому розділі ви можете вибрати програми, які працюватимуть в захищеному режимі, натиснувши на них. Такі програми не будуть мати доступу до персональних даних, таких як контакти, повідомлення або журнал дзвінків. Довге натиснення відкриє докладні відомості про дозволи даної програми.\n\nЗа замовчуванням системні програми приховані. Для їх відображення або для переходу до розширених налаштувань виберіть відповідний пункт у меню.</string>
   <string name="privacy_guard_manager_show_system_apps">Показати системні програми</string>
-  <string name="privacy_guard_manager_filter_permissions">Фільтр дозволів</string>
   <string name="privacy_guard_advanced_settings_title">Додаткові функції</string>
   <string name="blacklist_title">Чорний список</string>
   <string name="blacklist_edit_dialog_title">Редагувати запис чорного списку</string>
@@ -480,6 +477,7 @@
   <string name="blacklist_regex_summary">Використовуйте . як маску і * для повторення. Наприклад, вираз 123.* буде блокувати номери, які починаються з 123, а .*123.* — номера, що містять 123 в будь-якій частині</string>
   <string name="blacklist_policy_block_calls">Блокувати вхідні дзвінки</string>
   <string name="blacklist_policy_block_messages">Блокувати вхідні повідомлення</string>
+  <string name="blacklist_bad_number_add">Некоректний номер, додавання неможливо</string>
   <string name="add_blacklist_number">Додати</string>
   <string name="remove_blacklist_number_title">Вилучити номер</string>
   <string name="remove_blacklist_entry">Ви хочете вилучити цей запис?</string>
@@ -494,9 +492,6 @@
   <string name="gamma_tuning_title_head">Калібрування гамми</string>
   <string name="gamma_tuning_summary_head">Налаштуйте параметри гамми</string>
   <string name="gamma_tuning_control_set_header">Група <xliff:g id="index">%d</xliff:g></string>
-  <string name="gamma_tuning_contrast">Контраст</string>
-  <string name="gamma_tuning_brightness">Яскравість</string>
-  <string name="gamma_tuning_saturation">Насиченість</string>
   <string name="headset_connect_player_title">Запуск програвача</string>
   <string name="headset_connect_player_summary">Запускати програвач при під’єднанні навушників</string>
   <string name="adb_notify">Сповіщення про налагодження по USB</string>
@@ -514,6 +509,8 @@
   <string name="collapse_on_dismiss_if_empty_summary">Закрити після вилучення останнього сповіщення</string>
   <string name="collapse_on_dismiss_if_no_clearable_summary">Закрити після вилучення останнього тимчасового сповіщення</string>
   <string name="double_tap_to_wake_title">Подв. натискання прокидає</string>
+  <string name="double_tap_to_sleep_title">Вимикати екран при подвійному натисканні</string>
+  <string name="double_tap_to_sleep_summary">Двічі торкніться рядка стану або кнопки розблокування екрану, щоб перевести пристрій в режим сну</string>
   <string name="proximity_wake_title">Запобігання випадкового пробудження</string>
   <string name="proximity_wake_summary">Перевірити датчик наближення до пробудження екрану</string>
   <string name="category_quick_access">Стрічка швидкого доступу</string>
@@ -649,6 +646,8 @@
   <string name="hardware_keys_action_voice_search">Голосовий пошук</string>
   <string name="hardware_keys_action_in_app_search">Пошук в програмі</string>
   <string name="hardware_keys_action_launch_camera">Запуск камери</string>
+  <string name="hardware_keys_action_last_app">Остання програма</string>
+  <string name="hardware_keys_action_sleep">Вимкнути екран</string>
   <string name="power_end_call_title">Завершення виклику</string>
   <string name="power_end_call_summary">Завершувати виклик натисканням кнопки живлення</string>
   <string name="button_wake_title">Вихід з режиму сну</string>
@@ -679,13 +678,6 @@
   <string name="backlight_summary_disabled">Вимкнено</string>
   <string name="backlight_summary_enabled_with_timeout">Увімкнено на <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Увімкнено</string>
-  <string name="lockscreen_background">Шпалери</string>
-  <string name="lockscreen_background_style_title">Шпалери екрану блокування</string>
-  <string name="background_default">Стандартні шпалери</string>
-  <string name="background_wallpaper">Користувацькі шпалери</string>
-  <string name="background_result_successful">Шпалери змінено</string>
-  <string name="background_result_not_successful">Шпалери не змінено</string>
-  <string name="setting_lockscreen_background">Застосування шпалер</string>
   <string name="confirm_delete_apn">APN буде вилучена.</string>
   <string name="status_bar_title">Рядок стану</string>
   <string name="status_bar_clock_title">Стиль годинника</string>
@@ -707,11 +699,10 @@
   <string name="status_bar_toggle_info">Недоступно при включеному авторегулюванні яскравості</string>
   <string name="status_bar_notif_count_title">Показувати кількість сповіщень</string>
   <string name="status_bar_notif_count_summary">Показувати кількість нових повідомлень у рядку стану</string>
-  <string name="status_bar_double_tap_to_sleep_title">Вимикати екран при подвійному натисканні</string>
   <string name="development_shortcut_title">Додаткові пункти меню</string>
   <string name="development_shortcut_summary">Показувати пункти \'Стерти дані\' і \'Зупинити\' в списку недавніх програм</string>
   <string name="usb_mass_storage_title">USB-накопичувач</string>
-  <string name="usb_mass_storage_summary">Увімкнути режим USB-накопичувача (UMS)</string>
+  <string name="usb_mass_storage_summary">Увімкнути режим USB-носія (UMS)</string>
   <string name="storage_rescan_media">Пересканувати пам’ять</string>
   <string name="storage_rescan_media_complete">Сканування завершено</string>
   <string name="whisperpush_title">WhisperPush</string>
@@ -730,7 +721,6 @@
   <string name="stylus_icon_enabled_title">Показувати курсор при використанні пера</string>
   <string name="stylus_icon_enabled_summary">Показати курсор при наведенні або малюванні пером</string>
   <string name="gestures_settings_title">Жести пера</string>
-  <string name="category_spen_title">Жести пера</string>
   <string name="enable_subcat_title">Перо</string>
   <string name="enable_spen_title_head">Увімкнути жести</string>
   <string name="enable_spen_summary_head">Використовувати свайп жести, утримуючи кнопку пера</string>
@@ -751,6 +741,8 @@
   <string name="stylus_app_not_installed">%s не встановлено</string>
   <string name="ime_switcher_notify">Перемикач методу введення</string>
   <string name="ime_switcher_notify_summary">Показувати перемикач методу введення в панелі сповіщень</string>
+  <string name="high_touch_sensitivity_title">Висока чутливість дотику</string>
+  <string name="high_touch_sensitivity_summary">Підвищити чутливість сенсорного екрану для користуванням пристроєм у рукавичках</string>
   <string name="app_ops_summaries_coarse_location">приблизне місце розташування</string>
   <string name="app_ops_summaries_fine_location">точне місце розташування</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -911,4 +903,102 @@
   <string name="block_notifications_title">Фільтр сповіщень</string>
   <string name="block_notifications_summary">Налаштування ігнорованих повідомлень і фільтрів</string>
   <string name="no_filters_title">Не встановлено жодного фільтру. Аби виконати фільтрування, натисніть на сповіщення та утримуйте, після чого оберіть \'Ігнорувати такі повідомлення\'.</string>
+  <string name="usb_eject">Від\'єднати USB-носій</string>
+  <string name="usb_eject_summary">Від\'єднати USB-носій, для безпечного вилучення</string>
+  <string name="usb_insert_summary">Вставте USB-носій для монтування</string>
+  <string name="usb_mount">Монтувати USB-носій</string>
+  <string name="usb_format">Очистити USB-носій</string>
+  <string name="usb_format_summary">Видалення з USB-носія всіх даних, включаючи музику і фотографії</string>
+  <string name="dlg_confirm_usb_unmount_title">Від\'єднати USB-носій?</string>
+  <string name="dlg_confirm_usb_unmount_text">Якщо демонтувати USB-носій, деякі програми, що використовуються будуть зупинені і можуть бути недоступні, поки ви не перемонтуєте USB-носій.</string>
+  <string name="dlg_error_usb_unmount_text">Не вдалося від\'єднати USB-носій. Повторіть спробу пізніше.</string>
+  <string name="usb_unmount_inform_text">USB-носій буде відключено.</string>
+  <string name="usb_ejecting_title">Відключення USB-носія</string>
+  <string name="usb_ejecting_summary">Відключення USB-носія у процесі</string>
+  <string name="usb_media_format_title">Очистити USB-носій</string>
+  <string name="usb_media_format_desc">Стерти всі USB-носії? <b>Всі</b> збережені дані будуть втрачені!</string>
+  <string name="usb_media_format_button_text">Очистити USB-носій</string>
+  <string name="usb_media_format_final_desc">Очистити USB-носій, видаливши всі збережені на ньому файли? Цю дію не можна скасувати!</string>
+  <string name="usb_media_format_gesture_explanation">Щоб підтвердити очищення USB-носія, потрібно намалювати ключ розблокування.</string>
+  <string name="sd_eject">Відключити SD-карту</string>
+  <string name="sd_eject_summary">Відключити SD-картку, для безпечного видалення</string>
+  <string name="sd_insert_summary">Вставте SD-картку</string>
+  <string name="sd_mount">Підключити SD-картку</string>
+  <string name="sd_format">Стерти та відформатувати SD-картку</string>
+  <string name="sd_format_summary">Стирає всі дані на SD-картці, наприклад музику та фотографії</string>
+  <string name="dlg_confirm_sd_unmount_title">Відключити SD-карту?</string>
+  <string name="dlg_confirm_sd_unmount_text">Якщо відключити SD-карту, деякі програми, що використовуються зупиниться і можуть бути недоступні, поки Ви встановите SD-карту знову.</string>
+  <string name="dlg_error_sd_unmount_text">SD-карту не відключено. Повторіть спробу пізніше.</string>
+  <string name="sd_unmount_inform_text">SD-карта буде відключена.</string>
+  <string name="sd_ejecting_title">Відключення SD-карти</string>
+  <string name="sd_ejecting_summary">Триває відключення SD-карти</string>
+  <string name="sd_media_format_title">Стерти SD карту</string>
+  <string name="sd_media_format_desc">Стерти SD-карту? Ви втратите
+\n<b>всі</b> дані на карті!</string>
+  <string name="sd_media_format_button_text">Стерти та відформатувати SD-карту</string>
+  <string name="sd_media_format_final_desc">Очистити USB-накопичувач, видаливши всі збережені на ньому файли? Цю дію не можна скасувати!</string>
+  <string name="sd_media_format_gesture_explanation">Щоб підтвердити очищення USB-накопичувача, потрібно намалювати ключ розблокування.</string>
+  <string name="bluetooth_enter_pin_msg_hs">Щоб створити пару з:<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g>введіть PIN-код (16 символів або більше):</string>
+  <string name="bluetooth_profile_sap">SIM доступ</string>
+  <string name="bluetooth_profile_dun">Доступ до модему</string>
+  <string name="bluetooth_sap_profile_summary_connected">Підключено до серверу доступу SIM</string>
+  <string name="bluetooth_dun_profile_summary_connected">Підключено до модему іншого пристрою</string>
+  <string name="bluetooth_sap_profile_summary_use_for">Використовувати для доступу до SIM</string>
+  <string name="bluetooth_dun_profile_summary_use_for">Використовувати Dial-up для доступу до мережі</string>
+  <string name="wifi_disabled_association_rejected">З\'єднання відключено</string>
+  <string name="screencolor">Колір екрану</string>
+  <string name="custom_screencolor">Налаштування кольору екрану</string>
+  <string name="device_additional_status">Додаткова інформація</string>
+  <string name="enable_quickboot_title">Включити режим QuickBoot</string>
+  <string name="enable_quickboot_summary">Перекладати пристрій в режим QuickBoot замість повного виключення.</string>
+  <string name="data_usage_tab_slot">SIM  </string>
+  <string name="sel_sub_title">Налаштування операторів</string>
+  <string name="sel_sub_summary">Зміна SIM-карти або оператора</string>
+  <string name="no_sim_info">Не вдалося отримати доступ до SIM-карти.\nВикористовувати функцію неможливо</string>
+  <string name="subs_settings">Налаштування операторів</string>
+  <string name="set_data_subscription_progress">Збереження налаштувань операторів\u2026</string>
+  <string name="set_dds_success">Оператор мобільного інтернету змінений</string>
+  <string name="set_dds_failed">Не вдалося змінити оператора мобільного інтернету. Вимкніть передачу даних і спробуйте знову.</string>
+  <string name="set_dds_error">Не вдалося змінити оператора мобільного інтернету.</string>
+  <string name="set_sms_error">Не вдалося змінити оператора повідомлень. SIM-карта неактивна.</string>
+  <string name="set_voice_error">Не вдалося змінити оператора дзвінків. SIM-карта неактивна.</string>
+  <string name="set_priority_sub_error">Не вдалося змінити пріоритетного оператора. SIM-карта неактивна.</string>
+  <string name="prompt">Запитувати</string>
+  <string name="prompt_user">Запитувати користувача</string>
+  <string name="maximum_head_level">Голова: %1$s Вт/кг</string>
+  <string name="maximum_body_level">Тіло: %1$s Вт/кг</string>
+  <string name="tune_away_title">TuneAway</string>
+  <string name="tune_away_enabled">TuneAway увімкнений</string>
+  <string name="tune_away_disabled">TuneAway вимкнений</string>
+  <string name="screencolor_save">Зберегти</string>
+  <string name="screencolor_cancel">Відміна</string>
+  <string name="restore_preview">Стандартний значок</string>
+  <string name="selectnewfile_menu">Вибрати нове зображення з Галереї</string>
+  <string name="selectfile_menu">Вибрати зображення з Галереї</string>
+  <string name="restore_default_str">Скинути</string>
+  <string name="hue_str">Відтінок: <xliff:g id="hue_value">%1$s</xliff:g></string>
+  <string name="saturation_str">Насиченість: <xliff:g id="saturation_value">%1$s</xliff:g></string>
+  <string name="contrast_str">Контраст: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="intensity_str">Інтенсивність: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="device_status_summary_cm" product="tablet">Стан акумулятора, мережі та інші відомості</string>
+  <string name="device_status_summary_cm" product="default">Стан акумулятора, рівень сигналу і т.д.</string>
+  <string name="wifi_ap_clients_title">Підключені пристрої</string>
+  <string name="wifi_ap_client_ap_disabled">Точку доступу вимкнуто</string>
+  <string name="wifi_ap_client_none_connected">Не підключено жодного пристрою</string>
+  <string name="profile_menu_delete_title">Видалити</string>
+  <string name="profile_menu_triggers_title">Умови переключення</string>
+  <string name="profile_action_none">Немає дій</string>
+  <string name="profile_action_disabled">Вимкнути</string>
+  <string name="profile_action_enable">Увімкнути</string>
+  <string name="profile_tabs_wifi">Wi-Fi</string>
+  <string name="profile_tabs_bluetooth">Bluetooth</string>
+  <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_setup_setup_triggers_title">Крок 1: Додавання тригерів</string>
+  <string name="profile_setup_setup_triggers_title_config">Змінити тригерів: <xliff:g id="profile_name">%1$s</xliff:g></string>
+  <string name="profile_setup_actions_title">Крок 2: Налаштувати дії</string>
+  <string name="profile_setup_actions_title_config">Зміна дій</string>
+  <string name="no_bluetooth_triggers">Немає доступних Bluetooth тригерів</string>
+  <string name="no_wifi_triggers">Немає мереж Wi-Fi, які можна використовувати для перемикання</string>
+  <string name="profile_setup_setup_triggers_description">Вкажіть умови, за яких буде включатися даний профіль</string>
+  <string name="profile_setup_actions_description">Тепер можна налаштувати, що має відбуватися при активації профілю</string>
 </resources>
