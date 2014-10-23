@@ -31,7 +31,6 @@ import com.android.settings.hardware.VibratorIntensity;
 import com.android.settings.location.LocationSettings;
 
 public class BootReceiver extends BroadcastReceiver {
-
     private static final boolean DEBUG = false;
 
     private static final String TAG = "BootReceiver";
@@ -46,6 +45,7 @@ public class BootReceiver extends BroadcastReceiver {
         VibratorIntensity.restore(ctx);
         DisplaySettings.restore(ctx);
         LocationSettings.restore(ctx);
+        GestureSettings.restore(ctx);
     }
 
 }
