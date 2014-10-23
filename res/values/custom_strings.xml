@@ -345,10 +345,6 @@
     <string name="haptic_qs_tiles_title">Vibrate on touch</string>
     <string name="haptic_qs_tiles_summary">Vibrate when touching tiles</string>
 
-    <!-- Glowpad Torch -->
-    <string name="lockscreen_glowpad_torch_title">Glowpad torch</string>
-    <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the slider to start torch</string>
-
     <!--Lockscreen See Through-->
     <string name="see_through_title">See through</string>
     <string name="see_through_summary">Shows the content behind your lockscreen, your data may be visible to those around you</string>
@@ -357,12 +353,7 @@
     <string name="camera_sounds_title">Camera shutter sound</string>
     <string name="camera_sounds_summary">WARNING: Disabling the camera shutter sound is illegal in some areas!</string>
 
-    <!-- ACRA -->
-    <string name="enable_acra_title">Enable Crashreporting</string>
-    <string name="enable_acra_summary">If checked, crashes are automatically send to NamelessRom</string>
-
-    <!-- Menu Entries in Nameless -> more -->
-    <string name="misc_crash_report">Crash Report</string>
+    <!-- Menu Others -->
     <string name="misc_others">Others</string>
 
     <!-- Privacy Guard Notification -->
@@ -381,7 +372,6 @@
     <!-- System Interface settings  -->
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">System interface</string>
-
     <string name="navigation_bar_force_category">Force navigation bar</string>
 
     <!-- Automatic brightness customization -->
@@ -395,12 +385,13 @@
     <string name="smart_cover_wake_summary">Wakeup device when the lid opens</string>
     <string name="smart_cover_sleep_title">Put to sleep</string>
     <string name="smart_cover_sleep_summary">Put the device to sleep when the lid closes</string>
-
     <string name="smart_cover_customize">Customize smart cover</string>
 
+    <!-- swipe_anywhere -->
     <string name="title_qs_swipe_anywhere">Swipe anywhere</string>
     <string name="summary_qs_swipe_anywhere">Allow to swipe anywhere to switch between notifications and quicktiles</string>
 
+    <!-- Time Strings -->
     <string name="fifteen_seconds">15 seconds</string>
     <string name="thirty_seconds">30 seconds</string>
     <string name="one_minute">1 minute</string>
