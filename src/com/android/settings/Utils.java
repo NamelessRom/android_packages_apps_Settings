@@ -48,8 +48,10 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
 import android.preference.PreferenceActivity.Header;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFrameLayout;
 import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.CommonDataKinds.StructuredName;
@@ -200,9 +202,14 @@ public class Utils {
      *      {@link #META_DATA_PREFERENCE_SUMMARY}
      */
     public static boolean updatePreferenceToSpecificActivityFromMetaDataOrRemove(Context context,
-            PreferenceGroup parentPreferenceGroup, String preferenceKey) {
+            Object parentPreferenceGroup, String preferenceKey) {
 
-        Preference preference = parentPreferenceGroup.findPreference(preferenceKey);
+        Preference preference = null;
+        if (parentPreferenceGroup instanceof PreferenceScreen) {
+            preference = ((PreferenceScreen) parentPreferenceGroup).findPreference(preferenceKey);
+        } else if (parentPreferenceGroup instanceof PreferenceCategory) {
+            preference = ((PreferenceCategory) parentPreferenceGroup).findPreference(preferenceKey);
+        }
         if (preference == null) {
             return false;
         }
@@ -265,7 +272,11 @@ public class Utils {
         }
 
         // Did not find a matching activity, so remove the preference
-        parentPreferenceGroup.removePreference(preference);
+        if (parentPreferenceGroup instanceof PreferenceScreen) {
+            ((PreferenceScreen) parentPreferenceGroup).removePreference(preference);
+        } else if (parentPreferenceGroup instanceof PreferenceCategory) {
+            ((PreferenceCategory) parentPreferenceGroup).removePreference(preference);
+        }
 
         return false;
     }
@@ -349,7 +360,7 @@ public class Utils {
     public static boolean isWifiOnly(Context context) {
         ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
-        return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
+        return (!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE));
     }
 
     /**

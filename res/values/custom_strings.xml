@@ -345,10 +345,6 @@
     <string name="haptic_qs_tiles_title">Vibrate on touch</string>
     <string name="haptic_qs_tiles_summary">Vibrate when touching tiles</string>
 
-    <!-- Glowpad Torch -->
-    <string name="lockscreen_glowpad_torch_title">Glowpad torch</string>
-    <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the slider to start torch</string>
-
     <!--Lockscreen See Through-->
     <string name="see_through_title">See through</string>
     <string name="see_through_summary">Shows the content behind your lockscreen, your data may be visible to those around you</string>
@@ -357,12 +353,6 @@
     <string name="camera_sounds_title">Camera shutter sound</string>
     <string name="camera_sounds_summary">WARNING: Disabling the camera shutter sound is illegal in some areas!</string>
 
-    <!-- ACRA -->
-    <string name="enable_acra_title">Enable Crashreporting</string>
-    <string name="enable_acra_summary">If checked, crashes are automatically send to NamelessRom</string>
-
-    <!-- Menu Entries in Nameless -> more -->
-    <string name="misc_crash_report">Crash Report</string>
     <string name="misc_others">Others</string>
 
     <!-- Privacy Guard Notification -->

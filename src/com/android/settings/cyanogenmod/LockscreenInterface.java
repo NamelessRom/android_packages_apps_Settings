@@ -53,9 +53,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
     private static final String KEY_LOCKSCREEN_TARGETS = "lockscreen_targets";
 
-    // Nameless Additions
-    private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_glowpad_torch";
-
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mEnableModLock;
@@ -128,11 +125,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mEnableModLock != null && !canEnableModLockscreen) {
             personalizationCategory.removePreference(mEnableModLock);
             mEnableModLock = null;
-        }
-
-        // Glowpad Torch
-        if (!NamelessUtils.isPackageInstalled(getActivity(), TorchConstants.APP_PACKAGE_NAME)) {
-            personalizationCategory.removePreference(findPreference(KEY_LOCKSCREEN_TORCH));
         }
 
         // Remove cLock settings item if not installed

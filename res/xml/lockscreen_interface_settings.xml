@@ -73,11 +73,6 @@
             android:key="battery_around_lockscreen_ring"
             android:title="@string/battery_around_lockscreen_ring"
             android:defaultValue="true" />
-
-        <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
-            android:key="lockscreen_glowpad_torch"
-            android:title="@string/lockscreen_glowpad_torch_title"
-            android:summary="@string/lockscreen_glowpad_torch_summary" />
     </PreferenceCategory>
 
     <PreferenceCategory
