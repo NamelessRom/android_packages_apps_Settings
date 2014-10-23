@@ -1696,6 +1696,16 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings" />
         </activity>
+        <activity android:name=".nameless.gesturepanel.CreateGestureActivity" />
+        <activity android:name=".nameless.gesturepanel.GestureBuilderActivity"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true"
+            android:label="@string/gesture_panel_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SHORTCUT" />
+            </intent-filter>
+        </activity>
 
         <!-- Others -->
         <activity android:name=".slim.NotificationDrawerStyle" />

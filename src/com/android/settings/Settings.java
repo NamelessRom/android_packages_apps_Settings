@@ -1495,4 +1495,5 @@ public class Settings extends PreferenceActivity
 
     /* NamelessRom */
     public static class AnimationInterfaceSettingsActivity extends Settings { /* empty */ }
+    public static class GestureSettingsActivity extends Settings { /* empty */ }
 }

@@ -407,6 +407,7 @@
     <string name="hardware_keys_action_immersive_mode">Toggle immersive mode</string>
     <string name="hardware_keys_action_screen_off">Turn screen off</string>
     <string name="hardware_keys_action_toggle_torch">Toggle torch</string>
+    <string name="hardware_keys_action_open_gesture_panel">Open gesture panel</string>
 
     <string name="power_menu_reboot_oneclick">One click reboot</string>
     <string name="power_menu_reboot_oneclick_summary">Instantly trigger reboot action</string>
@@ -416,4 +417,23 @@
 
     <string name="display_density">Display density</string>
     <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
+
+    <!-- Gesture panel -->
+    <string name="gesture_panel_title">Gesture panel actions</string>
+    <string name="button_add">Add gesture</string>
+    <string name="button_reload">Reload</string>
+    <string name="button_discard">Discard</string>
+    <string name="button_done">Done</string>
+    <string name="prompt_gesture_name">Name</string>
+    <string name="error_missing_name">You must enter a name</string>
+    <string name="save_success">Gesture saved in %s</string>
+    <string name="gestures_loading">Loading gestures…</string>
+    <string name="gestures_empty">No gestures</string>
+    <string name="gestures_activity">Gestures</string>
+    <string name="gestures_edit">Edit</string>
+    <string name="gestures_delete">Delete</string>
+    <string name="gestures_delete_success">Gesture deleted</string>
+    <string name="gestures_rename_title">Rename gesture</string>
+    <string name="gestures_rename_label">Gesture name</string>
+    <string name="gestures_error_loading">Could not load %s.</string>
 </resources>
