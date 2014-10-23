@@ -48,8 +48,6 @@ import android.provider.Settings;
 import android.util.Log;
 
 import com.android.internal.view.RotationPolicy;
-import com.android.settings.DreamSettings;
-import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference;
 import com.android.settings.hardware.DisplayColor;
@@ -58,7 +56,6 @@ import com.android.settings.hardware.DisplayGamma;
 import org.cyanogenmod.hardware.AdaptiveBacklight;
 import org.cyanogenmod.hardware.ColorEnhancement;
 import org.cyanogenmod.hardware.SunlightEnhancement;
-import org.cyanogenmod.hardware.TapToWake;
 
 import java.util.ArrayList;
 
@@ -72,7 +69,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String PROP_DISPLAY_DENSITY = "persist.sf.lcd_density";
 
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
-    private static final String KEY_ACCELEROMETER = "accelerometer";
     private static final String KEY_DISPLAY_DENSITY = "display_density";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
@@ -81,7 +77,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SUNLIGHT_ENHANCEMENT = "sunlight_enhancement";
     private static final String KEY_COLOR_ENHANCEMENT = "color_enhancement";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
-    private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
 
     private static final String CATEGORY_ADVANCED = "advanced_display_prefs";
     private static final String CATEGORY_DISPLAY = "display_prefs";
@@ -97,7 +92,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
-    private CheckBoxPreference mAccelerometer;
     private EditTextPreference mDisplayDensity;
     private FontDialogPreference mFontSizePref;
     private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
@@ -117,7 +111,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SystemSettingCheckBoxPreference mScreenOffAnimation;
     private CheckBoxPreference mSunlightEnhancement;
     private CheckBoxPreference mColorEnhancement;
-    private CheckBoxPreference mTapToWake;
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -185,12 +178,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (!isColorEnhancementSupported()) {
             advancedPrefs.removePreference(mColorEnhancement);
             mColorEnhancement = null;
-        }
-
-        mTapToWake = (CheckBoxPreference) findPreference(KEY_TAP_TO_WAKE);
-        if (!isTapToWakeSupported()) {
-            advancedPrefs.removePreference(mTapToWake);
-            mTapToWake = null;
         }
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
@@ -438,12 +425,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mColorEnhancement.setChecked(ColorEnhancement.isEnabled());
         }
 
-        if (mTapToWake != null) {
-            final SharedPreferences prefs =
-                    PreferenceManager.getDefaultSharedPreferences(getActivity());
-            mTapToWake.setChecked(prefs.getBoolean(KEY_TAP_TO_WAKE, true));
-        }
-
         // Default value for wake-on-plug behavior from config.xml
         boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
                 com.android.internal.R.bool.config_unplugTurnsOnScreen);
@@ -558,11 +539,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                     mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
-        } else if (preference == mTapToWake) {
-            final SharedPreferences prefs =
-                    PreferenceManager.getDefaultSharedPreferences(getActivity());
-            prefs.edit().putBoolean(KEY_TAP_TO_WAKE, mTapToWake.isChecked()).commit();
-            return TapToWake.setEnabled(mTapToWake.isChecked());
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -690,16 +666,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Log.d(TAG, "Color enhancement settings restored.");
             }
         }
-
-        if (isTapToWakeSupported()) {
-            final boolean enabled = prefs.getBoolean(KEY_TAP_TO_WAKE,
-                    TapToWake.isEnabled());
-            if (!TapToWake.setEnabled(enabled)) {
-                Log.e(TAG, "Failed to restore tap-to-wake settings.");
-            } else {
-                Log.d(TAG, "Tap-to-wake settings restored.");
-            }
-        }
     }
 
     private boolean isPostProcessingSupported() {
@@ -734,15 +700,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static boolean isColorEnhancementSupported() {
         try {
             return ColorEnhancement.isSupported();
-        } catch (NoClassDefFoundError e) {
-            // Hardware abstraction framework not installed
-            return false;
-        }
-    }
-
-    private static boolean isTapToWakeSupported() {
-        try {
-            return TapToWake.isSupported();
         } catch (NoClassDefFoundError e) {
             // Hardware abstraction framework not installed
             return false;
