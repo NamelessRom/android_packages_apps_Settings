@@ -408,7 +408,7 @@
     <string name="hardware_keys_action_screen_off">Turn screen off</string>
     <string name="hardware_keys_action_toggle_torch">Toggle torch</string>
 
-    <string name="power_menu_reboot_oneclick">One-click reboot</string>
+    <string name="power_menu_reboot_oneclick">One click reboot</string>
     <string name="power_menu_reboot_oneclick_summary">Instantly trigger reboot action</string>
 
     <string name="color_reset">Reset color</string>
