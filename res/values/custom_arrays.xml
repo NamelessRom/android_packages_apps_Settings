@@ -341,6 +341,7 @@
         <item>@string/hardware_keys_action_immersive_mode</item>
         <item>@string/hardware_keys_action_sleep</item>
         <item>@string/hardware_keys_action_toggle_torch</item>
+        <item>@string/hardware_keys_action_open_gesture_panel</item>
     </string-array>
 
     <string-array name="hardware_keys_action_values_nameless" translatable="false">
@@ -355,6 +356,7 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>
     </string-array>
 
 </resources>
