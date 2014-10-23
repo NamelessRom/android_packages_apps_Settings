@@ -15,10 +15,5 @@
      limitations under the License.
 -->
 <resources>
-    <!-- Minimal notification row height used to calculate max notification count -->
-    <dimen name="notification_row_min_height">70dp</dimen>
-
-    <!-- Gesture panel -->
-    <dimen name="gesture_thumbnail_inset">8dip</dimen>
-    <dimen name="gesture_thumbnail_size">64dip</dimen>
+    <color name="gesture_color">#c0ffffff</color>
 </resources>
