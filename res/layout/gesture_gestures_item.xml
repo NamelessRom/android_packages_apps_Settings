@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2013 - 2014 The NamelessROM Project
+<!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,11 +13,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <!-- Minimal notification row height used to calculate max notification count -->
-    <dimen name="notification_row_min_height">70dp</dimen>
-
-    <!-- Gesture panel -->
-    <dimen name="gesture_thumbnail_inset">8dip</dimen>
-    <dimen name="gesture_thumbnail_size">64dip</dimen>
-</resources>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:drawablePadding="12dp"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:ellipsize="marquee"
+    android:singleLine="true"
+    android:textAppearance="?android:attr/textAppearanceLarge" />
