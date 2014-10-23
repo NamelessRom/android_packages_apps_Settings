@@ -14,9 +14,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
-
 <resources>
-
     <!-- Overlays for NetworkTraffic to use -->
     <integer name="maskUp">0x00000001</integer>
     <integer name="maskDown">0x00000002</integer>
