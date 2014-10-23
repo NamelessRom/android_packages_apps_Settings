@@ -349,4 +349,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="misc_others"
+        android:title="@string/misc_others">
+
+        <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
+            android:key="force_multi_pane"
+            android:title="@string/force_multi_pane"
+            android:summary="@string/force_multi_pane_summary" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

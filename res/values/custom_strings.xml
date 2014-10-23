@@ -23,7 +23,6 @@
 
     <string name="release_type">Release type</string>
 
-    <string name="crazy_lab">Crazy Lab</string>
     <string name="force_multi_pane">Force multi-pane</string>
     <string name="force_multi_pane_summary">Force use multi-pane layout in system settings</string>
 

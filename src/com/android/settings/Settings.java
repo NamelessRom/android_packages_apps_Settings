@@ -508,7 +508,6 @@ public class Settings extends PreferenceActivity
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
         com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
         com.android.settings.cyanogenmod.QuietHours.class.getName(),
-        com.android.settings.nameless.secret.CrazyLabSettings.class.getName(),
         com.android.settings.nameless.interfacesettings.AnimationInterfaceSettings.class.getName(),
         NavigationBarSettings.class.getName(),
         HeadsUpSettings.class.getName(),
@@ -1497,6 +1496,4 @@ public class Settings extends PreferenceActivity
 
     /* NamelessROM */
     public static class AnimationInterfaceSettingsActivity extends Settings { /* empty */ }
-    public static class MoreInterfaceSettingsActivity extends Settings { /* empty */ }
-    public static class CrazyLabSettingsActivity extends Settings { /* empty */ }
 }

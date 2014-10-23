@@ -107,15 +107,6 @@
         android:icon="@drawable/ic_settings_nameless_center"
         android:title="@string/nameless_center" />
 
-    <!-- Crazy Lab -->
-    <header
-        settings:includeXmlForSearch="@xml/nameless_secret_settings"
-        android:id="@+id/crazy_lab"
-        android:icon="@drawable/ic_settings_secret"
-        android:breadCrumbTitle="@string/crazy_lab"
-        android:title="@string/crazy_lab"
-        android:fragment="com.android.settings.nameless.secret.CrazyLabSettings"/>
-
     <!-- INTERFACE -->
     <header
         android:id="@+id/interface_section"
