@@ -408,7 +408,7 @@
     <string name="hardware_keys_action_screen_off">Turn screen off</string>
     <string name="hardware_keys_action_toggle_torch">Toggle torch</string>
 
-    <string name="power_menu_reboot_oneclick">One-click reboot</string>
+    <string name="power_menu_reboot_oneclick">One click reboot</string>
     <string name="power_menu_reboot_oneclick_summary">Instantly trigger reboot action</string>
 
     <string name="color_reset">Reset color</string>
@@ -426,8 +426,6 @@
     <string name="prompt_gesture_name">Name</string>
     <string name="error_missing_name">You must enter a name</string>
     <string name="save_success">Gesture saved in %s</string>
-    <string name="rename_action">OK</string>
-    <string name="cancel_action">Cancel</string>
     <string name="gestures_loading">Loading gestures…</string>
     <string name="gestures_empty">No gestures</string>
     <string name="gestures_activity">Gestures</string>
