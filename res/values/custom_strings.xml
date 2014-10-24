@@ -377,6 +377,9 @@
     <!-- Automatic brightness customization -->
     <string name="auto_brightness_adjustment_title">Brightness adjustment</string>
 
+    <!-- Quick pulldown -->
+    <string name="quick_pulldown_center">Center</string>
+
     <!-- Lockscreen Lid Settings -->
     <string name="smart_cover">Smart cover</string>
     <string name="smart_cover_title">Use smart cover</string>
