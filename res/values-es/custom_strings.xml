@@ -20,7 +20,6 @@
   <string name="rom_developers">Desarrolladores de la ROM</string>
   <string name="device_maintainers">Mantenedores del Dispositivo</string>
   <string name="translators">Traductores</string>
-  <string name="crazy_lab">Laboratorio Loco</string>
   <string name="force_multi_pane">Forzar multi-panel</string>
   <string name="force_multi_pane_summary">Forzar el uso del multi-panel en el diseño de la configuración del sistema</string>
   <string name="reset">Reiniciar</string>
@@ -262,15 +261,10 @@
   <string name="flip_qs_tiles_summary">Voltea los azulejos al tocar</string>
   <string name="haptic_qs_tiles_title">Vibrar al tocar</string>
   <string name="haptic_qs_tiles_summary">Vibrar al tocar los azulejos</string>
-  <string name="lockscreen_glowpad_torch_title">Linterna Glowpad</string>
-  <string name="lockscreen_glowpad_torch_summary">Doble toque y mantenga el control deslizante para empezar linterna</string>
   <string name="see_through_title">Ver a través de</string>
   <string name="see_through_summary">Muestra el contenido que hay detrás de tu pantalla de bloqueo, sus datos pueden ser visibles por los que le rodean</string>
   <string name="camera_sounds_title">Sonido de captura de la Cámara</string>
   <string name="camera_sounds_summary">ADVERTENCIA: ¡Desactivar el sonido del obturador de la cámara es ilegal en algunas áreas!</string>
-  <string name="enable_acra_title">Activar reportes de Bloqueo</string>
-  <string name="enable_acra_summary">Si está marcada, se bloquearan automáticamente los envios a NamelessRom</string>
-  <string name="misc_crash_report">Reportes de Bloqueo</string>
   <string name="misc_others">Otros</string>
   <string name="privacy_guard_notification_title">Notificación</string>
   <string name="privacy_guard_notification_summary">Mostrar las notificaciones si el protector de privacidad está activado.</string>

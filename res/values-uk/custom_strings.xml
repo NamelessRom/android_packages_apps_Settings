@@ -20,7 +20,6 @@
   <string name="rom_developers">Розробники прошивки</string>
   <string name="device_maintainers">Супроводжуючі пристрої</string>
   <string name="translators">Перекладачі</string>
-  <string name="crazy_lab">Божевільна лабораторія</string>
   <string name="force_multi_pane">Примусово використовувати мультипанельність</string>
   <string name="force_multi_pane_summary">Примусово використовувати мультипанельність в системних налаштуваннях</string>
   <string name="reset">Відновити налаштування</string>
@@ -268,15 +267,10 @@
   <string name="flip_qs_tiles_summary">Переворот плитки при дотику</string>
   <string name="haptic_qs_tiles_title">Вібрувати при дотику</string>
   <string name="haptic_qs_tiles_summary">Вібрувати при дотику до плитки</string>
-  <string name="lockscreen_glowpad_torch_title">Повзунок-ліхтарик</string>
-  <string name="lockscreen_glowpad_torch_summary">Двічі торкніться і утримуйте повзунок, щоб почати світити</string>
   <string name="see_through_title">Показувати наскрізь</string>
   <string name="see_through_summary">Показує вміст за екраном блокування, ваші дані може бути видно людям навколо вас</string>
   <string name="camera_sounds_title">Звук затвора камери</string>
   <string name="camera_sounds_summary">Попередження: Вимкнення звуку затвора камери є незаконно в деяких районах!</string>
-  <string name="enable_acra_title">Включити повідомлення про помилки</string>
-  <string name="enable_acra_summary">Якщо відзначене, помилки автоматично відправляються в NamelessRom</string>
-  <string name="misc_crash_report">Звіт про збій</string>
   <string name="misc_others">Інші</string>
   <string name="privacy_guard_notification_title">Сповіщення</string>
   <string name="privacy_guard_notification_summary">Показувати сповіщення якщо активний режим приватності.</string>

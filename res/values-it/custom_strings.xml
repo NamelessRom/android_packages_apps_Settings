@@ -21,7 +21,6 @@
   <string name="device_maintainers">Manutentori Dispositivo</string>
   <string name="translators">Traduttori</string>
   <string name="release_type">Tipo di rilascio</string>
-  <string name="crazy_lab">Laboratorio matto</string>
   <string name="force_multi_pane">Forza multiriquadri</string>
   <string name="force_multi_pane_summary">Forza l\'uso del layout multiriquadri nelle impostazioni di sistema</string>
   <string name="reset">Reset</string>
@@ -271,15 +270,10 @@
   <string name="flip_qs_tiles_summary">Capovolge riquadri al tocco</string>
   <string name="haptic_qs_tiles_title">Vibrazione al tocco</string>
   <string name="haptic_qs_tiles_summary">Vibrazione quando vengono toccati i riquadri</string>
-  <string name="lockscreen_glowpad_torch_title">Glowpad torcia</string>
-  <string name="lockscreen_glowpad_torch_summary">Toccare due volte e tieni premuto il dispositivo di scorrimento per avviare la torcia</string>
   <string name="see_through_title">Vedi attraverso</string>
   <string name="see_through_summary">Mostra il contenuto dietro la schermata di sblocco, i tuoi dati potrebbero essere visibili dalle persone intorno a te</string>
   <string name="camera_sounds_title">Suono dell\'otturatore della fotocamera</string>
   <string name="camera_sounds_summary">Attenzione: Disabilitare il suono dell\'otturatore della fotocamera è illegale in alcune zone!</string>
-  <string name="enable_acra_title">Abilita l\'invio delle segnalazione degli errori</string>
-  <string name="enable_acra_summary">Se selezionata, i crash vengono automaticamente inviati a NamelessRom</string>
-  <string name="misc_crash_report">Segnalazione crash</string>
   <string name="misc_others">Altri</string>
   <string name="privacy_guard_notification_title">Notifica</string>
   <string name="privacy_guard_notification_summary">Visualizza notifica se privacy guard è attivo.</string>

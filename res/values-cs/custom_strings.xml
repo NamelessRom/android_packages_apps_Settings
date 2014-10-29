@@ -20,7 +20,6 @@
   <string name="rom_developers">Vývojáři ROM</string>
   <string name="device_maintainers">Maintainers zařízení</string>
   <string name="translators">Překladatelé</string>
-  <string name="crazy_lab">Laboratoř</string>
   <string name="force_multi_pane">Vynutit zobrazení multi-pane</string>
   <string name="force_multi_pane_summary">Vynutí použití vícepanelového zobrazení systémového nastavení</string>
   <string name="reset">Reset</string>
@@ -262,15 +261,10 @@
   <string name="flip_qs_tiles_summary">Překlopit dlaždice dotykem</string>
   <string name="haptic_qs_tiles_title">Vibrace při dotyku</string>
   <string name="haptic_qs_tiles_summary">Vibrace při dotyku dlaždice</string>
-  <string name="lockscreen_glowpad_torch_title">Svítilna Glowpad</string>
-  <string name="lockscreen_glowpad_torch_summary">Poklepáním a podržením posuvníku rozsvítí svítilnu</string>
   <string name="see_through_title">Vidět skrz</string>
   <string name="see_through_summary">Zobrazuje obsah nacházející se za zamykací obrazovkou, vaše data tak můžou být viditelná pro ty, kteří jsou kolem vás</string>
   <string name="camera_sounds_title">Zvuk závěrky fotoaparátu</string>
   <string name="camera_sounds_summary">VAROVÁNÍ: Vypnutí zvuku závěrky fotoaparátu je v některých oblastech nezákonné!</string>
-  <string name="enable_acra_title">Povolit Hlášení pádů</string>
-  <string name="enable_acra_summary">Je-li zaškrtnuto, pády jsou automaticky odesílány vývojářům NamelessRom</string>
-  <string name="misc_crash_report">Hlášení o pádu</string>
   <string name="misc_others">Ostatní</string>
   <string name="privacy_guard_notification_title">Oznámení</string>
   <string name="privacy_guard_notification_summary">Zobrazit oznámení pokud je aktivní ochrana soukromí.</string>

@@ -21,7 +21,6 @@
   <string name="device_maintainers">Administratori dispozitiv</string>
   <string name="translators">Traducători</string>
   <string name="release_type">Tip versiune</string>
-  <string name="crazy_lab">Crazy Lab</string>
   <string name="force_multi_pane">Forțează multi-panou</string>
   <string name="force_multi_pane_summary">Forțează aspectul multi-panou în setări sistem</string>
   <string name="reset">Resetează</string>
@@ -271,15 +270,10 @@
   <string name="flip_qs_tiles_summary">Roteşte dala la atingere</string>
   <string name="haptic_qs_tiles_title">Vibrează la atingere</string>
   <string name="haptic_qs_tiles_summary">Vibrează la atingerea dalelor</string>
-  <string name="lockscreen_glowpad_torch_title">Torța Glowpad</string>
-  <string name="lockscreen_glowpad_torch_summary">Lovește de două ori și ține cursorul pentru a porni torța</string>
   <string name="see_through_title">Vezi prin</string>
   <string name="see_through_summary">Arată conținutul în spatele ecranului de blocare. Datele pot fi vizibile pentru cei din jurul tău</string>
   <string name="camera_sounds_title">Sunet la captura foto</string>
   <string name="camera_sounds_summary">Avertisment: Dezactivarea sunetului camerei este ilegal în unele zone!</string>
-  <string name="enable_acra_title">Activați reportările de avarii</string>
-  <string name="enable_acra_summary">Dacă este bifat, avariile sunt trimise automat la NamelessRom</string>
-  <string name="misc_crash_report">Raportul de avarie</string>
   <string name="misc_others">Altele</string>
   <string name="privacy_guard_notification_title">Notificări</string>
   <string name="privacy_guard_notification_summary">Arată notificarea când protecția personală este activă.</string>

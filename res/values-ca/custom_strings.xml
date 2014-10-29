@@ -20,7 +20,6 @@
   <string name="rom_developers">Desenvolupadors de la ROM</string>
   <string name="device_maintainers">Mantenidors del Dispositiu</string>
   <string name="translators">Traductors</string>
-  <string name="crazy_lab">Laboratori Boig</string>
   <string name="force_multi_pane">Forçar multi-panell</string>
   <string name="force_multi_pane_summary">Forçar l\'ús del multi-panell en el disseny de la configuració del sistema</string>
   <string name="reset">Reiniciar</string>
@@ -262,15 +261,10 @@
   <string name="flip_qs_tiles_summary">Volteja les rajoles en tocar</string>
   <string name="haptic_qs_tiles_title">Vibrar en tocar</string>
   <string name="haptic_qs_tiles_summary">Vibrar en tocar les rajoles</string>
-  <string name="lockscreen_glowpad_torch_title">Llanterna Glowpad</string>
-  <string name="lockscreen_glowpad_torch_summary">Doble toc i mantingui el control lliscant per començar llanterna</string>
   <string name="see_through_title">Veure a través de</string>
   <string name="see_through_summary">Mostra el contingut que hi ha darrere de la teva pantalla de bloqueig, les seves dades poden ser visibles pels quals li envolten</string>
   <string name="camera_sounds_title">So de captura de la Càmera</string>
   <string name="camera_sounds_summary">ADVERTÈNCIA: Desactivar el so de l\'obturador de la càmera és il·legal en algunes àrees!</string>
-  <string name="enable_acra_title">Activar informes de Bloqueig</string>
-  <string name="enable_acra_summary">Si està marcada, es bloquegessin automàticament els enviaments a NamelessRom</string>
-  <string name="misc_crash_report">Informes de Bloqueig</string>
   <string name="misc_others">Altres</string>
   <string name="privacy_guard_notification_title">Notificació</string>
   <string name="privacy_guard_notification_summary">Mostrar les notificacions si el protector de privacitat està activat.</string>

@@ -255,15 +255,10 @@
   <string name="flip_qs_tiles_summary">Érintésre forduló csempék</string>
   <string name="haptic_qs_tiles_title">Érintésre rezeg</string>
   <string name="haptic_qs_tiles_summary">Csempék érintésekor rezeg</string>
-  <string name="lockscreen_glowpad_torch_title">Fénylő újj</string>
-  <string name="lockscreen_glowpad_torch_summary">Dupla koppintás és tartsd nyomva a csúszkát a zseblámpa bekapcsolásához</string>
   <string name="see_through_title">Átlátás a zárképernyőn</string>
   <string name="see_through_summary">Tartalom mutatása a zárképernyő mögött, az adataidat láthatják a körülötted lévők</string>
   <string name="camera_sounds_title">Kamera zárhang</string>
   <string name="camera_sounds_summary">Figyelmeztetés: A kamera exponáló hang letiltása az illegális egyes területeken!</string>
-  <string name="enable_acra_title">Engedélyezi a hibajelentést</string>
-  <string name="enable_acra_summary">Ha be van jelölve, automatikusan küldi a hibajelentéseket a NamelessRom fejlesztőinek</string>
-  <string name="misc_crash_report">Hibajelentés</string>
   <string name="misc_others">Egyebek</string>
   <string name="privacy_guard_notification_title">Értesítés</string>
   <string name="privacy_guard_notification_summary">Mutatja az értesítéseket aktív alkalmazásvédelem esetén is.</string>

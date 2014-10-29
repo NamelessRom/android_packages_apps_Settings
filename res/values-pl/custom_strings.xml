@@ -21,7 +21,6 @@
   <string name="device_maintainers">Device Maintainers</string>
   <string name="translators">Tłumacze</string>
   <string name="release_type">Typ wydania</string>
-  <string name="crazy_lab">Crazy Lab</string>
   <string name="force_multi_pane">Wymuś układ wielopanelowy</string>
   <string name="force_multi_pane_summary">Wymuś układ wielopanelowy dla menu ustawień systemowych</string>
   <string name="reset">Reset</string>
@@ -271,15 +270,10 @@
   <string name="flip_qs_tiles_summary">Odwraca kafelki przy dotknięciu</string>
   <string name="haptic_qs_tiles_title">Wibruj przy dotknięciu</string>
   <string name="haptic_qs_tiles_summary">Wibracje podczas dotykania kafelków</string>
-  <string name="lockscreen_glowpad_torch_title">Latarka Glowpad</string>
-  <string name="lockscreen_glowpad_torch_summary">Dwukrotnie dotknij i przytrzymaj suwak, aby włączyć latarkę</string>
   <string name="see_through_title">Przejrzystość</string>
   <string name="see_through_summary">Pokazuje zawartość ekranu będąca za ekranem blokady. Twoje dane mogą być widoczne dla osób postronnych.</string>
   <string name="camera_sounds_title">Dźwięk migawki aparatu</string>
   <string name="camera_sounds_summary">Uwaga: Wyłączenie dźwięku migawki aparatu jest nielegalne w niektórych krajach!</string>
-  <string name="enable_acra_title">Włącz raportowanie błędów</string>
-  <string name="enable_acra_summary">Jeśli zaznaczone, informacje o błędach są automatycznie wysyłane do zespołu NamelessRom</string>
-  <string name="misc_crash_report">Raport problemu</string>
   <string name="misc_others">Inne</string>
   <string name="privacy_guard_notification_title">Powiadomienia</string>
   <string name="privacy_guard_notification_summary">Pokaż powiadomienia jeśli ochrona prywatności jest aktywna.</string>

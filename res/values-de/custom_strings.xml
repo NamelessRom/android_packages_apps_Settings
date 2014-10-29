@@ -21,7 +21,6 @@
   <string name="device_maintainers">Geräte-Betreuer</string>
   <string name="translators">Übersetzer</string>
   <string name="release_type">Release-Typ</string>
-  <string name="crazy_lab">Das verrückte Labor</string>
   <string name="force_multi_pane">Multi-Pane erzwingen</string>
   <string name="force_multi_pane_summary">Erzwingen des Multi-Pane-Layouts in Systemeinstellungen</string>
   <string name="reset">Zurücksetzen</string>
@@ -271,15 +270,10 @@
   <string name="flip_qs_tiles_summary">Kachel flippen bei Berührung</string>
   <string name="haptic_qs_tiles_title">Vibration bei Berührung</string>
   <string name="haptic_qs_tiles_summary">Vibrieren beim Berühren der Kacheln</string>
-  <string name="lockscreen_glowpad_torch_title">Sperrbildschirm-Taschenlampe</string>
-  <string name="lockscreen_glowpad_torch_summary">Tippen Sie doppelt und halten Sie das Entsperr-Symbol, um die Taschenlampe zu starten</string>
   <string name="see_through_title">Transparenter Sperrbildschirm</string>
   <string name="see_through_summary">Zeige den Inhalt verschwommen hinter dem Sperrbildschirm an. Ihre Daten sind möglicherweise für Dritte in Ihrer Nähe sichtbar</string>
   <string name="camera_sounds_title">Kamera-Klick-Geräusch</string>
   <string name="camera_sounds_summary">WARNUNG: Es kann in bestimmten Gebieten illegal sein den Ton der Kamerablende zu deaktivieren!</string>
-  <string name="enable_acra_title">Absturzberichte aktivieren</string>
-  <string name="enable_acra_summary">Wenn diese Option aktiviert ist, werden Abstürze automatisch an NamelessRom gesendet</string>
-  <string name="misc_crash_report">Fehlerbericht</string>
   <string name="misc_others">Sonstiges</string>
   <string name="privacy_guard_notification_title">Benachrichtigung</string>
   <string name="privacy_guard_notification_summary">Benachrichtigung anzeigen, wenn Privatsphäre schützen aktiv ist.</string>
@@ -292,6 +286,7 @@
   <string name="system_interface_title">Systemoberfläche</string>
   <string name="navigation_bar_force_category">Erzwinge Navigationsleiste</string>
   <string name="auto_brightness_adjustment_title">Helligkeitsregelung</string>
+  <string name="quick_pulldown_center">Zentriert</string>
   <string name="smart_cover">Smart Cover</string>
   <string name="smart_cover_title">Benutze Smart-Cover</string>
   <string name="smart_cover_summary">Ersetzt den Sperrbildschirm mit dem Smart-Cover, wenn der Deckel geschlossen ist</string>
@@ -320,4 +315,21 @@
   <string name="color_pick">Farbe auswählen</string>
   <string name="display_density">Bildschirmauflösung</string>
   <string name="display_density_summary">Überschreibt die Bildschirmauflösung (0 zum Deaktivieren, ein Neustart ist erforderlich)</string>
+  <string name="lockgesture">Geste</string>
+  <string name="lockgesture_need_to_unlock">Gespeicherte Geste bestätigen</string>
+  <string name="lockgesture_need_to_unlock_wrong">Bitte erneut versuchen:</string>
+  <string name="lockgesture_recording_intro_header">Zeichnen Sie eine Entsperr-Geste:</string>
+  <string name="lockgesture_recording_intro_footer">Drücken Sie Menu für Hilfe.</string>
+  <string name="lockgesture_recording_inprogress">Bei Abschluss Finger heben.</string>
+  <string name="lockgesture_pattern_entered_header">Geste wurde aufgezeichnet.</string>
+  <string name="lockgesture_need_to_confirm">Geste zur Bestätigung erneut zeichnen:</string>
+  <string name="lockgesture_pattern_confirmed_header">Ihre neue Entsperr Geste:</string>
+  <string name="lockgesture_confirm_button_text">Bestätigen</string>
+  <string name="lockgesture_retry_button_text">Erneut versuchen</string>
+  <string name="lockgesture_settings_enable_visible_pattern_title">Geste sichtbar machen</string>
+  <string name="lockgesture_settings_help_how_to_record">Wie man eine Entsperr-Geste zeichnet</string>
+  <string name="lockgesture_too_many_failed_confirmation_attempts_header">Zu viele falsche Versuche!</string>
+  <string name="lockgesture_too_many_failed_confirmation_attempts_footer">In %d Sekunden erneut versuchen.</string>
+  <string name="lockpassword_confirm_your_gesture_header">Geste bestätigen</string>
+  <string name="lockpassword_choose_your_gesture_header">Geste zeichnen</string>
 </resources>

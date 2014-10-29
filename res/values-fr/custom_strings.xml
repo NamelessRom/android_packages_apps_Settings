@@ -20,7 +20,6 @@
   <string name="rom_developers">Développeurs de la ROM</string>
   <string name="device_maintainers">Mainteneurs des appareils</string>
   <string name="translators">Traducteurs</string>
-  <string name="crazy_lab">Laboratoire fou</string>
   <string name="force_multi_pane">Forcer les panneaux multiples</string>
   <string name="force_multi_pane_summary">Forcer l\'utilisation de la mise en page en panneaux multiples dans les paramètres système</string>
   <string name="reset">Réinitialiser</string>
@@ -262,15 +261,10 @@
   <string name="flip_qs_tiles_summary">Faire tourner les dalles au toucher</string>
   <string name="haptic_qs_tiles_title">Vibrer au toucher</string>
   <string name="haptic_qs_tiles_summary">Vibrer au toucher des dalles</string>
-  <string name="lockscreen_glowpad_torch_title">Torche Glowpad</string>
-  <string name="lockscreen_glowpad_torch_summary">Double tape et maintien du curseur pour démarrer la torche</string>
   <string name="see_through_title">Voir à travers</string>
   <string name="see_through_summary">Affiche le contenu derrière votre écran de verrouillage, vos données peuvent être visibles par ceux qui vous entourent</string>
   <string name="camera_sounds_title">Son du déclencheur de l\'appareil photo</string>
   <string name="camera_sounds_summary">ATTENTION: La désactivation du son du déclencheur de l\'appareil photo est illégale dans certaines régions!</string>
-  <string name="enable_acra_title">Activer le rapport d\'erreur</string>
-  <string name="enable_acra_summary">Si cochée, les plantages sont automatiquement envoyés à NamelessRom</string>
-  <string name="misc_crash_report">Rapport d\'erreur</string>
   <string name="misc_others">Autres</string>
   <string name="privacy_guard_notification_title">Notification</string>
   <string name="privacy_guard_notification_summary">Montrer notification si privacy guard est activé.</string>

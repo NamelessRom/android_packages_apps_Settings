@@ -21,7 +21,6 @@
   <string name="device_maintainers">设备维护人员</string>
   <string name="translators">翻译人员</string>
   <string name="release_type">发布类型</string>
-  <string name="crazy_lab">疯狂实验室</string>
   <string name="force_multi_pane">强制多窗格</string>
   <string name="force_multi_pane_summary">在系统设置里强制使用多窗格布局</string>
   <string name="reset">重置</string>
@@ -252,14 +251,10 @@
   <string name="flip_qs_tiles_summary">触摸时翻转</string>
   <string name="haptic_qs_tiles_title">触摸时振动</string>
   <string name="haptic_qs_tiles_summary">触摸时震动</string>
-  <string name="lockscreen_glowpad_torch_summary">双点击并按住滑块启动手电筒</string>
   <string name="see_through_title">半透明锁屏界面</string>
   <string name="see_through_summary">显示锁屏背后的内容，可能造成你的数据被周围人看到。</string>
   <string name="camera_sounds_title">相机快门音</string>
   <string name="camera_sounds_summary">警告: 在某些国家或地区，禁用相机快门音是非法行为！</string>
-  <string name="enable_acra_title">允许错误报告</string>
-  <string name="enable_acra_summary">如果选中，错误报告将自动发送到 NamelessRom</string>
-  <string name="misc_crash_report">崩溃报告</string>
   <string name="misc_others">其它</string>
   <string name="privacy_guard_notification_title">通知</string>
   <string name="privacy_guard_notification_summary">当隐私防护处于活动状态时显示通知</string>

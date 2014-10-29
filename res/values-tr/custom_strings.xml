@@ -20,7 +20,6 @@
   <string name="rom_developers">ROM geliştiricileri</string>
   <string name="device_maintainers">Cihaz Bakıcıları</string>
   <string name="translators">Çevirmenler</string>
-  <string name="crazy_lab">Çılgın Lab</string>
   <string name="force_multi_pane">Çoklu bölmeye zorla</string>
   <string name="force_multi_pane_summary">Sistem ayarlarında çoklu düzen bölünmesi oluşturmaya zorla</string>
   <string name="reset">Sıfırla</string>
@@ -261,15 +260,10 @@ Cihaz cebe girince ekranı kapat.</string>
   <string name="flip_qs_tiles_summary">Çevrilen başlıklar için dokunun</string>
   <string name="haptic_qs_tiles_title">Titreşim ayarı için dokunun</string>
   <string name="haptic_qs_tiles_summary">Başlık dokunmadan titreşimle</string>
-  <string name="lockscreen_glowpad_torch_title">El feneri kısayolu</string>
-  <string name="lockscreen_glowpad_torch_summary">El feneri kısayolunu başlatmak için çift dokunmalı ve basılı tutmalısınız</string>
   <string name="see_through_title">Şeffaf görünüm</string>
   <string name="see_through_summary">Kilit ekranının arkasındaki içeriği gösterir, ana ekrandaki bilgileriniz görünür</string>
   <string name="camera_sounds_title">Kamera deklanşör sesi</string>
   <string name="camera_sounds_summary">UYARI: Deklanşör sesi devre dışı bırakılması, bazı bölgelerde yasadışı!</string>
-  <string name="enable_acra_title">Hata raporu göndermeyi etkinleştirme</string>
-  <string name="enable_acra_summary">Eğer işaretli ise, otomatik olarak NamelessRom\'a gönderilmektedir</string>
-  <string name="misc_crash_report">Hata raporu</string>
   <string name="misc_others">Diğerleri</string>
   <string name="privacy_guard_notification_title">Bildirimler</string>
   <string name="privacy_guard_notification_summary">Gizlilik koruma aktif ise bildirim göster.</string>

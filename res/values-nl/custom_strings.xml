@@ -20,7 +20,6 @@
   <string name="rom_developers">Rom Ontwikkelaars</string>
   <string name="device_maintainers">Apparaat Onderhouders</string>
   <string name="translators">Vertalers</string>
-  <string name="crazy_lab">Crazy Lab</string>
   <string name="force_multi_pane">Forceer multi-venster</string>
   <string name="force_multi_pane_summary">Forceert de multi-venster layout van systeeminstellingen</string>
   <string name="reset">Reset</string>

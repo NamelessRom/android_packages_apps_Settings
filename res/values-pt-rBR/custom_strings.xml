@@ -20,7 +20,6 @@
   <string name="rom_developers">Desenvolvedores da ROM</string>
   <string name="device_maintainers">Mantenedores do dispositivo</string>
   <string name="translators">Tradutores</string>
-  <string name="crazy_lab">Laboratório louco</string>
   <string name="force_multi_pane">Forçar multi-painel</string>
   <string name="force_multi_pane_summary">Forçar uso de layout multi-painel na configurações do sistema</string>
   <string name="reset">Redefinir</string>
@@ -263,15 +262,10 @@ Desligar a tela quando o aparelho voltar ao bolso.</string>
   <string name="flip_qs_tiles_summary">Virar as telhas ao tocar</string>
   <string name="haptic_qs_tiles_title">Vibrar ao tocar</string>
   <string name="haptic_qs_tiles_summary">Vibrar ao tocar em telhas</string>
-  <string name="lockscreen_glowpad_torch_title">Tocha Glowpad</string>
-  <string name="lockscreen_glowpad_torch_summary">Dê um duplo toque e segure o controle deslizante para começar a tocha</string>
   <string name="see_through_title">Ver através de</string>
   <string name="see_through_summary">Mostra o conteúdo que há por trás de sua tela de bloqueio, seus dados podem ser visíveis pelos que lhe rodeiam</string>
   <string name="camera_sounds_title">Som do obturador da câmera</string>
   <string name="camera_sounds_summary">Atenção: Desabilitar o som do obturador da câmera é ilegal em algumas áreas!</string>
-  <string name="enable_acra_title">Habilitar relatório de falhas</string>
-  <string name="enable_acra_summary">Se marcada, falhas são automaticamente enviar para NamelessRom</string>
-  <string name="misc_crash_report">Relatório de erro</string>
   <string name="misc_others">Outros</string>
   <string name="privacy_guard_notification_title">Notificação</string>
   <string name="privacy_guard_notification_summary">Mostrar notificação se o Controle de Privacidade estiver ativo.</string>

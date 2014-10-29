@@ -21,7 +21,6 @@
   <string name="device_maintainers">Сопровождающие устройство</string>
   <string name="translators">Переводчики</string>
   <string name="release_type">Тип выпуска</string>
-  <string name="crazy_lab">Сумасшедшая лаборатория</string>
   <string name="force_multi_pane">Принудительно использовать мультипанельность</string>
   <string name="force_multi_pane_summary">Принудительно использовать мультипанельный вид в системных настройках</string>
   <string name="reset">Сбросить</string>
@@ -269,15 +268,10 @@
   <string name="flip_qs_tiles_summary">Переворачивать плитки при нажатии</string>
   <string name="haptic_qs_tiles_title">Вибрировать при касании</string>
   <string name="haptic_qs_tiles_summary">Вибрировать при касании плитки</string>
-  <string name="lockscreen_glowpad_torch_title">Ползунок-фонарик</string>
-  <string name="lockscreen_glowpad_torch_summary">Дважды коснитесь и удерживайте ползунок, чтобы начать светить</string>
   <string name="see_through_title">Показывать насквозь</string>
   <string name="see_through_summary">Показывает содержимое за экраном блокировки. Ваши данные могут быть видны людям рядом с вами</string>
   <string name="camera_sounds_title">Звук затвора камеры</string>
   <string name="camera_sounds_summary">ВНИМАНИЕ: отключение звуков камеры в некоторых местах может быть незаконным!</string>
-  <string name="enable_acra_title">Включить сообщения об ошибках</string>
-  <string name="enable_acra_summary">Если отмечено, ошибки автоматически отправляются в NamelessRom</string>
-  <string name="misc_crash_report">Сообщение об ошибке</string>
   <string name="misc_others">Другие</string>
   <string name="privacy_guard_notification_title">Уведомление</string>
   <string name="privacy_guard_notification_summary">Показывать уведомления если включен режим приватности.</string>
