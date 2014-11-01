@@ -438,4 +438,8 @@
     <string name="lockgesture_too_many_failed_confirmation_attempts_footer">Try again in %d seconds.</string>
     <string name="lockpassword_confirm_your_gesture_header">Confirm your gesture</string>
     <string name="lockpassword_choose_your_gesture_header">Draw your gesture</string>
+
+    <!-- StatusBar Ticker -->
+    <string name="status_bar_ticker_title">Notification ticker</string>
+    <string name="status_bar_ticker_summary">Notification text animation in the status bar</string>
 </resources>
