@@ -189,18 +189,7 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
         int i = 0;
         for (i = 0; i < MAX_SUBSCRIPTIONS; i++) {
-            String label = Settings.Global.getSimNameForSubscription(this, i, null);
-            if (TextUtils.isEmpty(label)) {
-                String operatorName = tm.getSimOperatorName(i);
-                if (tm.getSimState(i) == SIM_STATE_ABSENT || tm.getSimState(i) != SIM_STATE_READY
-                        || TextUtils.isEmpty(operatorName)) {
-                    label = getString(R.string.multi_sim_entry_format_no_carrier, i + 1);
-                } else {
-                    label = getString(R.string.multi_sim_entry_format, operatorName, i + 1);
-                }
-            } else {
-                label = getString(R.string.multi_sim_entry_format, label, i + 1);
-            }
+            String label = MSimTelephonyManager.getFormattedSimName(this, i);
             entries[i] = summaries[i] = label;
             entriesPrompt[i] = summariesPrompt[i] = label;
             entryValues[i] = Integer.toString(i);
