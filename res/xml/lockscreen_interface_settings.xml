@@ -55,11 +55,6 @@
             android:key="lockscreen_modlock_enabled"
             android:title="@string/lockscreen_enable_modlock_title" />
 
-        <com.android.settings.nameless.preferences.NamelessSettingCheckBoxPreference
-            android:key="lockscreen_see_through"
-            android:title="@string/see_through_title"
-            android:summary="@string/see_through_summary" />
-
         <ListPreference
             android:key="lockscreen_battery_status"
             android:persistent="false"
