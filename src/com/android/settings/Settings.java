@@ -1331,6 +1331,18 @@ public class Settings extends PreferenceActivity
             revert = true;
         }
 
+        // Launch the theme chooser if it supports the cyngn.intent.category.APP_THEMES category.
+        if (header.id == R.id.theme_settings) {
+            Intent intent = new Intent(Intent.ACTION_MAIN)
+                    .addCategory(THEME_CHOOSER_CATEGORY);
+            try {
+                startActivity(intent);
+                return;
+            } catch (ActivityNotFoundException e) {
+                // do nothing so the theme settings to be displayed
+            }
+        }
+
         super.onHeaderClick(header, position);
 
         if (revert && mLastHeader != null) {
