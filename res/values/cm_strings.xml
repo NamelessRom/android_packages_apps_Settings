@@ -612,4 +612,7 @@
 
     <string name="auto_brightness_reset_button">Reset</string>
 
+    <!-- Status bar Settings -->
+    <string name="status_bar_prefs_title">Status bar</string>
+    <string name="keywords_status_bar">status bar drawer icons</string>
 </resources>

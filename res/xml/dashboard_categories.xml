@@ -114,6 +114,13 @@
                 android:icon="@drawable/ic_settings_navigation_bar"
                 />
 
+        <dashboard-tile
+                android:id="@+id/status_bar_settings"
+                android:title="@string/status_bar_prefs_title"
+                android:fragment="com.android.settings.StatusBarSettings"
+                android:icon="@drawable/ic_settings_statusbar"
+                />
+
         <!-- Display -->
         <dashboard-tile
                 android:id="@+id/display_settings"
