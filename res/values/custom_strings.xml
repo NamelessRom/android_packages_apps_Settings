@@ -43,4 +43,8 @@
     <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
     <string name="display_density_override">Reported density</string>
     <string name="display_density_override_summary">Overrides the display density reported to apps (0 to disable, requires a reboot)</string>
+
+    <!-- Instant reboot -->
+    <string name="advanced_reboot_oneclick">One click reboot</string>
+    <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
 </resources>
