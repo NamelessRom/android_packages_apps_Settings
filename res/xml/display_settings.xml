@@ -88,5 +88,9 @@
                 <SwitchPreference
                     android:key="double_tap_wake_gesture"
                     android:title="@string/double_tap_to_wake_title" />
+
+                <com.android.settings.nameless.SystemSettingSwitchPreference
+                    android:key="long_press_sleep_gesture"
+                    android:title="@string/double_tap_to_wake_title" />
         </PreferenceScreen>
 </PreferenceScreen>
