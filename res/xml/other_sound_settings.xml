@@ -71,4 +71,11 @@
             android:title="@string/emergency_tone_title"
             android:persistent="false" />
 
+    <!-- Camera Sounds -->
+    <com.android.settings.nameless.preferences.SystemSettingCheckBoxPreference
+            android:key="camera_sounds"
+            android:title="@string/camera_sounds_title"
+            android:summary="@string/camera_sounds_summary"
+            android:persistent="false"
+            android:defaultValue="true" />
 </PreferenceScreen>

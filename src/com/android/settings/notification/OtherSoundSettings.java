@@ -151,6 +151,20 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         }
     };
 
+    private static final SettingPref PREF_CAMERA_SOUNDS = new SettingPref(
+            TYPE_SYSTEM, KEY_CAMERA_SOUNDS, System.CAMERA_SOUND_ENABLED, DEFAULT_ON);
+        @Override
+        protected boolean setSetting(Context context, int value) {
+            final mCameraSounds = (CheckBoxPreference) findPreference(KEY_CAMERA_SOUNDS);
+            if (value != 0) {
+                SystemProperties.set(PROP_CAMERA_SOUND, mCameraSounds.isChecked() ? "1" : "0");
+            } else {
+                SystemProperties.set(PROP_CAMERA_SOUND, mCameraSounds.isChecked() ? "0" : "1");
+            }
+            return super.setSetting(context, value);
+        }
+    };
+
     private static final SettingPref[] PREFS = {
         PREF_DIAL_PAD_TONES,
         PREF_SCREEN_LOCKING_SOUNDS,
@@ -159,6 +173,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         PREF_VIBRATE_ON_TOUCH,
         PREF_DOCK_AUDIO_MEDIA,
         PREF_EMERGENCY_TONE,
+        PREF_CAMERA_SOUNDS
     };
 
     private final SettingsObserver mSettingsObserver = new SettingsObserver();
