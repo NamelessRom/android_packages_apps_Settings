@@ -83,6 +83,13 @@
                 android:icon="@drawable/ic_settings_home"
                 />
 
+        <dashboard-tile
+                android:id="@+id/navigation_bar_settings"
+                android:title="@string/navigation_bar_pref_title"
+                android:fragment="com.android.settings.nameless.NavigationBarSettings"
+                android:icon="@drawable/ic_settings_home"
+                />
+
         <!-- Home -->
         <dashboard-tile
                 android:id="@+id/home_settings"
