@@ -71,4 +71,12 @@
             android:title="@string/emergency_tone_title"
             android:persistent="false" />
 
+    <!-- Camera Sounds -->
+    <SwitchPreference
+            android:key="camera_sounds"
+            android:title="@string/camera_sounds_title"
+            android:summary="@string/camera_sounds_summary"
+            android:switchTextOff=""
+            android:switchTextOn=""
+            android:persistent="false" />
 </PreferenceScreen>
