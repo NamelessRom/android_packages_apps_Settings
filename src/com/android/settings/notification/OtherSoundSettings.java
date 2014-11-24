@@ -65,6 +65,8 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DOCK_AUDIO_MEDIA = "dock_audio_media";
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
 
+    private static final String KEY_CAMERA_SOUNDS = "camera_sounds";
+
     private static final SettingPref PREF_DIAL_PAD_TONES = new SettingPref(
             TYPE_SYSTEM, KEY_DIAL_PAD_TONES, System.DTMF_TONE_WHEN_DIALING, DEFAULT_ON) {
         @Override
@@ -151,6 +153,9 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         }
     };
 
+    private static final SettingPref PREF_CAMERA_SOUNDS = new SettingPref(
+            TYPE_SYSTEM, KEY_CAMERA_SOUNDS, System.CAMERA_SOUNDS_DISABLE, DEFAULT_ON);
+
     private static final SettingPref[] PREFS = {
         PREF_DIAL_PAD_TONES,
         PREF_SCREEN_LOCKING_SOUNDS,
@@ -159,6 +164,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         PREF_VIBRATE_ON_TOUCH,
         PREF_DOCK_AUDIO_MEDIA,
         PREF_EMERGENCY_TONE,
+        PREF_CAMERA_SOUNDS,
     };
 
     private final SettingsObserver mSettingsObserver = new SettingsObserver();
