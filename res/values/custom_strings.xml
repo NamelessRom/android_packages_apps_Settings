@@ -64,4 +64,9 @@
 
     <!-- Quick settings -->
     <string name="qs_tiles_vibrate_title">Vibrate on touch</string>
+
+    <!-- Power menu -->
+    <string name="hardware_keys_power_chord_title">Power button actions</string>
+    <string name="hardware_keys_power_volume_down_press_title">Volume down</string>
+    <string name="hardware_keys_power_volume_up_press_title">Volume up</string>
 </resources>
