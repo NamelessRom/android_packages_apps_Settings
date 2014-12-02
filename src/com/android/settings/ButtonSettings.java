@@ -27,27 +27,20 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.hardware.CmHardwareManager;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.os.Handler;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-
-import android.util.Log;
-import android.view.IWindowManager;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
-import android.view.WindowManagerGlobal;
 
 import com.android.internal.util.cm.ScreenType;
-
 import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
-
+import com.android.settings.nameless.CustomActionListPreference;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
@@ -79,6 +72,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
 
     private static final String CATEGORY_POWER = "power_key";
+    private static final String CATEGORY_POWER_CHORD = "power_chord";
     private static final String CATEGORY_HOME = "home_key";
     private static final String CATEGORY_BACK = "back_key";
     private static final String CATEGORY_MENU = "menu_key";
@@ -121,6 +115,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
     private ListPreference mVolumeKeyCursorControl;
+    private CustomActionListPreference mPowerKeyDownAction;
+    private CustomActionListPreference mPowerKeyUpAction;
     private SwitchPreference mVolumeWakeScreen;
     private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
@@ -210,6 +206,18 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
+
+        mPowerKeyDownAction = (CustomActionListPreference)
+                findPreference(Settings.System.POWER_CHORD_ACTION_DOWN);
+        if (mPowerKeyDownAction != null) {
+            mPowerKeyDownAction.setOnPreferenceChangeListener(this);
+        }
+
+        mPowerKeyUpAction = (CustomActionListPreference)
+                findPreference(Settings.System.POWER_CHORD_ACTION_UP);
+        if (mPowerKeyUpAction != null) {
+            mPowerKeyUpAction.setOnPreferenceChangeListener(this);
+        }
     }
 
     private static Map<String, String> getPreferencesToRemove(ButtonSettings settings,
@@ -276,6 +284,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             }
         } else {
             result.put(CATEGORY_POWER, null);
+            result.put(CATEGORY_POWER_CHORD, null);
         }
 
         if (hasHomeKey) {
@@ -586,6 +595,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             }
             Settings.Secure.putString(getContentResolver(),
                     Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
+            return true;
+        } else if (preference == mPowerKeyDownAction) {
+            final String value = String.valueOf(newValue);
+            mPowerKeyDownAction.putSystemValue(value);
+            return true;
+        } else if (preference == mPowerKeyUpAction) {
+            final String value = String.valueOf(newValue);
+            mPowerKeyUpAction.putSystemValue(value);
             return true;
         }
         return false;
