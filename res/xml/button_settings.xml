@@ -43,6 +43,25 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="power_chord"
+        android:title="@string/hardware_keys_power_chord_title"
+        settings:advanced="true">
+
+        <com.android.settings.nameless.CustomActionListPreference
+            android:key="power_chord_action_up"
+            android:dialogTitle="@string/hardware_keys_power_volume_up_press_title"
+            android:title="@string/hardware_keys_power_volume_up_press_title"
+            android:defaultValue="**screenrecord**" />
+
+        <com.android.settings.nameless.CustomActionListPreference
+            android:key="power_chord_action_down"
+            android:dialogTitle="@string/hardware_keys_power_volume_down_press_title"
+            android:title="@string/hardware_keys_power_volume_down_press_title"
+            android:defaultValue="**screenshot**" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title"
         settings:advanced="true">
