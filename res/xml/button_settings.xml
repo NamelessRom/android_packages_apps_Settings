@@ -40,6 +40,20 @@
             android:summary="@string/power_end_call_summary"
             android:persistent="false"/>
 
+        <com.android.settings.nameless.CustomActionListPreference
+            android:key="power_chord_action_down"
+            android:dialogTitle="@string/hardware_keys_power_volume_down_press_title"
+            android:title="@string/hardware_keys_power_volume_down_press_title"
+            android:persistent="false"
+            settings:advanced="true" />
+
+        <com.android.settings.nameless.CustomActionListPreference
+            android:key="power_chord_action_up"
+            android:dialogTitle="@string/hardware_keys_power_volume_up_press_title"
+            android:title="@string/hardware_keys_power_volume_up_press_title"
+            android:persistent="false"
+            settings:advanced="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
