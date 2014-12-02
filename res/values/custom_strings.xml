@@ -102,4 +102,9 @@
     <string name="lid_controls_sleep_summary">Turn screen off when lid closes</string>
     <string name="lid_controls_wake_title">Control wake</string>
     <string name="lid_controls_wake_summary">Turn screen on when lid opens</string>
+
+    <!-- Power menu -->
+    <string name="hardware_keys_power_chord_title">Power button actions</string>
+    <string name="hardware_keys_power_volume_down_press_title">Volume down</string>
+    <string name="hardware_keys_power_volume_up_press_title">Volume up</string>
 </resources>
