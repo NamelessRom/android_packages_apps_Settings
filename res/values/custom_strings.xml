@@ -40,4 +40,9 @@
     <string name="navbar_force_enable_summary">May require a reboot</string>
     <string name="hardware_keys_disable_title">Disable hardware keys</string>
     <string name="hardware_keys_disable_summary">Blocks processing of hardware keys and disables them</string>
+
+    <!-- Power menu -->
+    <string name="hardware_keys_power_key_title">Power button</string>
+    <string name="hardware_keys_power_volume_down_press_title">Volume down</string>
+    <string name="hardware_keys_power_volume_up_press_title">Volume up</string>
 </resources>

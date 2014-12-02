@@ -17,6 +17,24 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="power_key"
+        android:title="@string/hardware_keys_power_key_title" >
+
+        <com.android.settings.nameless.CustomActionListPreference
+            android:key="power_chord_action_down"
+            android:dialogTitle="@string/hardware_keys_power_volume_down_press_title"
+            android:title="@string/hardware_keys_power_volume_down_press_title"
+            android:persistent="false" />
+
+        <com.android.settings.nameless.CustomActionListPreference
+            android:key="power_chord_action_up"
+            android:dialogTitle="@string/hardware_keys_power_volume_up_press_title"
+            android:title="@string/hardware_keys_power_volume_up_press_title"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
  <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >

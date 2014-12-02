@@ -111,12 +111,18 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
 
         boolean hasAnyBindableKey = false;
+        final PreferenceCategory powerCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_POWER);
         final PreferenceCategory homeCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_HOME);
         final PreferenceCategory menuCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_MENU);
 
         mHandler = new Handler();
+
+        if (!hasPowerKey) {
+            prefScreen.removePreference(powerCategory);
+        }
 
         if (hasHomeKey) {
             int defaultLongPressAction = res.getInteger(
