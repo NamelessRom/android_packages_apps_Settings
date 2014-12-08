@@ -47,6 +47,7 @@
     <string name="cpu_features">Processor features</string>
     <!-- Memory -->
     <string name="mem_info">Memory</string>
+<<<<<<< HEAD
     <!-- GPU -->
     <string name="gpu_title" translatable="false">GPU / OpenGL</string>
     <string name="gpu_vendor">GPU vendor</string>
@@ -58,8 +59,44 @@
     <!-- Unaccounted and overcounted battery stats -->
     <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>
     <string name="show_unac_and_overcounted_stats_summary">Show in battery statistics unaccounted and over-counted usage.</string>
+=======
+    <!-- About phone screen, status item label -->
+
+    <!-- Advanced category -->
+    <string name="category_advanced_options_title">Advanced</string>
+
+    <!--Wakeup when plugged/unplugged -->
+    <string name="wakeup_when_plugged_unplugged_title">Wake up on charge</string>
+    <string name="wakeup_when_plugged_unplugged_summary">Turn the screen on when connecting or disconnecting a power source</string>
+
+    <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
+    <string name="font_size_sample">Sample</string>
+
+    <!--Back to kill timeout -->
+    <string name="long_press_kill_delay">App kill delay</string>
+
+    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
+    <string name="show_cpu_info">Show CPU info</string>
+    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
+    <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string>
+
+    <!--Status bar -->
+    <string name="status_bar_category">Status bar</string>
+    <string name="status_bar_battery_show_percent_title">Show battery status percent</string>
+    <string name="lockscreen_show_carrier_title">Lock screen carrier label</string>
+
+    <!--Power menu -->
+    <string name="power_category">Power button</string>
+    <string name="lockscreen_enable_power_menu_title">Show power menu lock screen</string>
+
+    <!-- Touch control -->
+    <string name="touch_control_settings_title">Touch control</string>
+    <string name="touch_control_settings_summary">Manage advance wakeup options including double tap to wake and more</string>
+>>>>>>> 4f76607... Date & time prefs: move status bar clock options into a seperate category
 
     <!-- Status bar | Clock -->
+    <string name="status_bar_clock_category">Status bar</string>
     <string name="status_bar_clock">Clock and date</string>
     <string name="status_bar_clock_title">Clock and date style</string>
     <string name="clock_title_enable">Alignment</string>
