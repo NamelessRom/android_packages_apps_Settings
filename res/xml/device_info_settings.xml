@@ -21,15 +21,9 @@
         <PreferenceScreen android:key="system_update_settings"
                 android:title="@string/system_update_settings_list_item_title"
                 android:summary="@string/system_update_settings_list_item_summary">
-            <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
-        </PreferenceScreen>
-
-
-        <PreferenceScreen android:key="additional_system_update_settings"
-                          android:title="@string/additional_system_update_settings_list_item_title">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="@string/additional_system_update"
-                    android:targetClass="@string/additional_system_update_menu" />
+            <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS"
+                    android:targetPackage="org.namelessrom.ota"
+                    android:targetClass="org.namelessrom.ota.SystemUpdateActivity" />
         </PreferenceScreen>
 
         <!-- Device status - launches activity -->
