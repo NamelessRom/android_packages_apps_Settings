@@ -47,6 +47,7 @@
     <string name="cpu_features">Processor features</string>
     <!-- Memory -->
     <string name="mem_info">Memory</string>
+
     <!-- GPU -->
     <string name="gpu_title" translatable="false">GPU / OpenGL</string>
     <string name="gpu_vendor">GPU vendor</string>
@@ -60,6 +61,7 @@
     <string name="show_unac_and_overcounted_stats_summary">Show in battery statistics unaccounted and over-counted usage.</string>
 
     <!-- Status bar | Clock -->
+    <string name="status_bar_clock_category">Status bar</string>
     <string name="status_bar_clock">Clock and date</string>
     <string name="status_bar_clock_title">Clock and date style</string>
     <string name="clock_title_enable">Alignment</string>

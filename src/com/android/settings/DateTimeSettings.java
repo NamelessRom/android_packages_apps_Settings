@@ -406,6 +406,7 @@ public class DateTimeSettings extends SettingsPreferenceFragment
             set24Hour(is24Hour);
             updateTimeAndDateDisplay(getActivity());
             timeUpdated(is24Hour);
+            mClockAmPmStyle.setEnabled(!is24Hour);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
