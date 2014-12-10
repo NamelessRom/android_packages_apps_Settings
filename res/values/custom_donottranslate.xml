@@ -18,4 +18,6 @@
 
     <string name="category_key_personalization">com.android.settings.category.personalization</string>
 
+    <string name="gpu_title" translatable="false">GPU / OpenGL</string>
+
 </resources>
