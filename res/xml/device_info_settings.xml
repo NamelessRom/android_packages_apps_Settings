@@ -48,6 +48,13 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
+        <!-- Advanced Device Info -->
+        <PreferenceScreen android:key="advanced_device_info"
+            android:fragment="com.android.settings.nameless.AdvancedDeviceInfoSettings"
+            android:title="@string/advanced_device_info_title"
+            android:summary="@string/advanced_device_info_summary">
+        </PreferenceScreen>
+
         <!-- Contributors cloud
         TODO: FIX ME!
         <PreferenceScreen android:key="contributor_cloud"
@@ -139,12 +146,6 @@
         <Preference android:key="baseband_version" 
                 style="?android:preferenceInformationStyle"
                 android:title="@string/baseband_version"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Device Kernel version -->
-        <Preference android:key="kernel_version" 
-                style="?android:preferenceInformationStyle"
-                android:title="@string/kernel_version"
                 android:summary="@string/device_info_default"/>
 
         <!-- Build date -->
