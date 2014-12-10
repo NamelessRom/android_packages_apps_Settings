@@ -89,7 +89,7 @@
                 android:id="@+id/status_bar_settings"
                 android:title="@string/status_bar_title"
                 android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
-                android:icon="@drawable/ic_settings_home"
+                android:icon="@drawable/ic_settings_statusbar"
                 />
 
 
@@ -112,13 +112,6 @@
                 android:title="@string/navigation_bar_pref_title"
                 android:fragment="com.android.settings.nameless.NavigationBarSettings"
                 android:icon="@drawable/ic_settings_navigation_bar"
-                />
-
-        <dashboard-tile
-                android:id="@+id/status_bar_settings"
-                android:title="@string/status_bar_prefs_title"
-                android:fragment="com.android.settings.StatusBarSettings"
-                android:icon="@drawable/ic_settings_statusbar"
                 />
 
         <!-- Display -->
