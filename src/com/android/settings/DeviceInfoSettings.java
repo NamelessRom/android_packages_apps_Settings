@@ -264,13 +264,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                             Toast.LENGTH_SHORT);
                     mDevHitToast.show();
                 }
-            } else if (mDevHitCountdown < 0) {
-                if (mDevHitToast != null) {
-                    mDevHitToast.cancel();
-                }
-                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already_cm,
-                        Toast.LENGTH_LONG);
-                mDevHitToast.show();
             }
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
             sendFeedback();
