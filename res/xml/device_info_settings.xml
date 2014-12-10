@@ -35,6 +35,13 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
+        <!-- Advanced Device Info -->
+        <PreferenceScreen android:key="advanced_device_info"
+            android:fragment="com.android.settings.nameless.AdvancedDeviceInfoSettings"
+            android:title="@string/advanced_device_info_title"
+            android:summary="@string/advanced_device_info_summary">
+        </PreferenceScreen>
+
         <!-- Manual -->
         <PreferenceScreen
                 android:key="manual"
@@ -73,6 +80,18 @@
                 android:title="@string/model_name"
                 android:summary="@string/device_info_default"/>
 
+        <!-- Device Baseband version -->
+        <Preference android:key="baseband_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/baseband_version"
+                android:summary="@string/device_info_default"/>
+
+        <!-- Device FCC equipment id -->
+        <Preference android:key="fcc_equipment_id"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/fcc_equipment_id"
+                android:summary="@string/device_info_default"/>
+
         <!-- Device firmware version -->
         <Preference android:key="firmware_version"
                 style="?android:preferenceInformationStyle"
@@ -96,24 +115,6 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/mod_api_level"
                 android:summary="@string/mod_api_level_default" />
-
-        <!-- Device FCC equipment id -->
-        <Preference android:key="fcc_equipment_id"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/fcc_equipment_id"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Device Baseband version -->
-        <Preference android:key="baseband_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/baseband_version"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Device Kernel version -->
-        <Preference android:key="kernel_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/kernel_version"
-                android:summary="@string/device_info_default"/>
 
         <!-- Build date -->
         <Preference android:key="build_date"
