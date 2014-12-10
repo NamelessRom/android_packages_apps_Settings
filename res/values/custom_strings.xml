@@ -26,7 +26,7 @@
     <string name="advanced_reboot_oneclick">One click reboot</string>
     <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
 
-    <!-- Display desity -->
+    <!-- Display density -->
     <string name="display_density">Display density</string>
     <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
 
@@ -38,4 +38,20 @@
     <string name="navbar_force_enable_summary">May require a reboot</string>
     <string name="hardware_keys_disable_title">Disable hardware keys</string>
     <string name="hardware_keys_disable_summary">Blocks processing of hardware keys and disables them</string>
+
+    <!-- Advanced Device Info -->
+    <string name="advanced_device_info_title">Advanced information</string>
+    <string name="advanced_device_info_summary">Information about CPU, GPU etc.</string>
+    <!-- CPU -->
+    <string name="cpu_info">CPU</string>
+    <string name="cpu_features">Processor features</string>
+    <!-- Memory -->
+    <string name="mem_info">Memory</string>
+    <!-- GPU -->
+    <string name="gpu_title" translatable="false">GPU / OpenGL</string>
+    <string name="gpu_vendor">GPU vendor</string>
+    <string name="gpu_renderer">GPU renderer</string>
+    <string name="gpu_gl_version">OpenGL version</string>
+    <string name="gpu_gl_extensions">OpenGL extensions</string>
+    <string name="gpu_shader_version">Shader version</string>
 </resources>
