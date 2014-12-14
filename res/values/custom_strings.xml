@@ -30,6 +30,9 @@
     <string name="display_density">Display density</string>
     <string name="display_density_summary">Overrides the default display density (0 to disable, requires a reboot)</string>
 
+    <!-- Gestures -->
+    <string name="gesture_title">Gestures</string>
+
     <!-- Navigation bar -->
     <string name="navigation_bar_pref_title">Navigation bar</string>
     <!-- Navigation bar force enable -->
