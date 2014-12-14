@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources>
-
     <string name="mod_version_n">Nameless version</string>
 
     <!-- Advanced Device Info -->
@@ -33,4 +32,7 @@
     <string name="gpu_gl_version">OpenGL version</string>
     <string name="gpu_gl_extensions">OpenGL extensions</string>
     <string name="gpu_shader_version">Shader version</string>
+
+    <!-- Disable Camera Shutter Sound -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
 </resources>
