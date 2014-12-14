@@ -17,6 +17,24 @@
 -->
 <resources>
   <string name="mod_version_n">Nameless versie</string>
+  <string name="advanced_reboot_oneclick">Met één klik opnieuw opstarten</string>
+  <string name="advanced_reboot_oneclick_summary">Meteen opnieuw opstarten</string>
+  <string name="display_density">Scherm dichtheid</string>
+  <string name="display_density_summary">Overschrijft de standaard scherm dichtheid (0 om te schakelen, vereist een reboot)</string>
+  <string name="navigation_bar_pref_title">Navigatiebalk</string>
+  <string name="navigation_bar_simulate_category">Simuleren van navigatiebalk</string>
   <string name="navbar_force_enable_title">Navigatiebalk forceren</string>
+  <string name="navbar_force_enable_summary">Kan een herstart vereisen</string>
+  <string name="hardware_keys_disable_title">Hardware toetsen uitschakelen</string>
+  <string name="hardware_keys_disable_summary">Blokkeer verwerking van hardware toetsen en schakel deze uit</string>
+  <string name="advanced_device_info_title">Geavanceerde informatie</string>
   <string name="advanced_device_info_summary">Informatie over CPU, GPU enz.</string>
+  <string name="cpu_info">CPU</string>
+  <string name="cpu_features">Processorfuncties</string>
+  <string name="mem_info">Geheugen</string>
+  <string name="gpu_vendor">GPU leverancier</string>
+  <string name="gpu_renderer">GPU Renderer</string>
+  <string name="gpu_gl_version">OpenGL versie</string>
+  <string name="gpu_gl_extensions">OpenGL-extensies</string>
+  <string name="gpu_shader_version">Shader versie</string>
 </resources>
