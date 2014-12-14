@@ -17,9 +17,26 @@
 -->
 <resources>
   <string name="mod_version_n">Version Nameless</string>
+  <string name="advanced_reboot_oneclick">Redémarrage rapide</string>
+  <string name="advanced_reboot_oneclick_summary">Déclenche un redémarrage instantané</string>
+  <string name="display_density">Densité d\'affichage</string>
+  <string name="display_density_summary">Remplace la valeur par défaut (0 pour désactiver, nécessite un redémarrage)</string>
+  <string name="navigation_bar_pref_title">Barre de navigation</string>
+  <string name="navigation_bar_simulate_category">Barre de navigation sur l\'écran</string>
   <string name="navbar_force_enable_title">Forcer la barre de navigation</string>
   <string name="navbar_force_enable_summary">Peut nécessiter un redémarrage</string>
   <string name="hardware_keys_disable_title">Désactiver les touches matérielles</string>
   <string name="hardware_keys_disable_summary">Bloque les actions par les touches matérielles et les désactive</string>
+  <string name="advanced_device_info_title">Informations avancées</string>
   <string name="advanced_device_info_summary">Informations sur le CPU, GPU etc.</string>
+  <string name="cpu_info">CPU</string>
+  <string name="cpu_features">Caractéristiques du processeur</string>
+  <string name="mem_info">Mémoire</string>
+  <string name="gpu_vendor">Fabriquant GPU</string>
+  <string name="gpu_renderer">Moteur de rendu GPU</string>
+  <string name="gpu_gl_version">Version d\'OpenGL</string>
+  <string name="gpu_gl_extensions">Extensions OpenGL</string>
+  <string name="gpu_shader_version">Version du Shader</string>
+  <string name="show_unac_and_overcounted_stats_title">Afficher les statistiques ignorées/surestimées</string>
+  <string name="show_unac_and_overcounted_stats_summary">Afficher dans les statistiques de batterie les usages inconnus, sous le nom \"Divers\".</string>
 </resources>

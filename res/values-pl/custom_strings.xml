@@ -21,11 +21,16 @@
   <string name="advanced_reboot_oneclick_summary">Natychmiastowo wyzwól ponowne uruchomienie</string>
   <string name="display_density">Wyświetlacz gęstości</string>
   <string name="display_density_summary">Zastępuje domyślne wyświetlanie gęstości (0, aby wyłączyć, wymaga ponownego uruchomienia)</string>
+  <string name="navigation_bar_pref_title">Pasek nawigacyjny</string>
+  <string name="navigation_bar_simulate_category">Symulowany pasek nawigacyjny</string>
   <string name="navbar_force_enable_title">Wymuś pasek nawigacji</string>
   <string name="navbar_force_enable_summary">Może wymagać ponownego uruchomienia</string>
   <string name="hardware_keys_disable_title">Wyłącz klawisze sprzętowe</string>
   <string name="hardware_keys_disable_summary">Zatrzymuje działania klawiszy sprzętowych i wyłącza je</string>
+  <string name="advanced_device_info_title">Zaawansowane informacje</string>
   <string name="advanced_device_info_summary">Informacje o CPU, GPU itp.</string>
+  <string name="cpu_info">CPU</string>
+  <string name="cpu_features">Funkcje procesora</string>
   <string name="mem_info">Pamięć RAM</string>
   <string name="gpu_vendor">Producent GPU</string>
   <string name="gpu_renderer">GPU Renderer</string>
