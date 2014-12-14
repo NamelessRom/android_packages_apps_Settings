@@ -31,6 +31,7 @@ import com.android.settings.hardware.DisplayColor;
 import com.android.settings.hardware.DisplayGamma;
 import com.android.settings.hardware.VibratorIntensity;
 import com.android.settings.location.LocationSettings;
+import com.android.settings.nameless.GestureSettings;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,5 +47,6 @@ public class BootReceiver extends BroadcastReceiver {
         DisplayColor.restore(ctx);
         DisplayGamma.restore(ctx);
         VibratorIntensity.restore(ctx);
+        GestureSettings.restore(ctx);
     }
 }
