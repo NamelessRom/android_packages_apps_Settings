@@ -21,10 +21,13 @@
   <string name="advanced_reboot_oneclick_summary">Ação de reínicio instantâneo</string>
   <string name="display_density">Densidade de exibição</string>
   <string name="display_density_summary">Substitui a densidade de exibição padrão (0 para desativar, requer reinicialização)</string>
+  <string name="navigation_bar_pref_title">Barra de navegação</string>
+  <string name="navigation_bar_simulate_category">Simular a barra de navegação</string>
   <string name="navbar_force_enable_title">Forçar a barra de navegação</string>
   <string name="navbar_force_enable_summary">Poderia requerer de um reinicio</string>
   <string name="hardware_keys_disable_title">Desactivar as teclas físicas</string>
   <string name="hardware_keys_disable_summary">Processado do bloqueio das teclas físicas e sua desativação</string>
+  <string name="advanced_device_info_title">Informações avançadas</string>
   <string name="advanced_device_info_summary">Informação sobre a CPU, GPU, etc.</string>
   <string name="cpu_info">CPU</string>
   <string name="mem_info">Memória</string>

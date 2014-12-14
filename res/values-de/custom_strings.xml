@@ -37,4 +37,6 @@
   <string name="gpu_gl_version">OpenGL-Version</string>
   <string name="gpu_gl_extensions">OpenGL-Erweiterungen</string>
   <string name="gpu_shader_version">Shader-Version</string>
+  <string name="show_unac_and_overcounted_stats_title">Nicht zuweisbaren Batterieverbrauch anzeigen</string>
+  <string name="show_unac_and_overcounted_stats_summary">Zeigt nicht direkt zuweisbare Batterieverbrauchsinformationen an.</string>
 </resources>
