@@ -37,4 +37,6 @@
   <string name="gpu_gl_version">OpenGL versie</string>
   <string name="gpu_gl_extensions">OpenGL-extensies</string>
   <string name="gpu_shader_version">Shader versie</string>
+  <string name="show_unac_and_overcounted_stats_title">Toon vermist en overdreven verbruik</string>
+  <string name="show_unac_and_overcounted_stats_summary">Toon in de batterij statistieken vermist en overdreven verbruik.</string>
 </resources>

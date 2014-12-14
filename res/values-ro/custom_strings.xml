@@ -21,11 +21,15 @@
   <string name="advanced_reboot_oneclick_summary">Declanșează instantaneu acțiunea de repornire</string>
   <string name="display_density">Densitatea afișajului</string>
   <string name="display_density_summary">Suprascrie densitatea afişajului implicit (0 pentru a dezactiva, necesită o repornire)</string>
+  <string name="navigation_bar_pref_title">Bara de navigaţie</string>
+  <string name="navigation_bar_simulate_category">Simulează bara de navigație</string>
   <string name="navbar_force_enable_title">Forţeaza bara de navigaţie</string>
   <string name="navbar_force_enable_summary">Poate necesita o repornire</string>
   <string name="hardware_keys_disable_title">Dezactivează tastele fizice</string>
   <string name="hardware_keys_disable_summary">Blochează procesarea tastelor fizice şi le dezactivează</string>
+  <string name="advanced_device_info_title">Informaţii avansate</string>
   <string name="advanced_device_info_summary">Informaţii despre CPU, GPU etc.</string>
+  <string name="cpu_info">Procesor</string>
   <string name="mem_info">Memorie</string>
   <string name="gpu_vendor">Furnizor de GPU</string>
   <string name="gpu_renderer">Randator GPU-ului</string>
