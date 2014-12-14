@@ -58,4 +58,7 @@
     <!-- Unaccounted and overcounted battery stats -->
     <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>
     <string name="show_unac_and_overcounted_stats_summary">Show in battery statistics unaccounted and over-counted usage.</string>
+
+    <!-- Disable Camera Shutter Sound -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
 </resources>
