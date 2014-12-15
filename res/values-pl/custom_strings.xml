@@ -37,4 +37,7 @@
   <string name="gpu_gl_version">Wersja OpenGL</string>
   <string name="gpu_gl_extensions">Rozszerzenia OpenGL</string>
   <string name="gpu_shader_version">Wersja modułu cieniującego</string>
+  <string name="show_unac_and_overcounted_stats_title">Pokaż statystyki sprawdzone / niesprawdzone</string>
+  <string name="show_unac_and_overcounted_stats_summary">Pokaż w statystykach baterii użycie sprawdzone i niesprawdzone.</string>
+  <string name="camera_sounds_title">Dźwięk migawki aparatu</string>
 </resources>
