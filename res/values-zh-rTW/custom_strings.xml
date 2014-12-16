@@ -17,4 +17,24 @@
 -->
 <resources>
   <string name="mod_version_n">Nameless 版本</string>
+  <string name="advanced_reboot_oneclick">一鍵重啟</string>
+  <string name="advanced_reboot_oneclick_summary">立即觸發重新開機</string>
+  <string name="display_density">顯示器密度</string>
+  <string name="display_density_summary">重寫預設顯示密度 (0則禁用，需要重新開機)</string>
+  <string name="navigation_bar_pref_title">導航欄</string>
+  <string name="navigation_bar_simulate_category">虛擬導航欄</string>
+  <string name="navbar_force_enable_title">強制導航欄</string>
+  <string name="navbar_force_enable_summary">可能需要重新開機</string>
+  <string name="hardware_keys_disable_title">禁用硬體鍵</string>
+  <string name="advanced_device_info_title">進階資訊</string>
+  <string name="advanced_device_info_summary">與CPU、 GPU 等有關的資訊。</string>
+  <string name="cpu_info">CPU</string>
+  <string name="cpu_features">處理器功能</string>
+  <string name="mem_info">記憶體</string>
+  <string name="gpu_vendor">GPU 供應商</string>
+  <string name="gpu_renderer">GPU 渲染器</string>
+  <string name="gpu_gl_version">OpenGL 版本</string>
+  <string name="gpu_gl_extensions">OpenGL 擴展</string>
+  <string name="gpu_shader_version">著色器版本</string>
+  <string name="camera_sounds_title">相機快門聲</string>
 </resources>

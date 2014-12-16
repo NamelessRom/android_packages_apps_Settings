@@ -30,10 +30,14 @@
   <string name="advanced_device_info_title">Informações avançadas</string>
   <string name="advanced_device_info_summary">Informação sobre a CPU, GPU, etc.</string>
   <string name="cpu_info">CPU</string>
+  <string name="cpu_features">Recursos do processador</string>
   <string name="mem_info">Memória</string>
   <string name="gpu_vendor">Fornecedor GPU</string>
   <string name="gpu_renderer">Renderizador da GPU</string>
   <string name="gpu_gl_version">Versão do OpenGL</string>
   <string name="gpu_gl_extensions">Extensões OpenGL</string>
   <string name="gpu_shader_version">Versão de Shader</string>
+  <string name="show_unac_and_overcounted_stats_title">Mostrar estatistiscas não contabilizadas/excessivas</string>
+  <string name="show_unac_and_overcounted_stats_summary">Mostrar nas estatísticas da bateria as utilizações não contabilizadas/excessivas.</string>
+  <string name="camera_sounds_title">Som de captura da câmara</string>
 </resources>
