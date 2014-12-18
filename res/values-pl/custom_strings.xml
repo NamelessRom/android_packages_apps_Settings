@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Natychmiastowo wyzwól ponowne uruchomienie</string>
   <string name="display_density">Wyświetlacz gęstości</string>
   <string name="display_density_summary">Zastępuje domyślne wyświetlanie gęstości (0, aby wyłączyć, wymaga ponownego uruchomienia)</string>
+  <string name="gesture_title">Gesty</string>
   <string name="navigation_bar_pref_title">Pasek nawigacyjny</string>
   <string name="navigation_bar_simulate_category">Symulowany pasek nawigacyjny</string>
   <string name="navbar_force_enable_title">Wymuś pasek nawigacji</string>

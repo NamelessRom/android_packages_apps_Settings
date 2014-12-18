@@ -17,9 +17,28 @@
 -->
 <resources>
   <string name="mod_version_n">Nameless sürümü</string>
+  <string name="advanced_reboot_oneclick">Tek bir tıklama ile yeniden başlat</string>
+  <string name="advanced_reboot_oneclick_summary">Anında tetikleyici yeniden başlatma eylem</string>
+  <string name="display_density">Görüntü yoğunluğu</string>
+  <string name="display_density_summary">Varsayılan ekran yoğunluğu geçersiz kılar (0 devre dışı bırakmak için yeniden başlatma gerektirir)</string>
+  <string name="gesture_title">Hareketler</string>
+  <string name="navigation_bar_pref_title">Gezinti çubuğu</string>
+  <string name="navigation_bar_simulate_category">Gezinti çubuğu simülasyonu</string>
   <string name="navbar_force_enable_title">Gezinti çubuğunu başlat</string>
   <string name="navbar_force_enable_summary">Bir yeniden başlatma gerektirebilir</string>
   <string name="hardware_keys_disable_title">Donanım tuşları devredışı olsun</string>
   <string name="hardware_keys_disable_summary">Altta yer alan blok donanım tuşlarını devre dışı bırakmaya yarar</string>
+  <string name="advanced_device_info_title">Gelişmiş bilgiler</string>
   <string name="advanced_device_info_summary">CPU, GPU vb. hakkında bilgi sağlar.</string>
+  <string name="cpu_info">İşlemci</string>
+  <string name="cpu_features">İşlemci özellikleri</string>
+  <string name="mem_info">Hafıza</string>
+  <string name="gpu_vendor">GPU sağlayıcı</string>
+  <string name="gpu_renderer">GPU Oluşturucu</string>
+  <string name="gpu_gl_version">OpenGL sürümü</string>
+  <string name="gpu_gl_extensions">OpenGL uzantısı</string>
+  <string name="gpu_shader_version">Shader versiyonu</string>
+  <string name="show_unac_and_overcounted_stats_title">Kaydedilmemiş / sayılmamış istatistikleri göster</string>
+  <string name="show_unac_and_overcounted_stats_summary">Pil istatiklerinde kaydedilmemiş ve fazla sayılmış kullanımları göster.</string>
+  <string name="camera_sounds_title">Kamera deklanşör sesi</string>
 </resources>

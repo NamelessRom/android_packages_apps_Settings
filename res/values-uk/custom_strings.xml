@@ -19,6 +19,7 @@
   <string name="mod_version_n">Версія Nameless</string>
   <string name="advanced_reboot_oneclick">Натисніть щоб перезавантажити</string>
   <string name="advanced_reboot_oneclick_summary">Дії які миттєво перезавантажать пристрій</string>
+  <string name="gesture_title">Жести</string>
   <string name="navbar_force_enable_title">Примусово показувати панель навігації</string>
   <string name="navbar_force_enable_summary">Може знадобитися перезавантаження</string>
   <string name="hardware_keys_disable_title">Вимкнути апаратні кнопки</string>

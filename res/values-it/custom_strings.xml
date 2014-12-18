@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Innesca istantaneamente un\'azione di riavvio</string>
   <string name="display_density">Visualizzare la densità</string>
   <string name="display_density_summary">Sostituisci la densità predefinita dello schermo (0 per disabilitare, richiede un riavvio)</string>
+  <string name="gesture_title">Gesti</string>
   <string name="navigation_bar_pref_title">Barra di navigazione</string>
   <string name="navigation_bar_simulate_category">Simulare la barra di navigazione</string>
   <string name="navbar_force_enable_title">Forza Barra di navigazione</string>

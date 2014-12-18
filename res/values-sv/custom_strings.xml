@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Omedelbar omstart</string>
   <string name="display_density">Skärmdensitet</string>
   <string name="display_density_summary">Åsidosätter standard display densiteten (0 inaktiverar, kräver en omstart)</string>
+  <string name="gesture_title">Gester</string>
   <string name="navigation_bar_pref_title">Navigationfält</string>
   <string name="navigation_bar_simulate_category">Simulera navigeringsfält</string>
   <string name="navbar_force_enable_title">Kräver navigeringsfält</string>

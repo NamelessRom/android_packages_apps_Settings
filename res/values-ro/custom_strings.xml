@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Declanșează instantaneu acțiunea de repornire</string>
   <string name="display_density">Densitatea afișajului</string>
   <string name="display_density_summary">Suprascrie densitatea afişajului implicit (0 pentru a dezactiva, necesită o repornire)</string>
+  <string name="gesture_title">Gesturi</string>
   <string name="navigation_bar_pref_title">Bara de navigaţie</string>
   <string name="navigation_bar_simulate_category">Simulează bara de navigație</string>
   <string name="navbar_force_enable_title">Forţeaza bara de navigaţie</string>

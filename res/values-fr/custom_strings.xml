@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Déclenche un redémarrage instantané</string>
   <string name="display_density">Densité d\'affichage</string>
   <string name="display_density_summary">Remplace la valeur par défaut (0 pour désactiver, nécessite un redémarrage)</string>
+  <string name="gesture_title">Gestes</string>
   <string name="navigation_bar_pref_title">Barre de navigation</string>
   <string name="navigation_bar_simulate_category">Barre de navigation sur l\'écran</string>
   <string name="navbar_force_enable_title">Forcer la barre de navigation</string>

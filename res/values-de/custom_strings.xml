@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Neustart-Aktion bei Auswahl sofort auslösen</string>
   <string name="display_density">Bildschirmauflösung</string>
   <string name="display_density_summary">Überschreibt die Bildschirmauflösung (0 zum Deaktivieren, ein Neustart ist erforderlich)</string>
+  <string name="gesture_title">Gesten</string>
   <string name="navigation_bar_pref_title">Navigationsleiste</string>
   <string name="navigation_bar_simulate_category">Navigationsleiste simulieren</string>
   <string name="navbar_force_enable_title">Erzwinge Navigationsleiste</string>

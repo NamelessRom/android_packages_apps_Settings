@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Kích hoạt khởi động tức thì</string>
   <string name="display_density">Mật độ hiển thị</string>
   <string name="display_density_summary">Bỏ qua mật độ hiển thị mặc định (0 để vô hiệu hóa, yêu cầu khởi động lại)</string>
+  <string name="gesture_title">Cử chỉ</string>
   <string name="navigation_bar_pref_title">Thanh điều hướng</string>
   <string name="navigation_bar_simulate_category">Thanh điều hướng ảo</string>
   <string name="navbar_force_enable_title">Bắt buộc dùng thanh điều hướng</string>

@@ -19,6 +19,7 @@
   <string name="mod_version_n">Версия Nameless</string>
   <string name="advanced_reboot_oneclick">Перезагрузка в один клик</string>
   <string name="advanced_reboot_oneclick_summary">Мгновенно вызывать перезагрузку устройства</string>
+  <string name="gesture_title">Жесты</string>
   <string name="navbar_force_enable_title">Принудительно показывать панель навигации</string>
   <string name="navbar_force_enable_summary">Может потребоваться перезагрузка</string>
   <string name="hardware_keys_disable_title">Отключение аппаратных клавиш</string>

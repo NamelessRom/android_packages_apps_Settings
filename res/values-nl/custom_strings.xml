@@ -21,6 +21,7 @@
   <string name="advanced_reboot_oneclick_summary">Meteen opnieuw opstarten</string>
   <string name="display_density">Scherm dichtheid</string>
   <string name="display_density_summary">Overschrijft de standaard scherm dichtheid (0 om uit te schakelen, vereist een reboot)</string>
+  <string name="gesture_title">Gebaren</string>
   <string name="navigation_bar_pref_title">Navigatiebalk</string>
   <string name="navigation_bar_simulate_category">Simuleren van navigatiebalk</string>
   <string name="navbar_force_enable_title">Navigatiebalk forceren</string>
