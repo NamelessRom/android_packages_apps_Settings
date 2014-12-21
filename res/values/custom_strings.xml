@@ -92,4 +92,9 @@
     <string name="lockgesture_too_many_failed_confirmation_attempts_header">Too many incorrect attempts!</string>
     <string name="lockgesture_too_many_failed_confirmation_attempts_footer">Try again in <xliff:g id="number">%d</xliff:g> seconds.</string>
     <string name="lockpassword_confirm_your_gesture_header">Confirm your gesture</string>
+
+    <!-- App Circle sidebar -->
+    <string name="app_circle_bar_title">App circle bar</string>
+    <string name="app_circle_bar_summary">Show circle app launcher after touching right side of screen</string>
+    <string name="app_circle_bar_included_apps_title">Included applications</string>
 </resources>
