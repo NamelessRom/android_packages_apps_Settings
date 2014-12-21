@@ -29,6 +29,11 @@
             android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
     </Preference>
 
+    <PreferenceScreen
+        android:key="app_circle_bar"
+        android:fragment="com.android.settings.nameless.AppCircleBar"
+        android:title="@string/app_circle_bar_title"/>
+
     <PreferenceCategory
         android:key="category_gestures"
         android:title="@string/gesture_title">
