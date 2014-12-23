@@ -27,17 +27,6 @@
             android:title="@*android:string/bugreport_title"
             android:dialogTitle="@*android:string/bugreport_title" />
 
-    <PreferenceScreen
-            android:key="local_backup_password"
-            android:title="@string/local_backup_password_title"
-            android:summary="@string/local_backup_password_summary_none"
-            android:persistent="false" >
-        <intent
-                android:action="android.settings.privacy.SET_FULL_BACKUP_PASSWORD"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.SetFullBackupPassword" />
-    </PreferenceScreen>
-
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/advanced_reboot_title"
@@ -48,6 +37,22 @@
         android:title="@string/advanced_reboot_oneclick"
         android:summary="@string/advanced_reboot_oneclick_summary"
         android:dependency="advanced_reboot"/>
+
+    <SwitchPreference
+        android:key="enable_quickboot"
+        android:title="@string/enable_quickboot_title"
+        android:summary="@string/enable_quickboot_summary" />
+
+    <PreferenceScreen
+            android:key="local_backup_password"
+            android:title="@string/local_backup_password_title"
+            android:summary="@string/local_backup_password_summary_none"
+            android:persistent="false" >
+        <intent
+                android:action="android.settings.privacy.SET_FULL_BACKUP_PASSWORD"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.SetFullBackupPassword" />
+    </PreferenceScreen>
 
     <SwitchPreference
         android:key="keep_screen_on"
@@ -76,11 +81,6 @@
             android:summary="@string/process_stats_summary"
             android:fragment="com.android.settings.applications.ProcessStatsUi">
     </PreferenceScreen>
-
-    <SwitchPreference
-        android:key="enable_quickboot"
-        android:title="@string/enable_quickboot_title"
-        android:summary="@string/enable_quickboot_summary" />
 
     <ListPreference
         android:key="root_access"
