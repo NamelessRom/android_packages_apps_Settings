@@ -16,15 +16,24 @@
 
 package com.android.settings.nameless;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
+import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 
-public class NavigationBarSettings extends SettingsPreferenceFragment {
-
+public class NavigationBarSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
     private static final String CATEGORY_NAV_BAR_SIMULATE = "navigation_bar_simulate";
+
+    private static final String KEY_HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
+
+    private static final String PREF_BUTTON_BACKLIGHT = "pref_navbar_button_backlight";
+
+    private SystemSettingSwitchPreference mHardwareKeysDisable;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,7 +42,13 @@ public class NavigationBarSettings extends SettingsPreferenceFragment {
 
         final boolean hasRealNavigationBar = getResources()
                 .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
-        if (hasRealNavigationBar) { // only disable on devices with REAL navigation bars
+
+        // only disable on devices with REAL navigation bars
+        if (!hasRealNavigationBar) {
+            mHardwareKeysDisable =
+                    (SystemSettingSwitchPreference) findPreference(KEY_HARDWARE_KEYS_DISABLE);
+            mHardwareKeysDisable.setOnPreferenceChangeListener(this);
+        } else {
             final Preference pref = findPreference(CATEGORY_NAV_BAR_SIMULATE);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
@@ -41,4 +56,33 @@ public class NavigationBarSettings extends SettingsPreferenceFragment {
         }
     }
 
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (mHardwareKeysDisable == preference) {
+            final boolean enabled = (Boolean) newValue;
+            final SharedPreferences prefs = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity());
+            final int defaultBrightness = getResources().getInteger(
+                    com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
+
+            final SharedPreferences.Editor editor = prefs.edit();
+
+            if (enabled) {
+                final int currentBrightness = Settings.System.getInt(getContentResolver(),
+                        Settings.System.BUTTON_BRIGHTNESS, defaultBrightness);
+                if (!prefs.contains(PREF_BUTTON_BACKLIGHT)) {
+                    editor.putInt(PREF_BUTTON_BACKLIGHT, currentBrightness);
+                }
+                Settings.System.putInt(getContentResolver(), Settings.System.BUTTON_BRIGHTNESS, 0);
+            } else {
+                Settings.System.putInt(getContentResolver(), Settings.System.BUTTON_BRIGHTNESS,
+                        prefs.getInt(PREF_BUTTON_BACKLIGHT, defaultBrightness));
+                editor.remove(PREF_BUTTON_BACKLIGHT);
+            }
+            editor.commit();
+            return true;
+        }
+
+        return false;
+    }
 }
