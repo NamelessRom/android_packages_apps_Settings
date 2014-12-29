@@ -135,7 +135,7 @@
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="volume_wake_screen"
             android:title="@string/button_wake_title"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="volbtn_music_controls"
