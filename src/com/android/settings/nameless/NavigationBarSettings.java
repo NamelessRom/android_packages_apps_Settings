@@ -30,10 +30,12 @@ import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 public class NavigationBarSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
     private static final String CATEGORY_NAV_BAR_SIMULATE = "navigation_bar_simulate";
 
+    private static final String KEY_FORCE_ENABLE_NAVBAR = "navbar_force_enable";
     private static final String KEY_HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
 
     private static final String PREF_BUTTON_BACKLIGHT = "pref_navbar_button_backlight";
 
+    private SystemSettingSwitchPreference mForceEnableNavbar;
     private SystemSettingSwitchPreference mHardwareKeysDisable;
 
     private Handler mHandler;
@@ -48,6 +50,9 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
 
         // only disable on devices with REAL navigation bars
         if (!hasRealNavigationBar) {
+            mForceEnableNavbar =
+                    (SystemSettingSwitchPreference) findPreference(KEY_FORCE_ENABLE_NAVBAR);
+            mForceEneableNavbar.setOnPreferenceChangeListener(this);
             mHardwareKeysDisable =
                     (SystemSettingSwitchPreference) findPreference(KEY_HARDWARE_KEYS_DISABLE);
             mHardwareKeysDisable.setOnPreferenceChangeListener(this);
@@ -63,9 +68,16 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (mHardwareKeysDisable == preference) {
-            mHardwareKeysDisable.setEnabled(false);
-
+        if (mForceEnableNavbar == preference) {
+            mForceEnableNavbar.setEnabled(false);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mForceEnableNavbar.setEnabled(true);
+                }
+            }, 1000);
+            return true;
+        } else if (mHardwareKeysDisable == preference) {
             final boolean enabled = (Boolean) newValue;
             final SharedPreferences prefs = PreferenceManager
                     .getDefaultSharedPreferences(getActivity());
@@ -90,13 +102,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 }
             }
             editor.commit();
-
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mHardwareKeysDisable.setEnabled(true);
-                }
-            }, 1000);
             return true;
         }
 
