@@ -33,7 +33,7 @@
             android:key="hardware_keys_disable"
             android:title="@string/hardware_keys_disable_title"
             android:summary="@string/hardware_keys_disable_summary"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:dependency="navbar_force_enable" />
 
     </PreferenceCategory>
