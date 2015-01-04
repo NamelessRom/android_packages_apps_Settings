@@ -26,6 +26,14 @@
             android:disableDependentsState="true"
             android:persistent="false" />
 
+    <!-- Block on lockscreen -->
+    <SwitchPreference
+            android:key="block_on_lockscreen"
+            android:title="@string/app_notification_block_on_lockscreen_title"
+            android:summary="@string/app_notification_block_on_lockscreen_summary"
+            android:dependency="block"
+            android:persistent="false" />
+
     <!-- Priority -->
     <SwitchPreference
             android:key="priority"

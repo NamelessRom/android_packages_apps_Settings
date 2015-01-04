@@ -62,4 +62,16 @@
     <string name="camera_sounds_title">Camera shutter sound</string>
 
     <string name="long_press_kill_delay">App kill delay</string>
+
+    <!-- [CHAR LIMIT=30] Manage applications, title for dialog when disabling lockscreen notifications for an app -->
+    <string name="app_disable_lockscreen_notifications_dlg_title">Turn off lockscreen notifications?</string>
+    <!-- [CHAR LIMIT=200] Manage applications, text for dialog when disabling lockscreen notifications for an app -->
+    <string name="app_disable_lockscreen_notifications_dlg_text">If you turn off lockscreen notifications for this app, they will not show on the lockscreen but still on the statusbar.</string>
+    <!-- Label for are-lockscreen-notifications-enabled checkbox in app details [CHAR LIMIT=20] -->
+    <string name="app_lockscreen_notifications_switch_label">Lockscreen notifications</string>
+    <!-- [CHAR LIMIT=NONE] App notification settings: Block on lockscreen option title -->
+    <string name="app_notification_block_on_lockscreen_title">Block on lockscreen</string>
+
+    <!-- [CHAR LIMIT=NONE] App notification settings: Block option description-->
+    <string name="app_notification_block_on_lockscreen_summary">Do not show notifications from this app on the lockscreen</string>
 </resources>
