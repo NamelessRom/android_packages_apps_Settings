@@ -55,18 +55,18 @@
                 android:id="@+id/more_control_buttons_panel"/>
 
             <!-- Ban notifications for this package -->
-            <CheckBox android:id="@+id/notification_switch"
+            <Switch android:id="@+id/notification_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
+                android:layout_gravity="end"
                 android:layout_marginTop="4dip"
                 android:text="@string/app_notifications_switch_label" />
 
             <!-- Ban lockscreen notifications for this package -->
-            <CheckBox android:id="@+id/lockscreen_notification_switch"
+            <Switch android:id="@+id/lockscreen_notification_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
+                android:layout_gravity="end"
                 android:layout_marginTop="4dip"
                 android:text="@string/app_lockscreen_notifications_switch_label" />
 
@@ -383,38 +383,6 @@
                     android:text="@string/clear_activities" />
             </LinearLayout>
         </RelativeLayout>
-
-        <!-- Screen compatibility section -->
-        <LinearLayout android:id="@+id/screen_compatibility_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            <TextView
-                style="?android:attr/listSeparatorTextViewStyle"
-                android:layout_marginTop="8dip"
-                android:text="@string/screen_compatibility_label" />
-
-            <TextView android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_alignParentStart="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="6dip"
-                android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-                android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-                android:text="@string/screen_compatibility_text"/>
-            <CheckBox android:id="@+id/ask_compatibility_cb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dip"
-                android:layout_gravity="start"
-                android:text="@string/ask_compatibility" />
-            <CheckBox android:id="@+id/enable_compatibility_cb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dip"
-                android:layout_gravity="start"
-                android:text="@string/enable_compatibility" />
-        </LinearLayout>
 
         <!-- Permissions section -->
         <LinearLayout

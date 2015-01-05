@@ -79,11 +79,11 @@ import android.widget.AdapterView;
 import android.widget.AppSecurityPermissions;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import com.android.settings.cyanogenmod.ProtectedAppsReceiver;
 
@@ -97,7 +97,7 @@ import com.android.settings.cyanogenmod.ProtectedAppsReceiver;
  * uninstall the application.
  */
 public class InstalledAppDetails extends Fragment
-        implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
+        implements View.OnClickListener, Switch.OnCheckedChangeListener,
         ApplicationsState.Callbacks {
     private static final String TAG="InstalledAppDetails";
     private static final boolean localLOGV = false;
@@ -123,9 +123,6 @@ public class InstalledAppDetails extends Fragment
     private boolean mMoveInProgress = false;
     private boolean mUpdatedSysApp = false;
     private Button mActivitiesButton;
-    private View mScreenCompatSection;
-    private CheckBox mAskCompatibilityCB;
-    private CheckBox mEnableCompatibilityCB;
     private boolean mCanClearData = true;
     private boolean mAppControlRestricted = false;
     private TextView mAppVersion;
@@ -142,8 +139,8 @@ public class InstalledAppDetails extends Fragment
     private Button mForceStopButton;
     private Button mClearDataButton;
     private Button mMoveAppButton;
-    private CompoundButton mNotificationSwitch;
-    private CompoundButton mLockscreenNotificationSwitch;
+    private Switch mNotificationSwitch;
+    private Switch mLockscreenNotificationSwitch;
 
     private PackageMoveObserver mPackageMoveObserver;
 
@@ -539,14 +536,9 @@ public class InstalledAppDetails extends Fragment
         mClearCacheButton = (Button) view.findViewById(R.id.clear_cache_button);
 
         mActivitiesButton = (Button) view.findViewById(R.id.clear_activities_button);
-        
-        // Screen compatibility control
-        mScreenCompatSection = view.findViewById(R.id.screen_compatibility_section);
-        mAskCompatibilityCB = (CheckBox) view.findViewById(R.id.ask_compatibility_cb);
-        mEnableCompatibilityCB = (CheckBox) view.findViewById(R.id.enable_compatibility_cb);
-        
-        mNotificationSwitch = (CompoundButton) view.findViewById(R.id.notification_switch);
-        mLockscreenNotificationSwitch = (CompoundButton) view.findViewById(R.id.lockscreen_notification_switch);
+
+        mNotificationSwitch = (Switch) view.findViewById(R.id.notification_switch);
+        mLockscreenNotificationSwitch = (Switch) view.findViewById(R.id.lockscreen_notification_switch);
 
         return view;
     }
@@ -864,23 +856,6 @@ public class InstalledAppDetails extends Fragment
             autoLaunchView.setText(text);
             mActivitiesButton.setEnabled(true);
             mActivitiesButton.setOnClickListener(this);
-        }
-
-        // Screen compatibility section.
-        ActivityManager am = (ActivityManager)
-                getActivity().getSystemService(Context.ACTIVITY_SERVICE);
-        int compatMode = am.getPackageScreenCompatMode(packageName);
-        // For now these are always off; this is the old UI model which we
-        // are no longer using.
-        if (false && (compatMode == ActivityManager.COMPAT_MODE_DISABLED
-                || compatMode == ActivityManager.COMPAT_MODE_ENABLED)) {
-            mScreenCompatSection.setVisibility(View.VISIBLE);
-            mAskCompatibilityCB.setChecked(am.getPackageAskScreenCompat(packageName));
-            mAskCompatibilityCB.setOnCheckedChangeListener(this);
-            mEnableCompatibilityCB.setChecked(compatMode == ActivityManager.COMPAT_MODE_ENABLED);
-            mEnableCompatibilityCB.setOnCheckedChangeListener(this);
-        } else {
-            mScreenCompatSection.setVisibility(View.GONE);
         }
 
         // Security permissions section
@@ -1544,15 +1519,7 @@ public class InstalledAppDetails extends Fragment
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        String packageName = mAppEntry.info.packageName;
-        ActivityManager am = (ActivityManager)
-                getActivity().getSystemService(Context.ACTIVITY_SERVICE);
-        if (buttonView == mAskCompatibilityCB) {
-            am.setPackageAskScreenCompat(packageName, isChecked);
-        } else if (buttonView == mEnableCompatibilityCB) {
-            am.setPackageScreenCompatMode(packageName, isChecked ?
-                    ActivityManager.COMPAT_MODE_ENABLED : ActivityManager.COMPAT_MODE_DISABLED);
-        } else if (buttonView == mNotificationSwitch) {
+        if (buttonView == mNotificationSwitch) {
             if (!isChecked) {
                 showDialogInner(DLG_DISABLE_NOTIFICATIONS, 0);
             } else {
