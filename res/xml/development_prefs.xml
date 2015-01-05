@@ -89,6 +89,12 @@
         android:entries="@array/root_access_entries"
         android:entryValues="@array/root_access_values" />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="show_su_icon"
+        android:title="@string/su_indicator"
+        android:summary="@string/su_indicator_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory android:key="debug_debugging_category"
             android:title="@string/debug_debugging_category">
 
