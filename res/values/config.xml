@@ -38,11 +38,6 @@
     <!-- Volume rocker support. Some devices do not have a volume rocker. -->
     <bool name="has_volume_rocker">true</bool>
 
-    <!-- maximum value for the custom display density -->
-    <integer name="display_density_max">480</integer>
-    <!-- minimum value for the custom display density -->
-    <integer name="display_density_min">240</integer>
-
     <!-- This used to define screen color's Hue progress bar minimum value -->
     <integer name="minimum_hue_value" translatable="false">0</integer>
 
