@@ -33,13 +33,6 @@
                 android:summary="@string/auto_brightness_summary"
                 android:persistent="false" />
 
-        <EditTextPreference
-                android:key="display_density"
-                android:title="@string/display_density"
-                android:summary="@string/display_density_summary"
-                android:persistent="false"
-                android:inputType="numberSigned" />
-
         <PreferenceScreen
                 android:key="display_rotation"
                 android:title="@string/display_rotation_title"
@@ -81,6 +74,26 @@
                 android:title="@string/wifi_display_settings_title"
                 settings:keywords="@string/keywords_display_cast_screen"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+
+        <PreferenceCategory
+                android:key="display_density_prefs"
+                android:title="@string/display_density">
+
+            <EditTextPreference
+                    android:key="display_density"
+                    android:title="@string/display_density"
+                    android:summary="@string/display_density_summary"
+                    android:persistent="false"
+                    android:inputType="numberSigned" />
+
+            <EditTextPreference
+                    android:key="display_density_override"
+                    android:title="@string/display_density_override"
+                    android:summary="@string/display_density_override_summary"
+                    android:persistent="false"
+                    android:inputType="numberSigned" />
+
+        </PreferenceCategory>
 
         <PreferenceCategory
                 android:key="advanced_display_prefs"
