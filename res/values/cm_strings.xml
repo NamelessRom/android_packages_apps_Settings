@@ -820,6 +820,11 @@
     <!-- Sound settings, charging sounds label for ringtone == none -->
     <string name="power_notifications_ringtone_silent">Silent</string>
 
+    <!-- Lockscreen shortcut picker -->
+    <string name="picker_activities">Activities</string>
+    <string name="select_custom_app_title">Select custom app</string>
+    <string name="select_custom_activity_title">Select custom activity</string>
+
     <!-- EdgeGesture service -->
     <string name="edge_gesture_service_title">Block gesture touch events</string>
     <string name="edge_gesture_service_summary">Don\'t send touch events for navigation and status bar gestures to apps</string>
@@ -891,4 +896,11 @@
     <string name="expanded_desktop_state">Expanded state</string>
     <string name="expanded_enabled_for_all">Enabled for all</string>
     <string name="expanded_user_configurable">User configurable</string>
+
+    <string name="lockscreen_settings_title">Lock screen</string>
+    <string name="lockscreen_targets_message">Lockscreen shortcuts</string>
+    <string name="lockscreen_default_target">Default</string>
+    <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
+    <string name="lockscreen_choose_action_title">Choose action</string>
+
 </resources>
