@@ -124,4 +124,12 @@
     <!-- Navigation bar -->
     <string name="hardware_keys_disable_title">Disable hardware keys</string>
     <string name="hardware_keys_disable_summary">Blocks processing of hardware keys and disables them</string>
+
+    <!--Status bar date -->
+    <string name="status_bar_clock_category">Clock</string>
+    <string name="status_bar_date_title">Date style</string>
+    <string name="status_bar_date_none">Hidden (default)</string>
+    <string name="status_bar_date_small">Small</string>
+    <string name="status_bar_date_normal">Normal</string>
+    <string name="status_bar_date_format_title">Date format</string>
 </resources>
