@@ -98,16 +98,6 @@
     <string name="profile_trigger_disconnect">On disconnect</string>
     <string name="profile_trigger_notrigger">No trigger</string>
 
-    <!-- Profile Settings sound modes labels -->
-    <string name="sound_mode">Notification mode</string>
-    <string name="ringer_mode">Ring mode</string>
-    <string name="lights_mode">Lights mode</string>
-    <string name="vibrate_mode">Vibrate mode</string>
-
-    <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
-    <string name="soundtone_title">Notification tone</string>
-    <string name="soundtone_summary" translatable="false">""</string>
-
     <!-- Title for application group setting screen -->
     <string name="profile_applist_title">Apps</string>
 
@@ -278,6 +268,12 @@
     <!-- CM Updater -->
     <string name="cmupdate_settings_title">CyanogenMod updates</string>
 
+    <!-- Settings switch for updating Cyanogen recovery -->
+    <string name="update_recovery_title">Update Cyanogen recovery</string>
+    <string name="update_recovery_summary">Update recovery with system updates</string>
+    <string name="update_recovery_on_warning">NOTICE: When this feature is enabled, your installed recovery will be replaced by one included with the current version of the running OS.\n\nYour recovery will be updated along with upgrades to your system, helping to ensure compatibility with future versions.\n\nWould you like to enable this feature?</string>
+    <string name="update_recovery_off_warning">WARNING: When this feature is disabled, your installed recovery will not be updated with OS upgrades.\n\nFuture OS updates may not install with outdated or custom recovery versions.\n\nDo you really want to disable this feature?</string>
+
     <!-- About phone screen, CyanogenMod version -->
     <string name="mod_version">CyanogenMod version</string>
     <string name="mod_version_default">Unknown</string>
@@ -288,6 +284,8 @@
     <!-- About phone screen, build date -->
     <string name="build_date">Build date</string>
     <string name="build_date_default" translatable="false">2014-01-01-0000</string>
+
+    <string name="contributor_cloud_title">Contributors</string>
 
     <!-- About phone screen, service state -->
     <string name="phone_service_state">Voice: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -314,7 +312,6 @@
     <string name="privacy_guard_reset_text">Reset permissions?</string>
     <string name="privacy_guard_help_text">In this screen you can choose which apps Privacy Guard should be active for by simply tapping on them. Selected apps will not be able to access your personal data such as contacts, messages or call logs. Long pressing an app\'s entry opens its app details screen.\n\nBuilt-in apps are not shown by default but can be revealed by selecting the respective menu option.</string>
     <string name="privacy_guard_manager_show_system_apps">Show built-in apps</string>
-    <string name="privacy_guard_advanced_settings_title">Advanced</string>
 
     <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Increasing ring volume</string>
@@ -343,6 +340,10 @@
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
+    <!-- Development shortcut -->
+    <string name="development_shortcut_title">Development shortcut</string>
+    <string name="development_shortcut_summary">Enable app management shortcuts in recent apps list</string>
+
     <!-- tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="double_tap_to_sleep_summary">Double-tap on the status bar to turn off the display</string>
@@ -354,6 +355,10 @@
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
     <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back button</string>
+
+    <!-- Buttons - Enable navbar -->
+    <string name="disable_navkeys_title">Enable on-screen nav bar</string>
+    <string name="disable_navkeys_summary">Enable on-screen navigation bar and disable hardware buttons</string>
 
     <!-- Navigation Bar -->
     <string name="navigation_bar_category">Navigation bar</string>
@@ -690,9 +695,6 @@
     <!-- Message when bluetooth dialog for pin entry is showing  when HIGH security enabled-->
     <string name="bluetooth_enter_pin_msg_hs">To pair with:<xliff:g id="bold">&lt;br>&lt;b></xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b>&lt;br>&lt;br></xliff:g>Type the device\'s required PIN (16 digits or more):</string>
 
-    <!-- Bluetooth settings.  Message when connected to a device, except for pbap. [CHAR LIMIT=40] -->
-    <string name="bluetooth_connected_no_pbap">Connected (no phonebook access)</string>
-
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the DUN profile. -->
     <string name="bluetooth_profile_dun">Dial-up Network Access</string>
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the SAP profile. -->
@@ -770,10 +772,6 @@
     <string name="usb_unmount_inform_text" product="default">USB storage will be unmounted.</string>
     <string name="uicc_unmount_inform_text" product="default">UICC storage will be unmounted.</string>
 
-    <string name="usb_media_format_title" product="default">Erase USB storage</string>
-    <string name="uicc_media_format_title" product="default">Erase UICC storage</string>
-    <string name="usb_media_format_summary" product="default">Erases all data on the USB storage</string>
-    <string name="uicc_media_format_summary" product="default">Erases all data on the UICC storage</string>
     <string name="usb_media_format_desc" product="default">Erase the USB storage? You will lose <b>all</b> data on the storage!</string>
     <string name="uicc_media_format_desc" product="default">Erase the UICC storage? You will lose <b>all</b> data on the storage!</string>
     <string name="usb_media_format_button_text" product="default">Erase USB storage</string>
@@ -813,8 +811,6 @@
     <string name="sim_enabler_enabling">Activating <xliff:g id="name">%s</xliff:g>\u2026</string>
     <string name="sim_enabler_disabling">Deactivating <xliff:g id="name">%s</xliff:g>\u2026</string>
     <string name="sim_enabler_deactivate">Deactivate</string>
-    <string name="sub_activate_success">SIM activated.</string>
-    <string name="sub_deactivate_success">SIM deactivated.</string>
 
     <string name="primary_sub_select_title">Default 3G/LTE subscription</string>
 
@@ -833,6 +829,9 @@
     <string name="protected_apps">Protected apps</string>
     <string name="saving_protected_components">Saving component state\u2026</string>
 
+    <string name="stats_collection_title">Stats collection</string>
+    <string name="stats_collection_summary">When enabled, allows metrics collection</string>
+
     <!-- Category title for Charging sounds (Power state change) specific Settings.
          [CHAR LIMIT=40] -->
     <string name="power_notifications_category_title">Charging sounds</string>
@@ -847,9 +846,69 @@
     <!-- Sound settings, charging sounds label for ringtone == none -->
     <string name="power_notifications_ringtone_silent">Silent</string>
 
+    <!-- Voice Wakeup -->
+    <string name="voice_wakeup_settings_title">Voice wakeup</string>
+    <string name="voice_wakeup_retrain_title">Retrain your voice</string>
+    <string name="voice_wakeup_activity_title">Activity to launch</string>
+    <string name="voice_wakeup_default_activity">Google Now</string>
+
+    <string name="picker_activities">Activities</string>
+    <string name="select_custom_app_title">Select custom app</string>
+    <string name="select_custom_activity_title">Select custom activity</string>
+
+    <!-- Performance settings -->
+    <string name="performance_settings_title">Performance</string>
+
+    <!-- Performance Settings : I/O scheduler settings title -->
+    <string name="io_scheds_title">I/O scheduler</string>
+
+    <!-- Performance Settings : I/O scheduler settings sub items -->
+    <string name="io_sched_title">I/O scheduler</string>
+    <string name="io_sched_summary" translatable="false">%S</string>
+
+    <!-- Performance Settings : Performance profile settings -->
+    <string name="perf_profile_title">Battery mode</string>
+
+    <!-- Performance : Force high-end graphics -->
+    <string name="pref_force_highend_gfx_title">Force high-end graphics</string>
+    <string name="pref_force_highend_gfx_summary">Enables high-end visual effects such as transparent status/navigation bar (requires reboot)</string>
+
+    <!-- Performance Settings : Warning dialog -->
+    <string name="performance_settings_warning_title">Proceed with caution</string>
+    <string name="performance_settings_warning">These settings are experimental and any applied changes have the potential to cause instability, crashes, data loss or hardware failures.\n\nWe request that you do not file bug reports if any settings are changed from their defaults.</string>
+
+    <!-- Performance Settings : Set on boot option -->
+    <string name="performance_set_on_boot">Set on boot</string>
+    <string name="performance_set_on_boot_summary">Restore the settings on boot</string>
+
+    <!-- Performance Settings : Processor Settings -->
+    <!-- Performance Settings : Processor settings title -->
+    <string name="processor_title">Processor</string>
+
+    <!-- Performance Settings : Processor settings sub items -->
+    <string name="cpu_cur_freq_title">Current CPU frequency</string>
+    <string name="cpu_governors_title">CPU governor</string>
+    <string name="cpu_governors_summary" translatable="false">%S</string>
+    <string name="cpu_min_freq_title">Minimum CPU frequency</string>
+    <string name="cpu_min_freq_summary" translatable="false">%s</string>
+    <string name="cpu_max_freq_title">Maximum CPU frequency</string>
+    <string name="cpu_max_freq_summary" translatable="false">%s</string>
+
+    <!-- Automatic performance profiles -->
+    <string name="autoperf_title">Enable per-app profiles</string>
+    <string name="autoperf_summary">Automatically choose an appropriate performance profile for various apps</string>
+
+    <!-- Performance menu, graphics options category -->
+    <string name="graphics_title">Graphics and rendering</string>
+
     <!-- EdgeGesture service -->
     <string name="edge_gesture_service_title">Block gesture touch events</string>
     <string name="edge_gesture_service_summary">Don\'t send touch events for navigation and status bar gestures to apps</string>
+
+    <!-- CM Legal -->
+    <string name="cmlicense_title">CyanogenMod legal</string>
+    <string name="settings_cmlicense_activity_title">CyanogenMod legal</string>
+    <string name="settings_cmlicense_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
 
     <!-- Screen security -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
@@ -893,7 +952,7 @@
     <string name="qs_tile_hotspot">Hotspot</string>
     <string name="qs_tile_adb_over_network">ADB over network</string>
     <string name="qs_tile_profiles">System profiles</string>
-    <string name="qs_tile_performance">Performance</string>
+    <string name="qs_tile_performance">Battery mode</string>
     <string name="qs_tile_nfc">NFC</string>
     <string name="qs_tile_compass">Compass</string>
     <string name="qs_tile_lockscreen">Lock screen</string>
@@ -938,20 +997,11 @@
     <string name="expanded_hide_navigation">Hide navigation bar</string>
     <string name="expanded_hide_both">Hide both</string>
     <string name="expanded_nothing_to_show">To add a custom per-app configuration for expanded state, set \'Enabled for all\' to the off position</string>
-    <string name="expanded_desktop_state">Expanded state</string>
     <string name="expanded_enabled_for_all">Enabled for all</string>
-    <string name="expanded_user_configurable">User configurable</string>
     <string name="expanded_desktop_style">Expanded desktop style</string>
     <string name="expanded_desktop_style_description">Choose a default expanded desktop style</string>
     <string name="expanded_desktop_title">Expanded desktop options</string>
 
-    <!-- Activity picker -->
-    <string name="picker_activities">Activities</string>
-    <string name="select_custom_app_title">Select custom app</string>
-    <string name="select_custom_activity_title">Select custom activity</string>
-
-    <!-- Lockscreen shortcuts -->
-    <string name="lockscreen_settings_title">Lock screen</string>
     <string name="lockscreen_targets_message">Lock screen shortcuts</string>
     <string name="lockscreen_default_target">Default</string>
     <string name="lockscreen_none_target">None</string>
@@ -961,9 +1011,6 @@
     <!-- WhisperPush -->
     <string name="whisperpush_title">WhisperPush</string>
     <string name="whisperpush_summary">Manage secure SMS settings</string>
-    <string name="whisperpush_registration_title">Register</string>
-    <string name="whisperpush_registration_summary">Register for WhisperPush to enable encrypted SMS.</string>
-    <string name="whisperpush_identitykey_title">Review identity keys</string>
 
     <string name="navigation_ring_title">Navigation ring targets</string>
     <string name="navigation_ring_message">Tap the edit icon to open the navigation ring for editing.\n\nSelect a target to configure its behavior.\n\nTap the \'\u2713\' icon to save your changes, or \'Restore defaults\' to reset the settings to defaults.</string>
@@ -996,4 +1043,19 @@
 
     <!-- Stylus gestures -->
     <string name="stylus_app_not_installed">%s is not installed</string>
+
+    <string name="advanced">Advanced</string>
+    <string name="advanced_mode_title">Advanced mode</string>
+
+    <string name="category_misc">Miscellaneous</string>
+    <string name="category_vibrate">Vibrate</string>
+    <string name="category_volume">Volume</string>
+    <string name="category_sounds">Sounds</string>
+    <string name="category_interface">Interface</string>
+    <string name="category_calibration">Calibration</string>
+    <string name="display_and_lights">Display &amp; lights</string>
+    <string name="notification_manager">Notification manager</string>
+    <string name="lockscreen_settings">Lock screen</string>
+    <string name="category_lights">Lights</string>
+    <string name="power_usage_history_title">Battery usage</string>
 </resources>
