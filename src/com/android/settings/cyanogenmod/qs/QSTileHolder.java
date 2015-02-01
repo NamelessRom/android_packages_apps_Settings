@@ -141,6 +141,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_screen_timeout_vector";
                 stringId = R.string.qs_tile_screen_timeout;
                 break;
+            case QSConstants.TILE_SYNC:
+                resourceName = "ic_qs_sync_on";
+                stringId = R.string.qs_sync_tile;
+                break;
             case QSConstants.TILE_LIVE_DISPLAY:
                 resourceName ="ic_livedisplay_day";
                 stringId = R.string.live_display_title;
