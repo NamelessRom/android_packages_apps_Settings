@@ -47,4 +47,8 @@
     <!-- Instant reboot -->
     <string name="advanced_reboot_oneclick">One click reboot</string>
     <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
+
+    <!-- Captive Portal -->
+    <string name="captive_portal_detection">Captive portal detection</string>
+    <string name="captive_portal_detection_summary">If enabled, a connection to Google servers is required in order to detect data connection when using wifi.</string>
 </resources>
