@@ -24,6 +24,11 @@
         android:persistent="false"
         android:disableDependentsState="true" />
 
+    <com.android.settings.nameless.GlobalSettingSwitchPreference
+        android:key="captive_portal_detection_enabled"
+        android:title="@string/captive_portal_detection"
+        android:summary="@string/captive_portal_detection_summary" />
+
     <PreferenceScreen
         android:key="wifi_calling_settings"
         android:title="@string/wifi_calling_settings_title"
