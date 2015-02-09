@@ -570,10 +570,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     /**
      * Restore the properties associated with this preference on boot
-       @param ctx A valid context
+     *
+     * @param ctx A valid context
      */
     public static void restore(Context ctx) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
