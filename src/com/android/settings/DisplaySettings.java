@@ -23,6 +23,7 @@ import com.android.internal.view.RotationPolicy;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
+import static android.hardware.CmHardwareManager.FEATURE_TAP_TO_WAKE;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
 import static android.provider.Settings.Secure.WAKE_GESTURE_ENABLED;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
@@ -39,6 +40,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
+import android.hardware.CmHardwareManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
@@ -111,6 +113,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private EditTextPreference mDisplayDensityOverride;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
 
+    private CmHardwareManager mCmHardwareManager;
+
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
         @Override
@@ -133,6 +137,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity();
         final ContentResolver resolver = activity.getContentResolver();
+        mCmHardwareManager = (CmHardwareManager) activity.getSystemService(Context.CMHW_SERVICE);
 
         addPreferencesFromResource(R.xml.display);
 
@@ -570,10 +575,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     /**
      * Restore the properties associated with this preference on boot
-       @param ctx A valid context
+     *
+     * @param ctx A valid context
      */
     public static void restore(Context ctx) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
@@ -594,6 +599,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
+                    CmHardwareManager cmHardwareManager =
+                        (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
                     ArrayList<String> result = new ArrayList<String>();
                     if (!context.getResources().getBoolean(
                             com.android.internal.R.bool.config_dreamsSupported)) {
