@@ -49,7 +49,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
 
     private static final String KEY_BLOCK = "block";
-    private static final String KEY_BLOCK_ON_LOCKSCREEN = "block_on_lockscreen";
     private static final String KEY_PRIORITY = "priority";
     private static final String KEY_SENSITIVE = "sensitive";
 
@@ -60,7 +59,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
 
     private Context mContext;
     private SwitchPreference mBlock;
-    private SwitchPreference mBlockOnLockscreen;
     private SwitchPreference mPriority;
     private SwitchPreference mSensitive;
     private AppRow mAppRow;
@@ -135,7 +133,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.app_notification_settings);
         mBlock = (SwitchPreference) findPreference(KEY_BLOCK);
-        mBlockOnLockscreen = (SwitchPreference) findPreference(KEY_BLOCK_ON_LOCKSCREEN);
         mPriority = (SwitchPreference) findPreference(KEY_PRIORITY);
         mSensitive = (SwitchPreference) findPreference(KEY_SENSITIVE);
 
@@ -160,7 +157,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         }
 
         mBlock.setChecked(mAppRow.banned);
-        mBlockOnLockscreen.setChecked(mAppRow.bannedOnLockscreen);
         mPriority.setChecked(mAppRow.priority);
         if (mSensitive != null) {
             mSensitive.setChecked(mAppRow.sensitive);
@@ -171,14 +167,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean block = (Boolean) newValue;
                 return mBackend.setNotificationsBanned(pkg, uid, block);
-            }
-        });
-
-        mBlockOnLockscreen.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                final boolean blockOnLockscreen = (Boolean) newValue;
-                return mBackend.setNotificationsBannedOnLockscreen(pkg, uid, blockOnLockscreen);
             }
         });
 
@@ -204,7 +192,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         if (Utils.isSystemPackage(pm, info)) {
             getPreferenceScreen().removePreference(mBlock);
             mPriority.setDependency(null); // don't have it depend on a preference that's gone
-            mBlockOnLockscreen.setDependency(null); // don't have it depend on a preference that's gone
         }
     }
 

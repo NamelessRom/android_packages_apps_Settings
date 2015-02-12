@@ -355,7 +355,6 @@ public class NotificationAppList extends PinnedHeaderListFragment
         public CharSequence label;
         public Intent settingsIntent;
         public boolean banned;
-        public boolean bannedOnLockscreen;
         public boolean priority;
         public boolean sensitive;
         public boolean first;  // first app in section
@@ -383,7 +382,6 @@ public class NotificationAppList extends PinnedHeaderListFragment
         }
         row.icon = app.loadIcon(pm);
         row.banned = backend.getNotificationsBanned(row.pkg, row.uid);
-        row.bannedOnLockscreen = backend.getNotificationsBannedOnLockscreen(row.pkg, row.uid);
         row.priority = backend.getHighPriority(row.pkg, row.uid);
         row.sensitive = backend.getSensitive(row.pkg, row.uid);
         return row;
@@ -545,26 +543,6 @@ public class NotificationAppList extends PinnedHeaderListFragment
         public boolean getNotificationsBanned(String pkg, int uid) {
             try {
                 final boolean enabled = sINM.areNotificationsEnabledForPackage(pkg, uid);
-                return !enabled;
-            } catch (Exception e) {
-                Log.w(TAG, "Error calling NoMan", e);
-                return false;
-            }
-        }
-
-        public boolean setNotificationsBannedOnLockscreen(String pkg, int uid, boolean banned) {
-            try {
-                sINM.setLockscreenNotificationsEnabledForPackage(pkg, uid, !banned);
-                return true;
-            } catch (Exception e) {
-               Log.w(TAG, "Error calling NoMan", e);
-               return false;
-            }
-        }
-
-        public boolean getNotificationsBannedOnLockscreen(String pkg, int uid) {
-            try {
-                final boolean enabled = sINM.areLockscreenNotificationsEnabledForPackage(pkg, uid);
                 return !enabled;
             } catch (Exception e) {
                 Log.w(TAG, "Error calling NoMan", e);
