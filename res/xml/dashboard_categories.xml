@@ -289,6 +289,18 @@
             </intent>
         </dashboard-tile>
 
+        <!-- Advanced settings -->
+        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
+        <dashboard-tile
+            android:id="@+id/nameless_advanced_settings"
+            android:title="@string/advanced_settings"
+            android:icon="@drawable/ic_settings_more">
+            <intent
+                android:action="org.namelessrom.device.AdvancedSettings">
+                <categories android:name="android.intent.category.DEFAULT" />
+            </intent>
+        </dashboard-tile>
+
     </dashboard-category>
 
     <!-- SYSTEM -->

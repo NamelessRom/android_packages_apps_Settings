@@ -1130,7 +1130,7 @@ public class SettingsActivity extends Activity
             DashboardCategory category = target.get(i);
 
             // Ids are integers, so downcasting is ok
-            int id = (int) category.id;
+            int id;
             int n = category.getTilesCount() - 1;
             while (n >= 0) {
 
@@ -1209,6 +1209,10 @@ public class SettingsActivity extends Activity
                     boolean hasDeviceKeys = getResources().getInteger(
                             com.android.internal.R.integer.config_deviceHardwareKeys) != 0;
                     if (!hasDeviceKeys) {
+                        removeTile = true;
+                    }
+                } else if (id == R.id.nameless_advanced_settings) {
+                    if (!Utils.updateTileToSpecificActivityFromMetaDataOrRemove(this, tile)) {
                         removeTile = true;
                     }
                 }
