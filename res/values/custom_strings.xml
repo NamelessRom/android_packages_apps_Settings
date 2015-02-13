@@ -20,6 +20,8 @@
 
     <string name="device_control" translatable="false">Device Control</string>
 
+    <string name="more">More</string>
+
     <string name="mod_version_n">Nameless version</string>
 
     <!-- One click reboot options -->
