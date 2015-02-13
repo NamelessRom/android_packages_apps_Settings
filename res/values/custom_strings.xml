@@ -17,5 +17,6 @@
 <resources>
 
     <string name="header_category_personalization">Personalization</string>
+    <string name="more_settings_title">More</string>
 
 </resources>
