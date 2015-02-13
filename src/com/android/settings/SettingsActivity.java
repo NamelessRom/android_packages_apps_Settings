@@ -1335,6 +1335,10 @@ public class SettingsActivity extends Activity
                             CMContextConstants.Features.WEATHER_SERVICES)) {
                         removeTile = true;
                     }
+                } else if (id == R.id.nameless_advanced_settings) {
+                    if (!Utils.updateTileToSpecificActivityFromMetaDataOrRemove(this, tile)) {
+                        removeTile = true;
+                    }
                 }
 
                 if (UserHandle.MU_ENABLED && UserHandle.myUserId() != 0
