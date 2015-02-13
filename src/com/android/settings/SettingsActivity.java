@@ -1326,6 +1326,10 @@ public class SettingsActivity extends Activity
                     if (!hasDeviceKeys) {
                         removeTile = true;
                     }
+                } else if (id == R.id.nameless_advanced_settings) {
+                    if (!Utils.updateTileToSpecificActivityFromMetaDataOrRemove(this, tile)) {
+                        removeTile = true;
+                    }
                 }
 
                 if (UserHandle.MU_ENABLED && UserHandle.myUserId() != 0
