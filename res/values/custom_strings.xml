@@ -69,6 +69,11 @@
 
     <string name="long_press_kill_delay">App kill delay</string>
 
+    <!-- [CHAR LIMIT=30] Manage applications, title for dialog when disabling lock screen notifications for an app -->
+    <string name="app_disable_lockscreen_notifications_dlg_title">Turn off lock screen notifications?</string>
+    <!-- [CHAR LIMIT=200] Manage applications, text for dialog when disabling lock screen notifications for an app -->
+    <string name="app_disable_lockscreen_notifications_dlg_text">If you turn off lock screen notifications for this app, they will not show on the lock screen but still on the status bar.</string>
+
     <!-- Superuser indicator-->
     <string name="su_indicator">Superuser indicator</string>
     <string name="su_indicator_summary">Show superuser indicator when a session is active</string>
