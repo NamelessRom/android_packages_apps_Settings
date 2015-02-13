@@ -175,6 +175,18 @@
                 android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
         </dashboard-tile>
 
+        <!-- Advanced settings -->
+        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
+        <dashboard-tile
+            android:id="@+id/nameless_advanced_settings"
+            android:title="@string/more"
+            android:icon="@drawable/ic_settings_more">
+            <intent
+                android:action="org.namelessrom.action.LAUNCH_EXTRA_DEVICE_SETTINGS"
+                android:targetPackage="org.namelessrom.device.extra"
+                android:targetClass="org.namelessrom.device.extra.SettingsActivity" />
+        </dashboard-tile>
+
     </dashboard-category>
 
     <!-- DEVICE -->
