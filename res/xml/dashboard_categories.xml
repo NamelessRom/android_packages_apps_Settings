@@ -272,6 +272,25 @@
 
     </dashboard-category>
 
+    <!-- NAMELESS -->
+    <dashboard-category
+        android:id="@+id/nameless_section"
+        android:title="@string/header_category_nameless">
+
+        <!-- Device Control -->
+        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
+        <dashboard-tile
+            android:id="@+id/device_control_settings"
+            android:title="@string/device_control"
+            android:icon="@drawable/ic_settings_device_control">
+            <intent
+                android:action="org.namelessrom.devicecontrol.MainActivity">
+                <categories android:name="android.intent.category.DEFAULT" />
+            </intent>
+        </dashboard-tile>
+
+    </dashboard-category>
+
     <!-- SYSTEM -->
     <dashboard-category
         android:id="@+id/system_section"
