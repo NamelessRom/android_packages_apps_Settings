@@ -31,6 +31,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.INotificationManager;
+import android.app.Notification;
 import android.app.admin.DevicePolicyManager;
 import android.appwidget.AppWidgetManager;
 import android.content.BroadcastReceiver;
@@ -139,7 +140,8 @@ public class InstalledAppDetails extends Fragment
     private Button mForceStopButton;
     private Button mClearDataButton;
     private Button mMoveAppButton;
-    private CompoundButton mNotificationSwitch;
+    private Switch mNotificationSwitch;
+    private Switch mLockscreenNotificationSwitch;
 
     private PackageMoveObserver mPackageMoveObserver;
 
@@ -181,6 +183,7 @@ public class InstalledAppDetails extends Fragment
     private static final int DLG_DISABLE = DLG_BASE + 7;
     private static final int DLG_DISABLE_NOTIFICATIONS = DLG_BASE + 8;
     private static final int DLG_SPECIAL_DISABLE = DLG_BASE + 9;
+    private static final int DLG_DISABLE_LOCKSCREEN_NOTIFICATIONS = DLG_BASE + 10;
 
     // Menu identifiers
     public static final int UNINSTALL_ALL_USERS_MENU = 1;
@@ -445,6 +448,26 @@ public class InstalledAppDetails extends Fragment
         }
     }
 
+    private void initLockscreenNotificationButton() {
+        INotificationManager nm = INotificationManager.Stub.asInterface(
+                ServiceManager.getService(Context.NOTIFICATION_SERVICE));
+        boolean enabled = true;
+        boolean enabledOnStatusbar = true;
+        try {
+            int keyguard = nm.getShowNotificationForPackageOnKeyguard(mAppEntry.info.packageName,
+                    mAppEntry.info.uid);
+            Log.d(TAG, "INIT KEYGUARD: " + keyguard + " MASKE: " + Notification.SHOW_ALL_NOTI_ON_KEYGUARD);
+            enabled = (keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) != 0;
+            enabledOnStatusbar = nm.areNotificationsEnabledForPackage(mAppEntry.info.packageName,
+                    mAppEntry.info.uid);
+        } catch (Exception e) {
+            // this does not bode well
+        }
+        mLockscreenNotificationSwitch.setChecked(enabled);
+        mLockscreenNotificationSwitch.setEnabled(enabledOnStatusbar);
+        mLockscreenNotificationSwitch.setOnCheckedChangeListener(this);
+    }
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
@@ -516,8 +539,9 @@ public class InstalledAppDetails extends Fragment
         mClearCacheButton = (Button) view.findViewById(R.id.clear_cache_button);
 
         mActivitiesButton = (Button) view.findViewById(R.id.clear_activities_button);
-        
-        mNotificationSwitch = (CompoundButton) view.findViewById(R.id.notification_switch);
+
+        mNotificationSwitch = (Switch) view.findViewById(R.id.notification_switch);
+        mLockscreenNotificationSwitch = (Switch) view.findViewById(R.id.lockscreen_notification_switch);
 
         return view;
     }
@@ -1095,6 +1119,7 @@ public class InstalledAppDetails extends Fragment
             initDataButtons();
             initMoveButton();
             initNotificationButton();
+            initLockscreenNotificationButton();
         } else {
             mMoveAppButton.setText(R.string.moving);
             mMoveAppButton.setEnabled(false);
@@ -1275,6 +1300,25 @@ public class InstalledAppDetails extends Fragment
                         }
                     })
                     .create();
+                case DLG_DISABLE_LOCKSCREEN_NOTIFICATIONS:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(getActivity().getText(R.string.app_disable_lockscreen_notifications_dlg_title))
+                    .setMessage(getActivity().getText(R.string.app_disable_lockscreen_notifications_dlg_text))
+                    .setPositiveButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Disable the package's lockscreen notifications
+                            getOwner().setLockscreenNotificationsEnabled(false);
+                        }
+                    })
+                    .setNegativeButton(R.string.dlg_cancel,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Re-enable the checkbox
+                            getOwner().mLockscreenNotificationSwitch.setChecked(true);
+                        }
+                    })
+                    .create();
                 case DLG_SPECIAL_DISABLE:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(getActivity().getText(R.string.app_special_disable_dlg_title))
@@ -1375,8 +1419,25 @@ public class InstalledAppDetails extends Fragment
         INotificationManager nm = INotificationManager.Stub.asInterface(
                 ServiceManager.getService(Context.NOTIFICATION_SERVICE));
         try {
-            final boolean enable = mNotificationSwitch.isChecked();
             nm.setNotificationsEnabledForPackage(packageName, mAppEntry.info.uid, enabled);
+            mLockscreenNotificationSwitch.setEnabled(enabled);
+        } catch (android.os.RemoteException ex) {
+            mNotificationSwitch.setChecked(!enabled); // revert
+        }
+    }
+
+    private void setLockscreenNotificationsEnabled(boolean enabled) {
+        String packageName = mAppEntry.info.packageName;
+        INotificationManager nm = INotificationManager.Stub.asInterface(
+                ServiceManager.getService(Context.NOTIFICATION_SERVICE));
+        try {
+            int keyguard = nm.getShowNotificationForPackageOnKeyguard(mAppEntry.info.packageName, mAppEntry.info.uid);
+            if(enabled) {
+                keyguard |= Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
+            } else {
+                keyguard &= ~Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
+            }
+            nm.setShowNotificationForPackageOnKeyguard(mAppEntry.info.packageName, mAppEntry.info.uid, keyguard);
         } catch (android.os.RemoteException ex) {
             mNotificationSwitch.setChecked(!enabled); // revert
         }
@@ -1472,6 +1533,12 @@ public class InstalledAppDetails extends Fragment
                 showDialogInner(DLG_DISABLE_NOTIFICATIONS, 0);
             } else {
                 setNotificationsEnabled(true);
+            }
+        } else if (buttonView == mLockscreenNotificationSwitch) {
+            if (!isChecked) {
+                showDialogInner(DLG_DISABLE_LOCKSCREEN_NOTIFICATIONS, 0);
+            } else {
+                setLockscreenNotificationsEnabled(true);
             }
         }
     }
