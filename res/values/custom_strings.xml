@@ -17,6 +17,8 @@
 <resources>
     <string name="mod_version_n">Nameless version</string>
 
+    <string name="more">More</string>
+
     <!-- Advanced Device Info -->
     <string name="advanced_device_info_title">Advanced information</string>
     <string name="advanced_device_info_summary">Information about CPU, GPU etc.</string>
