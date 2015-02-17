@@ -459,7 +459,7 @@ public class InstalledAppDetails extends Fragment
             mLockscreenNotificationSwitch.setEnabled(false);
             mLockscreenPersistentNotificationSwitch.setEnabled(false);
             mLockscreenNotificationSwitch.setChecked(true);
-            mLockscreenPersistentNotificationSwitch.setChecked(false);
+            mLockscreenPersistentNotificationSwitch.setChecked(true);
         } else {
             try {
                 int keyguard = nm.getShowNotificationForPackageOnKeyguard(mAppEntry.info.packageName,
@@ -473,7 +473,7 @@ public class InstalledAppDetails extends Fragment
             }
             mLockscreenNotificationSwitch.setChecked(enabled);
             mLockscreenNotificationSwitch.setEnabled(enabledOnStatusbar);
-            mLockscreenPersistentNotificationSwitch.setChecked(blockPersistent);
+            mLockscreenPersistentNotificationSwitch.setChecked(!blockPersistent);
             mLockscreenPersistentNotificationSwitch.setEnabled(enabled);
             mLockscreenNotificationSwitch.setOnCheckedChangeListener(this);
             mLockscreenPersistentNotificationSwitch.setOnCheckedChangeListener(this);
@@ -1467,9 +1467,9 @@ public class InstalledAppDetails extends Fragment
         try {
             int keyguard = nm.getShowNotificationForPackageOnKeyguard(mAppEntry.info.packageName, mAppEntry.info.uid);
             if(enabled) {
-                keyguard |= Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
-            } else {
                 keyguard &= ~Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
+            } else {
+                keyguard |= Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
             }
             nm.setShowNotificationForPackageOnKeyguard(mAppEntry.info.packageName, mAppEntry.info.uid, keyguard);
         } catch (android.os.RemoteException ex) {

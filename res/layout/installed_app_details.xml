@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginTop="4dip"
-                android:text="@string/app_notification_no_ongoing_on_keyguard_title" />
+                android:text="@string/app_notification_ongoing_on_keyguard_title" />
 
         </LinearLayout>
 

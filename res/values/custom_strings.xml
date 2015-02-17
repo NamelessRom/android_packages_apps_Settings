@@ -73,6 +73,9 @@
     <string name="app_disable_lockscreen_notifications_dlg_title">Turn off lock screen notifications?</string>
     <!-- [CHAR LIMIT=200] Manage applications, text for dialog when disabling lock screen notifications for an app -->
     <string name="app_disable_lockscreen_notifications_dlg_text">If you turn off lock screen notifications for this app, they will not show on the lock screen but still on the status bar.</string>
+    <!-- Per app controls for LP keyguard notifications -->
+    <string name="app_notification_ongoing_on_keyguard_title">Show persistent notification on lock screen</string>
+    <string name="app_notification_ongoing_on_keyguard_summary">Show persistent notifications from this app on the lock screen</string>
 
     <!-- Superuser indicator-->
     <string name="su_indicator">Superuser indicator</string>
