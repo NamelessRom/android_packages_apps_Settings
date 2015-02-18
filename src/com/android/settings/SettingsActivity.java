@@ -85,6 +85,7 @@ import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.BatterySaverSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
+import com.android.settings.livedisplay.LiveDisplay;
 import com.android.settings.lockscreen.LockScreenSettings;
 import com.android.settings.nameless.NavigationBarSettings;
 import com.android.settings.notification.NotificationAppList;
@@ -318,7 +319,8 @@ public class SettingsActivity extends Activity
             com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
             NotificationManagerSettings.class.getName(),
             LockScreenSettings.class.getName(),
-            NavigationBarSettings.class.getName()
+            NavigationBarSettings.class.getName(),
+            LiveDisplay.class.getName()
     };
 
 
