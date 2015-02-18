@@ -27,11 +27,10 @@ import android.util.Log;
 import com.android.settings.DisplaySettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
-import com.android.settings.hardware.DisplayColor;
-import com.android.settings.hardware.DisplayGamma;
 import com.android.settings.hardware.VibratorIntensity;
-import com.android.settings.location.LocationSettings;
 import com.android.settings.nameless.GestureSettings;
+import com.android.settings.livedisplay.DisplayColor;
+import com.android.settings.livedisplay.DisplayGamma;
 
 import java.util.Arrays;
 import java.util.List;
