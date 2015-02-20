@@ -73,7 +73,8 @@ public class GestureSettings extends SettingsPreferenceFragment implements
         if (isLiftToWakeAvailable(activity)) {
             mLiftToWakePreference.setOnPreferenceChangeListener(this);
         } else {
-            removePreference(KEY_LIFT_TO_WAKE);
+            category.removePreference(mLiftToWakePreference);
+            mLiftToWakePreference = null;
         }
 
         mTapToWake = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
