@@ -182,7 +182,7 @@
             android:summary="@string/wifi_allow_scan_with_traffic_summary"/>
 
         <com.android.settings.nameless.GlobalSettingSwitchPreference
-            android:key="captive_portal_detection_enabled "
+            android:key="captive_portal_detection_enabled"
             android:title="@string/captive_portal_detection"
             android:summary="@string/captive_portal_detection_summary" />
 
