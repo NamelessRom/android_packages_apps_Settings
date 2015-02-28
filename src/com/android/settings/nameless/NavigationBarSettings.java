@@ -103,17 +103,17 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             final SharedPreferences.Editor editor = prefs.edit();
 
             if (enabled) {
-                final int currentBrightness = Settings.System.getInt(getContentResolver(),
-                        Settings.System.BUTTON_BRIGHTNESS, defaultBrightness);
+                final int currentBrightness = Settings.Secure.getInt(getContentResolver(),
+                        Settings.Secure.BUTTON_BRIGHTNESS, defaultBrightness);
                 if (!prefs.contains(PREF_BUTTON_BACKLIGHT)) {
                     editor.putInt(PREF_BUTTON_BACKLIGHT, currentBrightness);
                 }
-                Settings.System.putInt(getContentResolver(), Settings.System.BUTTON_BRIGHTNESS, 0);
+                Settings.Secure.putInt(getContentResolver(), Settings.Secure.BUTTON_BRIGHTNESS, 0);
             } else {
                 final int oldBright = prefs.getInt(PREF_BUTTON_BACKLIGHT, -1);
                 if (oldBright != -1) {
-                    Settings.System.putInt(getContentResolver(),
-                            Settings.System.BUTTON_BRIGHTNESS, oldBright);
+                    Settings.Secure.putInt(getContentResolver(),
+                            Settings.Secure.BUTTON_BRIGHTNESS, oldBright);
                     editor.remove(PREF_BUTTON_BACKLIGHT);
                 }
             }
