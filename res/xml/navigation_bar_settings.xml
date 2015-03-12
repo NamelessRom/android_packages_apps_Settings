@@ -39,12 +39,18 @@
 
     <PreferenceCategory
         android:key="navigation_bar"
-        android:title="@string/navigation_bar_category" >
+        android:title="@string/navigation_bar_category">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="navigation_bar_left"
             android:title="@string/navigation_bar_left_title"
             android:summary="@string/navigation_bar_left_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="navigation_bar_double_tap_sleep"
+            android:title="@string/double_tap_to_sleep_title"
+            android:summary="@string/double_tap_to_sleep_navbar_summary"
             android:defaultValue="false" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
