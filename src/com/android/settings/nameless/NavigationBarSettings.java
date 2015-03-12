@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
@@ -38,6 +39,7 @@ import java.util.List;
 public class NavigationBarSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
     private static final String TAG = "NavigationBarSettings";
 
+    private static final String CATEGORY_NAV_BAR = "navigation_bar";
     private static final String CATEGORY_NAV_BAR_SIMULATE = "navigation_bar_simulate";
 
     private static final String KEY_FORCE_ENABLE_NAVBAR = "navbar_force_enable";
@@ -50,12 +52,20 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mHardwareKeysDisable;
     private ListPreference mNavigationRecentsLongPressAction;
 
+    private PreferenceCategory mNavigationBarCategory;
+
     private Handler mHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.navigation_bar_settings);
+
+        mNavigationBarCategory = (PreferenceCategory) findPreference(CATEGORY_NAV_BAR);
+
+        // Navigation bar recents long press activity needs custom setup
+        mNavigationRecentsLongPressAction =
+                initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
 
         final boolean hasRealNavigationBar = getResources()
                 .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -68,6 +78,8 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             mHardwareKeysDisable =
                     (SystemSettingSwitchPreference) findPreference(KEY_HARDWARE_KEYS_DISABLE);
             mHardwareKeysDisable.setOnPreferenceChangeListener(this);
+
+            enableNavigationBarCategory(mForceEnableNavbar.isChecked());
         } else {
             final Preference pref = findPreference(CATEGORY_NAV_BAR_SIMULATE);
             if (pref != null) {
@@ -75,21 +87,39 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             }
         }
 
-        // Navigation bar recents long press activity needs custom setup
-        mNavigationRecentsLongPressAction =
-                initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
-
         mHandler = new Handler();
+    }
+
+    private void enableNavigationBarCategory(final boolean shouldEnable) {
+        if (mNavigationBarCategory == null) return;
+
+        final List<Preference> preferences = mNavigationBarCategory.getPreferenceList();
+        for (final Preference preference : preferences) {
+            preference.setEnabled(shouldEnable);
+        }
+
+        // disable navigation recents long press again if not available
+        if (!shouldEnable) {
+            mNavigationRecentsLongPressAction.setEnabled(false);
+        } else {
+            PackageManager pm = getPackageManager();
+            Intent intent = new Intent(Intent.ACTION_RECENTS_LONG_PRESS);
+            List<ResolveInfo> recentsActivities = pm.queryIntentActivities(intent,
+                    PackageManager.MATCH_DEFAULT_ONLY);
+            mNavigationRecentsLongPressAction.setEnabled(recentsActivities.size() != 0);
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (mForceEnableNavbar == preference) {
             mForceEnableNavbar.setEnabled(false);
+            enableNavigationBarCategory(false);
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mForceEnableNavbar.setEnabled(true);
+                    enableNavigationBarCategory(mForceEnableNavbar.isChecked());
                 }
             }, 1000);
             return true;
