@@ -19,8 +19,6 @@
   <string name="mod_version_n">Nameless verziószám</string>
   <string name="gesture_title">Gesztusok</string>
   <string name="navigation_bar_pref_title">Navigációs sáv</string>
-  <string name="navbar_force_enable_title">Navigációs sáv kényszerítése</string>
-  <string name="navbar_force_enable_summary">Újraindítás szükséges</string>
   <string name="hardware_keys_disable_title">Hardveres gombok kikapcsolása</string>
   <string name="hardware_keys_disable_summary">Hardveres gombok blokkolása és kikapcsolása</string>
   <string name="advanced_device_info_title">Speciális információk</string>

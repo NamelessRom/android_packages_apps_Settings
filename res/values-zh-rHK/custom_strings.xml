@@ -21,11 +21,9 @@
   <string name="advanced_reboot_oneclick_summary">立即觸發重新開機</string>
   <string name="display_density">顯示器密度</string>
   <string name="display_density_summary">重寫預設顯示密度 (0則禁用，需要重新開機)</string>
-  <string name="gesture_title">手勢</string>
+  <string name="gesture_title">手勢設定</string>
   <string name="navigation_bar_pref_title">導航欄</string>
   <string name="navigation_bar_simulate_category">虛擬導航欄</string>
-  <string name="navbar_force_enable_title">強制導航欄</string>
-  <string name="navbar_force_enable_summary">可能需要重新開機</string>
   <string name="hardware_keys_disable_title">禁用硬體鍵</string>
   <string name="hardware_keys_disable_summary">禁用硬體鍵的模塊處理</string>
   <string name="advanced_device_info_title">進階資訊</string>

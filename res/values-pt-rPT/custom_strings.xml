@@ -24,10 +24,8 @@
   <string name="gesture_title">Gestos</string>
   <string name="navigation_bar_pref_title">Barra de navegação</string>
   <string name="navigation_bar_simulate_category">Simular a barra de navegação</string>
-  <string name="navbar_force_enable_title">Forçar a barra de navegação</string>
-  <string name="navbar_force_enable_summary">Poderia requerer de um reinicio</string>
   <string name="hardware_keys_disable_title">Desactivar as teclas físicas</string>
-  <string name="hardware_keys_disable_summary">Processado do bloqueio das teclas físicas e sua desativação</string>
+  <string name="hardware_keys_disable_summary">Processamento de blocos de hardware de teclas e desativa-los</string>
   <string name="advanced_device_info_title">Informações avançadas</string>
   <string name="advanced_device_info_summary">Informação sobre a CPU, GPU, etc.</string>
   <string name="cpu_info">CPU</string>

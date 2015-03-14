@@ -21,11 +21,11 @@
   <string name="advanced_reboot_oneclick_summary">Meteen opnieuw opstarten</string>
   <string name="display_density">Scherm dichtheid</string>
   <string name="display_density_summary">Overschrijft de standaard scherm dichtheid (0 om uit te schakelen, vereist een reboot)</string>
+  <string name="display_density_override">Gerapporteerde dichtheid</string>
+  <string name="display_density_override_summary">Overschrijf de weergave dichtheid die wordt gemeld aan apps (0 om uit te schakelen, vereist een herstart)</string>
   <string name="gesture_title">Gebaren</string>
   <string name="navigation_bar_pref_title">Navigatiebalk</string>
   <string name="navigation_bar_simulate_category">Simuleren van navigatiebalk</string>
-  <string name="navbar_force_enable_title">Navigatiebalk forceren</string>
-  <string name="navbar_force_enable_summary">Kan een herstart vereisen</string>
   <string name="hardware_keys_disable_title">Hardware toetsen uitschakelen</string>
   <string name="hardware_keys_disable_summary">Blokkeert verwerking van hardware toetsen en schakelt deze uit</string>
   <string name="advanced_device_info_title">Geavanceerde informatie</string>
@@ -41,4 +41,13 @@
   <string name="show_unac_and_overcounted_stats_title">Toon vermist en overdreven verbruik</string>
   <string name="show_unac_and_overcounted_stats_summary">Toon in de batterij statistieken vermist en overdreven verbruik.</string>
   <string name="camera_sounds_title">Camerasluitergeluid</string>
+  <string name="long_press_kill_delay">App sluiting vertraging</string>
+  <string name="app_disable_lockscreen_notifications_dlg_title">Vergrendelscherm notificaties uitschakelen?</string>
+  <string name="app_disable_lockscreen_notifications_dlg_text">Als u vergrendelscherm notificaties uitschakelt voor deze app, worden deze niet op het vergrendelscherm weergegeven maar wel in de status bar.</string>
+  <string name="su_indicator">Superuser indicator</string>
+  <string name="su_indicator_summary">Toon superuser indicator wanneer een sessie actief is</string>
+  <string name="captive_portal_detection">Détection de portail captif</string>
+  <string name="captive_portal_detection_summary">Als uitgeschakeld, is een verbinding met servers van Google niet vereist om een gegevensverbinding te detecteren.</string>
+  <string name="privacy_guard_notification_title">Melding</string>
+  <string name="privacy_guard_notification_summary">Melding weergeven als Privacy Guard actief is.</string>
 </resources>

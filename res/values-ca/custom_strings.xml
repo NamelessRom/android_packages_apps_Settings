@@ -17,8 +17,6 @@
 -->
 <resources>
   <string name="mod_version_n">Versió de Nameless</string>
-  <string name="navbar_force_enable_title">Forçar la barra de navegació</string>
-  <string name="navbar_force_enable_summary">Podria requerir d\'un reinici</string>
   <string name="hardware_keys_disable_title">Desactivar les tecles físiques</string>
   <string name="hardware_keys_disable_summary">Processament del bloqueig de les tecles físiques i la seva desactivació</string>
   <string name="advanced_device_info_summary">Informació sobre la CPU, GPU, etc.</string>

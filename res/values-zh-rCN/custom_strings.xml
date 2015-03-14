@@ -21,10 +21,13 @@
   <string name="advanced_reboot_oneclick_summary">直接触发重启操作</string>
   <string name="display_density">显示密度</string>
   <string name="display_density_summary">替代默认的显示密度(输入0则禁用，需要重启生效)</string>
+  <string name="display_density_override">报告的DPI</string>
+  <string name="display_density_override_summary">覆盖向应用程序报告的DPI （0则禁用，需要重新启动设备）</string>
   <string name="gesture_title">手势操作</string>
-  <string name="navbar_force_enable_title">强制使用导航栏</string>
-  <string name="navbar_force_enable_summary">可能需要重启</string>
+  <string name="navigation_bar_pref_title">导航栏</string>
+  <string name="navigation_bar_simulate_category">模拟导航栏</string>
   <string name="hardware_keys_disable_title">禁用实体键</string>
+  <string name="hardware_keys_disable_summary">阻止硬件键的处理并把它禁用</string>
   <string name="advanced_device_info_title">高级信息</string>
   <string name="advanced_device_info_summary">CPU、 GPU 等有关的信息。</string>
   <string name="cpu_info">处理器</string>
@@ -35,5 +38,16 @@
   <string name="gpu_gl_version">OpenGL 版本</string>
   <string name="gpu_gl_extensions">OpenGL 扩展</string>
   <string name="gpu_shader_version">着色器版本</string>
+  <string name="show_unac_and_overcounted_stats_title">显示低估或高估的统计数据</string>
+  <string name="show_unac_and_overcounted_stats_summary">显示低估或高估的电池统计信息。</string>
   <string name="camera_sounds_title">相机快门声音</string>
+  <string name="long_press_kill_delay">应用程序强制关闭延迟</string>
+  <string name="app_disable_lockscreen_notifications_dlg_title">关闭锁屏通知吗？</string>
+  <string name="app_disable_lockscreen_notifications_dlg_text">如果您关闭此应用程序的锁屏通知，它们不会在锁定屏幕上显示但仍会在状态栏上显示图标。</string>
+  <string name="su_indicator">Superuser指示器</string>
+  <string name="su_indicator_summary">当会话处于活动状态时显示Superuser指示器</string>
+  <string name="captive_portal_detection">Wifi认证登陆检测</string>
+  <string name="captive_portal_detection_summary">如果禁用，与谷歌服务器连接时不检测数据连接。</string>
+  <string name="privacy_guard_notification_title">通知</string>
+  <string name="privacy_guard_notification_summary">当隐私防护处于活动状态时显示通知</string>
 </resources>

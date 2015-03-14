@@ -24,8 +24,6 @@
   <string name="gesture_title">Hareketler</string>
   <string name="navigation_bar_pref_title">Gezinti çubuğu</string>
   <string name="navigation_bar_simulate_category">Gezinti çubuğu simülasyonu</string>
-  <string name="navbar_force_enable_title">Gezinti çubuğunu başlat</string>
-  <string name="navbar_force_enable_summary">Bir yeniden başlatma gerektirebilir</string>
   <string name="hardware_keys_disable_title">Donanım tuşları devredışı olsun</string>
   <string name="hardware_keys_disable_summary">Altta yer alan blok donanım tuşlarını devre dışı bırakmaya yarar</string>
   <string name="advanced_device_info_title">Gelişmiş bilgiler</string>

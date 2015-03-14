@@ -20,12 +20,12 @@
   <string name="advanced_reboot_oneclick">Ein-Klick-Neustart</string>
   <string name="advanced_reboot_oneclick_summary">Neustart-Aktion bei Auswahl sofort auslösen</string>
   <string name="display_density">Bildschirmauflösung</string>
-  <string name="display_density_summary">Überschreibt die Bildschirmauflösung (0 zum Deaktivieren, ein Neustart ist erforderlich)</string>
+  <string name="display_density_summary">Überschreibt die Bildschirmauflösung (0 zum Deaktivieren, Neustart erforderlich)</string>
+  <string name="display_density_override">Berichtete Bildschirmauflösung</string>
+  <string name="display_density_override_summary">Überschreibt die Bildschirmauflösung, welche Anwendungen berichtet wird (0 zum Deaktivieren, Neustart erforderlich)</string>
   <string name="gesture_title">Gesten</string>
   <string name="navigation_bar_pref_title">Navigationsleiste</string>
   <string name="navigation_bar_simulate_category">Navigationsleiste simulieren</string>
-  <string name="navbar_force_enable_title">Erzwinge Navigationsleiste</string>
-  <string name="navbar_force_enable_summary">Kann einen Neustart erfordern</string>
   <string name="hardware_keys_disable_title">Hardwaretasten deaktivieren</string>
   <string name="hardware_keys_disable_summary">Verhindert das Verarbeiten der Hardware-Tasten und deaktiviert sie</string>
   <string name="advanced_device_info_title">Erweiterte Informationen</string>
@@ -41,4 +41,13 @@
   <string name="show_unac_and_overcounted_stats_title">Nicht zuweisbaren Batterieverbrauch anzeigen</string>
   <string name="show_unac_and_overcounted_stats_summary">Zeigt nicht direkt zuweisbare Batterieverbrauchsinformationen an.</string>
   <string name="camera_sounds_title">Kameraverschlusston</string>
+  <string name="long_press_kill_delay">App-Beenden-Verzögerung</string>
+  <string name="app_disable_lockscreen_notifications_dlg_title">Sperrbildschirm-Benachrichtigungen deaktivieren?</string>
+  <string name="app_disable_lockscreen_notifications_dlg_text">Wenn Sie die Sperrbildschirm-Benachrichtigungen für diese Anwendung deaktivieren, werden sie nicht auf dem Sperrbildschirm aber weiterhin in der Statusleiste angezeigt.</string>
+  <string name="su_indicator">Superuser-Indikator</string>
+  <string name="su_indicator_summary">Superuser-Indikator anzeigen, wenn eine Root-Session aktiv ist</string>
+  <string name="captive_portal_detection">Captive Portal Erkennung</string>
+  <string name="captive_portal_detection_summary">Falls aktiviert ist eine Verbindung zu Google-Servern erforderlich, um die Datenverbindung zu erkennen.</string>
+  <string name="privacy_guard_notification_title">Benachrichtigung</string>
+  <string name="privacy_guard_notification_summary">Bei aktiviertem Datenschutz Benachrichtigung anzeigen.</string>
 </resources>

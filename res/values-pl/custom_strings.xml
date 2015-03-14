@@ -24,8 +24,6 @@
   <string name="gesture_title">Gesty</string>
   <string name="navigation_bar_pref_title">Pasek nawigacyjny</string>
   <string name="navigation_bar_simulate_category">Symulowany pasek nawigacyjny</string>
-  <string name="navbar_force_enable_title">Wymuś pasek nawigacji</string>
-  <string name="navbar_force_enable_summary">Może wymagać ponownego uruchomienia</string>
   <string name="hardware_keys_disable_title">Wyłącz klawisze sprzętowe</string>
   <string name="hardware_keys_disable_summary">Zatrzymuje działania klawiszy sprzętowych i wyłącza je</string>
   <string name="advanced_device_info_title">Zaawansowane informacje</string>

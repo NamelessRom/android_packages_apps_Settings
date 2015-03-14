@@ -24,8 +24,6 @@
   <string name="gesture_title">Gestes</string>
   <string name="navigation_bar_pref_title">Barre de navigation</string>
   <string name="navigation_bar_simulate_category">Barre de navigation sur l\'écran</string>
-  <string name="navbar_force_enable_title">Forcer la barre de navigation</string>
-  <string name="navbar_force_enable_summary">Peut nécessiter un redémarrage</string>
   <string name="hardware_keys_disable_title">Désactiver les touches matérielles</string>
   <string name="hardware_keys_disable_summary">Bloque les actions par les touches matérielles et les désactive</string>
   <string name="advanced_device_info_title">Informations avancées</string>

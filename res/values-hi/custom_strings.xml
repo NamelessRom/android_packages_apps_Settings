@@ -16,9 +16,5 @@
      limitations under the License.
 -->
 <resources>
-  <string name="mod_version_n">Versión de Nameless</string>
-  <string name="gesture_title">Gestos</string>
-  <string name="hardware_keys_disable_title">Desactivar las teclas físicas</string>
-  <string name="hardware_keys_disable_summary">Procesado del bloqueo de las teclas físicas y su desactivación</string>
-  <string name="advanced_device_info_summary">Información sobre la CPU, GPU, etc.</string>
+  <string name="gesture_title">इशारों</string>
 </resources>

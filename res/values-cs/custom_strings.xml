@@ -17,8 +17,6 @@
 -->
 <resources>
   <string name="mod_version_n">Verze Nameless ROM</string>
-  <string name="navbar_force_enable_title">Vynutit navigační lištu</string>
-  <string name="navbar_force_enable_summary">Může vyžadovat restart</string>
   <string name="hardware_keys_disable_title">Zakázat hardwarové tlačítka</string>
   <string name="hardware_keys_disable_summary">Zablokuje zpracování hardwarových tlačítek a zakáže je</string>
   <string name="advanced_device_info_summary">Informace o CPU, GPU atd.</string>

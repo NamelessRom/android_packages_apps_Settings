@@ -21,11 +21,11 @@
   <string name="advanced_reboot_oneclick_summary">Omedelbar omstart</string>
   <string name="display_density">Skärmdensitet</string>
   <string name="display_density_summary">Åsidosätter standard display densiteten (0 inaktiverar, kräver en omstart)</string>
+  <string name="display_density_override">Rapporterade densitet</string>
+  <string name="display_density_override_summary">Åsidosättningar display tätheten rapporteras till apps (0 inaktiverar, kräver en omstart)</string>
   <string name="gesture_title">Gester</string>
   <string name="navigation_bar_pref_title">Navigationfält</string>
   <string name="navigation_bar_simulate_category">Simulera navigeringsfält</string>
-  <string name="navbar_force_enable_title">Kräver navigeringsfält</string>
-  <string name="navbar_force_enable_summary">Kan kräva en omstart</string>
   <string name="hardware_keys_disable_title">Inaktivera maskinvaran tangenter</string>
   <string name="hardware_keys_disable_summary">Blockerar hårdvaruknappar och inaktiverar dem</string>
   <string name="advanced_device_info_title">Avancerad information</string>
@@ -41,4 +41,13 @@
   <string name="show_unac_and_overcounted_stats_title">Visa statistik</string>
   <string name="show_unac_and_overcounted_stats_summary">Statestik batterietanvändning</string>
   <string name="camera_sounds_title">Kameraslutarljud</string>
+  <string name="long_press_kill_delay">App döda dröjsmål</string>
+  <string name="app_disable_lockscreen_notifications_dlg_title">Stänga av meddelanden låsa skärmen?</string>
+  <string name="app_disable_lockscreen_notifications_dlg_text">Om du inaktiverar meddelanden låsa skärmen för denna app, visas de inte på låsskärmen men fortfarande på statusfältet.</string>
+  <string name="su_indicator">Superanvändare indikator</string>
+  <string name="su_indicator_summary">Visa superanvändare indikator när en session är aktiv</string>
+  <string name="captive_portal_detection">Captive portal upptäckt</string>
+  <string name="captive_portal_detection_summary">Om avaktiverad, krävs en anslutning till google-servrarna inte för att upptäcka dataanslutning.</string>
+  <string name="privacy_guard_notification_title">Notification</string>
+  <string name="privacy_guard_notification_summary">Visa anmälan är om privacy guard aktiv.</string>
 </resources>

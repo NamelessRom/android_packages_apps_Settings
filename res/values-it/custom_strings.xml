@@ -24,8 +24,6 @@
   <string name="gesture_title">Gesti</string>
   <string name="navigation_bar_pref_title">Barra di navigazione</string>
   <string name="navigation_bar_simulate_category">Simulare la barra di navigazione</string>
-  <string name="navbar_force_enable_title">Forza Barra di navigazione</string>
-  <string name="navbar_force_enable_summary">Può richiedere di un riavvio</string>
   <string name="hardware_keys_disable_title">Disattiva i tasti fisici</string>
   <string name="hardware_keys_disable_summary">Blocca l\'elaborazione dei tasti fisici e li disabilita</string>
   <string name="advanced_device_info_title">Informazioni avanzate</string>
