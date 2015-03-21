@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources>
+  <string name="more">Mehr</string>
   <string name="mod_version_n">Nameless-Version</string>
   <string name="advanced_reboot_oneclick">Ein-Klick-Neustart</string>
   <string name="advanced_reboot_oneclick_summary">Neustart-Aktion bei Auswahl sofort auslösen</string>
@@ -44,10 +45,22 @@
   <string name="long_press_kill_delay">App-Beenden-Verzögerung</string>
   <string name="app_disable_lockscreen_notifications_dlg_title">Sperrbildschirm-Benachrichtigungen deaktivieren?</string>
   <string name="app_disable_lockscreen_notifications_dlg_text">Wenn Sie die Sperrbildschirm-Benachrichtigungen für diese Anwendung deaktivieren, werden sie nicht auf dem Sperrbildschirm aber weiterhin in der Statusleiste angezeigt.</string>
+  <string name="app_notification_ongoing_on_keyguard_title">Zeige dauerhafte Benachrichtigungen auf Sperrbildschirm</string>
+  <string name="app_notification_ongoing_on_keyguard_summary">Zeige dauerhafte Benachrichtigungen  von dieser App auf Sperrbildschirm</string>
   <string name="su_indicator">Superuser-Indikator</string>
   <string name="su_indicator_summary">Superuser-Indikator anzeigen, wenn eine Root-Session aktiv ist</string>
   <string name="captive_portal_detection">Captive Portal Erkennung</string>
   <string name="captive_portal_detection_summary">Falls aktiviert ist eine Verbindung zu Google-Servern erforderlich, um die Datenverbindung zu erkennen.</string>
   <string name="privacy_guard_notification_title">Benachrichtigung</string>
   <string name="privacy_guard_notification_summary">Bei aktiviertem Datenschutz Benachrichtigung anzeigen.</string>
+  <string name="double_tap_to_sleep_navbar_summary">Doppeltippen Sie auf die Navigationsleiste um den Bildschirm auszuschalten</string>
+  <string name="qs_tiles_vibrate_title">Vibration bei Berührung</string>
+  <string name="smart_cover_title">Smart Cover</string>
+  <string name="lid_settings_title">Deckel</string>
+  <string name="lid_controls_sleep_title">Kontrolliere Schlaf</string>
+  <string name="lid_controls_sleep_summary">Bildschirm ausschalten wenn Deckel geschlossen wird</string>
+  <string name="lid_controls_wake_title">Kontrolliere Aufwachen</string>
+  <string name="lid_controls_wake_summary">Bildschirm einschalten wenn Deckel geöffnet wird</string>
+  <string name="hardware_keys_power_volume_down_press_title">Leiser</string>
+  <string name="hardware_keys_power_volume_up_press_title">Lauter</string>
 </resources>

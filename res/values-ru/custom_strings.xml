@@ -22,7 +22,6 @@
   <string name="display_density">Плотность дисплея</string>
   <string name="display_density_summary">Изменяет плотность экрана по умолчанию (0 для отключения, требуется перезагрузка)</string>
   <string name="display_density_override_summary">Настройка замены плотности дисплея применена к приложениям (0 выключено, требуется перезагрузка)</string>
-  <string name="gesture_title">Жесты</string>
   <string name="navigation_bar_pref_title">Панель навигации</string>
   <string name="navigation_bar_simulate_category">Имитировать панель навигации</string>
   <string name="hardware_keys_disable_title">Отключение аппаратных клавиш</string>
