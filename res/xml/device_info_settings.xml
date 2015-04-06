@@ -131,7 +131,7 @@
         <!-- Mod version -->
         <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/mod_version"
+                android:title="@string/mod_version_n"
                 android:summary="@string/mod_version_default" />
 
         <!-- Device firmware version -->
