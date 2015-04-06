@@ -433,7 +433,15 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         }
 
         mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
-        mAllPrefs.add(mDevelopmentTools);
+        if (Utils.doesIntentResolve(getActivity(), getDevToolsIntent())) {
+            mAllPrefs.add(mDevelopmentTools);
+        }
+    }
+
+    private Intent getDevToolsIntent() {
+        return new Intent()
+                .setClassName("com.android.development", "com.android.development.Development")
+                .setAction("android.settings.development.LAUNCH_TOOLS");
     }
 
     private ListPreference addListPreference(String prefKey) {
@@ -1749,11 +1757,13 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 }
                 mUpdateRecoveryDialog.setOnDismissListener(this);
             }
-        } else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        } else if (preference == mDevelopmentTools) {
+            try {
+                startActivity(getDevToolsIntent());
+            } catch (Exception ignored) { }
         }
 
-        return false;
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private boolean showKeyguardConfirmation(Resources resources, int requestCode) {
