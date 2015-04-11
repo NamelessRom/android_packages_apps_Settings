@@ -603,11 +603,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mPowerKeyDownAction) {
             final String value = String.valueOf(newValue);
-            mPowerKeyDownAction.putSystemValue(value);
+            mPowerKeyDownAction.putSecureValue(value);
             return true;
         } else if (preference == mPowerKeyUpAction) {
             final String value = String.valueOf(newValue);
-            mPowerKeyUpAction.putSystemValue(value);
+            mPowerKeyUpAction.putSecureValue(value);
             return true;
         }
         return false;
