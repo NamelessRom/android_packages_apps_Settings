@@ -50,7 +50,7 @@ public class CustomActionListPreference extends ListPreference {
         setEntryValues(ActionConstants.fromActionArray(
                 actions.toArray(new ActionConstants.ActionConstant[actions.size()])));
 
-        final String value = getSystemValue("**null**");
+        final String value = getSecureValue("**null**");
         setValue(value);
         updateSummary(value);
     }
@@ -72,13 +72,13 @@ public class CustomActionListPreference extends ListPreference {
         }
     }
 
-    public String getSystemValue(String defaultReturnValue) {
-        final String value = Settings.System.getString(getContext().getContentResolver(), getKey());
+    public String getSecureValue(String defaultReturnValue) {
+        final String value = Settings.Secure.getString(getContext().getContentResolver(), getKey());
         return (value != null ? value : defaultReturnValue);
     }
 
-    public void putSystemValue(String value) {
-        Settings.System.putString(getContext().getContentResolver(), getKey(), value);
+    public void putSecureValue(String value) {
+        Settings.Secure.putString(getContext().getContentResolver(), getKey(), value);
         updateSummary(value);
     }
 }
