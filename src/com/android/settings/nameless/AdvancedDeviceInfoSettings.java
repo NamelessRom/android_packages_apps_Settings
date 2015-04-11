@@ -49,18 +49,20 @@ import static android.opengl.GLES20.GL_VERSION;
 import static android.opengl.GLES20.glGetString;
 
 public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
-
     private static final String LOG_TAG = "AdvancedDeviceInfoSettings";
 
-    private static final String FILENAME_PROC_VERSION = "/proc/version";
-    private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
-    private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
+    private static final String PROC_VERSION = "/proc/version";
+    private static final String PROC_MEMINFO = "/proc/meminfo";
+    private static final String PROC_CPUINFO = "/proc/cpuinfo";
+
+    private static final String CATEGORY_DEVICE_GPU = "category_device_gpu";
 
     private static final String KEY_KERNEL_VERSION = "kernel_version";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_DEVICE_CPU_FEATURES = "device_cpu_features";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
-    private static final String GROUP_DEVICE_GPU = "device_gpu";
+
+    private static final String KEY_DEVICE_CPU_HARDWARE = "device_cpu_hardware";
+    private static final String KEY_DEVICE_CPU_TYPE = "device_cpu_type";
+    private static final String KEY_DEVICE_CPU_FEATURES = "device_cpu_features";
 
     public static final int[] GL_INFO = new int[]{
             GL_VENDOR,                  // gpu vendor
@@ -85,32 +87,16 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.device_advanced_info_settings);
+        addPreferencesFromResource(R.xml.device_info_advanced_settings);
 
         setStringSummary(KEY_KERNEL_VERSION, getFormattedKernelVersion());
+        setStringSummary(KEY_DEVICE_MEMORY, getMemInfo());
 
-        String info = getCPUInfo();
-        if (info != null) {
-            setStringSummary(KEY_DEVICE_CPU, info);
-        } else {
-            removePref(KEY_DEVICE_CPU);
-        }
+        setStringSummary(KEY_DEVICE_CPU_HARDWARE, getCpuProcessor());
+        setStringSummary(KEY_DEVICE_CPU_TYPE, getCpuInfo());
+        setStringSummary(KEY_DEVICE_CPU_FEATURES, getCpuFeatures());
 
-        info = getCpuFeatures();
-        if (info != null) {
-            setStringSummary(KEY_DEVICE_CPU_FEATURES, info);
-        } else {
-            removePref(KEY_DEVICE_CPU_FEATURES);
-        }
-
-        info = getMemInfo();
-        if (info != null) {
-            setStringSummary(KEY_DEVICE_MEMORY, info);
-        } else {
-            removePref(KEY_DEVICE_MEMORY);
-        }
-
-        PreferenceCategory category = (PreferenceCategory) findPreference(GROUP_DEVICE_GPU);
+        PreferenceCategory category = (PreferenceCategory) findPreference(CATEGORY_DEVICE_GPU);
         final ArrayList<String> glesInformation = getOpenGLESInformation();
         if (glesInformation.size() != 0) {
             String tmp;
@@ -124,13 +110,6 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
                     category.addPreference(infoPref);
                 }
             }
-        }
-    }
-
-    private void removePref(final String key) {
-        final Preference preference = findPreference(key);
-        if (preference != null) {
-            getPreferenceScreen().removePreference(preference);
         }
     }
 
@@ -151,25 +130,24 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
      */
     private static String readLine(String filename) throws IOException {
         final FileReader fr = new FileReader(filename);
-        final BufferedReader reader = new BufferedReader(fr, 256);
-        try {
+        try (BufferedReader reader = new BufferedReader(fr, 256)) {
             return reader.readLine();
         } finally {
-            reader.close();
             fr.close();
         }
     }
 
-    public static String getFormattedKernelVersion() {
+    public String getFormattedKernelVersion() {
         try {
-            return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
+            return formatKernelVersion(readLine(PROC_VERSION));
         } catch (IOException e) {
             Log.e(LOG_TAG, "IO Exception when getting kernel version for Device Info screen", e);
-            return "Unavailable";
+            return getResources().getString(R.string.device_info_default);
         }
     }
 
-    public static String formatKernelVersion(String rawKernelVersion) {
+    public String formatKernelVersion(String rawKernelVersion) {
+        boolean success = true;
         // Example (see tests for more):
         // Linux version 3.0.31-g6fb96c9 (android-build@xxx.xxx.xxx.xxx.com) \
         //     (gcc version 4.6.x-xxx 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT \
@@ -185,20 +163,23 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
 
         Matcher m = Pattern.compile(PROC_VERSION_REGEX).matcher(rawKernelVersion);
         if (!m.matches()) {
-            Log.e(LOG_TAG, "Regex did not match on /proc/version: " + rawKernelVersion);
-            return "Unavailable";
+            Log.e(LOG_TAG, "Regex did not match: " + rawKernelVersion);
+            success = false;
         } else if (m.groupCount() < 4) {
-            Log.e(LOG_TAG, "Regex match on /proc/version only returned " + m.groupCount()
-                    + " groups");
-            return "Unavailable";
+            Log.e(LOG_TAG, "Regex match only returned " + m.groupCount() + " groups");
+            success = false;
         }
+
+        if (!success) {
+            return getResources().getString(R.string.device_info_default);
+        }
+
         return m.group(1) + "\n" +                     // 3.0.31-g6fb96c9
                 m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
                 m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
     }
 
     private String getMemInfo() {
-        String result = null;
         try {
             /* /proc/meminfo entries follow this format:
              * MemTotal:         362096 kB
@@ -206,56 +187,67 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
              * Buffers:            5236 kB
              * Cached:            81652 kB
              */
-            String firstLine = readLine(FILENAME_PROC_MEMINFO);
+            String firstLine = readLine(PROC_MEMINFO);
             if (firstLine != null) {
                 String parts[] = firstLine.split("\\s+");
                 if (parts.length == 3) {
-                    result = Long.parseLong(parts[1]) / 1024 + " MB";
+                    return Long.parseLong(parts[1]) / 1024 + " MB";
                 }
             }
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "IOException at getMemInfo()!", e);
-        }
+        } catch (IOException ignored) { }
 
-        return result;
+        return getResources().getString(R.string.device_info_default);
     }
 
-    private String getCPUInfo() {
-        String result = null;
-
+    private String getCpuInfo() {
         try {
             /* The expected /proc/cpuinfo output is as follows:
              * Processor    : ARMv7 Processor rev 2 (v7l)
              * BogoMIPS     : 272.62
              */
-            String firstLine = readLine(FILENAME_PROC_CPUINFO);
+            String firstLine = readLine(PROC_CPUINFO);
             if (firstLine != null) {
-                result = firstLine.split(":")[1].trim();
+                return firstLine.split(":")[1].trim();
             }
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "IOException at getCPUInfo()!", e);
-        }
+        } catch (IOException ignored) { }
 
-        return result;
+        return getResources().getString(R.string.device_info_default);
     }
 
     private String getCpuFeatures() {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(FILENAME_PROC_CPUINFO), 256);
-            try {
+            try (BufferedReader reader = new BufferedReader(new FileReader(PROC_CPUINFO), 256)) {
                 String tmp;
                 while ((tmp = reader.readLine().toLowerCase()) != null) {
                     if (tmp.contains("features")) {
                         return tmp.split(":")[1].trim();
                     }
                 }
-            } finally {
-                reader.close();
             }
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "IOException at getCpuFeatures()!", e);
-        }
-        return null;
+        } catch (IOException ignored) { }
+
+        return getResources().getString(R.string.device_info_default);
+    }
+
+    private String getCpuProcessor() {
+        // Hardware : XYZ
+        final String PROC_HARDWARE_REGEX = "Hardware\\s*:\\s*(.*)$"; /* hardware string */
+
+        try {
+            String cpuinfo;
+            try (BufferedReader reader = new BufferedReader(new FileReader(PROC_CPUINFO))) {
+                while (null != (cpuinfo = reader.readLine())) {
+                    if (cpuinfo.startsWith("Hardware")) {
+                        Matcher m = Pattern.compile(PROC_HARDWARE_REGEX).matcher(cpuinfo);
+                        if (m.matches()) {
+                            return m.group(1);
+                        }
+                    }
+                }
+            }
+        } catch (IOException ignored) { }
+
+        return getResources().getString(R.string.device_info_default);
     }
 
     private boolean isOpenGLES20Supported() {
@@ -270,7 +262,7 @@ public class AdvancedDeviceInfoSettings extends RestrictedSettingsFragment {
     }
 
     private ArrayList<String> getOpenGLESInformation() {
-        final ArrayList<String> glesInformation = new ArrayList<String>(GL_INFO.length);
+        final ArrayList<String> glesInformation = new ArrayList<>(GL_INFO.length);
 
         if (!isOpenGLES20Supported()) {
             // OpenGL ES 2.0 not supported, return empty list
