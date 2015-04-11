@@ -23,7 +23,9 @@
     <string name="advanced_device_info_title">Advanced information</string>
     <string name="advanced_device_info_summary">Information about CPU, GPU etc.</string>
     <!-- CPU -->
-    <string name="cpu_info">CPU</string>
+    <string name="cpu_processor">Processor</string>
+    <string name="cpu_processor_hardware">Hardware</string>
+    <string name="cpu_type">Processor type</string>
     <string name="cpu_features">Processor features</string>
     <!-- Memory -->
     <string name="mem_info">Memory</string>
