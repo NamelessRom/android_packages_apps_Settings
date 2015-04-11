@@ -213,13 +213,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         mPowerKeyDownAction = (CustomActionListPreference)
-                findPreference(Settings.System.POWER_CHORD_ACTION_DOWN);
+                findPreference(Settings.Secure.POWER_CHORD_ACTION_DOWN);
         if (mPowerKeyDownAction != null) {
             mPowerKeyDownAction.setOnPreferenceChangeListener(this);
         }
 
         mPowerKeyUpAction = (CustomActionListPreference)
-                findPreference(Settings.System.POWER_CHORD_ACTION_UP);
+                findPreference(Settings.Secure.POWER_CHORD_ACTION_UP);
         if (mPowerKeyUpAction != null) {
             mPowerKeyUpAction.setOnPreferenceChangeListener(this);
         }
@@ -603,11 +603,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mPowerKeyDownAction) {
             final String value = String.valueOf(newValue);
-            mPowerKeyDownAction.putSystemValue(value);
+            mPowerKeyDownAction.putSecureValue(value);
             return true;
         } else if (preference == mPowerKeyUpAction) {
             final String value = String.valueOf(newValue);
-            mPowerKeyUpAction.putSystemValue(value);
+            mPowerKeyUpAction.putSecureValue(value);
             return true;
         }
         return false;
