@@ -16,7 +16,12 @@
 
 package com.android.settings.nameless;
 
+import android.Manifest;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.preference.ListPreference;
 import android.provider.Settings;
 import android.util.AttributeSet;
@@ -24,11 +29,13 @@ import android.util.AttributeSet;
 import com.android.internal.util.nameless.ActionConstants;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CustomActionListPreference extends ListPreference {
 
     public CustomActionListPreference(Context context) {
-        super(context, null);
+        super(context);
         init(context);
     }
 
@@ -43,25 +50,63 @@ public class CustomActionListPreference extends ListPreference {
     }
 
     private void init(final Context context) {
-        // TODO: remove filter once everything is implemented
-        final ArrayList<ActionConstants.ActionConstant> actions =
-                new ArrayList<>(ActionConstants.Actions());
-        setEntries(getActionEntries(context, actions));
-        setEntryValues(ActionConstants.fromActionArray(
-                actions.toArray(new ActionConstants.ActionConstant[actions.size()])));
+        final ArrayList<ActionConstants.ActionConstant> actions = new ArrayList<>();
+        actions.addAll(ActionConstants.Actions());
+
+        final String[] actionNames = ActionConstants.fromActionArray(
+                actions.toArray(new ActionConstants.ActionConstant[actions.size()]));
+
+        // save actions and the names in a list, to allow to add items dynamically
+        ArrayList<String> entries = getActionEntries(context, actions);
+        ArrayList<String> entryValues = new ArrayList<>(Arrays.asList(actionNames));
+
+        // query the package manager and add suitable entries
+        addCustomActions(entries, entryValues);
+
+        setEntries(entries.toArray(new String[entries.size()]));
+        setEntryValues(entryValues.toArray(new String[entryValues.size()]));
 
         final String value = getSecureValue("**null**");
         setValue(value);
         updateSummary(value);
     }
 
-    private String[] getActionEntries(final Context context,
+    private void addCustomActions(ArrayList<String> entries, ArrayList<String> entryValues) {
+        final PackageManager packageManager = getContext().getPackageManager();
+        final Intent intent = new Intent(Intent.ACTION_POWER_CHORD);
+
+        // Search for all apps that can handle ACTION_POWER_CHORD
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
+
+        for (ResolveInfo info : activities) {
+            if (!info.activityInfo.isEnabled()) {
+                continue;
+            }
+
+            int perm = packageManager.checkPermission(Manifest.permission.LAUNCH_WITH_POWER_CHORD,
+                    info.activityInfo.packageName);
+
+            if (perm != PackageManager.PERMISSION_GRANTED) {
+                continue;
+            }
+
+            ComponentName componentName = new ComponentName(info.activityInfo.packageName,
+                    info.activityInfo.name);
+            Intent targetIntent = new Intent().setComponent(componentName);
+
+            entries.add(String.valueOf(info.loadLabel(packageManager)));
+            entryValues.add(targetIntent.toUri(0));
+        }
+    }
+
+    private ArrayList<String> getActionEntries(final Context context,
             final ArrayList<ActionConstants.ActionConstant> actions) {
         final ArrayList<String> entries = new ArrayList<>(actions.size());
         for (ActionConstants.ActionConstant constant : actions) {
             entries.add(ActionConstants.getProperName(context, constant.value()));
         }
-        return entries.toArray(new String[entries.size()]);
+        return entries;
     }
 
     private void updateSummary(String value) {
@@ -69,12 +114,15 @@ public class CustomActionListPreference extends ListPreference {
         if (index != -1) {
             setValueIndex(index);
             setSummary(getEntries()[index]);
+        } else {
+            setValueIndex(0);
+            setSummary(getEntries()[0]);
         }
     }
 
     public String getSecureValue(String defaultReturnValue) {
-        final String value = Settings.Secure.getString(getContext().getContentResolver(), getKey());
-        return (value != null ? value : defaultReturnValue);
+        String value = Settings.Secure.getString(getContext().getContentResolver(), getKey());
+        return value != null ? value : defaultReturnValue;
     }
 
     public void putSecureValue(String value) {
