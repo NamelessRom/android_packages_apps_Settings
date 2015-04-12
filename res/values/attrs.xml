@@ -129,4 +129,11 @@
         <attr name="defaultValue" format="float" />
         <attr name="digits" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="SeekBarPreference">
+        <attr name="minSeekBar" format="integer" />
+        <attr name="interval" format="integer" />
+        <attr name="unitsLeft" format="string" />
+        <attr name="unitsRight" format="string" />
+    </declare-styleable>
 </resources>
