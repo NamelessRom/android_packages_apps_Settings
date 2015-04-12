@@ -106,6 +106,9 @@ public class CustomActionListPreference extends ListPreference {
         if (index != -1) {
             setValueIndex(index);
             setSummary(getEntries()[index]);
+        } else {
+            setValueIndex(0);
+            setSummary(getEntries()[0]);
         }
     }
 
