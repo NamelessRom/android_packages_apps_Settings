@@ -23,7 +23,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import java.math.BigInteger;
-import java.net.NetworkInterface;
 import java.security.MessageDigest;
 
 public class Utilities {
@@ -60,11 +59,17 @@ public class Utilities {
     }
 
     public static String getDevice() {
-        return SystemProperties.get("ro.cm.device");
+        return SystemProperties.get("ro.nameless.device");
     }
 
     public static String getModVersion() {
-        return SystemProperties.get("ro.cm.version");
+        return SystemProperties.get("ro.nameless.version");
+    }
+
+    public static String getModVersionNoDevice() {
+        String version = getModVersion();
+        String[] parts = version.split("-");
+        return parts.length > 0 ? parts[0] : version;
     }
 
     public static String digest(String input) {
