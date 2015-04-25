@@ -24,7 +24,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class AnonymousStats extends SettingsPreferenceFragment {
-    private static final String PREF_FILE_NAME = "CMStats";
+    private static final String PREF_FILE_NAME = "NamelessStats";
     /* package */ static final String ANONYMOUS_OPT_IN = "pref_anonymous_opt_in";
     /* package */ static final String ANONYMOUS_LAST_CHECKED = "pref_anonymous_checked_in";
 
