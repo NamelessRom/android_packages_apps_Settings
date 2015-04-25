@@ -2,7 +2,10 @@
 
 <resources>
   <!--Replace placeholder ID with your tracking ID-->
-  <string name="ga_trackingId">UA-39737599-1</string>
+  <string name="ga_trackingId">UA-48250920-2</string>
+
+  <!-- do not log our user's ip -->
+  <string name="ga_anonymizeIp">true</string>
 
   <!--Enable automatic activity tracking-->
   <bool name="ga_autoActivityTracking">false</bool>

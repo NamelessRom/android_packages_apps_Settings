@@ -17,6 +17,8 @@
 package com.android.settings.cmstats;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -45,5 +47,9 @@ public class PreviewData extends SettingsPreferenceFragment {
         prefSet.findPreference(VERSION).setSummary(Utilities.getModVersion());
         prefSet.findPreference(COUNTRY).setSummary(Utilities.getCountryCode(context));
         prefSet.findPreference(CARRIER).setSummary(Utilities.getCarrier(context));
+
+        // TODO: remove me
+        Intent intent = new Intent(context, ReportingService.class);
+        context.startService(intent);
     }
 }

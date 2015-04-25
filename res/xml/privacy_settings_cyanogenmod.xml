@@ -40,8 +40,8 @@
         <!-- Anonymous statistics - (CMStats) -->
         <PreferenceScreen
             android:key="cmstats"
-            android:title="@string/anonymous_statistics_title"
-            android:summary="@string/anonymous_statistics_summary"
+            android:title="@string/anonymous_statistics_title_n"
+            android:summary="@string/anonymous_statistics_summary_n"
             android:fragment="com.android.settings.cmstats.AnonymousStats" >
         </PreferenceScreen>
 </PreferenceScreen>
