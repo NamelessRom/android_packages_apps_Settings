@@ -25,26 +25,14 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.android.settings.R;
-import com.android.settings.Settings;
-
 import com.google.analytics.tracking.android.GoogleAnalytics;
-import com.google.analytics.tracking.android.Tracker;
 import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ReportingService extends Service {
-    /* package */ static final String TAG = "CMStats";
+    /* package */ static final String TAG = "NamelessStats";
 
     private StatsUploadTask mTask;
 
@@ -54,7 +42,7 @@ public class ReportingService extends Service {
     }
 
     @Override
-    public int onStartCommand (Intent intent, int flags, int startId) {
+    public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "User has opted in -- reporting.");
 
         if (mTask == null || mTask.getStatus() == AsyncTask.Status.FINISHED) {
@@ -85,25 +73,15 @@ public class ReportingService extends Service {
             // report to google analytics
             Tracker tracker = GoogleAnalytics.getInstance(ReportingService.this)
                     .getTracker(getString(R.string.ga_trackingId));
-            tracker.send(createMap(deviceName, deviceVersion,deviceCountry));
+            tracker.send(createMap(deviceName, deviceVersion, deviceCountry));
 
-            // this really should be set at build time...
-            // format of version should be:
-            // version[-date-type]-device
-            String[] parts = deviceVersion.split("-");
-            String deviceVersionNoDevice = null;
-            if (parts.length == 2) {
-                deviceVersionNoDevice = parts[0];
-            } else if (parts.length == 4) {
-                deviceVersionNoDevice = parts[0] + "-" + parts[2];
-            }
-
+            String deviceVersionNoDevice = Utilities.getModVersionNoDevice();
             if (deviceVersionNoDevice != null) {
                 tracker.send(createMap("checkin", deviceName, deviceVersionNoDevice));
             }
 
             // report to the cmstats service
-            HttpClient httpClient = new DefaultHttpClient();
+            /*HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("https://stats.cyanogenmod.org/submit");
             boolean success = false;
 
@@ -122,9 +100,9 @@ public class ReportingService extends Service {
                 success = true;
             } catch (IOException e) {
                 Log.w(TAG, "Could not upload stats checkin", e);
-            }
+            }*/
 
-            return success;
+            return true;
         }
 
         @Override
@@ -152,7 +130,7 @@ public class ReportingService extends Service {
         return MapBuilder.createEvent(category,     // Event category (required)
                 action,                     // Event action (required)
                 label,                      // Event label
-                        null)                       // Event value
+                null)                       // Event value
                 .build();
     }
 }
