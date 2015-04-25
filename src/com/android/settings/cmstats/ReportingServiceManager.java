@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.provider.Settings;
 import android.util.Log;
 
 public class ReportingServiceManager extends BroadcastReceiver {
@@ -34,7 +33,12 @@ public class ReportingServiceManager extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
+        if (!Utilities.isStatsCollectionEnabled(context)) {
+            return;
+        }
+
+        String action = intent != null ? intent.getAction() : null;
+        if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
             setAlarm(context, 0);
         } else {
             launchService(context);
@@ -45,9 +49,6 @@ public class ReportingServiceManager extends BroadcastReceiver {
         SharedPreferences prefs = AnonymousStats.getPreferences(context);
         if (prefs.contains(AnonymousStats.ANONYMOUS_OPT_IN)) {
             migrate(context, prefs);
-        }
-        if (!Utilities.isStatsCollectionEnabled(context)) {
-            return;
         }
 
         if (millisFromNow <= 0) {
@@ -83,10 +84,6 @@ public class ReportingServiceManager extends BroadcastReceiver {
         }
 
         SharedPreferences prefs = AnonymousStats.getPreferences(context);
-
-        if (!Utilities.isStatsCollectionEnabled(context)) {
-            return;
-        }
 
         long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
         if (lastSynced == 0) {
