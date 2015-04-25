@@ -23,8 +23,9 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import namelessrom.providers.NamelessSettings;
+
 import java.math.BigInteger;
-import java.net.NetworkInterface;
 import java.security.MessageDigest;
 
 public class Utilities {
@@ -61,11 +62,17 @@ public class Utilities {
     }
 
     public static String getDevice() {
-        return SystemProperties.get("ro.cm.device", Build.PRODUCT);
+        return SystemProperties.get("ro.nameless.device", Build.PRODUCT);
     }
 
     public static String getModVersion() {
-        return SystemProperties.get("ro.cm.version", Build.DISPLAY);
+        return SystemProperties.get("ro.nameless.version", Build.DISPLAY);
+    }
+
+    public static String getModVersionNoDevice() {
+        String version = getModVersion();
+        String[] parts = version.split("-");
+        return parts.length > 0 ? parts[0] : version;
     }
 
     public static String digest(String input) {
@@ -83,8 +90,8 @@ public class Utilities {
      * @return Whether or not stats collection is enabled.
      */
     public static boolean isStatsCollectionEnabled(Context context) {
-        return Settings.Secure.getInt(context.getContentResolver(),
-                Settings.Secure.STATS_COLLECTION, 1) != 0;
+        return NamelessSettings.Secure.getInt(context.getContentResolver(),
+                NamelessSettings.Secure.STATS_COLLECTION, 1) != 0;
     }
 
     /**
@@ -94,7 +101,7 @@ public class Utilities {
      */
     public static void setStatsCollectionEnabled(Context context, boolean enabled) {
         int enable = (enabled) ? 1 : 0;
-        Settings.Secure.putInt(context.getContentResolver(),
-                Settings.Secure.STATS_COLLECTION, enable);
+        NamelessSettings.Secure.putInt(context.getContentResolver(),
+                NamelessSettings.Secure.STATS_COLLECTION, enable);
     }
 }
