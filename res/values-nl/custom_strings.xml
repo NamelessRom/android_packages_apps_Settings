@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources>
+  <string name="more">Meer</string>
   <string name="mod_version_n">Nameless versie</string>
   <string name="advanced_reboot_oneclick">Met één klik opnieuw opstarten</string>
   <string name="advanced_reboot_oneclick_summary">Meteen opnieuw opstarten</string>
@@ -44,10 +45,23 @@
   <string name="long_press_kill_delay">App sluiting vertraging</string>
   <string name="app_disable_lockscreen_notifications_dlg_title">Vergrendelscherm notificaties uitschakelen?</string>
   <string name="app_disable_lockscreen_notifications_dlg_text">Als u vergrendelscherm notificaties uitschakelt voor deze app, worden deze niet op het vergrendelscherm weergegeven maar wel in de status bar.</string>
+  <string name="app_notification_ongoing_on_keyguard_title">Persistent melding weergeven op het vergrendelscherm</string>
+  <string name="app_notification_ongoing_on_keyguard_summary">Persistent meldingen van deze app op het vergrendelscherm weergeven</string>
   <string name="su_indicator">Superuser indicator</string>
   <string name="su_indicator_summary">Toon superuser indicator wanneer een sessie actief is</string>
-  <string name="captive_portal_detection">Détection de portail captif</string>
+  <string name="captive_portal_detection">Capacitief portaal detectie</string>
   <string name="captive_portal_detection_summary">Als uitgeschakeld, is een verbinding met servers van Google niet vereist om een gegevensverbinding te detecteren.</string>
   <string name="privacy_guard_notification_title">Melding</string>
   <string name="privacy_guard_notification_summary">Melding weergeven als Privacy Guard actief is.</string>
+  <string name="double_tap_to_sleep_navbar_summary">Dubbel-tikken op de navigatiebalk om het scherm uit te schakelen</string>
+  <string name="qs_tiles_vibrate_title">Trillen bij aanraken</string>
+  <string name="smart_cover_title">Smart cover</string>
+  <string name="lid_settings_title">Hoes</string>
+  <string name="lid_controls_sleep_title">Controleer slaap</string>
+  <string name="lid_controls_sleep_summary">Scherm uitschakelen bij het sluiten van hoes</string>
+  <string name="lid_controls_wake_title">Controleer wekken</string>
+  <string name="lid_controls_wake_summary">Scherm inschakelen wanneer hoes opent</string>
+  <string name="hardware_keys_power_chord_title">Power knopacties</string>
+  <string name="hardware_keys_power_volume_down_press_title">Volume omlaag</string>
+  <string name="hardware_keys_power_volume_up_press_title">Volume omhoog</string>
 </resources>

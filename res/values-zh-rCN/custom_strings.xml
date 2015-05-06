@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources>
+  <string name="more">较多</string>
   <string name="mod_version_n">Nameless版本</string>
   <string name="advanced_reboot_oneclick">一键重启</string>
   <string name="advanced_reboot_oneclick_summary">直接触发重启操作</string>
@@ -44,10 +45,23 @@
   <string name="long_press_kill_delay">应用程序强制关闭延迟</string>
   <string name="app_disable_lockscreen_notifications_dlg_title">关闭锁屏通知吗？</string>
   <string name="app_disable_lockscreen_notifications_dlg_text">如果您关闭此应用程序的锁屏通知，它们不会在锁定屏幕上显示但仍会在状态栏上显示图标。</string>
+  <string name="app_notification_ongoing_on_keyguard_title">在锁定屏幕上显示持续显示通知</string>
+  <string name="app_notification_ongoing_on_keyguard_summary">在锁定屏幕上显示持续来自此应用程序的通知</string>
   <string name="su_indicator">Superuser指示器</string>
   <string name="su_indicator_summary">当会话处于活动状态时显示Superuser指示器</string>
   <string name="captive_portal_detection">Wifi认证登陆检测</string>
   <string name="captive_portal_detection_summary">如果禁用，与谷歌服务器连接时不检测数据连接。</string>
   <string name="privacy_guard_notification_title">通知</string>
   <string name="privacy_guard_notification_summary">当隐私防护处于活动状态时显示通知</string>
+  <string name="double_tap_to_sleep_navbar_summary">双击导航栏以锁屏</string>
+  <string name="qs_tiles_vibrate_title">触摸时振动</string>
+  <string name="smart_cover_title">智能保护套</string>
+  <string name="lid_settings_title">盖子</string>
+  <string name="lid_controls_sleep_title">控制睡眠</string>
+  <string name="lid_controls_sleep_summary">盖子关闭时锁定屏幕</string>
+  <string name="lid_controls_wake_title">控制唤醒</string>
+  <string name="lid_controls_wake_summary">盖子打开时唤醒设备</string>
+  <string name="hardware_keys_power_chord_title">电源按钮行为</string>
+  <string name="hardware_keys_power_volume_down_press_title">调低音量</string>
+  <string name="hardware_keys_power_volume_up_press_title">调高音量</string>
 </resources>

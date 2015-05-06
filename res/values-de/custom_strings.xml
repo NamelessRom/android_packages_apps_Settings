@@ -61,6 +61,7 @@
   <string name="lid_controls_sleep_summary">Bildschirm ausschalten wenn Deckel geschlossen wird</string>
   <string name="lid_controls_wake_title">Kontrolliere Aufwachen</string>
   <string name="lid_controls_wake_summary">Bildschirm einschalten wenn Deckel geöffnet wird</string>
+  <string name="hardware_keys_power_chord_title">Ein-/Aus-Taste Aktionen</string>
   <string name="hardware_keys_power_volume_down_press_title">Leiser</string>
   <string name="hardware_keys_power_volume_up_press_title">Lauter</string>
 </resources>

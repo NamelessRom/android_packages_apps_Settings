@@ -16,11 +16,14 @@
      limitations under the License.
 -->
 <resources>
+  <string name="more">Mais</string>
   <string name="mod_version_n">Versão do Nameless</string>
   <string name="advanced_reboot_oneclick">Reinicialização de um clique</string>
   <string name="advanced_reboot_oneclick_summary">Ação de reínicio instantâneo</string>
   <string name="display_density">Densidade de exibição</string>
   <string name="display_density_summary">Substitui a densidade de exibição padrão (0 para desativar, requer reinicialização)</string>
+  <string name="display_density_override">Densidade reportada</string>
+  <string name="display_density_override_summary">Substitui a densidade de ecrã reportada para aplicações (0 para desativar, requer uma reinicialização)</string>
   <string name="gesture_title">Gestos</string>
   <string name="navigation_bar_pref_title">Barra de navegação</string>
   <string name="navigation_bar_simulate_category">Simular a barra de navegação</string>
@@ -39,4 +42,26 @@
   <string name="show_unac_and_overcounted_stats_title">Mostrar estatistiscas não contabilizadas/excessivas</string>
   <string name="show_unac_and_overcounted_stats_summary">Mostrar nas estatísticas da bateria as utilizações não contabilizadas/excessivas.</string>
   <string name="camera_sounds_title">Som de captura da câmara</string>
+  <string name="long_press_kill_delay">Tempo de terminar a aplicação</string>
+  <string name="app_disable_lockscreen_notifications_dlg_title">Desativar notificações do ecrã de bloqueio?</string>
+  <string name="app_disable_lockscreen_notifications_dlg_text">Se desativar as notificações no ecrã de bloqueio para esta aplicação, elas não serão exibidas na tela de bloqueio, mas continuam na barra de status.</string>
+  <string name="app_notification_ongoing_on_keyguard_title">Mostra uma notificação persistente no ecrã de bloqueio</string>
+  <string name="app_notification_ongoing_on_keyguard_summary">Mostrar notificações persistentes desta aplicação no ecrã de bloqueio</string>
+  <string name="su_indicator">Indicador do superuser</string>
+  <string name="su_indicator_summary">Mostra indicador de superuser quando uma sessão é ativa</string>
+  <string name="captive_portal_detection">Deteção de captive portal</string>
+  <string name="captive_portal_detection_summary">Se desativado, uma conexão com os servidores do google não é necessária para detectar a conexão de dados.</string>
+  <string name="privacy_guard_notification_title">Notificação</string>
+  <string name="privacy_guard_notification_summary">Mostrar notificação se a proteção de privacidade está ativa.</string>
+  <string name="double_tap_to_sleep_navbar_summary">Dar um duplo toque na barra de navegação para desligar o ecrã</string>
+  <string name="qs_tiles_vibrate_title">Vibrar ao tocar</string>
+  <string name="smart_cover_title">Smart Cover</string>
+  <string name="lid_settings_title">Tampa</string>
+  <string name="lid_controls_sleep_title">Controlo de descanso</string>
+  <string name="lid_controls_sleep_summary">Desliga o ecrã quando fecha a tampa</string>
+  <string name="lid_controls_wake_title">Controlo de despertar</string>
+  <string name="lid_controls_wake_summary">Ligar o ecrã quando abre a tampa</string>
+  <string name="hardware_keys_power_chord_title">Ações de botão de energia</string>
+  <string name="hardware_keys_power_volume_down_press_title">Diminuir o volume</string>
+  <string name="hardware_keys_power_volume_up_press_title">Aumentar o volume</string>
 </resources>
