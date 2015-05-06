@@ -22,6 +22,7 @@
   <string name="advanced_device_info_summary">Informationen über CPU, GPU etc..</string>
   <string name="cpu_processor">Prozessor</string>
   <string name="cpu_processor_hardware">Hardware</string>
+  <string name="cpu_type">Prozessortyp</string>
   <string name="cpu_features">Prozessorfunktionen</string>
   <string name="mem_info">Arbeitsspeicher</string>
   <string name="gpu_vendor">GPU-Hersteller</string>
