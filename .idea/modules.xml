@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/BackupRestoreConfirmation/BackupRestoreConfirmation.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/BackupRestoreConfirmation/BackupRestoreConfirmation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/CaptivePortalLogin/CaptivePortalLogin.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/CaptivePortalLogin/CaptivePortalLogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/DefaultContainerService/DefaultContainerService.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/DefaultContainerService/DefaultContainerService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/DocumentsUI/DocumentsUI.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/DocumentsUI/DocumentsUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/ExternalStorageProvider/ExternalStorageProvider.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/ExternalStorageProvider/ExternalStorageProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/FakeOemFeatures/FakeOemFeatures.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/FakeOemFeatures/FakeOemFeatures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/FusedLocation/FusedLocation.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/FusedLocation/FusedLocation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/InputDevices/InputDevices.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/InputDevices/InputDevices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/Keyguard/Keyguard.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/Keyguard/Keyguard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/services/PacProcessor/PacProcessor.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/services/PacProcessor/PacProcessor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/PrintSpooler/PrintSpooler.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/PrintSpooler/PrintSpooler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/services/Proxy/Proxy.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/services/Proxy/Proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Settings.iml" filepath="$PROJECT_DIR$/.idea/Settings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/SettingsProvider/SettingsProvider.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/SettingsProvider/SettingsProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/SharedStorageBackup/SharedStorageBackup.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/SharedStorageBackup/SharedStorageBackup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/Shell/Shell.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/Shell/Shell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/SystemUI.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/SystemUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/SystemUI1.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/SystemUI1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/VpnDialogs/VpnDialogs.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/VpnDialogs/VpnDialogs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/WAPPushManager/WAPPushManager.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/WAPPushManager/WAPPushManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/WallpaperCropper/WallpaperCropper.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/WallpaperCropper/WallpaperCropper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/accessibility/accessibility.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/accessibility/accessibility.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/appwidget/appwidget.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/appwidget/appwidget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/backup/backup.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/backup/backup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/core/core.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../device/oppo/find7/deviceextra/deviceextra.iml" filepath="$PROJECT_DIR$/../../../device/oppo/find7/deviceextra/deviceextra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/devicepolicy/devicepolicy.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/devicepolicy/devicepolicy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/policy/policy.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/policy/policy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/print/print.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/print/print.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/core/res/res.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/core/res/res.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/restrictions/restrictions.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/restrictions/restrictions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/security-bridge/java/security-bridge.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/security-bridge/java/security-bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/core/services.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/core/services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/services.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/tests/servicestests/servicestests.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/tests/servicestests/servicestests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../device/oppo/find7/setupwizard/setupwizard.iml" filepath="$PROJECT_DIR$/../../../device/oppo/find7/setupwizard/setupwizard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/usage/usage.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/usage/usage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/usb/usb.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/usb/usb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/services/voiceinteraction/voiceinteraction.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/services/voiceinteraction/voiceinteraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/wifi/wifi.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/wifi/wifi.iml" />
+    </modules>
+  </component>
+</project>

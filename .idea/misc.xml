@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/bandwidthtests/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/bluetoothtests/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/ConnectivityManagerTest/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_bad_dex/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_complete_package_info/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_decl_perm/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_loc_auto/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_loc_internal/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_loc_sdcard/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_loc_unspecified/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_use_perm_good/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_uses_feature/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_verifier_bad/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/install_verifier_good/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/api_test/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/permDef/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/permUse/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/uA/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/uAB/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/uAuB/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/uB/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/keyset/uNone/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/version/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/apks/version_nosys/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/DisabledTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/coretests/EnabledTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/AutoLocTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/AutoLocVersionedTestApp_v1/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/AutoLocVersionedTestApp_v2/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/DownloadManagerTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalLocAllPermsTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalLocPermsFLTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalLocTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalLocVersionedTestApp_v1/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalLocVersionedTestApp_v2/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPerms/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPermsBT/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPermsDiffKey/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPermsFL/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/InternalLocTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyAndException/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyTestServices/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyTestServicesTests/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyVersionedTestApp_v1/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyVersionedTestApp_v2/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyVersionedTestApp_v3/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/NoLocTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/NoLocVersionedTestApp_v1/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/NoLocVersionedTestApp_v2/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/SharedUid/32/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/SharedUid/64/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/SharedUid/dual/dual/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/SharedUid/dual/multiarch/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/SharedUid/java_only/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/SimpleTestApp/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/UpdateExternalLocTestApp_v1_ext/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/UpdateExternalLocTestApp_v2_none/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/UpdateExtToIntLocTestApp_v1_ext/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/UpdateExtToIntLocTestApp_v2_int/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_Auto/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_External/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_Internal/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_None/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/inputmethodtests/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/notificationtests/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/overlaytests/OverlayAppFirst/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/overlaytests/OverlayAppSecond/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/overlaytests/OverlayTest/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/overlaytests/OverlayTestOverlay/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/core/tests/systemproperties/AndroidManifest.xml" />
+    <file type="android" url="file://$PROJECT_DIR$/../../../frameworks/base/services/tests/servicestests/AndroidManifest.xml" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="Nameless 5.1" project-jdk-type="Android SDK" />
+</project>
