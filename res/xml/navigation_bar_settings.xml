@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <SwitchPreference
+        android:key="disable_nav_keys"
+        android:title="@string/disable_navkeys_title"
+        android:summary="@string/disable_navkeys_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hardware_keys_disable"
+        android:title="@string/hardware_keys_disable_title"
+        android:summary="@string/hardware_keys_disable_summary"
+        android:defaultValue="false"
+        android:dependency="disable_nav_keys" />
+
+    <PreferenceCategory
+        android:key="navigation_bar_category"
+        android:title="@string/navigation_bar_category">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="navigation_bar_left"
+            android:title="@string/navigation_bar_left_title"
+            android:summary="@string/navigation_bar_left_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="navigation_bar_menu_arrow_keys"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:summary="@string/navigation_bar_arrow_keys_summary"
+            android:defaultValue="false"
+            settings:advanced="true" />
+
+        <PreferenceScreen
+            android:key="navigation_bar"
+            android:fragment="com.android.settings.cyanogenmod.NavBar"
+            android:title="@string/navigation_bar_title"
+            settings:advanced="true" />
+
+        <PreferenceScreen
+            android:key="navigation_bar_ring"
+            android:fragment="com.android.settings.cyanogenmod.NavRing"
+            android:title="@string/navigation_ring_title"
+            settings:advanced="true" />
+
+        <ListPreference
+            android:key="navigation_recents_long_press"
+            android:dialogTitle="@string/navigation_bar_recents_title"
+            android:title="@string/navigation_bar_recents_title"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
