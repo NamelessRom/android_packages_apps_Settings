@@ -19,6 +19,7 @@ package com.android.settings;
 
 import android.os.UserHandle;
 
+import com.android.internal.util.ArrayUtils;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -97,6 +98,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
+    private static final String KEY_RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
     private static final String KEY_DISPLAY_DENSITY = "display_density";
     private static final String KEY_DISPLAY_DENSITY_OVERRIDE = "display_density_override";
 
@@ -115,6 +117,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mTapToWake;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
+
+    private ListPreference mRecentsClearAllLocation;
 
     private EditTextPreference mDisplayDensity;
     private EditTextPreference mDisplayDensityOverride;
@@ -226,6 +230,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
 
         initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
+
+        int recentsClearAllLocation = Settings.System.getIntForUser(resolver,
+                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 1, UserHandle.USER_CURRENT);
+        mRecentsClearAllLocation = (ListPreference) findPreference(KEY_RECENTS_CLEAR_ALL_LOCATION);
+        mRecentsClearAllLocation.setValue(String.valueOf(recentsClearAllLocation));
+        updateRecentsClearLocationSummary(String.valueOf(recentsClearAllLocation));
+        mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
 
         mDisplayDensity = (EditTextPreference) findPreference(KEY_DISPLAY_DENSITY);
         mDisplayDensity.setText(SystemProperties.get(PROP_DISPLAY_DENSITY, "0"));
@@ -460,6 +471,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    private void updateRecentsClearLocationSummary(String value) {
+        final int index = ArrayUtils.indexOf(mRecentsClearAllLocation.getEntryValues(), value);
+        mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
+    }
+
     // === Pulse notification light ===
 
     private void initPulse(PreferenceCategory parent) {
@@ -546,6 +562,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (preference == mDozePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
+        }
+        if (KEY_RECENTS_CLEAR_ALL_LOCATION.equals(key)) {
+            String value = String.valueOf(objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.RECENTS_CLEAR_ALL_LOCATION,
+                    Integer.valueOf(value), UserHandle.USER_CURRENT);
+
+            updateRecentsClearLocationSummary(value);
         }
         if (KEY_DISPLAY_DENSITY.equals(key)) {
             final int max = SystemProperties.getInt(PROP_DISPLAY_DENSITY_MAX, 480);

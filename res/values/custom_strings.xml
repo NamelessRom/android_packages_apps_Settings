@@ -113,4 +113,11 @@
 
     <!-- Status bar battery style -->
     <string name="status_bar_battery_style_circle_dotted">Circle (dotted)</string>
+
+    <!-- Recents clear all location -->
+    <string name="recents_clear_all_location">Recents clear all location</string>
+    <string name="recents_clear_all_location_top_left">Top left</string>
+    <string name="recents_clear_all_location_top_right">Top right</string>
+    <string name="recents_clear_all_location_bottom_left">Bottom left</string>
+    <string name="recents_clear_all_location_bottom_right">Bottom right</string>
 </resources>
