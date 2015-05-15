@@ -154,6 +154,14 @@
                 android:defaultValue="true"
                 settings:advanced="true" />
 
+        <!-- Recents clear all location -->
+        <ListPreference
+            android:key="recents_clear_all_location"
+            android:title="@string/recents_clear_all_location"
+            android:persistent="false"
+            android:entries="@array/recents_clear_all_location_entries"
+            android:entryValues="@array/recents_clear_all_location_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
