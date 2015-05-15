@@ -20,7 +20,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.android.settings.ButtonSettings;
+//import com.android.settings.ButtonSettings;
 
 public class UserChangedReceiver extends BroadcastReceiver {
 
@@ -33,7 +33,7 @@ public class UserChangedReceiver extends BroadcastReceiver {
 
         if (USER_CHANGED_ACTION.equals(action)) {
             // The user has changed, restore the key disabler
-            ButtonSettings.restoreKeyDisabler(ctx);
+            //ButtonSettings.restoreKeyDisabler(ctx);
         }
     }
 }
