@@ -90,6 +90,7 @@ import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.livedisplay.LiveDisplay;
 import com.android.settings.lockscreen.LockScreenSettings;
+import com.android.settings.nameless.NavigationBarSettings;
 import com.android.settings.notification.NotificationAppList;
 import com.android.settings.notification.NotificationManagerSettings;
 import com.android.settings.notification.OtherSoundSettings;
@@ -238,6 +239,7 @@ public class SettingsActivity extends Activity
             R.id.lockscreen_settings,
             R.id.notification_manager,
             R.id.button_settings,
+            R.id.navigation_bar_settings,
             R.id.storage_settings,
             R.id.application_settings,
             R.id.battery_settings,
@@ -325,6 +327,7 @@ public class SettingsActivity extends Activity
             NotificationManagerSettings.class.getName(),
             LockScreenSettings.class.getName(),
             LiveDisplay.class.getName(),
+            NavigationBarSettings.class.getName(),
             DisplayRotation.class.getName()
     };
 

@@ -226,6 +226,14 @@
             android:icon="@drawable/ic_settings_buttons"
             />
 
+        <!-- Navigation bar -->
+        <dashboard-tile
+            android:id="@+id/navigation_bar_settings"
+            android:title="@string/navigation_bar_category"
+            android:fragment="com.android.settings.nameless.NavigationBarSettings"
+            android:icon="@drawable/ic_settings_navigation_bar"
+            />
+
         <!-- Lock screen -->
         <dashboard-tile
                 android:id="@+id/lockscreen_settings"
