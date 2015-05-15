@@ -120,4 +120,8 @@
     <string name="recents_clear_all_location_top_right">Top right</string>
     <string name="recents_clear_all_location_bottom_left">Bottom left</string>
     <string name="recents_clear_all_location_bottom_right">Bottom right</string>
+
+    <!-- Navigation bar -->
+    <string name="hardware_keys_disable_title">Disable hardware keys</string>
+    <string name="hardware_keys_disable_summary">Blocks processing of hardware keys and disables them</string>
 </resources>
