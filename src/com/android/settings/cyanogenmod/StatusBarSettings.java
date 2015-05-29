@@ -118,40 +118,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
-
-        if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
-            removePreference(Settings.System.STATUS_BAR_MSIM_SHOW_EMPTY_ICONS);
-        }
-
-        mNetTrafficState = (ListPreference) findPreference(NETWORK_TRAFFIC_STATE);
-        mNetTrafficUnit = (ListPreference) findPreference(NETWORK_TRAFFIC_UNIT);
-        mNetTrafficPeriod = (ListPreference) findPreference(NETWORK_TRAFFIC_PERIOD);
-        mNetTrafficAutohide = (SystemSettingSwitchPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE);
-        mNetTrafficAutohideThreshold = (SeekBarPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
-
-        mNetTrafficVal = Settings.System.getInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, 0);
-        int intIndex = mNetTrafficVal & (MASK_UP + MASK_DOWN);
-        intIndex = mNetTrafficState.findIndexOfValue(String.valueOf(intIndex));
-        updateNetworkTrafficState(intIndex);
-
-        mNetTrafficState.setValueIndex(intIndex >= 0 ? intIndex : 0);
-        mNetTrafficState.setSummary(mNetTrafficState.getEntry());
-        mNetTrafficState.setOnPreferenceChangeListener(this);
-
-        mNetTrafficUnit.setValueIndex(getBit(mNetTrafficVal, MASK_UNIT) ? 1 : 0);
-        mNetTrafficUnit.setSummary(mNetTrafficUnit.getEntry());
-        mNetTrafficUnit.setOnPreferenceChangeListener(this);
-
-        intIndex = (mNetTrafficVal & MASK_PERIOD) >>> 16;
-        intIndex = mNetTrafficPeriod.findIndexOfValue(String.valueOf(intIndex));
-        mNetTrafficPeriod.setValueIndex(intIndex >= 0 ? intIndex : 1);
-        mNetTrafficPeriod.setSummary(mNetTrafficPeriod.getEntry());
-        mNetTrafficPeriod.setOnPreferenceChangeListener(this);
-
-        int netTrafficAutohideThreshold = Settings.System.getInt(resolver,
-                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10);
-        mNetTrafficAutohideThreshold.setValue(netTrafficAutohideThreshold / 1);
-        mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
     }
 
     @Override
