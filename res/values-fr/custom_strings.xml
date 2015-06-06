@@ -35,5 +35,4 @@
   <string name="advanced_reboot_oneclick_summary">Déclenche un redémarrage instantané</string>
   <string name="show_unac_and_overcounted_stats_title">Afficher les statistiques ignorées/surestimées</string>
   <string name="show_unac_and_overcounted_stats_summary">Afficher dans les statistiques de batterie les usages inconnus, sous le nom \"Divers\".</string>
-  <string name="smart_pulldown_off">Eteint</string>
 </resources>

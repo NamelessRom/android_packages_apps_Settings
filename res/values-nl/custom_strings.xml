@@ -52,6 +52,4 @@
   <string name="show_unac_and_overcounted_stats_summary">Toon in de batterij statistieken vermist en overdreven verbruik.</string>
   <string name="privacy_guard_notification_title">Melding</string>
   <string name="privacy_guard_notification_summary">Melding weergeven als Privacy Guard actief is.</string>
-  <string name="smart_pulldown_off">Uit</string>
-  <string name="show_network_traffic_disable">Uitgeschakeld</string>
 </resources>
