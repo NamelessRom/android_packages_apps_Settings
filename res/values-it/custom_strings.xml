@@ -35,5 +35,4 @@
   <string name="advanced_reboot_oneclick_summary">Innesca istantaneamente un\'azione di riavvio</string>
   <string name="show_unac_and_overcounted_stats_title">Visualizza statistiche sotto-contate/sovra-contate</string>
   <string name="show_unac_and_overcounted_stats_summary">Visualizza statistiche dell\'utilizzo della batteria sotto-contate e sovra-contate.</string>
-  <string name="smart_pulldown_off">Off</string>
 </resources>

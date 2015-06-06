@@ -22,6 +22,7 @@
   <string name="advanced_device_info_summary">Informationen über CPU, GPU etc..</string>
   <string name="cpu_processor">Prozessor</string>
   <string name="cpu_processor_hardware">Hardware</string>
+  <string name="cpu_type">Prozessortyp</string>
   <string name="cpu_features">Prozessorfunktionen</string>
   <string name="mem_info">Arbeitsspeicher</string>
   <string name="gpu_vendor">GPU-Hersteller</string>
@@ -38,6 +39,7 @@
   <string name="advanced_reboot_oneclick">Ein-Klick-Neustart</string>
   <string name="advanced_reboot_oneclick_summary">Neustart-Aktion bei Auswahl sofort auslösen</string>
   <string name="captive_portal_detection">Captive Portal Erkennung</string>
+  <string name="captive_portal_detection_summary">Wenn aktiviert, wird eine Verbindung zu Google-Servern benötigt, um die Datenverbindung zu erkennen, wenn WLAN genutzt wird.</string>
   <string name="smart_cover_title">Smart Cover</string>
   <string name="lid_settings_title">Deckel</string>
   <string name="lid_controls_sleep_title">Kontrolliere Schlaf</string>
@@ -50,8 +52,28 @@
   <string name="hardware_keys_power_volume_up_press_title">Lauter</string>
   <string name="show_unac_and_overcounted_stats_title">Nicht zuweisbaren Batterieverbrauch anzeigen</string>
   <string name="show_unac_and_overcounted_stats_summary">Zeigt nicht direkt zuweisbare Batterieverbrauchsinformationen an.</string>
+  <string name="anonymous_statistics_title_n">NamelessRom Statistiken</string>
+  <string name="anonymous_statistics_summary_n">Helfen Sie, NamelessRom besser zu machen, indem Sie dem Senden anonymer Daten zustimmen</string>
   <string name="privacy_guard_notification_title">Benachrichtigung</string>
   <string name="privacy_guard_notification_summary">Bei aktiviertem Datenschutz Benachrichtigung anzeigen.</string>
+  <string name="smart_pulldown_title">Intelligentes Herunterziehen</string>
+  <string name="smart_pulldown_summary">Schnelleinstellungen öffnen, wenn %1$s Benachrichtigungen vorhanden sind</string>
   <string name="smart_pulldown_off">Aus</string>
+  <string name="smart_pulldown_dismissable">Keine entfernbaren</string>
+  <string name="smart_pulldown_persistent">Keine dauerhaften</string>
+  <string name="smart_pulldown_all">Keine entfernbaren oder dauerhaften</string>
+  <string name="network_traffic_title">Datenverkehr-Anzeige</string>
+  <string name="show_network_traffic_state">Statusleisten Datenverkehrsmonitor</string>
+  <string name="show_network_traffic_unit">Anzuzeigende Einheit</string>
+  <string name="show_network_traffic_frequency">Aktualisierungs-Intervall</string>
   <string name="show_network_traffic_disable">Deaktiviert</string>
+  <string name="show_network_traffic_up">Ausgehend</string>
+  <string name="show_network_traffic_down">Eingehend</string>
+  <string name="show_network_traffic_all">Ausgehend und eingehend</string>
+  <string name="show_network_traffic_bit">Bits pro Sekunde</string>
+  <string name="show_network_traffic_byte">Bytes pro Sekunde</string>
+  <string name="network_traffic_autohide">Automatisch verbergen</string>
+  <string name="network_traffic_autohide_summary">Datenverkehr-Anzeige verstecken, wenn keine Netzwerkaktivität vorhanden ist</string>
+  <string name="network_traffic_autohide_threshold">Inaktivitätsschwelle</string>
+  <string name="status_bar_battery_style_circle_dotted">Kreis (punktiert)</string>
 </resources>
