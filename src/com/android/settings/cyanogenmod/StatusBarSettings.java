@@ -139,9 +139,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarDateStyle.setSummary(mStatusBarDateStyle.getEntry());
         mStatusBarDateStyle.setOnPreferenceChangeListener(this);
 
-        if (TextUtils.isEmpty(mStatusBarDateFormat.getValue())) {
-            mStatusBarDateFormat.setValueIndex(10);
+        String dateFormat = Settings.System.getString(resolver,
+                Settings.System.STATUS_BAR_DATE_FORMAT);
+        if (TextUtils.isEmpty(dateFormat)) {
+            mStatusBarDateFormat.setValue("EEE");
+        } else {
+            mStatusBarDateFormat.setValue(dateFormat);
         }
+        parseClockDateFormats();
         mStatusBarDateFormat.setSummary(mStatusBarDateFormat.getEntry());
         mStatusBarDateFormat.setOnPreferenceChangeListener(this);
 
@@ -229,6 +234,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             Settings.System.putInt(
                     resolver, STATUS_BAR_DATE, statusBarDate);
             mStatusBarDate.setSummary(mStatusBarDate.getEntries()[index]);
+            enableStatusBarClockDependents();
             return true;
         } else if (preference == mStatusBarDateStyle) {
             int statusBarDateStyle = Integer.parseInt((String) newValue);
@@ -246,9 +252,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 alert.setMessage(R.string.status_bar_date_string_edittext_summary);
 
                 final EditText input = new EditText(getActivity());
-                String oldText = Settings.System.getString(
-                    getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_DATE_FORMAT);
+                String oldText = Settings.System.getString(resolver,
+                        Settings.System.STATUS_BAR_DATE_FORMAT);
                 if (oldText != null) {
                     input.setText(oldText);
                 }
@@ -256,23 +261,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
                 alert.setPositiveButton(R.string.menu_save, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int whichButton) {
-                        String value = input.getText().toString();
-                        if (value.equals("")) {
-                            return;
+                        String value = input.getText() != null ? input.getText().toString() : null;
+                        if (!TextUtils.isEmpty(value)) {
+                            Settings.System.putString(resolver,
+                                    Settings.System.STATUS_BAR_DATE_FORMAT, value);
                         }
-                        Settings.System.putString(resolver,
-                            Settings.System.STATUS_BAR_DATE_FORMAT, value);
-
-                        return;
                     }
                 });
 
-                alert.setNegativeButton(R.string.menu_cancel,
-                    new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        return;
-                    }
-                });
+                alert.setNegativeButton(R.string.menu_cancel, null);
                 alert.show();
             } else if (index != -1) {
                 Settings.System.putString(
@@ -340,17 +337,20 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     }
 
     private void enableStatusBarClockDependents() {
-        int clockStyle = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CLOCK, 1);
-        if (clockStyle == 0) {
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final int clock = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_CLOCK, 1);
+        if (clock == 0) {
             mStatusBarDate.setEnabled(false);
             mStatusBarDateStyle.setEnabled(false);
             mStatusBarDateFormat.setEnabled(false);
-        } else {
-            mStatusBarDate.setEnabled(true);
-            mStatusBarDateStyle.setEnabled(true);
-            mStatusBarDateFormat.setEnabled(true);
+            return;
         }
+
+        mStatusBarDate.setEnabled(true);
+
+        final int date = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_DATE, 0);
+        mStatusBarDateStyle.setEnabled(date != 0);
+        mStatusBarDateFormat.setEnabled(date != 0);
     }
 
     private void parseClockDateFormats() {
