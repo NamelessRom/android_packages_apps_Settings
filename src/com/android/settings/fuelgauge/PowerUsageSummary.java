@@ -77,6 +77,8 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
 
     private static final String KEY_BATTERY_SAVER = "low_power";
 
+    private static final String KEY_PER_APP_PROFILES = "app_perf_profiles_enabled";
+
     private static final String BATTERY_HISTORY_FILE = "tmp_bat_history.bin";
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
@@ -108,6 +110,7 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
     private String[] mPerfProfileValues;
     private String mPerfProfileDefaultEntry;
     private PerformanceProfileObserver mPerformanceProfileObserver = null;
+    private SwitchPreference mPerAppProfiles;
 
     private BroadcastReceiver mBatteryInfoReceiver = new BroadcastReceiver() {
 
@@ -158,9 +161,12 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
 
         mPerfProfilePref = (ListPreference) findPreference(KEY_PERF_PROFILE);
         mBatterySaverPref = (SwitchPreference) findPreference(KEY_BATTERY_SAVER);
+        mPerAppProfiles = (SwitchPreference) findPreference(KEY_PER_APP_PROFILES);
         if (mPerfProfilePref != null && !mPowerManager.hasPowerProfiles()) {
             removePreference(KEY_PERF_PROFILE);
+            removePreference(KEY_PER_APP_PROFILES);
             mPerfProfilePref = null;
+            mPerAppProfiles = null;
         } else if (mPerfProfilePref != null) {
             // Remove the battery saver switch, power profiles have 3 modes
             removePreference(KEY_BATTERY_SAVER);
