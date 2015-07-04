@@ -22,6 +22,7 @@
   <string name="advanced_device_info_summary">Informatie over CPU, GPU enz.</string>
   <string name="cpu_processor">Processor</string>
   <string name="cpu_processor_hardware">Hardware</string>
+  <string name="cpu_type">Processortype</string>
   <string name="cpu_features">Processorfuncties</string>
   <string name="mem_info">Geheugen</string>
   <string name="gpu_vendor">GPU leverancier</string>
@@ -38,6 +39,7 @@
   <string name="advanced_reboot_oneclick">Met één klik opnieuw opstarten</string>
   <string name="advanced_reboot_oneclick_summary">Meteen opnieuw opstarten</string>
   <string name="captive_portal_detection">Capacitief portaal detectie</string>
+  <string name="captive_portal_detection_summary">Indien in gebruik, zal een verbinding met Google servers noodzakelijk zijn om een dataverbinding vast te stellen wanneer wifi wordt gebruikt.</string>
   <string name="smart_cover_title">Smart cover</string>
   <string name="lid_settings_title">Hoes</string>
   <string name="lid_controls_sleep_title">Controleer slaap</string>
@@ -50,6 +52,17 @@
   <string name="hardware_keys_power_volume_up_press_title">Volume omhoog</string>
   <string name="show_unac_and_overcounted_stats_title">Toon vermist en overdreven verbruik</string>
   <string name="show_unac_and_overcounted_stats_summary">Toon in de batterij statistieken vermist en overdreven verbruik.</string>
+  <string name="anonymous_statistics_title_n">NamelessRom statistieken</string>
+  <string name="anonymous_statistics_summary_n">Help NamelessRom te verbeteren door anonieme statistieken rapportage te kiezen</string>
   <string name="privacy_guard_notification_title">Melding</string>
   <string name="privacy_guard_notification_summary">Melding weergeven als Privacy Guard actief is.</string>
+  <string name="smart_pulldown_title">Slim neertrekken</string>
+  <string name="smart_pulldown_summary">Snelle instellingen openen als er %1$s notificaties zijn</string>
+  <string name="smart_pulldown_off">Uit</string>
+  <string name="smart_pulldown_dismissable">Niet verwijderbaar</string>
+  <string name="smart_pulldown_persistent">Niet blijvend</string>
+  <string name="smart_pulldown_all">Niet verwijderbaar of blijvend</string>
+  <string name="status_bar_battery_style_circle_dotted">Cirkel (gestippeld)</string>
+  <string name="hardware_keys_disable_title">Hardware toetsen uitschakelen</string>
+  <string name="hardware_keys_disable_summary">Blokkeert werking van hardware toetsen en schakelt deze uit</string>
 </resources>

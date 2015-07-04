@@ -17,10 +17,12 @@
 -->
 <resources>
   <string name="mod_version_n">Versione Nameless</string>
+  <string name="more">Altro</string>
   <string name="advanced_device_info_title">Informazioni avanzate</string>
   <string name="advanced_device_info_summary">Informazioni su CPU, GPU ecc.</string>
   <string name="cpu_processor">Processore</string>
   <string name="cpu_processor_hardware">Hardware</string>
+  <string name="cpu_type">Tipo di processore</string>
   <string name="cpu_features">Funzionalità del processore</string>
   <string name="mem_info">Memoria</string>
   <string name="gpu_vendor">Fornitore GPU</string>
@@ -29,10 +31,29 @@
   <string name="gpu_gl_extensions">Estensioni OpenGL</string>
   <string name="gpu_shader_version">Versione shader</string>
   <string name="camera_sounds_title">Suono dello scatto</string>
+  <string name="long_press_kill_delay">Ritardo chiusura app</string>
   <string name="display_density">Visualizzare la densità</string>
   <string name="display_density_summary">Sostituisci la densità predefinita dello schermo (0 per disabilitare, richiede un riavvio)</string>
+  <string name="display_density_override">Densità segnalata</string>
+  <string name="display_density_override_summary">Sostituisce la densità del display segnalata alle applicazioni (0 per disabilitare, necessita un riavvio)</string>
   <string name="advanced_reboot_oneclick">Riavvio con un click</string>
   <string name="advanced_reboot_oneclick_summary">Innesca istantaneamente un\'azione di riavvio</string>
+  <string name="captive_portal_detection">Rilevazione portale di accesso</string>
+  <string name="captive_portal_detection_summary">Se attivato, si richiede una connessione ai server di Google per rilevare una connessione dati quando usi Wi-Fi.</string>
+  <string name="smart_cover_title">Smart cover</string>
+  <string name="lid_settings_title">Coperchio</string>
+  <string name="lid_controls_sleep_title">Controllo riposo</string>
+  <string name="lid_controls_sleep_summary">Spegni lo schermo alla chiusura del coperchio</string>
+  <string name="lid_controls_wake_title">Controllo risveglio</string>
+  <string name="lid_controls_wake_summary">Accendi lo schermo all\'apertura del coperchio</string>
+  <string name="qs_tiles_vibrate_title">Vibrazione al tocco</string>
+  <string name="hardware_keys_power_chord_title">Azioni del pulsante d\'alimentazione</string>
+  <string name="hardware_keys_power_volume_down_press_title">Volume giù</string>
+  <string name="hardware_keys_power_volume_up_press_title">Volume su</string>
   <string name="show_unac_and_overcounted_stats_title">Visualizza statistiche sotto-contate/sovra-contate</string>
   <string name="show_unac_and_overcounted_stats_summary">Visualizza statistiche dell\'utilizzo della batteria sotto-contate e sovra-contate.</string>
+  <string name="show_network_traffic_disable">Disabilitato</string>
+  <string name="status_bar_battery_style_circle_dotted">Cerchio (punteggiato)</string>
+  <string name="hardware_keys_disable_title">Disattiva i tasti fisici</string>
+  <string name="hardware_keys_disable_summary">Blocca l\'elaborazione dei tasti fisici e li disabilita</string>
 </resources>
