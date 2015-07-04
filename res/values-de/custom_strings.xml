@@ -76,4 +76,10 @@
   <string name="network_traffic_autohide_summary">Datenverkehr-Anzeige verstecken, wenn keine Netzwerkaktivität vorhanden ist</string>
   <string name="network_traffic_autohide_threshold">Inaktivitätsschwelle</string>
   <string name="status_bar_battery_style_circle_dotted">Kreis (punktiert)</string>
+  <string name="recents_clear_all_location_top_left">Oben links</string>
+  <string name="recents_clear_all_location_top_right">Oben rechts</string>
+  <string name="recents_clear_all_location_bottom_left">Unten links</string>
+  <string name="recents_clear_all_location_bottom_right">Unten rechts</string>
+  <string name="hardware_keys_disable_title">Hardwaretasten deaktivieren</string>
+  <string name="hardware_keys_disable_summary">Verhindert das Verarbeiten der Hardware-Tasten und deaktiviert sie</string>
 </resources>
