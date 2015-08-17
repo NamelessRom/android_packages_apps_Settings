@@ -25,7 +25,6 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.hardware.CmHardwareManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -48,6 +47,8 @@ import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
 import com.android.settings.nameless.CustomActionListPreference;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+
+import cyanogenmod.hardware.CMHardwareManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
