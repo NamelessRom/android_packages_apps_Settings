@@ -80,7 +80,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private PreferenceScreen mNotificationLedBrightnessPref;
     private SystemSettingSwitchPreference mEnabledPref;
     private SystemSettingSwitchPreference mCustomEnabledPref;
-    private SystemSettingSwitchPreference mScreenOnLightsPref;
     private ApplicationLightPreference mDefaultPref;
     private ApplicationLightPreference mCallPref;
     private ApplicationLightPreference mVoicemailPref;
@@ -118,9 +117,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         // Advanced light settings
         mNotificationLedBrightnessPref = (PreferenceScreen)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL);
-        mScreenOnLightsPref = (SystemSettingSwitchPreference)
-                findPreference(Settings.System.NOTIFICATION_LIGHT_SCREEN_ON);
-        mScreenOnLightsPref.setOnPreferenceChangeListener(this);
         mCustomEnabledPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
         mCustomEnabledPref.setOnPreferenceChangeListener(this);
@@ -400,8 +396,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mEnabledPref || preference == mCustomEnabledPref ||
-                preference == mNotificationLedBrightnessPref ||
-                preference == mScreenOnLightsPref) {
+                preference == mNotificationLedBrightnessPref) {
             getActivity().invalidateOptionsMenu();
         } else {
             ApplicationLightPreference lightPref = (ApplicationLightPreference) preference;
