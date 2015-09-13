@@ -18,12 +18,13 @@ package com.android.settings.lockscreen;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.WallpaperManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -34,10 +35,8 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-import android.security.KeyStore;
-import android.service.trust.TrustAgentService;
-import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.ChooseLockSettingsHelper;
@@ -57,7 +56,10 @@ import java.util.List;
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 
 public class LockScreenSettings extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, Indexable {
+        implements Preference.OnPreferenceChangeListener, Indexable, Preference.OnPreferenceClickListener {
+
+    private static final int IMAGE_PICK = 1337;
+    private static final int SET_KEYGUARD_WALLPAPER = 2337;
 
     private static final String KEY_SECURITY_CATEGORY = "security_category";
     private static final String KEY_GENERAL_CATEGORY = "general_category";
@@ -79,6 +81,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     private static final String KEY_SHOW_VISUALIZER = "lockscreen_visualizer";
     private static final String KEY_MANAGE_FINGERPRINTS = "manage_fingerprints";
 
+    private static final String KEY_WALLPAPER_CLEAR = "lockscreen_wallpaper_clear";
+    private static final String KEY_WALLPAPER_SET = "lockscreen_wallpaper_set";
+
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF = 125;
@@ -88,8 +93,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     private static final int CHANGE_TRUST_AGENT_SETTINGS = 126;
 
     private Intent mTrustAgentClickIntent;
-
-    private boolean mIsPrimary;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockPatternUtils;
@@ -101,7 +104,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     private SwitchPreference mVisibleDots;
     private SwitchPreference mPowerButtonInstantlyLocks;
 
+    private Preference mWallpaperClear;
+    private Preference mWallpaperSet;
+
     private DevicePolicyManager mDPM;
+
+    private Toast mToast;
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -114,6 +122,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         mLockPatternUtils = new LockPatternUtils(getActivity());
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
+        mDPM = (DevicePolicyManager) getActivity().getSystemService(Context.DEVICE_POLICY_SERVICE);
 
         if (savedInstanceState != null
                 && savedInstanceState.containsKey(TRUST_AGENT_CLICK_INTENT)) {
@@ -154,15 +163,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
 
-        // Add package manager to check if features are available
-        PackageManager pm = getPackageManager();
-
         // Add options for lock/unlock screen
         final int resid = getResIdForLockUnlockScreen(getActivity(), mLockPatternUtils);
         addPreferencesFromResource(resid);
 
         // Add options for device encryption
-        mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+        boolean mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
 
         if (!mIsPrimary) {
             // Rename owner info settings
@@ -242,6 +248,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             }
         }
 
+        mWallpaperClear = findPreference(KEY_WALLPAPER_CLEAR);
+        mWallpaperClear.setOnPreferenceClickListener(this);
+
+        mWallpaperSet = findPreference(KEY_WALLPAPER_SET);
+        mWallpaperSet.setOnPreferenceClickListener(this);
+
         // Trust Agent preferences
         if (securityCategory != null) {
             final boolean hasSecurity = mLockPatternUtils.isSecure();
@@ -268,14 +280,15 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             }
         }
 
-        for (int i = 0; i < SWITCH_PREFERENCE_KEYS.length; i++) {
-            final Preference pref = findPreference(SWITCH_PREFERENCE_KEYS[i]);
-            if (pref != null) pref.setOnPreferenceChangeListener(this);
+        for (final String SWITCH_PREFERENCE_KEY : SWITCH_PREFERENCE_KEYS) {
+            final Preference pref = findPreference(SWITCH_PREFERENCE_KEY);
+            if (pref != null) {
+                pref.setOnPreferenceChangeListener(this);
+            }
         }
     }
 
     private String getActiveTrustAgentTitle() {
-        final boolean hasSecurity = mLockPatternUtils.isSecure();
         ArrayList<TrustAgentUtils.TrustAgentComponentInfo> agents =
                 SecuritySettings.getActiveTrustAgents(getPackageManager(), mLockPatternUtils);
         for (int i = 0; i < agents.size(); i++) {
@@ -283,10 +296,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             if (agent.title != null) {
                 return agent.title;
             }
-
         }
         return null;
     }
+
     private static int getResIdForLockUnlockScreen(Context context,
                                                    LockPatternUtils lockPatternUtils) {
         int resid = 0;
@@ -428,6 +441,24 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             Index.getInstance(
                     getActivity().getApplicationContext()).updateFromClassNameResource(
                     LockScreenSettings.class.getName(), true, true);
+        } else if (requestCode == IMAGE_PICK && resultCode == Activity.RESULT_OK) {
+            if (data != null && data.getData() != null) {
+                final Uri uri = data.getData();
+                final Intent intent = new Intent();
+                intent.setClassName("com.android.wallpapercropper",
+                        "com.android.wallpapercropper.WallpaperCropActivity");
+                intent.putExtra("keyguardMode", "1");
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.setData(uri);
+                startActivityForResult(intent, SET_KEYGUARD_WALLPAPER);
+            }
+        } else if (requestCode == SET_KEYGUARD_WALLPAPER && resultCode == Activity.RESULT_OK) {
+            if (mToast != null) {
+                mToast.cancel();
+            }
+            mToast = Toast.makeText(getActivity().getApplicationContext(),
+                    R.string.lockscreen_wallpaper_set_toast, Toast.LENGTH_SHORT);
+            mToast.show();
         }
         createPreferenceHierarchy();
     }
@@ -529,6 +560,36 @@ public class LockScreenSettings extends SettingsPreferenceFragment
      */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new LockScreenSearchIndexProvider();
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if (preference == mWallpaperClear) {
+            clearKeyguardWallpaper();
+            return true;
+        } else if (preference == mWallpaperSet) {
+            setKeyguardWallpaper();
+            return true;
+        }
+        return false;
+    }
+
+    private void setKeyguardWallpaper() {
+        final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, IMAGE_PICK);
+    }
+
+    private void clearKeyguardWallpaper() {
+        WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
+        wallpaperManager.clearKeyguardWallpaper();
+
+        if (mToast != null) {
+            mToast.cancel();
+        }
+        mToast = Toast.makeText(getActivity().getApplicationContext(),
+                R.string.lockscreen_wallpaper_clear_toast, Toast.LENGTH_SHORT);
+        mToast.show();
+    }
 
     private static class LockScreenSearchIndexProvider extends BaseSearchIndexProvider {
 
