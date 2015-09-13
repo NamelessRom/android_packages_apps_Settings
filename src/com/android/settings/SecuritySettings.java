@@ -19,6 +19,7 @@ package com.android.settings;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.WallpaperManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -50,6 +51,7 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 import namelessrom.providers.NamelessSettings;
 
 import com.android.internal.logging.MetricsLogger;
@@ -79,12 +81,16 @@ import static cyanogenmod.content.Intent.ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS;
  * Gesture lock pattern settings.
  */
 public class SecuritySettings extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener, DialogInterface.OnClickListener, Indexable {
+        implements OnPreferenceChangeListener, DialogInterface.OnClickListener, Indexable, Preference.OnPreferenceClickListener {
 
     private static final String TAG = "SecuritySettings";
     private static final String TRUST_AGENT_CLICK_INTENT = "trust_agent_click_intent";
     private static final Intent TRUST_AGENT_INTENT =
             new Intent(TrustAgentService.SERVICE_INTERFACE);
+
+    // Keyguard wallpaper
+    private static final int IMAGE_PICK = 1337;
+    private static final int SET_KEYGUARD_WALLPAPER = 2337;
 
     // Fitler types for this panel
     protected static final String FILTER_TYPE_EXTRA = "filter_type";
@@ -106,6 +112,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
     private static final String KEY_FINGERPRINT_SETTINGS = "fingerprint_settings";
     private static final String KEY_BLUR_RADIUS = "lockscreen_blur_radius";
+    private static final String KEY_WALLPAPER_CLEAR = "lockscreen_wallpaper_clear";
+    private static final String KEY_WALLPAPER_SET = "lockscreen_wallpaper_set";
 
     private static final String KEY_LOCKSCREEN_ENABLED_INTERNAL = "lockscreen_enabled_internally";
 
@@ -153,6 +161,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private SeekBarPreference mBlurRadius;
 
+    private Preference mWallpaperClear;
+    private Preference mWallpaperSet;
+
     private SwitchPreference mVisiblePattern;
     private SwitchPreference mVisibleErrorPattern;
     private SwitchPreference mVisibleDots;
@@ -176,6 +187,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private int mFilterType = TYPE_SECURITY_EXTRA;
 
     private Preference mLockscreenDisabledPreference;
+
+    private Toast mToast;
 
     @Override
     protected int getMetricsCategory() {
@@ -372,6 +385,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
                         NamelessSettings.System.LOCKSCREEN_BLUR_RADIUS, 14));
                 mBlurRadius.setOnPreferenceChangeListener(this);
             }
+
+            mWallpaperClear = findPreference(KEY_WALLPAPER_CLEAR);
+            mWallpaperClear.setOnPreferenceClickListener(this);
+
+            mWallpaperSet = findPreference(KEY_WALLPAPER_SET);
+            mWallpaperSet.setOnPreferenceClickListener(this);
         }
 
         if (securityOrExternal) {
@@ -828,6 +847,25 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 mTrustAgentClickIntent = null;
             }
             return;
+        } else if (requestCode == IMAGE_PICK && resultCode == Activity.RESULT_OK) {
+            if (data != null && data.getData() != null) {
+                final Uri uri = data.getData();
+                final Intent intent = new Intent();
+                intent.setClassName("com.android.wallpapercropper",
+                        "com.android.wallpapercropper.WallpaperCropActivity");
+                intent.putExtra("keyguardMode", "1");
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.setData(uri);
+                startActivityForResult(intent, SET_KEYGUARD_WALLPAPER);
+            }
+            return;
+        } else if (requestCode == SET_KEYGUARD_WALLPAPER && resultCode == Activity.RESULT_OK) {
+            if (mToast != null) {
+                mToast.cancel();
+            }
+            mToast = Toast.makeText(getActivity().getApplicationContext(),
+                    R.string.lockscreen_wallpaper_set_toast, Toast.LENGTH_SHORT);
+            mToast.show();
         }
         createPreferenceHierarchy();
     }
@@ -925,6 +963,36 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         pref.setTitle(title);
         pref.setSummary(summary);
+    }
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if (preference == mWallpaperClear) {
+            clearKeyguardWallpaper();
+            return true;
+        } else if (preference == mWallpaperSet) {
+            setKeyguardWallpaper();
+            return true;
+        }
+        return false;
+    }
+
+    private void setKeyguardWallpaper() {
+        final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, IMAGE_PICK);
+    }
+
+    private void clearKeyguardWallpaper() {
+        WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
+        wallpaperManager.clearKeyguardWallpaper();
+
+        if (mToast != null) {
+            mToast.cancel();
+        }
+        mToast = Toast.makeText(getActivity().getApplicationContext(),
+                R.string.lockscreen_wallpaper_clear_toast, Toast.LENGTH_SHORT);
+        mToast.show();
     }
 
     /**
