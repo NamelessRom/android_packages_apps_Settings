@@ -139,4 +139,10 @@
     <string name="status_bar_date_format_custom">Custom java format</string>
     <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Enter java format string</string>
+
+    <!-- gesture service -->
+    <string name="gestures_service_title">Gesture service</string>
+    <string name="gestures_service_enabled_title">Enable gesture service</string>
+    <string name="gestures_service_action_screenshot_enabled_title">Take screenshot</string>
+    <string name="gestures_service_action_screenshot_enabled_summary">Swipe up / down with 3 fingers to take a screenshot</string>
 </resources>
