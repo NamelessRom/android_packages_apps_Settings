@@ -106,6 +106,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         addPreferencesFromResource(R.xml.device_info_settings);
 
+        final PreferenceGroup categoryDevice = (PreferenceGroup) findPreference("category_device");
+        final PreferenceGroup categorySecurity = (PreferenceGroup) findPreference("category_security");
+
         setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE);
         findPreference(KEY_FIRMWARE_VERSION).setEnabled(true);
         String patch = Build.VERSION.SECURITY_PATCH;
@@ -120,8 +123,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             }
             setStringSummary(KEY_SECURITY_PATCH, patch);
         } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_SECURITY_PATCH));
-
+            categorySecurity.removePreference(findPreference(KEY_SECURITY_PATCH));
         }
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
@@ -144,7 +146,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         }
 
         // Remove selinux information if property is not present
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
+        removePreferenceIfPropertyMissing(categorySecurity, KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
 
         // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
@@ -152,12 +154,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 PROPERTY_URL_SAFETYLEGAL);
 
         // Remove Equipment id preference if FCC ID is not set by RIL
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_EQUIPMENT_ID,
+        removePreferenceIfPropertyMissing(categoryDevice, KEY_EQUIPMENT_ID,
                 PROPERTY_EQUIPMENT_ID);
 
         // Remove Baseband version if wifi-only device
         if (Utils.isWifiOnly(getActivity())) {
-            getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
+            categoryDevice.removePreference(findPreference(KEY_BASEBAND_VERSION));
         }
 
         // Dont show feedback option if there is no reporter.
