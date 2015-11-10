@@ -251,6 +251,7 @@ public class SettingsActivity extends Activity
      * {@link #EXTRA_SETTINGS_ACTION}
      * The value must be one of:
      * <li>com.android.settings.category.wireless</li>
+     * <li>com.android.settings.category.personalization</li>
      * <li>com.android.settings.category.device</li>
      * <li>com.android.settings.category.personal</li>
      * <li>com.android.settings.category.system</li>
