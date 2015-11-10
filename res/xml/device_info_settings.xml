@@ -66,70 +66,85 @@
                 android:title="@string/device_feedback">
         </PreferenceScreen>
 
-        <!-- Device name -->
-        <Preference android:key="device_name"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/device_name"
-                android:summary="@string/device_info_default"/>
+        <!-- Device -->
+        <PreferenceCategory android:key="category_device"
+            android:title="@string/header_category_device">
 
-        <!-- Device hardware model -->
-        <Preference android:key="device_model"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/device_model"
-                android:summary="@string/device_info_default"/>
+            <!-- Device name -->
+            <Preference android:key="device_name"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/device_name"
+                    android:summary="@string/device_info_default"/>
 
-        <!-- Device Baseband version -->
-        <Preference android:key="baseband_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/baseband_version"
-                android:summary="@string/device_info_default"/>
+            <!-- Device hardware model -->
+            <Preference android:key="device_model"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/device_model"
+                    android:summary="@string/device_info_default"/>
 
-        <!-- Device FCC equipment id -->
-        <Preference android:key="fcc_equipment_id"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/fcc_equipment_id"
-                android:summary="@string/device_info_default"/>
+            <!-- Device Baseband version -->
+            <Preference android:key="baseband_version"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/baseband_version"
+                    android:summary="@string/device_info_default"/>
 
-        <!-- Device firmware version -->
-        <Preference android:key="firmware_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/firmware_version"
-                android:summary="@string/device_info_default"/>
+            <!-- Device FCC equipment id -->
+            <Preference android:key="fcc_equipment_id"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/fcc_equipment_id"
+                    android:summary="@string/device_info_default"/>
+        </PreferenceCategory>
 
-        <!-- Security patch level -->
-        <Preference android:key="security_patch"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/security_patch"
-                android:summary="@string/device_info_default"/>
+        <!-- Build -->
+        <PreferenceCategory android:key="category_build"
+            android:title="@string/header_category_build">
 
-        <!-- Mod version -->
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mod_version_n"
-                android:summary="@string/mod_version_default" />
+            <!-- Device firmware version -->
+            <Preference android:key="firmware_version"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/firmware_version"
+                    android:summary="@string/device_info_default"/>
 
-        <!-- CyanogenMod API Version -->
-        <Preference android:key="mod_api_level"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mod_api_level"
-                android:summary="@string/mod_api_level_default" />
+            <!-- Mod version -->
+            <Preference android:key="mod_version"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/mod_version_n"
+                    android:summary="@string/mod_version_default" />
 
-        <!-- Build date -->
-        <Preference android:key="build_date"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/build_date"
-                android:summary="@string/build_date_default" />
+            <!-- CyanogenMod API Version -->
+            <Preference android:key="mod_api_level"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/mod_api_level"
+                    android:summary="@string/mod_api_level_default" />
 
-        <!-- Detailed build version -->
-        <Preference android:key="build_number"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/build_number"
-                android:summary="@string/device_info_default"/>
+            <!-- Build date -->
+            <Preference android:key="build_date"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/build_date"
+                    android:summary="@string/build_date_default" />
 
-        <!-- SELinux status information -->
-        <Preference android:key="selinux_status"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/selinux_status"
-                android:summary="@string/selinux_status_enforcing"/>
+            <!-- Detailed build version -->
+            <Preference android:key="build_number"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/build_number"
+                    android:summary="@string/device_info_default"/>
+        </PreferenceCategory>
+
+        <!-- Security -->
+        <PreferenceCategory android:key="category_security"
+            android:title="@string/header_category_security">
+
+            <!-- Security patch level -->
+            <Preference android:key="security_patch"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/security_patch"
+                    android:summary="@string/device_info_default"/>
+
+            <!-- SELinux status information -->
+            <Preference android:key="selinux_status"
+                    style="?android:preferenceInformationStyle"
+                    android:title="@string/selinux_status"
+                    android:summary="@string/selinux_status_enforcing"/>
+        </PreferenceCategory>
 
 </PreferenceScreen>
