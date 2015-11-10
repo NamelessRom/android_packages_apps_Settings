@@ -322,6 +322,11 @@ public final class Utils {
 
     public static boolean updateTileToSpecificActivityFromMetaDataOrRemove(Context context,
             DashboardTile tile) {
+        return updateTileToSpecificActivityFromMetaDataOrRemove(context, tile, true);
+    }
+
+    public static boolean updateTileToSpecificActivityFromMetaDataOrRemove(Context context,
+            DashboardTile tile, boolean withIcon) {
 
         Intent intent = tile.intent;
         if (intent != null) {
@@ -347,7 +352,7 @@ public final class Utils {
                         Bundle metaData = resolveInfo.activityInfo.metaData;
 
                         if (res != null && metaData != null) {
-                            if (metaData.containsKey(META_DATA_PREFERENCE_ICON)) {
+                            if (withIcon && metaData.containsKey(META_DATA_PREFERENCE_ICON)) {
                                 icon = metaData.getInt(META_DATA_PREFERENCE_ICON);
                             }
                             if (metaData.containsKey(META_DATA_PREFERENCE_TITLE)) {
@@ -367,13 +372,15 @@ public final class Utils {
                     if (TextUtils.isEmpty(title)) {
                         title = resolveInfo.loadLabel(pm).toString();
                     }
-                    if (icon == 0) {
+                    if (withIcon && icon == 0) {
                         icon = resolveInfo.activityInfo.icon;
                     }
 
                     // Set icon, title and summary for the preference
-                    tile.iconRes = icon;
-                    tile.iconPkg = resolveInfo.activityInfo.packageName;
+                    if (withIcon) {
+                        tile.iconRes = icon;
+                        tile.iconPkg = resolveInfo.activityInfo.packageName;
+                    }
                     tile.title = title;
                     tile.summary = summary;
                     // Replace the intent with this specific activity
