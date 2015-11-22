@@ -23,6 +23,10 @@
     <string name="header_category_build">Build</string>
     <string name="header_category_security">Security</string>
 
+    <!-- Development settings -->
+    <string name="dexopt_lazy">Lazy dexopt</string>
+    <string name="dexopt_lazy_summary">Optimize user apps when first starting the app instead of at boot up</string>
+
     <!-- Advanced Device Info -->
     <string name="advanced_device_info_title">Advanced information</string>
     <string name="advanced_device_info_summary">Information about CPU, GPU etc.</string>
