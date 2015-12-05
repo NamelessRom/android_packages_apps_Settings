@@ -16,69 +16,153 @@
      limitations under the License.
 -->
 <resources>
-  <string name="mod_version_n">Версия Nameless</string>
-  <string name="more">Более</string>
-  <string name="advanced_device_info_title">Дополнительная информация</string>
-  <string name="advanced_device_info_summary">Информация о процессоре, видеочипе и тому подобное</string>
-  <string name="cpu_processor">Процессор</string>
-  <string name="cpu_type">Тип процессора</string>
-  <string name="cpu_features">Характеристики процессора</string>
-  <string name="mem_info">Память</string>
-  <string name="gpu_vendor">Производитель видеочипа</string>
-  <string name="gpu_renderer">Обработка видеочипом</string>
-  <string name="gpu_gl_version">Версия OpenGL</string>
-  <string name="gpu_gl_extensions">Расширения OpenGL</string>
-  <string name="gpu_shader_version">Версия шейдеров</string>
-  <string name="camera_sounds_title">Звук затвора камеры</string>
-  <string name="long_press_kill_delay">Задержка принудительного завершения приложений</string>
-  <string name="display_density">Плотность дисплея</string>
-  <string name="display_density_summary">Изменяет плотность экрана по умолчанию (0 для отключения, требуется перезагрузка)</string>
-  <string name="display_density_override">Плотность экрана</string>
-  <string name="display_density_override_summary">Настройка замены плотности дисплея применена к приложениям (0 выключено, требуется перезагрузка)</string>
-  <string name="advanced_reboot_oneclick">Перезагрузка в один клик</string>
-  <string name="advanced_reboot_oneclick_summary">Мгновенно вызывать перезагрузку устройства</string>
-  <string name="captive_portal_detection">Специальная страница</string>
-  <string name="captive_portal_detection_summary">Если этот параметр включен, для обнаружения подключения данных при использовании wifi требуется подключение к серверам Google.</string>
-  <string name="smart_cover_title">Умный чехол</string>
-  <string name="lid_settings_title">Крышка</string>
-  <string name="lid_controls_sleep_title">Контроль сна</string>
-  <string name="lid_controls_sleep_summary">Выключать экран при закрытии крышки</string>
-  <string name="lid_controls_wake_title">Контроль пробуждения</string>
-  <string name="lid_controls_wake_summary">Включение экрана при открытии крышки</string>
-  <string name="qs_tiles_vibrate_title">Вибрация при касании</string>
-  <string name="hardware_keys_power_chord_title">Действия кнопки питания</string>
-  <string name="hardware_keys_power_volume_down_press_title">Громкость вниз</string>
-  <string name="hardware_keys_power_volume_up_press_title">Громкость вверх</string>
-  <string name="show_unac_and_overcounted_stats_title">Показывать неучтенные (прочие) данные статистики батареи</string>
-  <string name="show_unac_and_overcounted_stats_summary">Показывать данные статистики батареи, которые не относятся ни к чему конкретному и обычно попадают в прочее.</string>
-  <string name="anonymous_statistics_title_n">NamelessRom статистика</string>
-  <string name="anonymous_statistics_summary_n">Помочь сделать лучше NamelessRom, отправляя анонимную статистику</string>
-  <string name="privacy_guard_notification_title">Уведомление</string>
-  <string name="privacy_guard_notification_summary">Показывать уведомления если включен режим приватности.</string>
-  <string name="smart_pulldown_summary">Открыть Быстрые настройки при %1$s уведомлениях</string>
-  <string name="smart_pulldown_off">Выключено</string>
-  <string name="smart_pulldown_dismissable">Без удаляемых</string>
-  <string name="smart_pulldown_persistent">Без постоянных</string>
-  <string name="smart_pulldown_all">Без удаляемых и постоянных</string>
-  <string name="network_traffic_title">Индикатор сетевого трафика</string>
-  <string name="show_network_traffic_state">Мониторинг сетевого трафика в статус баре</string>
-  <string name="show_network_traffic_unit">Плотность экрана DPI</string>
-  <string name="show_network_traffic_frequency">Частота обновления</string>
-  <string name="show_network_traffic_disable">Отключена</string>
-  <string name="show_network_traffic_up">Исходящие</string>
-  <string name="show_network_traffic_down">Входящие</string>
-  <string name="show_network_traffic_all">Исходящие и входящие</string>
-  <string name="show_network_traffic_bit">Бит в секунду</string>
-  <string name="show_network_traffic_byte">Байт в секунду</string>
-  <string name="network_traffic_autohide">Автоматическое скрытие</string>
-  <string name="network_traffic_autohide_summary">Скрывать сетевой трафик, когда нет активности</string>
-  <string name="network_traffic_autohide_threshold">Порог неактивности</string>
-  <string name="status_bar_battery_style_circle_dotted">Круг из точек</string>
-  <string name="recents_clear_all_location">Очистить все недавние местоположения</string>
-  <string name="recents_clear_all_location_top_left">Вверху слева</string>
-  <string name="recents_clear_all_location_top_right">Вверху справа</string>
-  <string name="recents_clear_all_location_bottom_left">Внизу слева</string>
-  <string name="recents_clear_all_location_bottom_right">Внизу справа</string>
-  <string name="hardware_keys_disable_title">Отключение аппаратных клавиш</string>
-  <string name="hardware_keys_disable_summary">Блокирует обработку аппаратных клавиш и отключает их</string>
+    <string name="mod_version_n">Версия Nameless</string>
+
+    <string name="more">Более</string>
+
+    <!-- Advanced Device Info -->
+    <string name="advanced_device_info_title">Дополнительная информация</string>
+    <string name="advanced_device_info_summary">Информация о процессоре, видеочипе и тому подобное</string>
+    <!-- CPU -->
+    <string name="cpu_processor">Процессор</string>
+    <string name="cpu_processor_hardware">Чипсет</string>
+    <string name="cpu_type">Тип процессора</string>
+    <string name="cpu_features">Характеристики процессора</string>
+    <!-- Memory -->
+    <string name="mem_info">Память</string>
+    <!-- GPU -->
+    <string name="gpu_vendor">Производитель видеочипа</string>
+    <string name="gpu_renderer">Обработка видеочипом</string>
+    <string name="gpu_gl_version">Версия OpenGL</string>
+    <string name="gpu_gl_extensions">Расширения OpenGL</string>
+    <string name="gpu_shader_version">Версия шейдеров</string>
+
+    <!-- Disable Camera Shutter Sound -->
+    <string name="camera_sounds_title">Звук затвора камеры</string>
+
+    <string name="long_press_kill_delay">Задержка принудительного завершения приложений</string>
+
+    <!-- Display density -->
+    <string name="display_density">Плотность дисплея</string>
+    <string name="display_density_summary">Изменяет плотность экрана по умолчанию (0 для отключения, требуется перезагрузка)</string>
+    <string name="display_density_override">Плотность экрана</string>
+    <string name="display_density_override_summary">Настройка замены плотности дисплея применена к приложениям (0 выключено, требуется перезагрузка)</string>
+
+    <!-- Instant reboot -->
+    <string name="advanced_reboot_oneclick">Перезагрузка в один клик</string>
+    <string name="advanced_reboot_oneclick_summary">Мгновенно вызывать перезагрузку устройства</string>
+
+    <!-- Captive Portal -->
+    <string name="captive_portal_detection">Специальная страница</string>
+    <string name="captive_portal_detection_summary">Если этот параметр включен, для обнаружения подключения данных при использовании wifi требуется подключение к серверам Google.</string>
+
+    <!-- Smart cover -->
+    <string name="smart_cover_title">Умный чехол</string>
+    <string name="lid_settings_title">Крышка</string>
+    <string name="lid_controls_sleep_title">Контроль сна</string>
+    <string name="lid_controls_sleep_summary">Выключать экран при закрытии крышки</string>
+    <string name="lid_controls_wake_title">Контроль пробуждения</string>
+    <string name="lid_controls_wake_summary">Включение экрана при открытии крышки</string>
+
+    <!-- Lock screen wallpaper -->
+    <string name="lockscreen_wallpaper_title">Обои</string>
+    <string name="lockscreen_wallpaper_set_title">Установить обои экрана блокировки</string>
+    <string name="lockscreen_wallpaper_set_toast">Обои успешно обновлены</string>
+    <string name="lockscreen_wallpaper_clear_title">Удалить обои экрана блокировки</string>
+    <string name="lockscreen_wallpaper_clear_toast">Сбросить обои по умолчанию</string>
+
+    <!-- Quick settings -->
+    <string name="qs_tiles_vibrate_title">Вибрация при касании</string>
+
+    <!-- Power menu -->
+    <string name="hardware_keys_power_chord_title">Действия кнопки питания</string>
+    <string name="hardware_keys_power_volume_down_press_title">Громкость вниз</string>
+    <string name="hardware_keys_power_volume_up_press_title">Громкость вверх</string>
+
+    <!-- Unaccounted and overcounted battery stats -->
+    <string name="show_unac_and_overcounted_stats_title">Показывать неучтенные (прочие) данные статистики батареи</string>
+    <string name="show_unac_and_overcounted_stats_summary">Показывать данные статистики батареи, которые не относятся ни к чему конкретному и обычно попадают в прочее.</string>
+
+    <!-- Anonymous statistics -->
+    <string name="anonymous_statistics_title_n">NamelessRom статистика</string>
+    <string name="anonymous_statistics_summary_n">Помочь сделать лучше NamelessRom, отправляя анонимную статистику</string>
+
+    <!-- Privacy guard notification -->
+    <string name="privacy_guard_notification_title">Уведомление</string>
+    <string name="privacy_guard_notification_summary">Показывать уведомления если включен режим приватности.</string>
+
+    <!-- QuickSettings: Smart Pulldown -->
+    <string name="smart_pulldown_title">\"Умная\" панель уведомлений</string>
+    <string name="smart_pulldown_summary">Открыть Быстрые настройки при %1$s уведомлениях</string>
+    <string name="smart_pulldown_off">Выключено</string>
+    <string name="smart_pulldown_dismissable">Без удаляемых</string>
+    <string name="smart_pulldown_persistent">Без постоянных</string>
+    <string name="smart_pulldown_all">Без удаляемых и постоянных</string>
+
+    <!-- Network traffic indicator -->
+    <string name="network_traffic_title">Индикатор сетевого трафика</string>
+    <string name="show_network_traffic_state">Мониторинг сетевого трафика в статус баре</string>
+    <string name="show_network_traffic_unit">Плотность экрана DPI</string>
+    <string name="show_network_traffic_frequency">Частота обновления</string>
+    <string name="show_network_traffic_disable">Отключена</string>
+    <string name="show_network_traffic_up">Исходящие</string>
+    <string name="show_network_traffic_down">Входящие</string>
+    <string name="show_network_traffic_all">Исходящие и входящие</string>
+    <string name="show_network_traffic_bit">Бит в секунду</string>
+    <string name="show_network_traffic_byte">Байт в секунду</string>
+    <string name="show_network_traffic_500" translatable="false">500 мс</string>
+    <string name="show_network_traffic_1000" translatable="false">1000 мс</string>
+    <string name="show_network_traffic_1500" translatable="false">1500 мс</string>
+    <string name="show_network_traffic_2000" translatable="false">2000 мс</string>
+    <string name="network_traffic_autohide">Автоматическое скрытие</string>
+    <string name="network_traffic_autohide_summary">Скрывать сетевой трафик, когда нет активности</string>
+    <string name="network_traffic_autohide_threshold">Порог неактивности</string>
+
+    <!-- Status bar battery style -->
+    <string name="status_bar_battery_style_circle_dotted">Круг из точек</string>
+
+    <!-- Recents clear all location -->
+    <string name="recents_clear_all_location">Расположение кнопки \"Очистить всё\"</string>
+    <string name="recents_clear_all_location_top_left">Вверху слева</string>
+    <string name="recents_clear_all_location_top_right">Вверху справа</string>
+    <string name="recents_clear_all_location_bottom_left">Внизу слева</string>
+    <string name="recents_clear_all_location_bottom_right">Внизу справа</string>
+
+    <!-- Navigation bar -->
+    <string name="hardware_keys_disable_title">Отключение аппаратных клавиш</string>
+    <string name="hardware_keys_disable_summary">Блокирует обработку аппаратных клавиш и отключает их</string>
+
+    <!--Status bar date -->
+    <string name="status_bar_clock_category">Время и дата</string>
+    <string name="status_bar_date_title">Стиль даты</string>
+    <string name="status_bar_date_none">Не показывать</string>
+    <string name="status_bar_date_small">Малый размер шрифта</string>
+    <string name="status_bar_date_normal">Обычный размер шрифта</string>
+    <string name="status_bar_date_format_title">Формат даты</string>
+    <string name="status_bar_date_style">Стиль даты</string>
+    <string name="status_bar_date_style_normal">Обычный</string>
+    <string name="status_bar_date_style_lowercase">Строчные</string>
+    <string name="status_bar_date_style_uppercase">ПРОПИСНЫЕ</string>
+    <string name="status_bar_date_format_custom">Свой Java-формат</string>
+    <string name="status_bar_date_string_edittext_title">Формат даты: ММ/дд/гг</string>
+    <string name="status_bar_date_string_edittext_summary">Введите строку</string>
+
+    <!-- Untranslated CM strings -->
+    <!--                         -->
+    <string name="qs_hide_tiles_with_sensitive_data">Скрывать плитки для обеспеч. конфиденциальности при блокировке</string>
+    <string name="qs_tile_volume_panel">Панель громкости</string>
+    <string name="notification_light_screen_on">Использ. индикатор при вкл. экране</string>
+    <string name="volume_keys_control_ring_stream_summary_on">Кнопки громкости регулируют громкость звонка</string>
+    <string name="volume_keys_control_ring_stream_summary_off">Кнопки громкости регулируют громкость мультимедиа</string>
+    <string name="lock_directly_show_password">Сразу предлагать ввод пароля</string>
+    <string name="lock_directly_show_pattern">Сразу предлагать ввод граф.ключа</string>
+    <string name="lock_directly_show_pin">Сразу предлагать ввод PIN-кода</string>
+    <string name="profile_action_system">По умолчанию (системн.)</string>
+    <!-- Keep screen on strings -->
+    <string name="keep_screen_on_never">Никогда</string>
+    <string name="keep_screen_on_debugging">При включённой отладке</string>
+    <string name="keep_screen_on_charging">При зарядке</string>
+
+    <string name="none_is_silent_summary_on">Режим «Без звука»: будильник звучит как обычно</string>
+    <string name="none_is_silent_summary_off">Режим «Не беспокоить»: звук будильника отключается</string>
 </resources>
