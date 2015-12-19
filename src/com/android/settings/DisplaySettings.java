@@ -17,18 +17,9 @@
 
 package com.android.settings;
 import com.android.internal.logging.MetricsLogger;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.preference.CheckBoxPreference;
 
 import android.os.UserHandle;
-import android.view.Display;
-import android.view.IWindowManager;
-import android.view.WindowManager;
-import android.view.WindowManagerGlobal;
-import android.view.WindowManagerImpl;
-import android.widget.Toast;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.DropDownPreference.Callback;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -46,8 +37,6 @@ import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.Dialog;
-import android.app.IActivityManager;
-import android.app.ProgressDialog;
 import android.app.UiModeManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
@@ -58,13 +47,11 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -77,7 +64,6 @@ import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -99,7 +85,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CATEGORY_DISPLAY = "display";
     private static final String KEY_CATEGORY_INTERFACE = "interface";
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
-    private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
@@ -118,7 +103,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
-    private ListPreference mLcdDensityPreference;
     private FontDialogPreference mFontSizePref;
     private PreferenceScreen mDisplayRotationPreference;
     private PreferenceScreen mLiveDisplayPreference;
@@ -196,45 +180,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
         updateDisplayRotationPreferenceDescription();
-
-        mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
-        if (mLcdDensityPreference != null) {
-            if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
-                interfacePrefs.removePreference(mLcdDensityPreference);
-            } else {
-                int defaultDensity = getDefaultDensity();
-                int currentDensity = getCurrentDensity();
-                if (currentDensity < 10 || currentDensity >= 1000) {
-                    // Unsupported value, force default
-                    currentDensity = defaultDensity;
-                }
-
-                int factor = defaultDensity >= 480 ? 40 : 20;
-                int minimumDensity = defaultDensity - 4 * factor;
-                int currentIndex = -1;
-                String[] densityEntries = new String[7];
-                String[] densityValues = new String[7];
-                for (int idx = 0; idx < 7; ++idx) {
-                    int val = minimumDensity + factor * idx;
-                    int valueFormatResId = val == defaultDensity
-                            ? R.string.lcd_density_default_value_format
-                            : R.string.lcd_density_value_format;
-
-                    densityEntries[idx] = getString(valueFormatResId, val);
-                    densityValues[idx] = Integer.toString(val);
-                    if (currentDensity == val) {
-                        currentIndex = idx;
-                    }
-                }
-                mLcdDensityPreference.setEntries(densityEntries);
-                mLcdDensityPreference.setEntryValues(densityValues);
-                if (currentIndex != -1) {
-                    mLcdDensityPreference.setValueIndex(currentIndex);
-                }
-                mLcdDensityPreference.setOnPreferenceChangeListener(this);
-                updateLcdDensityPreferenceDescription(currentDensity);
-            }
-        }
 
         mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
@@ -315,28 +260,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mWakeWhenPluggedOrUnplugged =
                 (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
         initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
-    }
-
-    private int getDefaultDensity() {
-        IWindowManager wm = IWindowManager.Stub.asInterface(ServiceManager.checkService(
-                Context.WINDOW_SERVICE));
-        try {
-            return wm.getInitialDisplayDensity(Display.DEFAULT_DISPLAY);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return DisplayMetrics.DENSITY_DEVICE;
-    }
-
-    private int getCurrentDensity() {
-        IWindowManager wm = IWindowManager.Stub.asInterface(ServiceManager.checkService(
-                Context.WINDOW_SERVICE));
-        try {
-            return wm.getBaseDisplayDensity(Display.DEFAULT_DISPLAY);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return DisplayMetrics.DENSITY_DEVICE;
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -441,12 +364,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         preference.setSummary(summary);
-    }
-
-    private void updateLcdDensityPreferenceDescription(int currentDensity) {
-        final int summaryResId = currentDensity == getDefaultDensity()
-                ? R.string.lcd_density_default_value_format : R.string.lcd_density_value_format;
-        mLcdDensityPreference.setSummary(getString(summaryResId, currentDensity));
     }
 
     private void disableUnusableTimeouts(ListPreference screenTimeoutPreference) {
@@ -587,47 +504,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private void writeLcdDensityPreference(final Context context, final int density) {
-        final IActivityManager am = ActivityManagerNative.asInterface(
-                ServiceManager.checkService("activity"));
-        final IWindowManager wm = IWindowManager.Stub.asInterface(ServiceManager.checkService(
-                Context.WINDOW_SERVICE));
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected void onPreExecute() {
-                ProgressDialog dialog = new ProgressDialog(context);
-                dialog.setMessage(getResources().getString(R.string.restarting_ui));
-                dialog.setCancelable(false);
-                dialog.setIndeterminate(true);
-                dialog.show();
-            }
-            @Override
-            protected Void doInBackground(Void... params) {
-                // Give the user a second to see the dialog
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    // Ignore
-                }
-
-                try {
-                    wm.setForcedDisplayDensity(Display.DEFAULT_DISPLAY, density);
-                } catch (RemoteException e) {
-                    Log.e(TAG, "Failed to set density to " + density, e);
-                }
-
-                // Restart the UI
-                try {
-                    am.restart();
-                } catch (RemoteException e) {
-                    Log.e(TAG, "Failed to restart");
-                }
-                return null;
-            }
-        };
-        task.execute();
-    }
-
     // === Pulse notification light ===
 
     private void initPulse(PreferenceCategory parent) {
@@ -644,6 +520,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(parent);
         }
     }
+
     /**
      * Reads the current font size and sets the value in the summary text
      */
@@ -696,14 +573,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Log.e(TAG, "could not persist screen timeout setting", e);
             }
         }
-        if (KEY_LCD_DENSITY.equals(key)) {
-            String newValue = (String) objValue;
-            String oldValue = mLcdDensityPreference.getValue();
-            if (!TextUtils.equals(newValue, oldValue)) {
-                showLcdConfirmationDialog((String) objValue);
-            }
-            return false;
-        }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
         }
@@ -740,26 +609,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         return true;
-    }
-
-    private void showLcdConfirmationDialog(final String lcdDensity) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.lcd_density);
-        builder.setMessage(R.string.lcd_density_prompt_message);
-        builder.setPositiveButton(R.string.print_restart,
-                new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                try {
-                    int value = Integer.parseInt(lcdDensity);
-                    writeLcdDensityPreference(getActivity(), value);
-                    updateLcdDensityPreferenceDescription(value);
-                } catch (NumberFormatException e) {
-                    Log.e(TAG, "could not persist display density setting", e);
-                }
-            }
-        });
-        builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
     }
 
     @Override
