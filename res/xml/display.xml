@@ -138,12 +138,6 @@
                 android:title="@string/power_menu_expanded_desktop"
                 android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment"/>
 
-        <!-- DPI chooser -->
-        <ListPreference
-                android:key="lcd_density"
-                android:title="@string/lcd_density"
-                android:persistent="false" />
-
         <!-- Day dream -->
         <PreferenceScreen
                 android:key="screensaver"
