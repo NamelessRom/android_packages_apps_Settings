@@ -31,7 +31,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.SeekBarPreference;
 import namelessrom.providers.NamelessSettings;
 import org.namelessrom.internal.policy.NetworkTraffic;
-import org.namelessrom.internal.widgets.colorpicker.DefaultColorPickerPreference;
+//import org.namelessrom.internal.widgets.colorpicker.DefaultColorPickerPreference;
 
 public class NetworkTrafficSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
@@ -49,7 +49,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
     private ListPreference mNetTrafficPeriod;
     private SwitchPreference mNetTrafficAutohide;
     private SeekBarPreference mNetTrafficAutohideThreshold;
-    private DefaultColorPickerPreference mNetTrafficColor;
+    //private DefaultColorPickerPreference mNetTrafficColor;
 
     @Override
     protected int getMetricsCategory() {
@@ -79,7 +79,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         mNetTrafficAutohideThreshold.setValue(netTrafficAutohideThreshold);
         mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
 
-        mNetTrafficColor =
+        /*mNetTrafficColor =
                 (DefaultColorPickerPreference) prefSet.findPreference(NETWORK_TRAFFIC_COLOR);
         mNetTrafficColor.setOnPreferenceChangeListener(this);
         int intColor = NamelessSettings.System.getInt(getContentResolver(),
@@ -87,7 +87,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         String hexColor = String.format("#%08x", intColor);
         mNetTrafficColor.setSummary(hexColor);
         mNetTrafficColor.setCurrentColor(intColor);
-        mNetTrafficColor.setup(getActivity());
+        mNetTrafficColor.setup(getActivity());*/
 
         // TrafficStats will return UNSUPPORTED if the device does not support it.
         if (TrafficStats.getTotalTxBytes() != TrafficStats.UNSUPPORTED &&
@@ -129,13 +129,13 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
             mNetTrafficUnit.setEnabled(false);
             mNetTrafficPeriod.setEnabled(false);
             mNetTrafficAutohide.setEnabled(false);
-            mNetTrafficColor.setEnabled(false);
+            //mNetTrafficColor.setEnabled(false);
             mNetTrafficAutohideThreshold.setEnabled(false);
         } else {
             mNetTrafficUnit.setEnabled(true);
             mNetTrafficPeriod.setEnabled(true);
             mNetTrafficAutohide.setEnabled(true);
-            mNetTrafficColor.setEnabled(true);
+            //mNetTrafficColor.setEnabled(true);
             mNetTrafficAutohideThreshold.setEnabled(true);
         }
     }
@@ -178,7 +178,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
             NamelessSettings.System.putInt(getContentResolver(),
                     NamelessSettings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, threshold);
             return true;
-        } else if (preference == mNetTrafficColor) {
+        } /*else if (preference == mNetTrafficColor) {
             String hex = DefaultColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
@@ -186,7 +186,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
             NamelessSettings.System.putInt(getActivity().getContentResolver(),
                     NamelessSettings.System.NETWORK_TRAFFIC_COLOR, intHex);
             return true;
-        }
+        }*/
         return false;
     }
 
