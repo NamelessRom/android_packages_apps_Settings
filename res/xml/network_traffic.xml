@@ -12,10 +12,10 @@
         android:persistent="false"
         android:title="@string/show_network_traffic_state" />
 
-    <!--org.namelessrom.internal.widgets.colorpicker.DefaultColorPickerPreference
+    <org.namelessrom.internal.widgets.colorpicker.DefaultColorPickerPreference
         android:defaultValue="0xffffff"
         android:key="network_traffic_color"
-        android:title="@string/network_traffic_color_style" /-->
+        android:title="@string/network_traffic_color_style" />
 
     <ListPreference
         android:entries="@array/show_network_traffic_unit_entries"
