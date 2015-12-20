@@ -46,4 +46,9 @@
     <!-- Anonymous statistics -->
     <string name="anonymous_statistics_title_n">NamelessRom statistics</string>
     <string name="anonymous_statistics_summary_n">Help make NamelessRom better by opting into anonymous statistics reporting</string>
+
+    <!-- Lock screen see through -->
+    <string name="lockscreen_see_through_title">Lock screen blur</string>
+    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lock screen. Your data may be visible to those around you</string>
+    <string name="lockscreen_blur_radius">Blur effect intensity</string>
 </resources>
