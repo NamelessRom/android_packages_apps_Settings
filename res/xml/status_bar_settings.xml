@@ -74,4 +74,10 @@
         android:entries="@array/status_bar_quick_qs_pulldown_entries"
         android:entryValues="@array/status_bar_quick_qs_pulldown_values" />
 
+    <PreferenceScreen
+        android:key="network_traffic_state"
+        android:fragment="com.android.settings.nameless.NetworkTrafficSettings"
+        android:summary="@string/network_traffic_summary"
+        android:title="@string/network_traffic_title" />
+
 </PreferenceScreen>
