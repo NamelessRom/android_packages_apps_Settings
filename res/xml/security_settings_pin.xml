@@ -64,6 +64,22 @@
         android:key="general_category"
         android:title="@string/title_general">
 
+        <com.android.settings.nameless.NamelessSystemSettingSwitchPreference
+            android:key="lockscreen_see_through"
+            android:title="@string/lockscreen_see_through_title"
+            android:summary="@string/lockscreen_see_through_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="lockscreen_blur_radius"
+            android:title="@string/lockscreen_blur_radius"
+            android:dialogTitle="@string/lockscreen_blur_radius"
+            android:dependency="lockscreen_see_through"
+            android:max="25"
+            settings:minSeekBar="0"
+            android:defaultValue="14"
+            android:persistent="false" />
+
         <com.android.settings.SingleLineSummaryPreference
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
