@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/network_traffic_title">
+
+    <ListPreference
+        android:entries="@array/show_network_traffic_state_entries"
+        android:entryValues="@array/show_network_traffic_state_values"
+        android:key="network_traffic_state"
+        android:persistent="false"
+        android:title="@string/show_network_traffic_state" />
+
+    <org.namelessrom.internal.widgets.colorpicker.ColorPickerPreference
+        android:defaultValue="0xffffffff"
+        android:key="network_traffic_color"
+        android:title="@string/network_traffic_color_style" />
+
+    <ListPreference
+        android:entries="@array/show_network_traffic_unit_entries"
+        android:entryValues="@array/show_network_traffic_unit_values"
+        android:key="network_traffic_unit"
+        android:persistent="false"
+        android:title="@string/show_network_traffic_unit" />
+
+    <ListPreference
+        android:entries="@array/show_network_traffic_frequency_entries"
+        android:entryValues="@array/show_network_traffic_frequency_values"
+        android:key="network_traffic_period"
+        android:persistent="false"
+        android:title="@string/show_network_traffic_frequency" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="network_traffic_autohide"
+        android:summary="@string/network_traffic_autohide_summary"
+        android:title="@string/network_traffic_autohide" />
+
+    <com.android.settings.cyanogenmod.SeekBarPreference
+        android:dependency="network_traffic_autohide"
+        android:key="network_traffic_autohide_threshold"
+        android:max="100"
+        android:persistent="false"
+        android:title="@string/network_traffic_autohide_threshold"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="kB/s" />
+</PreferenceScreen>
