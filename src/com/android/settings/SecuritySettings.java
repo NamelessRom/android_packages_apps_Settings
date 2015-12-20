@@ -50,11 +50,13 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import namelessrom.providers.NamelessSettings;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.Settings.LockScreenSettingsActivity;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
+import com.android.settings.cyanogenmod.SeekBarPreference;
 import com.android.settings.fingerprint.FingerprintEnrollIntroduction;
 import com.android.settings.fingerprint.FingerprintSettings;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -93,6 +95,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_ADVANCED_SECURITY = "advanced_security";
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
     private static final String KEY_FINGERPRINT_SETTINGS = "fingerprint_settings";
+    private static final String KEY_BLUR_RADIUS = "lockscreen_blur_radius";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CHANGE_TRUST_AGENT_SETTINGS = 126;
@@ -129,6 +132,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockPatternUtils;
     private ListPreference mLockAfter;
+
+    private SeekBarPreference mBlurRadius;
 
     private SwitchPreference mVisiblePattern;
 
@@ -290,6 +295,13 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 mPowerButtonInstantlyLocks.setSummary(getString(
                         R.string.lockpattern_settings_power_button_instantly_locks_summary,
                         trustAgentPreference.getTitle()));
+            }
+
+            mBlurRadius = (SeekBarPreference) findPreference(KEY_BLUR_RADIUS);
+            if (mBlurRadius != null) {
+                mBlurRadius.setValue(NamelessSettings.System.getInt(getContentResolver(),
+                        NamelessSettings.System.LOCKSCREEN_BLUR_RADIUS, 14));
+                mBlurRadius.setOnPreferenceChangeListener(this);
             }
         } else {
             // Append the rest of the settings
@@ -769,6 +781,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
             Settings.Global.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
                     smsSecurityCheck);
             updateSmsSecuritySummary(smsSecurityCheck);
+        } else if (KEY_BLUR_RADIUS.equals(key)) {
+            NamelessSettings.System.putInt(getContentResolver(),
+                    NamelessSettings.System.LOCKSCREEN_BLUR_RADIUS, (Integer) value);
         }
         return result;
     }
