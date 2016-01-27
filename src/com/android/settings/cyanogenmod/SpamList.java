@@ -58,24 +58,23 @@ public class SpamList extends ListFragment {
     private FetchFilters mTask;
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setEmptyText(getString(R.string.no_filters_title));
+
+        // mark as shown to prevent the loading animation from showing
+        setListShownNoAnimation(true);
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mTask = new FetchFilters();
         mTask.execute();
         getListView().setDividerHeight(0);
-        addEmptyView();
         setHasOptionsMenu(true);
         getActivity().getContentResolver().registerContentObserver(
                 SpamFilter.NOTIFICATION_URI, true, mObserver);
-    }
-
-    private void addEmptyView() {
-        TextView v = new TextView(getActivity());
-        v.setText(R.string.no_filters_title);
-        v.setGravity(Gravity.CENTER);
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        getActivity().addContentView(v, params);
-        getListView().setEmptyView(v);
     }
 
     @Override
