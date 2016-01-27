@@ -248,11 +248,7 @@ public class ProtectedAccountView extends LinearLayout implements View.OnClickLi
                     final Bundle result = future.getResult();
                     final boolean verified = result.getBoolean(AccountManager.KEY_BOOLEAN_RESULT);
                     postOnCheckPasswordResult(verified);
-                } catch (OperationCanceledException e) {
-                    postOnCheckPasswordResult(false);
-                } catch (IOException e) {
-                    postOnCheckPasswordResult(false);
-                } catch (AuthenticatorException e) {
+                } catch (OperationCanceledException | IOException | AuthenticatorException e) {
                     postOnCheckPasswordResult(false);
                 } finally {
                     mLogin.post(new Runnable() {
