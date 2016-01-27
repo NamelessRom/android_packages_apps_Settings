@@ -29,7 +29,6 @@ import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,16 +57,12 @@ public class ProtectedAppsActivity extends Activity {
     private static final String NEEDS_UNLOCK = "needs_unlock";
     private static final String TARGET_INTENT = "target_intent";
 
-    private ListView mListView;
-
     private static final int MENU_RESET = 0;
     private static final int MENU_RESET_LOCK = 1;
 
     private PackageManager mPackageManager;
 
     private AppsAdapter mAppsAdapter;
-
-    private ArrayList<ComponentName> mProtect;
 
     private boolean mWaitUserAuth = false;
     private boolean mUserIsAuth = false;
@@ -94,10 +89,8 @@ public class ProtectedAppsActivity extends Activity {
         mAppsAdapter = new AppsAdapter(this, R.layout.hidden_apps_list_item);
         mAppsAdapter.setNotifyOnChange(true);
 
-        mListView = (ListView) findViewById(R.id.protected_apps_list);
-        mListView.setAdapter(mAppsAdapter);
-
-        mProtect = new ArrayList<ComponentName>();
+        ListView listView = (ListView) findViewById(R.id.protected_apps_list);
+        listView.setAdapter(mAppsAdapter);
 
         if (savedInstanceState != null) {
             mUserIsAuth = savedInstanceState.getBoolean(NEEDS_UNLOCK);
@@ -154,7 +147,7 @@ public class ProtectedAppsActivity extends Activity {
                 CMSettings.Secure.PROTECTED_COMPONENTS);
         protectedComponents = protectedComponents == null ? "" : protectedComponents;
         String [] flattened = protectedComponents.split("\\|");
-        mProtectedApps = new HashSet<ComponentName>(flattened.length);
+        mProtectedApps = new HashSet<>(flattened.length);
         for (String flat : flattened) {
             ComponentName cmp = ComponentName.unflattenFromString(flat);
             if (cmp != null) {
@@ -218,7 +211,7 @@ public class ProtectedAppsActivity extends Activity {
     }
 
     private void reset() {
-        ArrayList<ComponentName> componentsList = new ArrayList<ComponentName>();
+        ArrayList<ComponentName> componentsList = new ArrayList<>();
 
         // Check to see if any components that have been protected that aren't present in
         // the ListView. This can happen if there are components which have been protected
@@ -255,7 +248,7 @@ public class ProtectedAppsActivity extends Activity {
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> apps = mPackageManager.queryIntentActivities(mainIntent, 0);
         Collections.sort(apps, new ResolveInfo.DisplayNameComparator(mPackageManager));
-        List<AppEntry> appEntries = new ArrayList<AppEntry>(apps.size());
+        List<AppEntry> appEntries = new ArrayList<>(apps.size());
         for (ResolveInfo info : apps) {
             appEntries.add(new AppEntry(info));
         }
@@ -295,7 +288,7 @@ public class ProtectedAppsActivity extends Activity {
         public final boolean state;
 
         public AppProtectList(ArrayList<ComponentName> componentNames, boolean state) {
-            this.componentNames = new ArrayList<ComponentName>();
+            this.componentNames = new ArrayList<>();
             for (ComponentName cn : componentNames) {
                 this.componentNames.add(cn.clone());
             }
@@ -377,13 +370,13 @@ public class ProtectedAppsActivity extends Activity {
         public AppsAdapter(Context context, int textViewResourceId) {
             super(context, textViewResourceId);
 
-            mApps = new ArrayList<AppEntry>();
+            mApps = new ArrayList<>();
 
             mInflator = LayoutInflater.from(context);
 
             // set the default icon till the actual app icon is loaded in async task
-            mDefaultImg = context.getResources().getDrawable(android.R.mipmap.sym_def_app_icon);
-            mIcons = new ConcurrentHashMap<String, Drawable>();
+            mDefaultImg = context.getDrawable(android.R.mipmap.sym_def_app_icon);
+            mIcons = new ConcurrentHashMap<>();
         }
 
         @Override
@@ -439,8 +432,8 @@ public class ProtectedAppsActivity extends Activity {
             super.notifyDataSetChanged();
             // If we have new items, we have to load their icons
             // If items were deleted, remove them from our mApps
-            List<AppEntry> newApps = new ArrayList<AppEntry>(getCount());
-            List<AppEntry> oldApps = new ArrayList<AppEntry>(getCount());
+            List<AppEntry> newApps = new ArrayList<>(getCount());
+            List<AppEntry> oldApps = new ArrayList<>(getCount());
             for (int i = 0; i < getCount(); i++) {
                 AppEntry app = getItem(i);
                 if (mApps.contains(app)) {
@@ -451,7 +444,7 @@ public class ProtectedAppsActivity extends Activity {
             }
 
             if (newApps.size() > 0) {
-                new LoadIconsTask().execute(newApps.toArray(new AppEntry[] {}));
+                new LoadIconsTask().execute(newApps.toArray(new AppEntry[newApps.size()]));
                 newApps.addAll(oldApps);
                 mApps = newApps;
             } else {
@@ -494,7 +487,7 @@ public class ProtectedAppsActivity extends Activity {
         public void onClick(View v) {
             int position = (Integer) v.getTag();
             ComponentName cn = mAppsAdapter.getItem(position).componentName;
-            ArrayList<ComponentName> componentsList = new ArrayList<ComponentName>();
+            ArrayList<ComponentName> componentsList = new ArrayList<>();
             componentsList.add(cn);
             boolean state = getProtectedStateFromComponentName(cn);
 
