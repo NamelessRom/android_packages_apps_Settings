@@ -40,13 +40,12 @@ import android.provider.SearchIndexableResource;
 import android.util.Log;
 
 import com.android.internal.util.ArrayUtils;
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-
-import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,7 +205,7 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return CMMetricsLogger.LIVE_DISPLAY;
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     @Override
