@@ -8,7 +8,6 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 	jsr305 \
 	libGoogleAnalyticsV3 \
 	org.cyanogenmod.platform.internal \
-	org.namelessrom.platform.internal \
 
 LOCAL_MODULE_TAGS := optional
 
