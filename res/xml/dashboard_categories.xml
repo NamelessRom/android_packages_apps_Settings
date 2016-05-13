@@ -326,6 +326,9 @@
                 android:icon="@drawable/ic_settings_print"
                 />
 
+        <!-- Marker for where to place external tiles in this category -->
+        <external-tiles />
+
         <!-- Development -->
         <dashboard-tile
                 android:id="@+id/development_settings"
