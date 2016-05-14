@@ -17,6 +17,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="mod_version_n">Nameless-Version</string>
+  <string name="header_category_personalization">Personalisierung</string>
+  <string name="header_category_build">Version</string>
+  <string name="header_category_security">Sicherheit</string>
   <!-- Development settings -->
   <!-- Advanced Device Info -->
   <string name="advanced_device_info_title">Erweiterte Informationen</string>
@@ -37,8 +40,19 @@
   <string name="anonymous_statistics_title_n">NamelessRom Statistiken</string>
   <string name="anonymous_statistics_summary_n">Helfen Sie, NamelessRom besser zu machen, indem Sie dem Senden anonymer Daten zustimmen</string>
   <!-- Lock screen wallpaper -->
+  <string name="lockscreen_wallpaper_title">Hintergrund</string>
+  <string name="lockscreen_wallpaper_set_title">Sperrbildschirm-Hintergrund setzen</string>
+  <string name="lockscreen_wallpaper_set_toast">Hintergrund wurde erfolgreich aktualisiert</string>
+  <string name="lockscreen_wallpaper_clear_title">Sperrbildschirm-Hintergrund entfernen</string>
+  <string name="lockscreen_wallpaper_clear_toast">Hintergrund auf Standardwert zurücksetzen</string>
   <!-- Lock screen see through -->
+  <string name="lockscreen_see_through_title">Verschwommener Sperrbildschirm</string>
+  <string name="lockscreen_see_through_summary">Zeigt den Inhalt verschwommen hinter dem Sperrbildschirm. Sensible Daten könnten für Dritte erkennbar sein</string>
+  <string name="lockscreen_blur_radius">Intensität der Unschärfe</string>
   <!-- Network traffic -->
+  <string name="network_traffic_title">Netzwerkverkehr</string>
+  <string name="show_network_traffic_state">Zeige Netzwerk-Datenverkehr in Statusleiste</string>
+  <string name="network_traffic_summary">Verschiedene Netzwerkoptionen in der Statusleiste aktivieren</string>
   <string name="show_network_traffic_unit">Anzuzeigende Einheit</string>
   <string name="show_network_traffic_frequency">Aktualisierungs-Intervall</string>
   <string name="show_network_traffic_disable">Deaktiviert</string>
@@ -50,7 +64,11 @@
   <string name="network_traffic_autohide">Automatisch verbergen</string>
   <string name="network_traffic_autohide_summary">Datenverkehr-Anzeige verstecken, wenn keine Netzwerkaktivität vorhanden ist</string>
   <string name="network_traffic_autohide_threshold">Inaktivitätsschwelle</string>
+  <string name="network_traffic_color_style">Farbstil</string>
+  <string name="network_traffic_color_reset">Farbe zurücksetzen</string>
+  <string name="network_traffic_color_reset_message">Zurücksetzen der Netzwerk-Datenverkehr-Farbe auf Standard?</string>
   <!-- app notifications hide on lockscreen -->
   <!-- Captive Portal -->
   <string name="captive_portal_detection">Captive Portal Erkennung</string>
+  <string name="captive_portal_detection_summary">Falls aktiviert ist eine Verbindung zu Google-Servern erforderlich, um die Datenverbindung zu erkennen</string>
 </resources>
