@@ -39,6 +39,7 @@
   <!-- Lock screen wallpaper -->
   <!-- Lock screen see through -->
   <!-- Network traffic -->
+  <string name="show_network_traffic_disable">Uitgeschakeld</string>
   <!-- app notifications hide on lockscreen -->
   <!-- Captive Portal -->
   <string name="captive_portal_detection">Capacitief portaal detectie</string>
