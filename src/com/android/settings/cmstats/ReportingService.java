@@ -31,6 +31,9 @@ import com.google.analytics.tracking.android.Tracker;
 
 import java.util.Map;
 
+import org.namelessrom.services.sdk.analytics.Event;
+import org.namelessrom.services.sdk.analytics.NamelessAnalytics;
+
 public class ReportingService extends Service {
     /* package */ static final String TAG = "NamelessStats";
 
@@ -80,27 +83,13 @@ public class ReportingService extends Service {
                 tracker.send(createMap("checkin", deviceName, deviceVersionNoDevice));
             }
 
-            // report to the cmstats service
-            /*HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://stats.cyanogenmod.org/submit");
-            boolean success = false;
-
-            try {
-                List<NameValuePair> kv = new ArrayList<NameValuePair>(5);
-                kv.add(new BasicNameValuePair("device_hash", deviceId));
-                kv.add(new BasicNameValuePair("device_name", deviceName));
-                kv.add(new BasicNameValuePair("device_version", deviceVersion));
-                kv.add(new BasicNameValuePair("device_country", deviceCountry));
-                kv.add(new BasicNameValuePair("device_carrier", deviceCarrier));
-                kv.add(new BasicNameValuePair("device_carrier_id", deviceCarrierId));
-
-                httpPost.setEntity(new UrlEncodedFormEntity(kv));
-                httpClient.execute(httpPost);
-
-                success = true;
-            } catch (IOException e) {
-                Log.w(TAG, "Could not upload stats checkin", e);
-            }*/
+            final NamelessAnalytics namelessAnalytics
+                    = new NamelessAnalytics(ReportingService.this);
+            namelessAnalytics.bindToService();
+            final Event event = new Event("checkin", String.format("%s - %s",
+                    deviceName, deviceVersion), null, Event.Priority.LOW);
+            namelessAnalytics.sendEvent(event, true);
+            namelessAnalytics.unbindService();
 
             return true;
         }
