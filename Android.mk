@@ -9,6 +9,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 	libGoogleAnalyticsV3 \
 	org.cyanogenmod.platform.internal \
 
+LOCAL_STATIC_JAVA_AAR_LIBRARIES := org.namelessrom.services.sdk
+
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := \
