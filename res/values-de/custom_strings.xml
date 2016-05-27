@@ -15,12 +15,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
   <string name="mod_version_n">Nameless-Version</string>
   <string name="header_category_personalization">Personalisierung</string>
   <string name="header_category_build">Version</string>
   <string name="header_category_security">Sicherheit</string>
   <!-- Development settings -->
+  <string name="dexopt_lazy">Verzögerter Dexopt</string>
+  <string name="dexopt_lazy_summary">Optimiere Benutzer-Apps beim ersten Start statt beim Starten des Gerätes</string>
   <!-- Advanced Device Info -->
   <string name="advanced_device_info_title">Erweiterte Informationen</string>
   <string name="advanced_device_info_summary">Informationen über CPU, GPU etc..</string>
@@ -67,7 +69,6 @@
   <string name="network_traffic_color_style">Farbstil</string>
   <string name="network_traffic_color_reset">Farbe zurücksetzen</string>
   <string name="network_traffic_color_reset_message">Zurücksetzen der Netzwerk-Datenverkehr-Farbe auf Standard?</string>
-  <!-- app notifications hide on lockscreen -->
   <!-- Captive Portal -->
   <string name="captive_portal_detection">Captive Portal Erkennung</string>
   <string name="captive_portal_detection_summary">Falls aktiviert ist eine Verbindung zu Google-Servern erforderlich, um die Datenverbindung zu erkennen</string>
