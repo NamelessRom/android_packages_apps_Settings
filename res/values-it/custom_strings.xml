@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
   <string name="mod_version_n">Versione Nameless</string>
   <!-- Development settings -->
   <!-- Advanced Device Info -->
@@ -38,7 +38,6 @@
   <!-- Lock screen see through -->
   <!-- Network traffic -->
   <string name="show_network_traffic_disable">Disabilitato</string>
-  <!-- app notifications hide on lockscreen -->
   <!-- Captive Portal -->
   <string name="captive_portal_detection">Rilevazione portale di accesso</string>
 </resources>

@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
   <string name="mod_version_n">Версия Nameless</string>
   <!-- Development settings -->
   <!-- Advanced Device Info -->
@@ -49,7 +49,6 @@
   <string name="network_traffic_autohide">Автоматическое скрытие</string>
   <string name="network_traffic_autohide_summary">Скрывать сетевой трафик, когда нет активности</string>
   <string name="network_traffic_autohide_threshold">Порог неактивности</string>
-  <!-- app notifications hide on lockscreen -->
   <!-- Captive Portal -->
   <string name="captive_portal_detection">Специальная страница</string>
 </resources>

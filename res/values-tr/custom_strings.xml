@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
   <string name="mod_version_n">Nameless sürümü</string>
   <!-- Development settings -->
   <!-- Advanced Device Info -->
@@ -33,6 +33,5 @@
   <!-- Lock screen wallpaper -->
   <!-- Lock screen see through -->
   <!-- Network traffic -->
-  <!-- app notifications hide on lockscreen -->
   <!-- Captive Portal -->
 </resources>

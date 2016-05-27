@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
   <string name="mod_version_n">Nameless верзија</string>
   <!-- Development settings -->
   <!-- Advanced Device Info -->
@@ -50,7 +50,6 @@
   <string name="network_traffic_autohide">Аутоматско сакривање</string>
   <string name="network_traffic_autohide_summary">Сакриј саобраћај монитора у одсуству активности</string>
   <string name="network_traffic_autohide_threshold">Праг неактивности</string>
-  <!-- app notifications hide on lockscreen -->
   <!-- Captive Portal -->
   <string name="captive_portal_detection">Откривање Captive portal-а</string>
 </resources>
