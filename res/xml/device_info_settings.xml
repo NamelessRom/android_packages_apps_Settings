@@ -22,7 +22,7 @@
                 android:title="@string/system_update_settings_list_item_title"
                 android:summary="@string/system_update_settings_list_item_summary">
             <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS"
-                    android:targetPackage="org.namelessrom.ota"
+                    android:targetPackage="org.namelessrom.services"
                     android:targetClass="org.namelessrom.ota.SystemUpdateActivity" />
         </PreferenceScreen>
 
